@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from "@angular/common/http";
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -120,12 +121,28 @@ import { FormsModule } from '@angular/forms';
     import {MatSortModule} from '@angular/material/sort';
     //TABLE
     import {MatTableModule} from '@angular/material/table';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { LoginComponent } from './auth/login/login.component';
+import { SignupComponent } from './auth/signup/signup.component';
+import { AdminComponent } from './entities/admin/admin.component';
+import { BranchComponent } from './entities/branch/branch.component';
+import { FacultyComponent } from './entities/faculty/faculty.component';
+import { StudentComponent } from './entities/student/student.component';
+import { InstituteComponent } from './entities/institute/institute.component';
 
 //====================================================================================================
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    DashboardComponent,
+    LoginComponent,
+    SignupComponent,
+    AdminComponent,
+    BranchComponent,
+    FacultyComponent,
+    StudentComponent,
+    InstituteComponent
   ],
   imports: [
     BrowserModule,
@@ -146,9 +163,10 @@ import { FormsModule } from '@angular/forms';
 
     MatBottomSheetModule,    MatDialogModule,    MatSnackBarModule,    MatTooltipModule,
 
-    MatPaginatorModule,    MatSortModule,    MatTableModule
+    MatPaginatorModule,    MatSortModule,    MatTableModule,
     //====================================================================================================
 
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

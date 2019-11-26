@@ -3,9 +3,13 @@
 
 
 const http = require('http')
+const app = require('./backend/app');
+const debug = require('debug')('node-angular');
 
-const server = http.createServer((req, res) => {
-    res.end('This is my first NodeJS program')
-});
+const port = process.env.PORT || 3000;
 
-server.listen(process.nextTick.PORT || 3000);
+app.set('port', port);
+
+const server = http.createServer(app);
+
+server.listen(port);
