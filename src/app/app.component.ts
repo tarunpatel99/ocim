@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { StudentService } from "./student.service";
 import { Subscription } from 'rxjs';
 
@@ -12,7 +12,8 @@ export interface StudentModel {
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class AppComponent implements OnInit {
   title = 'ocim';
@@ -25,13 +26,13 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.StudentService.getStudents();
-    // this.datasource = this.StudentService.StudentDataTable;
-    this.studentSub = this.StudentService.getStudentsUpdateListener()
-    .subscribe((students: StudentModel[]) => {
-      this.datasource = students
-    })
-    console.log(this.datasource)
+    // this.StudentService.getStudents();
+    // // this.datasource = this.StudentService.StudentDataTable;
+    // this.studentSub = this.StudentService.getStudentsUpdateListener()
+    // .subscribe((students: StudentModel[]) => {
+    //   this.datasource = students
+    // })
+    // console.log(this.datasource)
   }
 
 }

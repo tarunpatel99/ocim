@@ -21,14 +21,14 @@ export class StudentService {
   constructor(private http: HttpClient) { }
 
   getStudents() {
-    this.http.get<{message: string, students: StudentModel[]}>('http://localhost:3000/students')
-      .subscribe((studentData) => {
-        this.StudentDataTable = studentData.students
-        this.StudentUpdated.next([...this.StudentDataTable]);
+    // this.http.get<{message: string, students: StudentModel[]}>('http://localhost:3000/students')
+    //   .subscribe((studentData) => {
+    //     this.StudentDataTable = studentData.students
+    //     this.StudentUpdated.next([...this.StudentDataTable]);
         
-      });
-      console.log(this.StudentDataTable)
-    console.log("services are working");
+    //   });
+    //   console.log(this.StudentDataTable)
+    // console.log("services are working");
   }
 
   getStudentsUpdateListener() {
