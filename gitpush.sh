@@ -1,5 +1,6 @@
 #file in ocim
 clear
+echo "=================================================="
 echo "Enter the description for commit : \c"
 read commit
 date=`date`
