@@ -17,7 +17,11 @@ export interface StudentModel {
 export class StudentService {
   StudentDataTable: StudentModel[] = []
   private StudentUpdated = new Subject<StudentModel[]>();
-
+  // role="Admin"
+  // role="Owner"
+  // role="Branch Manager"
+  // role="Faculty"
+  role="Student"
   constructor(private http: HttpClient) { }
 
   getStudents() {
