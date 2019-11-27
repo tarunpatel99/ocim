@@ -41,9 +41,9 @@
 
 <!-- ------------------- ABOVE CODE IS ONLY FOR TESTING PERSPOSE ------------------- -->
 
-<app-dashboard
-        [ngClass]="{
-            'admin-theme': role=='admin',
-            'owner-theme': role=='owner',
-            'bm-theme': role=='bm'
-            }"></app-dashboard>
+<app-dashboard id="dashboard" class="dashboard"
+[ngClass]="{
+  'admin-theme': role=='admin',
+  'owner-theme': role=='owner',
+  'bm-theme': role=='bm'
+  }"></app-dashboard>

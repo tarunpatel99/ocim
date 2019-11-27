@@ -17,6 +17,7 @@ export interface StudentModel {
 })
 export class AppComponent implements OnInit {
   title = 'ocim';
+  role="admin"
   displayedColumns = ['id', 'name', 'class', 'city'];
   datasource: any
   private studentSub: Subscription;
