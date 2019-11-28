@@ -21,7 +21,7 @@ export class StudentService {
   // role="Owner"
   // role="Branch Manager"
   // role="Faculty"
-  role="Admin"
+  role="Owner"
   constructor(private http: HttpClient) { }
 
   getStudents() {
