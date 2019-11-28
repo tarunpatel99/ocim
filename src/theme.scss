@@ -9,7 +9,7 @@
 
 
 // theme for admin
-$admin-primary: mat-palette($mat-teal, 700);
+$admin-primary: mat-palette($mat-deep-purple, 500);
 $admin-accent: mat-palette($mat-pink, 500);
 
 $admin-theme: mat-light-theme($admin-primary, $admin-accent);
@@ -24,7 +24,7 @@ $admin-theme: mat-light-theme($admin-primary, $admin-accent);
 
 
 // theme for owner
-$owner-primary: mat-palette($mat-teal, 700);
+$owner-primary: mat-palette($mat-indigo, 500);
 $owner-accent: mat-palette($mat-pink, 500);
 
 $owner-theme: mat-light-theme($owner-primary, $owner-accent);
@@ -68,7 +68,7 @@ $student-theme: mat-light-theme($student-primary, $student-accent);
 
 
 // theme for faculty
-$faculty-primary: mat-palette($mat-teal, 700);
+$faculty-primary: mat-palette($mat-cyan, 700);
 $faculty-accent: mat-palette($mat-pink, 500);
 
 $faculty-theme: mat-light-theme($faculty-primary, $faculty-accent);

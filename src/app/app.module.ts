@@ -33,6 +33,49 @@ import { BranchComponent } from './dashboard/entities/branch/branch.component';
 import { FacultyComponent } from './dashboard/entities/faculty/faculty.component';
 import { StudentComponent } from './dashboard/entities/student/student.component';
 import { InstituteComponent } from './dashboard/entities/institute/institute.component';
+import { AdminDashboardComponent } from './dashboard/entities/admin/admin-dashboard/admin-dashboard.component';
+import { AdminInstitutesComponent } from './dashboard/entities/admin/admin-institutes/admin-institutes.component';
+import { AdminPaymentComponent } from './dashboard/entities/admin/admin-payment/admin-payment.component';
+import { AdminFeedbackComponent } from './dashboard/entities/admin/admin-feedback/admin-feedback.component';
+import { AdminProfileComponent } from './dashboard/entities/admin/admin-profile/admin-profile.component';
+import { InstituteDashboardComponent } from './dashboard/entities/institute/institute-dashboard/institute-dashboard.component';
+import { InstituteBranchesComponent } from './dashboard/entities/institute/institute-branches/institute-branches.component';
+import { InstituteNoticeComponent } from './dashboard/entities/institute/institute-notice/institute-notice.component';
+import { InstitutePaymentsComponent } from './dashboard/entities/institute/institute-payments/institute-payments.component';
+import { InstituteProfileComponent } from './dashboard/entities/institute/institute-profile/institute-profile.component';
+import { InstituteFeedbackComponent } from './dashboard/entities/institute/institute-feedback/institute-feedback.component';
+import { BranchDashboardComponent } from './dashboard/entities/branch/branch-dashboard/branch-dashboard.component';
+import { BranchTimetableComponent } from './dashboard/entities/branch/branch-timetable/branch-timetable.component';
+import { BranchAttendanceComponent } from './dashboard/entities/branch/branch-attendance/branch-attendance.component';
+import { BranchClassComponent } from './dashboard/entities/branch/branch-class/branch-class.component';
+import { BranchExamScheduleComponent } from './dashboard/entities/branch/branch-exam-schedule/branch-exam-schedule.component';
+import { BranchExamResultComponent } from './dashboard/entities/branch/branch-exam-result/branch-exam-result.component';
+import { BranchNoticeComponent } from './dashboard/entities/branch/branch-notice/branch-notice.component';
+import { BranchLeaveNotesComponent } from './dashboard/entities/branch/branch-leave-notes/branch-leave-notes.component';
+import { BranchStudentsComponent } from './dashboard/entities/branch/branch-students/branch-students.component';
+import { BranchFeesComponent } from './dashboard/entities/branch/branch-fees/branch-fees.component';
+import { BranchProfileComponent } from './dashboard/entities/branch/branch-profile/branch-profile.component';
+import { FacultyDashboardComponent } from './dashboard/entities/faculty/faculty-dashboard/faculty-dashboard.component';
+import { FacultyTimeTableComponent } from './dashboard/entities/faculty/faculty-time-table/faculty-time-table.component';
+import { FacultyAttendanceComponent } from './dashboard/entities/faculty/faculty-attendance/faculty-attendance.component';
+import { FacultyTaskWorkComponent } from './dashboard/entities/faculty/faculty-task-work/faculty-task-work.component';
+import { FacultySyllabusComponent } from './dashboard/entities/faculty/faculty-syllabus/faculty-syllabus.component';
+import { FacultyExamScheduleComponent } from './dashboard/entities/faculty/faculty-exam-schedule/faculty-exam-schedule.component';
+import { FacultyExamResultComponent } from './dashboard/entities/faculty/faculty-exam-result/faculty-exam-result.component';
+import { FacultyNoticeComponent } from './dashboard/entities/faculty/faculty-notice/faculty-notice.component';
+import { FacultyLeaveNoteComponent } from './dashboard/entities/faculty/faculty-leave-note/faculty-leave-note.component';
+import { FacultyProfileComponent } from './dashboard/entities/faculty/faculty-profile/faculty-profile.component';
+import { StudentProfileComponent } from './dashboard/entities/student/student-profile/student-profile.component';
+import { StudentFeesComponent } from './dashboard/entities/student/student-fees/student-fees.component';
+import { StudentLeaveNoteComponent } from './dashboard/entities/student/student-leave-note/student-leave-note.component';
+import { StudentNoticeComponent } from './dashboard/entities/student/student-notice/student-notice.component';
+import { StudentExamResultComponent } from './dashboard/entities/student/student-exam-result/student-exam-result.component';
+import { StudentExamScheduleComponent } from './dashboard/entities/student/student-exam-schedule/student-exam-schedule.component';
+import { StudentSyllabusComponent } from './dashboard/entities/student/student-syllabus/student-syllabus.component';
+import { StudentTaskWorkComponent } from './dashboard/entities/student/student-task-work/student-task-work.component';
+import { StudentAttendanceComponent } from './dashboard/entities/student/student-attendance/student-attendance.component';
+import { StudentTimetableComponent } from './dashboard/entities/student/student-timetable/student-timetable.component';
+import { StudentDashboardComponent } from './dashboard/entities/student/student-dashboard/student-dashboard.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +87,50 @@ import { InstituteComponent } from './dashboard/entities/institute/institute.com
     BranchComponent,
     FacultyComponent,
     StudentComponent,
-    InstituteComponent
+    InstituteComponent,
+    AdminDashboardComponent,
+    AdminInstitutesComponent,
+    AdminPaymentComponent,
+    AdminFeedbackComponent,
+    AdminProfileComponent,
+    InstituteDashboardComponent,
+    InstituteBranchesComponent,
+    InstituteNoticeComponent,
+    InstitutePaymentsComponent,
+    InstituteProfileComponent,
+    InstituteFeedbackComponent,
+    BranchDashboardComponent,
+    BranchTimetableComponent,
+    BranchAttendanceComponent,
+    BranchClassComponent,
+    BranchExamScheduleComponent,
+    BranchExamResultComponent,
+    BranchNoticeComponent,
+    BranchLeaveNotesComponent,
+    BranchStudentsComponent,
+    BranchFeesComponent,
+    BranchProfileComponent,
+    FacultyDashboardComponent,
+    FacultyTimeTableComponent,
+    FacultyAttendanceComponent,
+    FacultyTaskWorkComponent,
+    FacultySyllabusComponent,
+    FacultyExamScheduleComponent,
+    FacultyExamResultComponent,
+    FacultyNoticeComponent,
+    FacultyLeaveNoteComponent,
+    FacultyProfileComponent,
+    StudentProfileComponent,
+    StudentFeesComponent,
+    StudentLeaveNoteComponent,
+    StudentNoticeComponent,
+    StudentExamResultComponent,
+    StudentExamScheduleComponent,
+    StudentSyllabusComponent,
+    StudentTaskWorkComponent,
+    StudentAttendanceComponent,
+    StudentTimetableComponent,
+    StudentDashboardComponent
   ],
   imports: [
     BrowserModule,

@@ -25,3 +25,22 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; } */
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+::-webkit-scrollbar {
+    position: absolute;
+    right: 0;
+    z-index: 2;
+    width: 0px;
+}
+
+*:hover::-webkit-scrollbar {
+    width: 3px;
+}
+   
+/* ::-webkit-scrollbar-track {
+    background: #ddd;
+}
+    */
+::-webkit-scrollbar-thumb {
+    background: #666; 
+}
