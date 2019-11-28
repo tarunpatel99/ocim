@@ -33,6 +33,11 @@ import { BranchComponent } from './dashboard/entities/branch/branch.component';
 import { FacultyComponent } from './dashboard/entities/faculty/faculty.component';
 import { StudentComponent } from './dashboard/entities/student/student.component';
 import { InstituteComponent } from './dashboard/entities/institute/institute.component';
+import { AdminDashboardComponent } from './dashboard/entities/admin/admin-dashboard/admin-dashboard.component';
+import { AdminInstitutesComponent } from './dashboard/entities/admin/admin-institutes/admin-institutes.component';
+import { AdminPaymentComponent } from './dashboard/entities/admin/admin-payment/admin-payment.component';
+import { AdminFeedbackComponent } from './dashboard/entities/admin/admin-feedback/admin-feedback.component';
+import { AdminProfileComponent } from './dashboard/entities/admin/admin-profile/admin-profile.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +49,12 @@ import { InstituteComponent } from './dashboard/entities/institute/institute.com
     BranchComponent,
     FacultyComponent,
     StudentComponent,
-    InstituteComponent
+    InstituteComponent,
+    AdminDashboardComponent,
+    AdminInstitutesComponent,
+    AdminPaymentComponent,
+    AdminFeedbackComponent,
+    AdminProfileComponent
   ],
   imports: [
     BrowserModule,

@@ -24,6 +24,7 @@
                 </mat-card>
             </mat-toolbar>
             <mat-nav-list>
+                
                 <!-- For admin -->
                 <a mat-list-item routerLinkActive="active" *ngIf="StudentService.role=='Admin'" routerLink="/">Dashboard</a>
                 <a mat-list-item routerLinkActive="active" *ngIf="StudentService.role=='Admin'" routerLink="/xyz">Institutes</a>
