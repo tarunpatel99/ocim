@@ -1,4 +1,11 @@
-<div class="example-container" [class.example-is-mobile]="mobileQuery.matches">
+<div class="example-container" [class.example-is-mobile]="mobileQuery.matches"
+[ngClass]="{
+    'admin-theme': StudentService.role=='Admin',
+    'owner-theme': StudentService.role=='Owner',
+    'bm-theme': StudentService.role=='Branch Manager',
+    'faculty-theme': StudentService.role=='Faculty',
+    'student-theme': StudentService.role=='Student'
+    }">
     <mat-toolbar color="primary" class="nav mat-elevation-z10">
         <button type="button" *ngIf="(isHandset$ | async) ? 'false' : 'true'" aria-label="Toggle sidenav"
             mat-icon-button (click)="drawer.toggle()">
@@ -26,7 +33,7 @@
             <mat-nav-list>
                 
                 <!-- For admin -->
-                <a mat-list-item routerLinkActive="active" *ngIf="StudentService.role=='Admin'" routerLink="/">Dashboard</a>
+                <a mat-list-item routerLinkActive="active" *ngIf="StudentService.role=='Admin'" routerLink="/admin-dashboard">Dashboard</a>
                 <a mat-list-item routerLinkActive="active" *ngIf="StudentService.role=='Admin'" routerLink="/xyz">Institutes</a>
                 <a mat-list-item routerLinkActive="active" *ngIf="StudentService.role=='Admin'" routerLink="/xyz">Payment</a>
                 <a mat-list-item routerLinkActive="active" *ngIf="StudentService.role=='Admin'" routerLink="/xyz">Feedback</a>
@@ -88,7 +95,7 @@
             <div class="content">
                 <!-- <router-outlet></router-outlet> -->
                 <span class="space-filler primary-color"></span>
-                <app-institute></app-institute>
+                <router-outlet></router-outlet>
             </div>
             <div class="background primary-color"></div>
         </mat-sidenav-content>
