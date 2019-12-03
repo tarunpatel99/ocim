@@ -1,1 +1,96 @@
-<p>dashboard works!</p>
+<div class="example-container" [class.example-is-mobile]="mobileQuery.matches">
+    <mat-toolbar color="primary" class="nav mat-elevation-z10">
+        <button type="button" *ngIf="(isHandset$ | async) ? 'false' : 'true'" aria-label="Toggle sidenav"
+            mat-icon-button (click)="drawer.toggle()">
+            <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+        </button>
+        <span>Online Coching Institute Management</span>
+        <span class="flex"></span>
+        <span mat-card-avatar class="example-header-image"></span>
+    </mat-toolbar>
+
+    <mat-sidenav-container class="sidenav-container">
+        <mat-sidenav #drawer fixedInViewport="false" [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+            [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="!(isHandset$ | async)">
+            <span class="space-filler primary-color"></span>
+            <mat-toolbar class="profile sidenav-header" color="primary">
+                
+                <mat-card style="background: none; box-shadow: none;">
+                    <mat-card-header>
+                        <div mat-card-avatar class="example-header-image"></div>
+                        <mat-card-title><span>User name</span></mat-card-title>
+                        <mat-card-subtitle><span>{{StudentService.role}}</span></mat-card-subtitle>
+                    </mat-card-header>
+                </mat-card>
+            </mat-toolbar>
+            <mat-nav-list>
+                
+                <!-- For admin -->
+                <a mat-list-item routerLinkActive="active" *ngIf="StudentService.role=='Admin'" routerLink="/">Dashboard</a>
+                <a mat-list-item routerLinkActive="active" *ngIf="StudentService.role=='Admin'" routerLink="/xyz">Institutes</a>
+                <a mat-list-item routerLinkActive="active" *ngIf="StudentService.role=='Admin'" routerLink="/xyz">Payment</a>
+                <a mat-list-item routerLinkActive="active" *ngIf="StudentService.role=='Admin'" routerLink="/xyz">Feedback</a>
+                <a mat-list-item routerLinkActive="active" *ngIf="StudentService.role=='Admin'" routerLink="/xyz">Profile</a>
+
+                <!-- For Institute owner -->
+                <a mat-list-item routerLinkActive="active" *ngIf="StudentService.role=='Owner'" routerLink="/">Dashboard</a>
+                <a mat-list-item routerLinkActive="active" *ngIf="StudentService.role=='Owner'" routerLink="/xyz">Branches</a>
+                <a mat-list-item routerLinkActive="active" *ngIf="StudentService.role=='Owner'" routerLink="/xyz">Notice</a>
+                <a mat-list-item routerLinkActive="active" *ngIf="StudentService.role=='Owner'" routerLink="/xyz">Payments</a>
+                <a mat-list-item routerLinkActive="active" *ngIf="StudentService.role=='Owner'" routerLink="/xyz">Profile</a>
+                <a mat-list-item routerLinkActive="active" *ngIf="StudentService.role=='Owner'" routerLink="/xyz">Feedback</a>
+                
+                <!-- For branch manager -->
+                <a mat-list-item routerLinkActive="active" *ngIf="StudentService.role=='Branch Manager'" routerLink="/">Dashboard</a>
+                <a mat-list-item routerLinkActive="active" *ngIf="StudentService.role=='Branch Manager'" routerLink="/xyz">Time Table</a>
+                <a mat-list-item routerLinkActive="active" *ngIf="StudentService.role=='Branch Manager'" routerLink="/xyz">Attendance</a>
+                <a mat-list-item routerLinkActive="active" *ngIf="StudentService.role=='Branch Manager'" routerLink="/xyz">Class</a>
+                <a mat-list-item routerLinkActive="active" *ngIf="StudentService.role=='Branch Manager'" routerLink="/xyz">Exam Schedule</a>
+                <a mat-list-item routerLinkActive="active" *ngIf="StudentService.role=='Branch Manager'" routerLink="/xyz">Exam result</a>
+                <a mat-list-item routerLinkActive="active" *ngIf="StudentService.role=='Branch Manager'" routerLink="/xyz">Notice</a>
+                <a mat-list-item routerLinkActive="active" *ngIf="StudentService.role=='Branch Manager'" routerLink="/xyz">Leave notes</a>
+                <a mat-list-item routerLinkActive="active" *ngIf="StudentService.role=='Branch Manager'" routerLink="/xyz">Students</a>
+                <a mat-list-item routerLinkActive="active" *ngIf="StudentService.role=='Branch Manager'" routerLink="/xyz">Fees</a>
+                <a mat-list-item routerLinkActive="active" *ngIf="StudentService.role=='Branch Manager'" routerLink="/xyz">Profile</a>
+
+                <!-- For faculty -->
+                <a mat-list-item routerLinkActive="active" *ngIf="StudentService.role=='Faculty'" routerLink="/">Dashboard</a>
+                <a mat-list-item routerLinkActive="active" *ngIf="StudentService.role=='Faculty'" routerLink="/xyz">Time Table</a>
+                <a mat-list-item routerLinkActive="active" *ngIf="StudentService.role=='Faculty'" routerLink="/xyz">Attendance</a>
+                <a mat-list-item routerLinkActive="active" *ngIf="StudentService.role=='Faculty'" routerLink="/xyz">Task & work</a>
+                <a mat-list-item routerLinkActive="active" *ngIf="StudentService.role=='Faculty'" routerLink="/xyz">Syllabus</a>
+                <a mat-list-item routerLinkActive="active" *ngIf="StudentService.role=='Faculty'" routerLink="/xyz">Exam Schedule</a>
+                <a mat-list-item routerLinkActive="active" *ngIf="StudentService.role=='Faculty'" routerLink="/xyz">Exam result</a>
+                <a mat-list-item routerLinkActive="active" *ngIf="StudentService.role=='Faculty'" routerLink="/xyz">Notice</a>
+                <a mat-list-item routerLinkActive="active" *ngIf="StudentService.role=='Faculty'" routerLink="/xyz">Leave notes</a>
+                <a mat-list-item routerLinkActive="active" *ngIf="StudentService.role=='Faculty'" routerLink="/xyz">Profile</a>
+
+                <!-- For faculty -->
+                <a mat-list-item routerLinkActive="active" *ngIf="StudentService.role=='Student'" routerLink="/">Dashboard</a>
+                <a mat-list-item routerLinkActive="active" *ngIf="StudentService.role=='Student'" routerLink="/xyz">Time Table</a>
+                <a mat-list-item routerLinkActive="active" *ngIf="StudentService.role=='Student'" routerLink="/xyz">Attendance</a>
+                <a mat-list-item routerLinkActive="active" *ngIf="StudentService.role=='Student'" routerLink="/xyz">Task & work</a>
+                <a mat-list-item routerLinkActive="active" *ngIf="StudentService.role=='Student'" routerLink="/xyz">Syllabus</a>
+                <a mat-list-item routerLinkActive="active" *ngIf="StudentService.role=='Student'" routerLink="/xyz">Exam Schedule</a>
+                <a mat-list-item routerLinkActive="active" *ngIf="StudentService.role=='Student'" routerLink="/xyz">Exam result</a>
+                <a mat-list-item routerLinkActive="active" *ngIf="StudentService.role=='Student'" routerLink="/xyz">Notice</a>
+                <a mat-list-item routerLinkActive="active" *ngIf="StudentService.role=='Student'" routerLink="/xyz">Leave notes</a>
+                <a mat-list-item routerLinkActive="active" *ngIf="StudentService.role=='Student'" routerLink="/xyz">Fees</a>
+                <a mat-list-item routerLinkActive="active" *ngIf="StudentService.role=='Student'" routerLink="/xyz">Profile</a>
+
+            </mat-nav-list>
+        </mat-sidenav>
+
+        <mat-sidenav-content style="position: relative; background-color: white;">
+
+            <!-- <div class="nav-space-filler"></div> -->
+
+            <div class="content">
+                <!-- <router-outlet></router-outlet> -->
+                <span class="space-filler primary-color"></span>
+                <app-institute></app-institute>
+            </div>
+            <div class="background primary-color"></div>
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+</div>

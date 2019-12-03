@@ -1,0 +1,175 @@
+
+.example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .example-full-width {
+    width: 100%;
+  }
+  
+  .example-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .mat-drawer {
+    // background: #fafafa;
+    width: 20rem !important;
+  }
+  mat-sidenav {
+    border: none !important;
+  }
+
+  // mat-nav-list {
+  //   height: 100% !important;
+  //   overflow-y: auto !important;
+  // }
+
+  .mat-list-item {
+    margin-top: 7px !important;
+    /* margin-left: 14px !important;*/
+    width: 18rem !important;
+    border-radius: 3px !important;
+  }
+
+  .mat-nav-list {
+    padding: 0;
+    margin: 14px auto 14px 14px;
+    overflow: auto;
+  }
+  
+  .mat-side-nav {
+    position: fixed;
+    top: 0;
+    left: auto;
+    height: 100%;
+  }
+  
+  .content {
+    position: relative;
+      /* height: -moz-calc(100% - 100px);
+      height: -webkit-calc(100% - 100px); */
+      z-index: 2;
+      width: auto;
+      padding: 20px;
+      /* overflow-y: scroll; */
+      // background-color: white;
+      overflow: auto;
+  }
+  
+  /* .profile {
+    position: relative;
+    padding-top: 20px !important;
+    padding-left: 25px !important;
+    height: auto !important;
+  } */
+  
+  .pro-pic {
+    height: 100px;
+    width: 100px;
+  }
+  
+  .bg-white {
+    background: white;
+    color: black;
+  }
+  
+  .sidenav {
+    width: 200px;
+    position: fixed;
+    top: 0;
+    /* z-index: 2; */
+  }
+  
+  .active {
+    background: /* rgba(00, 00, 00, 0.06) */ rgba(63,81,181,.12) !important; 
+    color: #3f51b5;
+  }
+  
+  .mat-nav-list-focus {
+    background: /* rgba(00, 00, 00, 0.06) */ rgba(63,81,181,.12) !important;
+  }
+  
+  .short-name {
+    font-size: 30px !important;
+  }
+  
+  .mat-card-title, .mat-card-subtitle {
+    margin-bottom: 0px !important;
+    color: white;
+  }
+  
+  .flex {
+    /* flex: 1 1 auto !important; */
+    flex: 1 1 calc(50% - 25px) !important;
+    /* min-width: calc(50% - 25px) !important; */
+    /* flex: 1 1 1e-09px; 
+    box-sizing: border-box; -webkit-box-flex: 1; */
+  }
+  
+  .nav {
+    display: flex;
+    width: 100%;
+  }
+  
+  /* .mat-elevation-z10 {
+    box-shadow: 0 6px 6px -3px rgba(63, 81, 181, 0.2),
+    0 10px 14px 1px rgba(63, 81, 181, 0.14),
+    0 4px 18px 3px rgba(63, 81, 181, 0.12) !important; 
+  }*/
+
+  /* .nav > .example-header-image {
+    position: fixed;
+    right: 11px !important;
+    top: 6px !important;
+  } */
+  
+  .nav-space-filler {
+    height: 64px;
+  }
+
+  /* .sidenav-header {
+    height: 80px;
+  } */
+  
+  .profile {
+    padding: 21px 20px;
+    height: 90px;
+  }
+
+  .space-filler {
+    display: block;
+    height: 110px;
+    /* background: #3f51b5; */
+  }
+
+  mat-sidenav-content > .space-filler {
+    width: 100%;
+  }
+
+  /* .profile > mat-card-header {
+    padding: 20px !important;
+  } */
+  
+  .example-header-image {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
+    height: 50px;
+    width: 50px;
+  }
+
+  .background {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 200px;
+    z-index: 1;
+}
+  
+  /* app-first-page {
+    overflow: scroll;
+  } */
+  
