@@ -76,6 +76,7 @@ import { StudentTaskWorkComponent } from './dashboard/entities/student/student-t
 import { StudentAttendanceComponent } from './dashboard/entities/student/student-attendance/student-attendance.component';
 import { StudentTimetableComponent } from './dashboard/entities/student/student-timetable/student-timetable.component';
 import { StudentDashboardComponent } from './dashboard/entities/student/student-dashboard/student-dashboard.component';
+import { StudentService } from './student.service';
 
 @NgModule({
   declarations: [
@@ -142,7 +143,7 @@ import { StudentDashboardComponent } from './dashboard/entities/student/student-
 
     HttpClientModule
   ],
-  providers: [],
+  providers: [StudentService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

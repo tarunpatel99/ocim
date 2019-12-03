@@ -108,6 +108,6 @@ import {
         MatTableModule,
         MatSortModule,
         MatPaginatorModule
-    ]
+    ],
 })
 export class MaterialModule { }

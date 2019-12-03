@@ -1,1 +1,42 @@
-<p>login works!</p>
+<div class="main centered">
+
+    <mat-card class="form-mat-card ">
+      <!-- <div class="ocim-logo">
+          <img src="../assets/logo.jpg" alt="">
+        </div> -->
+      <div class="logo-font">
+        <span class="ocim-font-green">O</span><span class="ocim-font-red">C</span><span
+          class="ocim-font-blue">I</span><span class="ocim-font-yellow">M</span>
+      </div>
+      <div class="header">
+        <h2>Sign In</h2>
+      </div>
+      <form class="login-form">
+        <mat-form-field class="full-width">
+          <input type="text" matInput placeholder="Username*">
+        </mat-form-field>
+        <mat-form-field class="full-width">
+          <input type="password" matInput placeholder="Password*">
+        </mat-form-field>
+        <mat-form-field class="full-width">
+          <mat-label>Role</mat-label>
+          <mat-select>
+            <mat-option *ngFor="let role of roles" [value]="role.value">
+              {{role.viewValue}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+  
+      </form>
+      <div class="form-btn">
+        <a mat-button class="place-left" routerLink=".">Forget password?</a>
+        <span class="space"></span>
+        <button mat-raised-button class="place-right" color="primary">Sing In</button>
+      </div>
+    </mat-card>
+    <div class="footer">
+      <a class="place-left" routerLink="">Register new Institute</a>
+      <span class="space"></span>
+      <a routerLink="" class="place-right">Contact Us</a>
+    </div>
+  </div>

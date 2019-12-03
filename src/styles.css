@@ -44,3 +44,31 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 ::-webkit-scrollbar-thumb {
     background: #666; 
 }
+
+@font-face {
+    font-family: "CabinSketch-Ragular";
+    src: url(./assets/CabinSketch-Regular.ttf) format("truetype");
+}
+
+@font-face {
+    font-family: "CabinSketch-Bold";
+    src: url(./assets/CabinSketch-Bold.ttf) format("truetype");
+}
+
+
+
+.ocim-font-green {
+    color: #6aa84f;
+}
+
+.ocim-font-red {
+    color: #cc0000;
+}
+
+.ocim-font-blue {
+    color: #3d85c6;
+}
+
+.ocim-font-yellow {
+    color: #f1c232;
+}
