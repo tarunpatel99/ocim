@@ -1,23 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, OnDestroy } from '@angular/core';
 import { StudentService } from "./student.service";
 import { Subscription } from 'rxjs';
+import { StudentModel } from "./student.model";
+import { MatTableDataSource } from '@angular/material/table';
 
-export interface StudentModel {
-  id: string;
-  name: string;
-  class: string;
-  city: string;
-}
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, OnDestroy {
   title = 'ocim';
-  displayedColumns = ['id', 'name', 'class', 'city'];
-  datasource: any
+  role="admin";
+  students = []
+  displayedColumns = ['id', 'name', 'class', 'city', 'action'];
+  datasource: StudentModel[] = []
   private studentSub: Subscription;
 
   constructor(private StudentService: StudentService) {
@@ -26,13 +25,14 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.StudentService.getStudents();
-    // this.datasource = this.StudentService.StudentDataTable;
     this.studentSub = this.StudentService.getStudentsUpdateListener()
     .subscribe((students: StudentModel[]) => {
       this.datasource = students
     })
-    console.log(this.datasource)
   }
 
+  ngOnDestroy() {
+    this.studentSub.unsubscribe();
+  }
 }
 

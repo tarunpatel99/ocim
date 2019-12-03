@@ -1,0 +1,83 @@
+@import '~@angular/material/theming';
+@include mat-core();
+
+
+// // default theme
+// .primary-color {
+//     background-color: mat-color($mat-indigo, 500);
+// }
+
+
+// theme for admin
+$admin-primary: mat-palette($mat-deep-purple, 500);
+$admin-accent: mat-palette($mat-pink, 500);
+
+$admin-theme: mat-light-theme($admin-primary, $admin-accent);
+
+.admin-theme {
+    @include angular-material-theme($admin-theme);
+    
+    .primary-color {
+        background-color: mat-color($admin-primary);
+    }
+}
+
+
+// theme for owner
+$owner-primary: mat-palette($mat-indigo, 500);
+$owner-accent: mat-palette($mat-pink, 500);
+
+$owner-theme: mat-light-theme($owner-primary, $owner-accent);
+
+.owner-theme {
+    @include angular-material-theme($owner-theme);
+    
+    .primary-color {
+        background-color: mat-color($owner-primary);
+    }
+}
+
+// theme for branch manager
+$bm-primary: mat-palette($mat-blue, 700);
+$bm-accent: mat-palette($mat-pink, 500);
+
+$bm-theme: mat-light-theme($bm-primary, $bm-accent);
+
+.bm-theme {
+    @include angular-material-theme($bm-theme);
+    
+    .primary-color {
+        background-color: mat-color($bm-primary);
+    }
+}
+
+
+// theme for student
+$student-primary: mat-palette($mat-teal, 700);
+$student-accent: mat-palette($mat-pink, 500);
+
+$student-theme: mat-light-theme($student-primary, $student-accent);
+
+.student-theme {
+    @include angular-material-theme($student-theme);
+    
+    .primary-color {
+        background-color: mat-color($student-primary);
+    }
+}
+
+
+// theme for faculty
+$faculty-primary: mat-palette($mat-cyan, 700);
+$faculty-accent: mat-palette($mat-pink, 500);
+
+$faculty-theme: mat-light-theme($faculty-primary, $faculty-accent);
+
+.faculty-theme {
+    @include angular-material-theme($faculty-theme);
+    
+    .primary-color {
+        background-color: mat-color($faculty-primary);
+    }
+}
+
