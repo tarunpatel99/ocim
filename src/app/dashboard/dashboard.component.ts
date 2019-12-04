@@ -12,7 +12,7 @@ import { AuthService } from '../auth/auth.service';
 })
 export class DashboardComponent implements OnInit, OnDestroy {
   mobileQuery: MediaQueryList;
-
+  componentName = ""
 
 
   private _mobileQueryListener: () => void;
@@ -54,13 +54,17 @@ export class DashboardComponent implements OnInit, OnDestroy {
       var navheight = $('.nav').outerHeight();
       var spaceFillerHeight = $('.space-filler').outerHeight();
       var profileBoxHieght = $('.profile').outerHeight();
-      $('.content').css('height', winHeight - navheight - 2 + 'px');
-      $('.mat-nav-list').css('height', winHeight - navheight - spaceFillerHeight -profileBoxHieght - 30 + 'px');
+      $('.content').css('height', winHeight - navheight - 40 + 'px');
+      $('.mat-nav-list').css('height', winHeight - navheight - spaceFillerHeight -profileBoxHieght - 28 + 'px');
     });
   }
 
   ngOnDestroy() {
     this.mobileQuery.removeListener(this._mobileQueryListener);
+  }
+
+  getComponentName(name: string) {
+   this.componentName = name
   }
 
 }
