@@ -6,7 +6,12 @@ import { StudentService } from '../student.service';
   providedIn: 'root'
 })
 export class AuthService {
-  role = 'Owner'
+  // role = 'Admin'
+  // role = 'Owner'
+  // role = 'Branch Manager'
+  role = 'Faculty'
+  // role = 'Student'
+  
   constructor(
     private router: Router,
     private StudentService: StudentService
