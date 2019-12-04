@@ -12,7 +12,6 @@ import { ConnectedPositionStrategy } from '@angular/cdk/overlay';
 export class StudentService {
   students: StudentModel[] = []
   private StudentUpdated = new Subject<StudentModel[]>();
-  role="Admin"
   studentGetDataUrl = 'http://localhost:3000/students'
   constructor(private http: HttpClient) { }
 

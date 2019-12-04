@@ -3,6 +3,7 @@ import {MediaMatcher} from '@angular/cdk/layout';
 import * as $ from 'jquery';
 import { StudentService } from "../student.service";
 import { Router } from '@angular/router';
+import { AuthService } from '../auth/auth.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -20,6 +21,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
     changeDetectorRef: ChangeDetectorRef, 
     media: MediaMatcher, 
     private StudentService: StudentService,
+    private AuthService: AuthService,
     private router: Router
     ) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
@@ -30,19 +32,19 @@ export class DashboardComponent implements OnInit, OnDestroy {
   ngOnInit() {
     const currentNav = this.router.url;
     if (currentNav == "/") {
-      if (this.StudentService.role == 'Admin') {
+      if (this.AuthService.role == 'Admin') {
         this.router.navigate(['admin-dashboard'])
       }
-      if (this.StudentService.role == 'Owner') {
+      if (this.AuthService.role == 'Owner') {
         this.router.navigate(['institute-dashboard'])
       }
-      if (this.StudentService.role == 'Branch Manager') {
+      if (this.AuthService.role == 'Branch Manager') {
         this.router.navigate(['branch-dashboard'])
       }
-      if (this.StudentService.role == 'Faculty') {
+      if (this.AuthService.role == 'Faculty') {
         this.router.navigate(['faculty-dashboard'])
       }
-      if (this.StudentService.role == 'Student') {
+      if (this.AuthService.role == 'Student') {
         this.router.navigate(['student-dashboard'])
       }
     }
