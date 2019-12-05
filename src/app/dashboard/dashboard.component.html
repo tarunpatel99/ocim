@@ -25,7 +25,7 @@
                     <mat-card-header>
                         <div mat-card-avatar class="example-header-image"></div>
                         <mat-card-title><span>User name</span></mat-card-title>
-                        <mat-card-subtitle><span>{{StudentService.role}}</span></mat-card-subtitle>
+                        <mat-card-subtitle><span>{{AuthService.role}}</span></mat-card-subtitle>
                     </mat-card-header>
                 </mat-card>
             </mat-toolbar>
@@ -75,33 +75,35 @@
                 <a mat-list-item routerLinkActive="active" *ngIf="AuthService.role=='Branch Manager'"
                     routerLink="/branch-leave-notes">Leave notes</a>
                 <a mat-list-item routerLinkActive="active" *ngIf="AuthService.role=='Branch Manager'"
-                    routerLink="/branch-students">Students</a>
+                    routerLink="/branch-faculty">Faculties</a>
+                <a mat-list-item routerLinkActive="active" *ngIf="AuthService.role=='Branch Manager'"
+                    routerLink="/branch-student">Students</a>
                 <a mat-list-item routerLinkActive="active" *ngIf="AuthService.role=='Branch Manager'"
                     routerLink="/branch-fees">Fees</a>
                 <a mat-list-item routerLinkActive="active" *ngIf="AuthService.role=='Branch Manager'"
                     routerLink="/branch-profile">Profile</a>
 
                 <!-- For faculty -->
-                <a mat-list-item routerLinkActive="active" (click)="getComponentName('Dashboard')"
-                    *ngIf="AuthService.role=='Faculty'" routerLink="/faculty-dashboard">Dashboard</a>
-                <a mat-list-item routerLinkActive="active" (click)="getComponentName('')"
-                    *ngIf="AuthService.role=='Faculty'" routerLink="/faculty-time-table">Time Table</a>
-                <a mat-list-item routerLinkActive="active" (click)="getComponentName('Attendance')"
-                    *ngIf="AuthService.role=='Faculty'" routerLink="/faculty-attendance">Attendance</a>
-                <a mat-list-item routerLinkActive="active" (click)="getComponentName('Attendance')"
-                    *ngIf="AuthService.role=='Faculty'" routerLink="/faculty-task-work">Task & work</a>
-                <a mat-list-item routerLinkActive="active" (click)="getComponentName('')"
-                    *ngIf="AuthService.role=='Faculty'" routerLink="/faculty-syllabus">Syllabus</a>
-                <a mat-list-item routerLinkActive="active" (click)="getComponentName('')"
-                    *ngIf="AuthService.role=='Faculty'" routerLink="/faculty-exam-schedule">Exam Schedule</a>
-                <a mat-list-item routerLinkActive="active" (click)="getComponentName('')"
-                    *ngIf="AuthService.role=='Faculty'" routerLink="/faculty-exam-result">Exam result</a>
-                <a mat-list-item routerLinkActive="active" (click)="getComponentName('')"
-                    *ngIf="AuthService.role=='Faculty'" routerLink="/faculty-notice">Notice</a>
-                <a mat-list-item routerLinkActive="active" (click)="getComponentName('')"
-                    *ngIf="AuthService.role=='Faculty'" routerLink="/faculty-leave-note">Leave notes</a>
-                <a mat-list-item routerLinkActive="active" (click)="getComponentName('')"
-                    *ngIf="AuthService.role=='Faculty'" routerLink="/faculty-profile">Profile</a>
+                <a mat-list-item routerLinkActive="active" *ngIf="AuthService.role=='Faculty'"
+                    routerLink="/faculty-dashboard">Dashboard</a>
+                <a mat-list-item routerLinkActive="active" *ngIf="AuthService.role=='Faculty'"
+                    routerLink="/faculty-time-table">Time Table</a>
+                <a mat-list-item routerLinkActive="active" *ngIf="AuthService.role=='Faculty'"
+                    routerLink="/faculty-attendance">Attendance</a>
+                <a mat-list-item routerLinkActive="active" *ngIf="AuthService.role=='Faculty'"
+                    routerLink="/faculty-task-work">Task & work</a>
+                <a mat-list-item routerLinkActive="active" *ngIf="AuthService.role=='Faculty'"
+                    routerLink="/faculty-syllabus">Syllabus</a>
+                <a mat-list-item routerLinkActive="active" *ngIf="AuthService.role=='Faculty'"
+                    routerLink="/faculty-exam-schedule">Exam Schedule</a>
+                <a mat-list-item routerLinkActive="active" *ngIf="AuthService.role=='Faculty'"
+                    routerLink="/faculty-exam-result">Exam result</a>
+                <a mat-list-item routerLinkActive="active" *ngIf="AuthService.role=='Faculty'"
+                    routerLink="/faculty-notice">Notice</a>
+                <a mat-list-item routerLinkActive="active" *ngIf="AuthService.role=='Faculty'"
+                    routerLink="/faculty-leave-note">Leave notes</a>
+                <a mat-list-item routerLinkActive="active" *ngIf="AuthService.role=='Faculty'"
+                    routerLink="/faculty-profile">Profile</a>
 
                 <!-- For student -->
                 <a mat-list-item routerLinkActive="active" *ngIf="AuthService.role=='Student'"
@@ -136,9 +138,7 @@
 
             <div class="content">
                 <!-- <router-outlet></router-outlet> -->
-                <span class="space-filler primary-color" style="color:#ffffff; font-size: 36px;">
-                    {{ componentName }}
-                </span>
+                <span class="space-filler primary-color"></span>
                 <router-outlet></router-outlet>
             </div>
             <div class="background primary-color"></div>

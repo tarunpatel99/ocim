@@ -12,7 +12,6 @@ import { AuthService } from '../auth/auth.service';
 })
 export class DashboardComponent implements OnInit, OnDestroy {
   mobileQuery: MediaQueryList;
-  componentName = ""
 
 
   private _mobileQueryListener: () => void;
@@ -61,10 +60,6 @@ export class DashboardComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.mobileQuery.removeListener(this._mobileQueryListener);
-  }
-
-  getComponentName(name: string) {
-   this.componentName = name
   }
 
 }
