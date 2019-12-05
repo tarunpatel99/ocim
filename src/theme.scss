@@ -20,6 +20,9 @@ $admin-theme: mat-light-theme($admin-primary, $admin-accent);
     .primary-color {
         background-color: mat-color($admin-primary);
     }
+    .active {
+        color: mat-color($admin-primary) !important;
+    }
 }
 
 
@@ -35,6 +38,9 @@ $owner-theme: mat-light-theme($owner-primary, $owner-accent);
     .primary-color {
         background-color: mat-color($owner-primary);
     }
+    .active {
+        color: mat-color($owner-primary) !important;
+    }
 }
 
 // theme for branch manager
@@ -48,6 +54,9 @@ $bm-theme: mat-light-theme($bm-primary, $bm-accent);
     
     .primary-color {
         background-color: mat-color($bm-primary);
+    }
+    .active {
+        color: mat-color($bm-primary) !important;
     }
 }
 
@@ -64,6 +73,9 @@ $student-theme: mat-light-theme($student-primary, $student-accent);
     .primary-color {
         background-color: mat-color($student-primary);
     }
+    .active {
+        color: mat-color($student-primary) !important;
+    }
 }
 
 
@@ -78,6 +90,9 @@ $faculty-theme: mat-light-theme($faculty-primary, $faculty-accent);
     
     .primary-color {
         background-color: mat-color($faculty-primary);
+    }
+    .active {
+        color: mat-color($faculty-primary) !important;
     }
 }
 

@@ -48,6 +48,7 @@ import { StudentProfileComponent } from './dashboard/entities/student/student-pr
 import { StudentSyllabusComponent } from './dashboard/entities/student/student-syllabus/student-syllabus.component';
 import { StudentTaskWorkComponent } from './dashboard/entities/student/student-task-work/student-task-work.component';
 import { StudentTimetableComponent } from './dashboard/entities/student/student-timetable/student-timetable.component';
+import { BranchFacultiesComponent } from './dashboard/entities/branch/branch-faculties/branch-faculties.component';
 
 
 const routes: Routes = [
@@ -105,6 +106,9 @@ const routes: Routes = [
       },
       {
         path: 'branch-profile', component: BranchProfileComponent
+      },
+      {
+        path: 'branch-faculty', component: BranchFacultiesComponent
       },
       {
         path: 'branch-student', component: BranchStudentsComponent

@@ -14,7 +14,6 @@ export class DashboardComponent implements OnInit, OnDestroy {
   mobileQuery: MediaQueryList;
 
 
-
   private _mobileQueryListener: () => void;
 
   constructor(
@@ -54,8 +53,8 @@ export class DashboardComponent implements OnInit, OnDestroy {
       var navheight = $('.nav').outerHeight();
       var spaceFillerHeight = $('.space-filler').outerHeight();
       var profileBoxHieght = $('.profile').outerHeight();
-      $('.content').css('height', winHeight - navheight - 2 + 'px');
-      $('.mat-nav-list').css('height', winHeight - navheight - spaceFillerHeight -profileBoxHieght - 30 + 'px');
+      $('.content').css('height', winHeight - navheight - 40 + 'px');
+      $('.mat-nav-list').css('height', winHeight - navheight - spaceFillerHeight -profileBoxHieght - 28 + 'px');
     });
   }
 

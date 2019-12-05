@@ -2,11 +2,12 @@
 .main {
     display: block;
     text-align: center;
+    height: 100%;
 }
 
 .form-mat-card {
     padding: 10px;
-    margin: auto;
+    margin: 0 auto;
     padding: 20px;
     height: fit-content;
     width: 400px;
@@ -42,10 +43,10 @@ a {
 }
 
 .centered {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
 
 .header {

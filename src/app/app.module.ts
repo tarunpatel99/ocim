@@ -78,6 +78,7 @@ import { StudentTimetableComponent } from './dashboard/entities/student/student-
 import { StudentDashboardComponent } from './dashboard/entities/student/student-dashboard/student-dashboard.component';
 import { StudentService } from './student.service';
 import { AuthService } from './auth/auth.service';
+import { BranchFacultiesComponent } from './dashboard/entities/branch/branch-faculties/branch-faculties.component';
 
 @NgModule({
   declarations: [
@@ -132,7 +133,8 @@ import { AuthService } from './auth/auth.service';
     StudentTaskWorkComponent,
     StudentAttendanceComponent,
     StudentTimetableComponent,
-    StudentDashboardComponent
+    StudentDashboardComponent,
+    BranchFacultiesComponent
   ],
   imports: [
     BrowserModule,

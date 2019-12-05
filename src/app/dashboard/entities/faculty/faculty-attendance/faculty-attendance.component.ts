@@ -7,7 +7,7 @@ import { FormControl } from '@angular/forms';
   styleUrls: ['./faculty-attendance.component.css']
 })
 export class FacultyAttendanceComponent implements OnInit {
-
+  facultyname="Tarun Patel"
   constructor() { }
 
   date = new FormControl(new Date());
