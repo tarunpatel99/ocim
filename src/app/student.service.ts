@@ -2,40 +2,29 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import { ThrowStmt } from '@angular/compiler';
 import { Subject } from 'rxjs';
-
-export interface StudentModel {
-  id: string;
-  name: string;
-  class: string;
-  city: string;
-}
+import { StudentModel } from "./student.model";
+import { ConnectedPositionStrategy } from '@angular/cdk/overlay';
 
 @Injectable({
   providedIn: 'root'
 })
 
 export class StudentService {
-  StudentDataTable: StudentModel[] = []
+  students: StudentModel[] = []
   private StudentUpdated = new Subject<StudentModel[]>();
-  // role="Admin"
-  // role="Owner"
-  // role="Branch Manager"
-  // role="Faculty"
-  role="Owner"
+  studentGetDataUrl = 'http://localhost:3000/students'
   constructor(private http: HttpClient) { }
 
   getStudents() {
-    // this.http.get<{message: string, students: StudentModel[]}>('http://localhost:3000/students')
-    //   .subscribe((studentData) => {
-    //     this.StudentDataTable = studentData.students
-    //     this.StudentUpdated.next([...this.StudentDataTable]);
-        
-    //   });
-    //   console.log(this.StudentDataTable)
-    // console.log("services are working");
+    this.http.get<{message: string, students: StudentModel[]}>(this.studentGetDataUrl)
+      .subscribe((studentData) => {
+        this.students = studentData.students;
+        this.StudentUpdated.next([...this.students]);
+      });
   }
 
   getStudentsUpdateListener() {
     return this.StudentUpdated.asObservable();
   }
+   
 }

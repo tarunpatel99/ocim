@@ -16,7 +16,7 @@ app.use((req, res, next) => {
         "GET, POST, PATCH, DELETE, OPTIONS"
     );
     next();
-})
+}); 
 
 app.use('/students', (req, res, next) => {
     const student = [
@@ -38,6 +38,12 @@ app.use('/students', (req, res, next) => {
             class: "TYBCA",
             city: "Ghandhinagar"
         },
+        {
+            id: "17bca105",
+            name: "Shubh Bhatt",
+            class: "TYBCA",
+            city: "Ahmedabad"
+        }
     ];
 
     res.status(200).json({

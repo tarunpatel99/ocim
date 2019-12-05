@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-faculty-attendance',
@@ -6,8 +7,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./faculty-attendance.component.css']
 })
 export class FacultyAttendanceComponent implements OnInit {
-
+  facultyname="Tarun Patel"
   constructor() { }
+
+  date = new FormControl(new Date());
 
   ngOnInit() {
   }

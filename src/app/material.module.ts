@@ -8,6 +8,7 @@ import {
     MatInputModule,
     MatAutocompleteModule,
     MatDatepickerModule,
+    MatNativeDateModule,
     MatFormFieldModule,
     MatRadioModule,
     MatSelectModule,
@@ -48,6 +49,7 @@ import {
         MatInputModule,
         MatAutocompleteModule,
         MatDatepickerModule,
+        MatNativeDateModule,
         MatFormFieldModule,
         MatRadioModule,
         MatSelectModule,
@@ -83,6 +85,7 @@ import {
         MatInputModule,
         MatAutocompleteModule,
         MatDatepickerModule,
+        MatNativeDateModule,
         MatFormFieldModule,
         MatRadioModule,
         MatSelectModule,
@@ -108,6 +111,9 @@ import {
         MatTableModule,
         MatSortModule,
         MatPaginatorModule
+    ],
+    providers: [
+        MatNativeDateModule
     ]
 })
 export class MaterialModule { }

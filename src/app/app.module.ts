@@ -76,6 +76,9 @@ import { StudentTaskWorkComponent } from './dashboard/entities/student/student-t
 import { StudentAttendanceComponent } from './dashboard/entities/student/student-attendance/student-attendance.component';
 import { StudentTimetableComponent } from './dashboard/entities/student/student-timetable/student-timetable.component';
 import { StudentDashboardComponent } from './dashboard/entities/student/student-dashboard/student-dashboard.component';
+import { StudentService } from './student.service';
+import { AuthService } from './auth/auth.service';
+import { BranchFacultiesComponent } from './dashboard/entities/branch/branch-faculties/branch-faculties.component';
 
 @NgModule({
   declarations: [
@@ -130,7 +133,8 @@ import { StudentDashboardComponent } from './dashboard/entities/student/student-
     StudentTaskWorkComponent,
     StudentAttendanceComponent,
     StudentTimetableComponent,
-    StudentDashboardComponent
+    StudentDashboardComponent,
+    BranchFacultiesComponent
   ],
   imports: [
     BrowserModule,
@@ -142,7 +146,7 @@ import { StudentDashboardComponent } from './dashboard/entities/student/student-
 
     HttpClientModule
   ],
-  providers: [],
+  providers: [StudentService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
