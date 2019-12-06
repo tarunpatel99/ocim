@@ -1,0 +1,64 @@
+<mat-card>
+    <form action="">
+        <mat-form-field class="large-width">
+            <input matInput placeholder="Faculty name" disabled [value]="facultyname">
+        </mat-form-field>
+        <button class="submit-btn" mat-raised-button color="primary">Submit</button>
+        <mat-form-field class="small-width">
+            <mat-select placeholder="Select Institute">
+                <mat-option value="option">XICA - Xavier Institute of Computer Applications</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field class="small-width">
+            <mat-select placeholder="Select branch">
+                <mat-option value="option">Ahmedabad</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field class="small-width">
+            <mat-select placeholder="Select class">
+                <mat-option value="option">TYBCA</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field class="small-width">
+            <mat-select placeholder="Select subject">
+                <mat-option value="option">SDP-II</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field class="small-width">
+            <input matInput [matDatepicker]="datepicker" placeholder="Choose date" [value]="date.value">
+            <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
+            <mat-datepicker #datepicker></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field class="small-width">
+            <input matInput type="time" placeholder="From [HH:MM AM/PM]" value="00:00">
+        </mat-form-field>
+        <mat-form-field class="small-width">
+            <input matInput type="time" placeholder="To [HH:MM AM/PM]" value="00:00">
+        </mat-form-field>
+        <label for="">Checked as : </label>
+        <mat-radio-group aria-label="Select an option">
+            <mat-radio-button color="primary" value="1">Present</mat-radio-button>
+            <mat-radio-button color="primary" value="2">Absent</mat-radio-button>
+        </mat-radio-group>
+        <mat-selection-list>
+            <mat-list-option>
+                Harshil Sureja [17-bca-068]
+            </mat-list-option>
+            <mat-list-option>
+                Nirav Kadiya [17-bca-078]
+            </mat-list-option>
+            <mat-list-option>
+                Shubham Mevada [17-bca-081]
+            </mat-list-option>
+            <mat-list-option>
+                Shubh Bhatt [17-bca-105]
+            </mat-list-option>
+            <mat-list-option>
+                Tarun Patel [17-BCA-126]
+            </mat-list-option>
+            <mat-list-option>
+                Aakash Bhavasar [17-BCA-140]
+            </mat-list-option>
+        </mat-selection-list>
+    </form>
+</mat-card>

@@ -1,1 +1,74 @@
 /* You can add global styles to this file, and also import other style files */
+@import "@angular/material/prebuilt-themes/indigo-pink.css";
+/*
+deeppurple-amber.css
+indigo-pink.css
+pink-bluegray.css
+purple-green.css
+*/
+/* 
+html, body
+{ 
+    height: 100%; 
+}
+
+body
+{ 
+    background:#f5f5f5;
+    margin: 0;
+    padding: 0; 
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; } */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+::-webkit-scrollbar {
+    position: absolute;
+    right: 0;
+    z-index: 2;
+    width: 0px;
+}
+
+*:hover::-webkit-scrollbar {
+    width: 3px;
+}
+   
+/* ::-webkit-scrollbar-track {
+    background: #ddd;
+}
+    */
+::-webkit-scrollbar-thumb {
+    background: #666; 
+}
+
+@font-face {
+    font-family: "CabinSketch-Ragular";
+    src: url(./assets/CabinSketch-Regular.ttf) format("truetype");
+}
+
+@font-face {
+    font-family: "CabinSketch-Bold";
+    src: url(./assets/CabinSketch-Bold.ttf) format("truetype");
+}
+
+
+
+.ocim-font-green {
+    color: #6aa84f;
+}
+
+.ocim-font-red {
+    color: #cc0000;
+}
+
+.ocim-font-blue {
+    color: #3d85c6;
+}
+
+.ocim-font-yellow {
+    color: #f1c232;
+}

@@ -1,0 +1,45 @@
+mat-form-field{
+    margin: 0 5px;
+}
+
+mat-radio-button{
+    margin: 0 5px;
+}
+
+button{
+    margin: 0 5px;
+}
+
+.header {
+    margin-left: 28px;
+    text-align: left;
+}
+
+.example-header-image {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
+    height: 50px;
+    width: 50px;
+  }
+  
+.form-mat-card {
+    padding: 10px;
+    margin: auto;
+    padding: 20px;
+    height: fit-content;
+    width: 400px;
+}
+
+.full-width {
+    display: block;
+    width: 500px;
+    margin: 5px auto;
+    max-width: 85%;
+}
+
+.half-width {
+    display: inline-block;
+    /* width: 500px; */
+    margin: 5px auto 5px 7.5%;
+    max-width: 30%;
+}
