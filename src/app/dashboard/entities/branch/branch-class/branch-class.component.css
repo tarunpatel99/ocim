@@ -1,0 +1,52 @@
+.heading{
+    margin:20px 0;
+    color:#ffffff;
+    font-size: 36px;
+    display: block;
+}
+
+.container{
+    display: block;
+    margin: auto;
+    width: 100%;
+}
+
+mat-form-field{
+    margin: 0 5px;
+    display: inline-block;
+}
+
+mat-radio-button{
+    margin: 0 5px;
+}
+
+button{
+    margin: 5px 10px 20px 10px;
+}
+
+.header {
+    margin-left: 28px;
+    text-align: left;
+}
+  
+.form-mat-card {
+    display: inline-block;
+    margin: 3% ;
+    /* padding: 10px; */
+    padding: 20px;
+    height: fit-content;
+    width: 40%;
+}
+
+.full-width {
+    display: inline-block;
+    width: 45%;
+    margin: 0 10px;
+    /* max-width: 85%; */
+}
+
+/* mat-expansion-panel{
+    margin: 20px 0;
+    /* box-shadow: none !important; * /
+} */
+

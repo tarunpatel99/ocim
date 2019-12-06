@@ -1,1 +1,88 @@
-<p>branch-class works!</p>
+<div class="heading">Standards & Subjects</div>
+
+<div class="container">
+    <mat-card class="form-mat-card">
+        <div class="header">    
+            <h2>Add Standard</h2>
+        </div>  
+        <form class="add-standard">
+
+        <mat-form-field class="full-width">
+            <mat-label>Class</mat-label>
+            <mat-select>
+                <mat-option *ngFor="let class of classes" [value]="class.value">
+                {{class.viewValue}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field class="full-width">
+            <input type="text" matInput placeholder="Batch name">
+        </mat-form-field>
+        
+        </form>
+        <button mat-flat-button color="primary" (click)="onAddstandards()">Add</button>
+        <button mat-stroked-button color="warn" (click)="onClear()">Cancle</button>
+
+        <mat-accordion>
+            <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        Standards
+                    </mat-panel-title>
+                    <mat-panel-description>
+                        Click here to {{panelOpenState ? 'close' : 'open'}}
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
+                <mat-selection-list role="list">
+                    <mat-list-option role="listitem" *ngFor="let standard of typesOfStandards" color="primary">{{standard}}</mat-list-option>
+                </mat-selection-list>
+                <button mat-stroked-button color="warn" (click)="onDeletestandards()">Delete</button>
+            </mat-expansion-panel>
+        </mat-accordion>
+
+
+    </mat-card>
+
+    <mat-card class="form-mat-card">
+        <div class="header">    
+            <h2>Add Subject</h2>
+        </div>  
+        <form class="add-subject">
+
+        <mat-form-field class="full-width">
+            <mat-label>Class</mat-label>
+            <mat-select>
+                <mat-option *ngFor="let classsbj of classsbjs" [value]="classsbj.value">
+                {{classsbj.viewValue}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field class="full-width">
+            <input type="text" matInput placeholder="Subject name*">
+        </mat-form-field>
+        
+        </form>
+        <button mat-flat-button color="primary" (click)="onAddclass()">Add</button>
+        <button mat-stroked-button color="warn" (click)="onClear()">Cancle</button>
+
+        <mat-accordion>
+            <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        Subjects
+                    </mat-panel-title>
+                    <mat-panel-description>
+                        Click here to {{panelOpenState ? 'close' : 'open'}}
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
+                <mat-selection-list role="list">
+                    <mat-list-option role="listitem" *ngFor="let subject of typesOfSubjects" color="primary">{{subject}}</mat-list-option>
+                </mat-selection-list>
+                <button mat-stroked-button color="warn" (click)="onDeletesubjects()">Delete</button>
+            </mat-expansion-panel>
+        </mat-accordion>
+
+    </mat-card>
+</div>
