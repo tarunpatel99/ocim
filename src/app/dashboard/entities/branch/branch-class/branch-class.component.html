@@ -35,15 +35,15 @@
                     </mat-panel-description>
                 </mat-expansion-panel-header>
                 <mat-selection-list role="list">
-                    <mat-list-option role="listitem" *ngFor="let standard of typesOfStandards" color="primary">{{standard}}</mat-list-option>
+                    <mat-list-option role="listitem" *ngFor="let standard of typesOfStandards" color="warn">{{standard}}</mat-list-option>
                 </mat-selection-list>
-                <button mat-stroked-button color="warn" (click)="onDeletestandards()">Delete</button>
+                <mat-action-row>
+                        <button mat-stroked-button color="warn" (click)="onDeletestandards()">Delete</button>
+                </mat-action-row>
             </mat-expansion-panel>
         </mat-accordion>
-
-
     </mat-card>
-
+<!-- =================================================================================================================================================== -->
     <mat-card class="form-mat-card">
         <div class="header">    
             <h2>Add Subject</h2>
@@ -71,18 +71,121 @@
             <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
                 <mat-expansion-panel-header>
                     <mat-panel-title>
-                        Subjects
+                        8
                     </mat-panel-title>
                     <mat-panel-description>
                         Click here to {{panelOpenState ? 'close' : 'open'}}
                     </mat-panel-description>
                 </mat-expansion-panel-header>
                 <mat-selection-list role="list">
-                    <mat-list-option role="listitem" *ngFor="let subject of typesOfSubjects" color="primary">{{subject}}</mat-list-option>
+                    <mat-list-option role="listitem" *ngFor="let eight of eights" color="warn">{{eight}}</mat-list-option>
                 </mat-selection-list>
-                <button mat-stroked-button color="warn" (click)="onDeletesubjects()">Delete</button>
+                <mat-action-row>
+                    <button mat-stroked-button color="warn" (click)="onDeletesubjects()">Delete</button>
+                </mat-action-row>
+            </mat-expansion-panel>
+
+            <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        9
+                    </mat-panel-title>
+                    <mat-panel-description>
+                        Click here to {{panelOpenState ? 'close' : 'open'}}
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
+                <mat-selection-list role="list">
+                    <mat-list-option role="listitem" *ngFor="let nine of nines" color="warn">{{nine}}</mat-list-option>
+                </mat-selection-list>
+                <mat-action-row>
+                    <button mat-stroked-button color="warn" (click)="onDeletesubjects()">Delete</button>
+                </mat-action-row>
+            </mat-expansion-panel>
+
+            <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        10
+                    </mat-panel-title>
+                    <mat-panel-description>
+                        Click here to {{panelOpenState ? 'close' : 'open'}}
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
+                <mat-selection-list role="list">
+                    <mat-list-option role="listitem" *ngFor="let ten of tens" color="warn">{{ten}}</mat-list-option>
+                </mat-selection-list>
+                <mat-action-row>
+                    <button mat-stroked-button color="warn" (click)="onDeletesubjects()">Delete</button>
+                </mat-action-row>
+            </mat-expansion-panel>
+
+            <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        11 Sci Maths
+                    </mat-panel-title>
+                    <mat-panel-description>
+                        Click here to {{panelOpenState ? 'close' : 'open'}}
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
+                <mat-selection-list role="list">
+                    <mat-list-option role="listitem" *ngFor="let elevenm of elevensm" color="warn">{{elevenm}}</mat-list-option>
+                </mat-selection-list>
+                <mat-action-row>
+                    <button mat-stroked-button color="warn" (click)="onDeletesubjects()">Delete</button>
+                </mat-action-row>
+            </mat-expansion-panel>
+
+            <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        11 Sci Bio
+                    </mat-panel-title>
+                    <mat-panel-description>
+                        Click here to {{panelOpenState ? 'close' : 'open'}}
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
+                <mat-selection-list role="list">
+                    <mat-list-option role="listitem" *ngFor="let elevenb of elevensb" color="warn">{{elevenb}}</mat-list-option>
+                </mat-selection-list>
+                <mat-action-row>
+                    <button mat-stroked-button color="warn" (click)="onDeletesubjects()">Delete</button>
+                </mat-action-row>
+            </mat-expansion-panel>
+
+            <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        12 Sci Maths
+                    </mat-panel-title>
+                    <mat-panel-description>
+                        Click here to {{panelOpenState ? 'close' : 'open'}}
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
+                <mat-selection-list role="list">
+                    <mat-list-option role="listitem" *ngFor="let twelvem of twelvesm" color="warn">{{twelvem}}</mat-list-option>
+                </mat-selection-list>
+                <mat-action-row>
+                    <button mat-stroked-button color="warn" (click)="onDeletesubjects()">Delete</button>
+                </mat-action-row>
+            </mat-expansion-panel>
+
+            <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        12 Sci Bio
+                    </mat-panel-title>
+                    <mat-panel-description>
+                        Click here to {{panelOpenState ? 'close' : 'open'}}
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
+                <mat-selection-list role="list">
+                    <mat-list-option role="listitem" *ngFor="let twelveb of twelvesb" color="warn">{{twelveb}}</mat-list-option>
+                </mat-selection-list>
+                <mat-action-row>
+                    <button mat-stroked-button color="warn" (click)="onDeletesubjects()">Delete</button>
+                </mat-action-row>
             </mat-expansion-panel>
         </mat-accordion>
-
     </mat-card>
 </div>

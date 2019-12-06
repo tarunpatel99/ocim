@@ -71,7 +71,13 @@ export class BranchClassComponent implements OnInit {
                                 '11 Sci Maths (Yellow M)','11 Sci Maths (Blue M)', '11 Sci Bio (Purple B)', '11 Sci Bio (Green B)',
                                 '12 Sci Maths (Golden M)', '12 Sci Maths (Red M)', '12 Sci Bio (Silver M)', '12 Sci Bio (Pink M)'];
 
-
+  eights: string[] = ['Science','Maths','Social Science','English']
+  nines: string[] = ['Science','Maths','Social Science','English']
+  tens: string[] = ['Science','Maths','Social Science','English']
+  elevensm: string[] = ['Physics','Maths','Chemistry']
+  elevensb: string[] = ['Physics','Chemistry','Biology']
+  twelvesm: string[] = ['Physics','Maths','Chemistry']
+  twelvesb: string[] = ['Physics','Chemistry','Biology']
   ngOnInit() {
   }
 

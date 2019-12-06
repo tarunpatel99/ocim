@@ -34,7 +34,6 @@ button{
     margin: 3% ;
     /* padding: 10px; */
     padding: 20px;
-    height: fit-content;
     width: 40%;
 }
 
@@ -49,4 +48,3 @@ button{
     margin: 20px 0;
     /* box-shadow: none !important; * /
 } */
-
