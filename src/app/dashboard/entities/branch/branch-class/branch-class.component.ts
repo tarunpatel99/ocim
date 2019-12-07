@@ -20,7 +20,7 @@ export class BranchClassComponent implements OnInit {
   constructor() { }
   
   
-  panelOpenState = false;
+  // panelOpenState = false;
 
 
   classes: Class[] = [
@@ -62,22 +62,20 @@ export class BranchClassComponent implements OnInit {
     {value: '12-sci-bio-pink-m', viewValue: '12 Sci Bio (Pink M)'}
   ];
 
-  typesOfStandards: string[] = ['8 (A Div)', '8 (B Div)', '9 (A Div)', '9 (B Div)', '10 (A Div)', '10 (B Div)', 
-                                '11 Sci Maths (Yellow M)','11 Sci Maths (Blue M)', '11 Sci Bio (Purple B)', '11 Sci Bio (Green B)',
-                                '12 Sci Maths (Golden M)', '12 Sci Maths (Red M)', '12 Sci Bio (Silver M)', '12 Sci Bio (Pink M)'];
+  // typesOfStandards: string[] = ['8 (A Div)', '8 (B Div)', '9 (A Div)', '9 (B Div)', '10 (A Div)', '10 (B Div)', 
+  //                               '11 Sci Maths (Yellow M)','11 Sci Maths (Blue M)', '11 Sci Bio (Purple B)', '11 Sci Bio (Green B)',
+  //                               '12 Sci Maths (Golden M)', '12 Sci Maths (Red M)', '12 Sci Bio (Silver M)', '12 Sci Bio (Pink M)'];
 
 
-  typesOfSubjects: string[] = ['8 (A Div)', '8 (B Div)', '9 (A Div)', '9 (B Div)', '10 (A Div)', '10 (B Div)', 
-                                '11 Sci Maths (Yellow M)','11 Sci Maths (Blue M)', '11 Sci Bio (Purple B)', '11 Sci Bio (Green B)',
-                                '12 Sci Maths (Golden M)', '12 Sci Maths (Red M)', '12 Sci Bio (Silver M)', '12 Sci Bio (Pink M)'];
+  // typesOfSubjects: string[] = ['8 (A Div)', '8 (B Div)', '9 (A Div)', '9 (B Div)', '10 (A Div)', '10 (B Div)', 
+  //                               '11 Sci Maths (Yellow M)','11 Sci Maths (Blue M)', '11 Sci Bio (Purple B)', '11 Sci Bio (Green B)',
+  //                               '12 Sci Maths (Golden M)', '12 Sci Maths (Red M)', '12 Sci Bio (Silver M)', '12 Sci Bio (Pink M)'];
 
   eights: string[] = ['Science','Maths','Social Science','English']
   nines: string[] = ['Science','Maths','Social Science','English']
   tens: string[] = ['Science','Maths','Social Science','English']
-  elevensm: string[] = ['Physics','Maths','Chemistry']
-  elevensb: string[] = ['Physics','Chemistry','Biology']
-  twelvesm: string[] = ['Physics','Maths','Chemistry']
-  twelvesb: string[] = ['Physics','Chemistry','Biology']
+  scim: string[] = ['Physics','Maths','Chemistry']
+  scib: string[] = ['Physics','Chemistry','Biology']
   ngOnInit() {
   }
 
