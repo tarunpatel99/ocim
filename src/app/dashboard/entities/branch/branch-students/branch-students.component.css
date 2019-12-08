@@ -6,7 +6,8 @@
 }
 
 mat-form-field{
-    margin: 0 5px;
+    margin: 0 10px;
+    display: inline-block;
 }
 
 mat-radio-button{
@@ -14,13 +15,13 @@ mat-radio-button{
 }
 
 button{
-    margin: 0 5px;
+    margin: 5px;
 }
 
-.header {
+/* .header {
     margin-left: 28px;
     text-align: left;
-}
+} */
 
 .example-header-image {
     background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
@@ -28,25 +29,60 @@ button{
     height: 50px;
     width: 50px;
   }
-  
-.form-mat-card {
-    padding: 10px;
+
+.example-header-image {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
+    height: 50px;
+    width: 50px;
+}
+
+/* .form-mat-card {
+    display: inline-table;
+    margin: 5% ;
+    /* padding: 10px; * /
+    padding: 20px;
+    width: auto;
+    /* padding: 10px;
     margin: auto;
     padding: 20px;
     height: fit-content;
-    width: 400px;
+    width: 400px; * /
+} */
+
+.gndr{
+    display: inline-block;
+    width: 30%;
+    margin: 0 10px;
 }
 
 .full-width {
-    display: block;
-    width: 500px;
-    margin: 5px auto;
-    max-width: 85%;
+    display: inline-block;
+    width: 30%;
+    margin: 0 10px;
+    /* max-width: 85%; */
 }
 
 .half-width {
-    display: inline-block;
+    display: inline;
     /* width: 500px; */
-    margin: 5px auto 5px 7.5%;
+    margin: 0 10px;
     max-width: 30%;
+}
+
+/* .right{
+    float: right;
+} */
+
+mat-panel-title{
+    width: 50%;
+}
+
+.tbl-shadow{
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.tbl-right{
+    display: flex;
+    justify-content: flex-end;
 }

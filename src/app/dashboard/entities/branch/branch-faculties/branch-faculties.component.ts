@@ -27,9 +27,8 @@ export interface Fac_element {
   position: number;
   email: string;
   phone: string;
-
-
 }
+
 
 const Faculty_Data: Fac_element[] = [
   {position: 1, name: 'Faculty Middlename Surname', email: 'facultyemail1@gmail.com', phone: '9876543210'},
@@ -55,12 +54,29 @@ export class BranchFacultiesComponent implements OnInit {
 
   constructor() { }
 
+  checked = false;
+
 
   classes: Class[] = [
+    {value: '1', viewValue: '1'},
+    {value: '2', viewValue: '2'},
+    {value: '3', viewValue: '3'},
+    {value: '4', viewValue: '4'},
+    {value: '5', viewValue: '5'},
+    {value: '6', viewValue: '6'},
+    {value: '7', viewValue: '7'},
+    {value: '8', viewValue: '8'},
+    {value: '9', viewValue: '9'},
+    {value: '10', viewValue: '10'},
     {value: '11-sci-maths', viewValue: '11 Sci Maths'},
     {value: '11-sci-bio', viewValue: '11 Sci Bio'},
     {value: '12-sci-maths', viewValue: '12 Sci Maths'},
-    {value: '12-sci-bio', viewValue: '12 Sci Bio'}
+    {value: '12-sci-bio', viewValue: '12 Sci Bio'},
+    {value: '11-commerce', viewValue: '11 Commerce'},
+    {value: '12-commerce', viewValue: '12 Commerce'},
+    {value: '11-arts', viewValue: '11 Arts'},
+    {value: '12-arts', viewValue: '12 Arts'},
+    {value: 'other', viewValue: 'Custom'},
   ];
 
   subjects: Subject[] = [
