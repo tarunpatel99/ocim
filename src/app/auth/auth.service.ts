@@ -8,8 +8,8 @@ import { StudentService } from '../student.service';
 export class AuthService {
   // role = 'Admin'
   // role = 'Owner'
-  role = 'Branch Manager'
-  // role = 'Faculty'
+  // role = 'Branch Manager'
+  role = 'Faculty'
   // role = 'Student'
   
   constructor(
