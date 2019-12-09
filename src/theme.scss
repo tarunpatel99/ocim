@@ -94,5 +94,8 @@ $faculty-theme: mat-light-theme($faculty-primary, $faculty-accent);
     .active {
         color: mat-color($faculty-primary) !important;
     }
+    .mat-select-panel {
+        color: mat-color($faculty-primary) !important;
+    }
 }
 
