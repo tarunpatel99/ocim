@@ -32,6 +32,12 @@ export class FacultyExamResultComponent implements OnInit {
       { id: '17-BCA-081', name: 'Shubham Mevada', subject: 'Python', obt_marks: 44, ttl_marks: 50 },
       { id: '17-BCA-105', name: 'Shubha Bhatt', subject: 'VB', obt_marks: 35, ttl_marks: 50 },
       { id: '17-BCA-126', name: 'Tarun Patel', subject: 'OSOS', obt_marks: 17, ttl_marks: 50 },
+      { id: '17-BCA-140', name: 'Aakash Bhavasar', subject: 'DCN', obt_marks: 49, ttl_marks: 50 },
+      { id: '17-BCA-068', name: 'Harshil Sureja', subject: 'OSOS', obt_marks: 45, ttl_marks: 50 },
+      { id: '17-BCA-078', name: 'Nirav Kadiya', subject: 'OSOS', obt_marks: 45, ttl_marks: 50 },
+      { id: '17-BCA-081', name: 'Shubham Mevada', subject: 'Python', obt_marks: 44, ttl_marks: 50 },
+      { id: '17-BCA-105', name: 'Shubha Bhatt', subject: 'VB', obt_marks: 35, ttl_marks: 50 },
+      { id: '17-BCA-126', name: 'Tarun Patel', subject: 'OSOS', obt_marks: 17, ttl_marks: 50 },
       { id: '17-BCA-140', name: 'Aakash Bhavasar', subject: 'DCN', obt_marks: 49, ttl_marks: 50 }
     ]
 

@@ -1,0 +1,11 @@
+.half-width {
+    width: 47%;
+}
+
+.full-width {
+    width: 98%;
+}
+
+mat-form-field {
+    margin-right: 12px;
+}
