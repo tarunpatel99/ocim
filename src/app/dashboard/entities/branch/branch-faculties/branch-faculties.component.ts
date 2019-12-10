@@ -1,5 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit ,ViewChild} from '@angular/core';
 import { Action } from 'rxjs/internal/scheduler/Action';
+import {MatPaginator} from '@angular/material/paginator';
+import {MatTableDataSource} from '@angular/material/table';
+import { MatSort } from '@angular/material/sort';
+import { FormControl } from '@angular/forms';
+
+
 
 export interface Class {
   value: string;
@@ -100,10 +106,21 @@ export class BranchFacultiesComponent implements OnInit {
   
 
   displayedColumns: string[] = ['name', 'email', 'phone','action'];
-  dataSource = Faculty_Data;
+  dataSource = new MatTableDataSource<Fac_element>(Faculty_Data);
 
+  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
 
   ngOnInit() {
+    this.dataSource.paginator = this.paginator;
   }
+
+
+  applyFilter(filterValue: string) {
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
+  } 
 
 }

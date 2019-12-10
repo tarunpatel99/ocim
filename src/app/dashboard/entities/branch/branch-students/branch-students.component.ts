@@ -1,5 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component, OnInit ,ViewChild} from '@angular/core';
+import { Action } from 'rxjs/internal/scheduler/Action';
+import {MatPaginator} from '@angular/material/paginator';
+import {MatTableDataSource} from '@angular/material/table';
+import { MatSort } from '@angular/material/sort';
+import { FormControl } from '@angular/forms';
 
 export interface Class {
   value: string;
@@ -16,14 +20,14 @@ export interface State {
   viewValue: string;
 }
 
-export interface Fac_element {
+export interface Std_element {
   rollno: string;
   name: string;
   class: string;
   phone: string;
 }
 
-const Faculty_Data: Fac_element[] = [
+const Student_Data: Std_element[] = [
   {rollno: '19-bio-11', name: 'Student Middlename Surname', class: '11 Sci Bio' , phone: '9876543210'},
   {rollno: '19-bio-12', name: 'Student Middlename Surname', class: '11 Sci Bio' , phone: '9876543210'},
   {rollno: '19-bio-13', name: 'Student Middlename Surname', class: '11 Sci Bio' , phone: '9876543210'},
@@ -78,9 +82,21 @@ export class BranchStudentsComponent implements OnInit {
   ];
 
   displayedColumns: string[] = ['rollno','name', 'class', 'phone','action'];
-  dataSource = Faculty_Data;
- 
+  dataSource = new MatTableDataSource<Std_element>(Student_Data);
+
+  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
+
   ngOnInit() {
+    this.dataSource.paginator = this.paginator;
   }
+
+
+  applyFilter(filterValue: string) {
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
+  } 
 
 }

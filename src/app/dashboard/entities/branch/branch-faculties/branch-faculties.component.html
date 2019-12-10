@@ -144,6 +144,9 @@
 <!-- ======================================================================================================================= -->
 
 <br>
+<mat-form-field id="searchBar">
+    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search student">
+</mat-form-field>
 <mat-table [dataSource]="dataSource" class="mat-elevation-z8 tbl-shadow">
     <!-- Position Column -->
     <!-- <ng-container matColumnDef="position">
@@ -186,3 +189,4 @@
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
     <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
 </mat-table>
+<mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
