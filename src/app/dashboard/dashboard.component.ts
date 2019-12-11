@@ -28,25 +28,13 @@ export class DashboardComponent implements OnInit, OnDestroy {
     this.mobileQuery.addListener(this._mobileQueryListener);
   }
 
+  onLogout() {
+    this.AuthService.role = null
+    this.AuthService.username = null
+  }
+
   ngOnInit() {
-    const currentNav = this.router.url;
-    if (currentNav == "/") {
-      if (this.AuthService.role == 'Admin') {
-        this.router.navigate(['admin-dashboard'])
-      }
-      if (this.AuthService.role == 'Owner') {
-        this.router.navigate(['institute-dashboard'])
-      }
-      if (this.AuthService.role == 'Branch Manager') {
-        this.router.navigate(['branch-dashboard'])
-      }
-      if (this.AuthService.role == 'Faculty') {
-        this.router.navigate(['faculty-dashboard'])
-      }
-      if (this.AuthService.role == 'Student') {
-        this.router.navigate(['student-dashboard'])
-      }
-    }
+    this.AuthService.navigateUser()
 
     $(document).ready(function () {
       var winHeight = $(window).outerHeight();
