@@ -8,7 +8,8 @@ import { Component, OnInit } from '@angular/core';
 export class StudentTaskWorkComponent implements OnInit {
 
   constructor() { }
-
+  stopics: string[] = ['Exercise 1 of Chapter 1', 'Diagrams of Chapter 1'];
+  mtopics: string[] = ['Exercise 1 of Chapter 1', 'Exercise 1 of Chapter 2'];
   ngOnInit() {
   }
 
