@@ -11,20 +11,36 @@
     <div class="header">
       <h2>Sign In</h2>
     </div>
+    
     <form class="login-form" #loginForm="ngForm" (submit)="onLogin(loginForm)">
+      <!-- username -->
       <mat-form-field class="full-width">
-        <input type="text" matInput placeholder="Username*">
+        <input type="text"
+          matInput
+          placeholder="Username"
+          required
+          ngModel
+          name="username">
       </mat-form-field>
+
+      <!-- password -->
       <mat-form-field class="full-width">
-        <input matInput placeholder="Password*" [type]="!hide ? 'password' : 'text'">
+        <input [type]="!hide ? 'password' : 'text'" 
+          matInput
+          placeholder="Password"
+          required
+          ngModel
+          name="password">
         <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
           [attr.aria-pressed]="!hide">
           <mat-icon>{{!hide ? 'visibility_off' : 'visibility'}}</mat-icon>
         </button>
       </mat-form-field>
+
+      <!-- role -->
       <mat-form-field class="full-width">
         <mat-label>Role</mat-label>
-        <mat-select (change)="selectedRole($event.target.value)">
+        <mat-select required ngModel name="role">
           <mat-option *ngFor="let role of roles" [value]="role.value">
             {{role.viewValue}}
           </mat-option>
@@ -36,7 +52,7 @@
         <button mat-raised-button class="place-right" type="submit" color="primary">Sign In</button>
       </div>
     </form>
-    
+
   </mat-card>
   <div class="footer">
     <a class="place-left" routerLink="/signup">Register new Institute</a>

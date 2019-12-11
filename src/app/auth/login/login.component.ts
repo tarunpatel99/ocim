@@ -9,7 +9,7 @@ export interface Role {
 }
 
 export interface signIn {
-  email: string,
+  username: string,
   password: string,
   role: string
 }
@@ -38,12 +38,10 @@ export class LoginComponent implements OnInit {
   }
   onLogin(form: NgForm) {
     const user: signIn = {
-      email: form.value.email,
+      username: form.value.username,
       password: form.value.password,
-      role: this.tempRol
+      role: form.value.role
     }
-
-    console.log(this.tempRol)
     this.AuthService.checkUser(user)
   }
 

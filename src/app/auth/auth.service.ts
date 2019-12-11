@@ -14,6 +14,7 @@ export class AuthService {
   // role = 'Faculty'
   // role = 'Student'
   role = ""
+  username = ""
   
   constructor(
     private router: Router,
@@ -22,12 +23,19 @@ export class AuthService {
   checkUser(user: import("./login/login.component").signIn) {
     this.router.navigate([''])
     this.role = user.role
+    this.username = user.username
     
   }
   
-  navigateUser() {
-    
+  navigateUser() { 
     const currentNav = this.router.url;
+
+    // check if role is assigned or not
+    if (this.role == "") {
+      this.router.navigate(['/login'])
+    }
+
+    // navigate according user role
     if (currentNav == "/") {
       if (this.role == 'Admin') {
         this.router.navigate(['admin-dashboard'])
@@ -46,12 +54,4 @@ export class AuthService {
       }
     }
   }
-  // checkRoutes() {
-  //   const currentRoute = this.router.url
-  //   if (currentRoute == '/') {
-  //     if (this.StudentService.role == 'Admin') {
-  //       this.router.navigate
-  //     }
-  //   }
-  // }
 }

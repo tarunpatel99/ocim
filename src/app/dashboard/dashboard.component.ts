@@ -28,6 +28,11 @@ export class DashboardComponent implements OnInit, OnDestroy {
     this.mobileQuery.addListener(this._mobileQueryListener);
   }
 
+  onLogout() {
+    this.AuthService.role = null
+    this.AuthService.username = null
+  }
+
   ngOnInit() {
     this.AuthService.navigateUser()
 
