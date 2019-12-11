@@ -11,7 +11,7 @@
     <div class="header">
       <h2>Sign In</h2>
     </div>
-    <form class="login-form">
+    <form class="login-form" #loginForm="ngForm" (submit)="onLogin(loginForm)">
       <mat-form-field class="full-width">
         <input type="text" matInput placeholder="Username*">
       </mat-form-field>
@@ -24,22 +24,22 @@
       </mat-form-field>
       <mat-form-field class="full-width">
         <mat-label>Role</mat-label>
-        <mat-select>
+        <mat-select (change)="selectedRole($event.target.value)">
           <mat-option *ngFor="let role of roles" [value]="role.value">
             {{role.viewValue}}
           </mat-option>
         </mat-select>
       </mat-form-field>
-
+      <div class="form-btn">
+        <a mat-button class="place-left" routerLink=".">Forget password?</a>
+        <span class="space"></span>
+        <button mat-raised-button class="place-right" type="submit" color="primary">Sign In</button>
+      </div>
     </form>
-    <div class="form-btn">
-      <a mat-button class="place-left" routerLink=".">Forget password?</a>
-      <span class="space"></span>
-      <button mat-raised-button class="place-right" color="primary">Sing In</button>
-    </div>
+    
   </mat-card>
   <div class="footer">
-    <a class="place-left" routerLink="">Register new Institute</a>
+    <a class="place-left" routerLink="/signup">Register new Institute</a>
     <span class="space"></span>
     <a routerLink="" class="place-right">Contact Us</a>
   </div>
