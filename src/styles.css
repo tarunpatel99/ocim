@@ -72,3 +72,11 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .ocim-font-yellow {
     color: #f1c232;
 }
+
+/* component heading */
+.heading{
+    margin:20px 0;
+    color:#ffffff;
+    font-size: 36px;
+    display: block;
+}
