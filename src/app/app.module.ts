@@ -45,7 +45,7 @@ import { InstitutePaymentsComponent } from './dashboard/entities/institute/insti
 import { InstituteProfileComponent } from './dashboard/entities/institute/institute-profile/institute-profile.component';
 import { InstituteFeedbackComponent } from './dashboard/entities/institute/institute-feedback/institute-feedback.component';
 import { BranchDashboardComponent } from './dashboard/entities/branch/branch-dashboard/branch-dashboard.component';
-import { BranchTimetableComponent } from './dashboard/entities/branch/branch-timetable/branch-timetable.component';
+import { BranchTimetableComponent, TimeTableFormDialog } from './dashboard/entities/branch/branch-timetable/branch-timetable.component';
 import { BranchAttendanceComponent } from './dashboard/entities/branch/branch-attendance/branch-attendance.component';
 import { BranchClassComponent } from './dashboard/entities/branch/branch-class/branch-class.component';
 import { BranchExamScheduleComponent } from './dashboard/entities/branch/branch-exam-schedule/branch-exam-schedule.component';
@@ -104,6 +104,7 @@ import { BranchFacultiesComponent } from './dashboard/entities/branch/branch-fac
     InstituteFeedbackComponent,
     BranchDashboardComponent,
     BranchTimetableComponent,
+    TimeTableFormDialog, //add/edit time table dialog box
     BranchAttendanceComponent,
     BranchClassComponent,
     BranchExamScheduleComponent,
@@ -147,7 +148,7 @@ import { BranchFacultiesComponent } from './dashboard/entities/branch/branch-fac
 
     HttpClientModule
   ],
-  entryComponents: [TaskWorkFormDialog],
+  entryComponents: [TaskWorkFormDialog,TimeTableFormDialog],
   providers: [StudentService, AuthService],
   bootstrap: [AppComponent]
 })
