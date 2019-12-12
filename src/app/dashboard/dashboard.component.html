@@ -13,7 +13,7 @@
         <span>Online Coching Institute Management</span>
         <span class="flex"></span>
         <!-- <span mat-card-avatar class="example-header-image"></span> -->
-        <button mat-stroked-button color="primary" class="button" routerLink="/login"> Logout </button>
+        <button mat-stroked-button color="primary" class="button" (click)="onLogout()" routerLink="/login"> Logout </button>
     </mat-toolbar>
 
     <mat-sidenav-container class="sidenav-container">
@@ -25,7 +25,7 @@
                 <mat-card style="background: none; box-shadow: none;">
                     <mat-card-header>
                         <div mat-card-avatar class="example-header-image"></div>
-                        <mat-card-title><span>User name</span></mat-card-title>
+                        <mat-card-title><span>{{AuthService.username}}</span></mat-card-title>
                         <mat-card-subtitle><span>{{AuthService.role}}</span></mat-card-subtitle>
                     </mat-card-header>
                 </mat-card>
