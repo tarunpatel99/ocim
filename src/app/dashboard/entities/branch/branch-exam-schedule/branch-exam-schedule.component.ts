@@ -50,7 +50,7 @@ export class BranchExamScheduleComponent implements OnInit {
   styleUrls: ['exam-schedule.form.css']
 })
 export class ExamScheduleFormDialog {
-  date = new FormControl(new Date());s
+  date = new FormControl(new Date());
   constructor(
     public dialogRef: MatDialogRef<ExamScheduleFormDialog>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData) {}

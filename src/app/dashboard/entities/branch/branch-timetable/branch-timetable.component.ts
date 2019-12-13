@@ -51,7 +51,7 @@ export class BranchTimetableComponent implements OnInit {
   styleUrls: ['time-table.form.css']
 })
 export class TimeTableFormDialog {
-  date = new FormControl(new Date());s
+  date = new FormControl(new Date());
   constructor(
     public dialogRef: MatDialogRef<TimeTableFormDialog>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData) {}

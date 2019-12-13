@@ -1,5 +1,5 @@
 <div class="heading">Standards & Subjects</div>
-
+<mat-card>
 <!-- <div class="container"> -->
     <mat-card class="form-mat-card">
         <div class="header">    
@@ -9,7 +9,7 @@
 
         <mat-form-field class="full-width">
             <mat-label>Class</mat-label>
-            <mat-select>
+            <mat-select required>
                 <mat-option *ngFor="let class of classes" [value]="class.value">
                 {{class.viewValue}}
                 </mat-option>
@@ -52,7 +52,7 @@
 
         <mat-form-field class="full-width">
             <mat-label>Class</mat-label>
-            <mat-select>
+            <mat-select required>
                 <mat-option *ngFor="let classsbj of classsbjs" [value]="classsbj.value">
                 {{classsbj.viewValue}}
                 </mat-option>
@@ -189,3 +189,4 @@
         </mat-accordion>
     </mat-card>
 <!-- </div> -->
+</mat-card>
