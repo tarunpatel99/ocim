@@ -1,4 +1,59 @@
 <div class="heading">Exam Schedule</div>
+<!-- <mat-accordion>
+    <mat-expansion-panel (opened)="panelOpenState1 = true" (closed)="panelOpenState1 = false">
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                Add Time Table
+            </mat-panel-title>
+            <mat-panel-description>
+                Click here to {{panelOpenState1 ? 'close' : 'open'}}
+            </mat-panel-description>
+        </mat-expansion-panel-header>
+        <form class="no-add-timetable">
+            <mat-form-field class="full-width">
+                <input type="text" matInput placeholder="Title" required>
+            </mat-form-field>
+            <mat-form-field class="full-width">
+                <input matInput [matDatepicker]="pickertimetable" placeholder="Date of Time Table" required>
+                <mat-datepicker-toggle matSuffix [for]="pickertimetable"></mat-datepicker-toggle>
+                <mat-datepicker #pickertimetable></mat-datepicker>
+            </mat-form-field>
+            <mat-form-field class="full-width">
+                <textarea type="text" matInput placeholder="Description" rows="1" required></textarea>
+            </mat-form-field>
+        </form>
+        <mat-action-row>
+            <input #photoInput hidden="true" type="file" onclick="this.value=null" (change)="photoInputChange($event)" accept=".jpg"/>
+            <button mat-stroked-button color="primary" class="button" (click)="photoInput.click()">Upload <mat-icon>cloud_upload</mat-icon></button>                
+            <button mat-flat-button color="primary" (click)="onAddtimetable()">Add</button>
+            <button mat-stroked-button color="warn" (click)="onCleartimetable()">Cancle</button>
+        </mat-action-row>
+    </mat-expansion-panel>
+</mat-accordion> -->
 <!-- <button mat-stroked-button color="primary" class="button">Upload <mat-icon>cloud_upload</mat-icon></button> -->
-<input #photoInput hidden="true" type="file" onclick="this.value=null" (change)="photoInputChange($event)" accept=".jpg"/>
-<button mat-stroked-button color="primary" class="button" (click)="photoInput.click()">Upload <mat-icon>cloud_upload</mat-icon></button>
+<!-- <input #photoInput hidden="true" type="file" onclick="this.value=null" (change)="photoInputChange($event)" accept=".jpg"/>
+<button mat-stroked-button color="primary" class="button" (click)="photoInput.click()">Upload <mat-icon>cloud_upload</mat-icon></button> -->
+<br>
+<mat-card class="example-card">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title>Regular Exam Schedule</mat-card-title>
+    <mat-card-subtitle>10/12/2019</mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba1.jpg" alt="Photo of a Shiba Inu">
+  <mat-card-content>
+    <p>
+        A timetable is a plan of the times when particular events are to take place. ... In a school or college, a timetable is a list that shows the times in the week at which particular subjects are taught. You can also refer to the range of subjects that a student learns or the classes that a teacher teaches as their timetable.
+    </p>
+  </mat-card-content>
+  <mat-card-actions align="end">
+        <button mat-stroked-button color="warn" class="delete" (click)="onDeletetimetable()">Delete</button>
+  </mat-card-actions>
+</mat-card>
+
+
+
+
+<button class="new-btn" mat-fab (click)="openForm()" color="primary" aria-label="Example icon-button with a heart icon">
+    <mat-icon>add</mat-icon>
+</button>
