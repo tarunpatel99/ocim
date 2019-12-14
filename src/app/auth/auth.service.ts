@@ -7,12 +7,6 @@ import { StudentService } from '../student.service';
   providedIn: 'root'
 })
 export class AuthService {
-  
-  // role = 'Admin'
-  // role = 'Owner'
-  // role = 'Branch Manager'
-  // role = 'Faculty'
-  // role = 'Student'
   role = ""
   username = ""
   

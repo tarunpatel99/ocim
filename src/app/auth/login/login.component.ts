@@ -29,19 +29,18 @@ export class LoginComponent implements OnInit {
     {value: 'Faculty', viewValue: 'Faculty'},
     {value: 'Student', viewValue: 'Student'}
   ];
-  tempRol;
-  selectedRole(getRol: any) {
-    this.tempRol = getRol
-  };
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
+  
+  // get login info of user
   onLogin(form: NgForm) {
     const user: signIn = {
       username: form.value.username,
       password: form.value.password,
       role: form.value.role
     }
+
+    // Authentication
     this.AuthService.checkUser(user)
   }
 
