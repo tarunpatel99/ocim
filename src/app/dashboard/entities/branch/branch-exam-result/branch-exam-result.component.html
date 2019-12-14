@@ -1,2 +1,92 @@
 <div class="heading">Exam Result</div>
-<mat-card></mat-card>
+<mat-card>
+    <mat-card>
+        <form action="">
+            <mat-form-field class="small-width">
+                <mat-select placeholder="Select class">
+                    <mat-option value="option">TYBCA</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field class="small-width">
+                <mat-select placeholder="Select Exam">
+                    <mat-option value="option">SDP-II</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field class="small-width">
+                <input matInput [matDatepicker]="datepicker" placeholder="Choose date" [value]="date.value">
+                <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
+                <mat-datepicker #datepicker></mat-datepicker>
+            </mat-form-field>
+            <!-- <mat-form-field class="small-width">
+                <input matInput type="time" placeholder="From [HH:MM AM/PM]" value="00:00">
+            </mat-form-field>
+            <mat-form-field class="small-width">
+                <input matInput type="time" placeholder="To [HH:MM AM/PM]" value="00:00">
+            </mat-form-field> -->
+            <button class="submit-btn" mat-raised-button color="primary">View</button>
+            <mat-divider></mat-divider>
+        </form>
+
+
+        <!-- student list -->
+        <mat-form-field id="searchBar">
+            <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search">
+        </mat-form-field>
+            
+            <mat-table [dataSource]="dataSource" class="mat-elevation-z8 tbl-shadow" matSort>
+    
+                <ng-container matColumnDef="id">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header> ID </mat-header-cell>
+                    <mat-cell *matCellDef="let student"> {{student.id}} </mat-cell>
+                </ng-container>
+    
+                <ng-container matColumnDef="name">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
+                    <mat-cell *matCellDef="let student"> {{student.name}} </mat-cell>
+                </ng-container>
+    
+                <ng-container matColumnDef="exmdate">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header> Date </mat-header-cell>
+                    <mat-cell *matCellDef="let student"> {{student.exmdate}} </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="subject">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header> Subject </mat-header-cell>
+                    <mat-cell *matCellDef="let student"> {{student.subject}} </mat-cell>
+                </ng-container>
+    
+                <ng-container matColumnDef="obt_marks">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header> Obtained </mat-header-cell>
+                    <mat-cell *matCellDef="let student"> {{student.obt_marks}} </mat-cell>
+                </ng-container>
+    
+                <ng-container matColumnDef="ttl_marks">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header> Total </mat-header-cell>
+                    <mat-cell *matCellDef="let student"> {{student.ttl_marks}} </mat-cell>
+                </ng-container>
+    
+                <!-- action Column -->
+                <ng-container matColumnDef="action">
+                    <mat-header-cell *matHeaderCellDef class="tbl-right" > Action </mat-header-cell>
+                    <mat-cell *matCellDef="let element" class="tbl-right">
+                        <!-- <button mat-icon-button color="primary" matTooltip="View">
+                            <mat-icon>visibility</mat-icon>
+                        </button> -->
+                        <button mat-icon-button color="primary" matTooltip="Edit">
+                            <mat-icon>edit</mat-icon>
+                        </button>
+                        <button mat-icon-button color="primary" matTooltip="Delete">
+                            <mat-icon>delete</mat-icon>
+                        </button>
+                    </mat-cell>
+                </ng-container> 
+
+
+                <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                <mat-row *matRowDef="let student; columns: displayedColumns;" [ngStyle]="{'background-color':student.obt_marks <= '17' ? '#ffebee': 'none'}"></mat-row>
+            </mat-table>
+    
+            <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+        
+    </mat-card>
+</mat-card>
