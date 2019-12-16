@@ -81,4 +81,6 @@ export class NoticeFormDialog {
     this.dialogRef.close();
   }
 
+  onAddtimetable(): void { }
+
 }

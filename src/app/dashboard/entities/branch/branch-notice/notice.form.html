@@ -12,7 +12,7 @@
                     (+{{classNotice.value.length - 1}} {{classNotice.value?.length === 2 ? 'other' : 'others'}})
                 </span>
                 </mat-select-trigger>
-                <mat-option *ngFor="let classNotice of classNoticeList" [value]="classNotice">{{classNoticeList.value}}</mat-option>
+                <mat-option *ngFor="let classNotice of Classsbj" [value]="classNotice.value">{{classNotice.viewValue}}</mat-option>
             </mat-select>
         </mat-form-field>
         <mat-form-field class="full-width">
