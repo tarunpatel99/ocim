@@ -50,7 +50,7 @@ import { BranchAttendanceComponent } from './dashboard/entities/branch/branch-at
 import { BranchClassComponent } from './dashboard/entities/branch/branch-class/branch-class.component';
 import { BranchExamScheduleComponent, ExamScheduleFormDialog } from './dashboard/entities/branch/branch-exam-schedule/branch-exam-schedule.component';
 import { BranchExamResultComponent } from './dashboard/entities/branch/branch-exam-result/branch-exam-result.component';
-import { BranchNoticeComponent } from './dashboard/entities/branch/branch-notice/branch-notice.component';
+import { BranchNoticeComponent, NoticeFormDialog } from './dashboard/entities/branch/branch-notice/branch-notice.component';
 import { BranchLeaveNotesComponent } from './dashboard/entities/branch/branch-leave-notes/branch-leave-notes.component';
 import { BranchStudentsComponent } from './dashboard/entities/branch/branch-students/branch-students.component';
 import { BranchFeesComponent } from './dashboard/entities/branch/branch-fees/branch-fees.component';
@@ -111,6 +111,7 @@ import { BranchFacultiesComponent } from './dashboard/entities/branch/branch-fac
     ExamScheduleFormDialog, //add/edit exam schedule dialog box
     BranchExamResultComponent,
     BranchNoticeComponent,
+    NoticeFormDialog, //add/edit notice dialog box
     BranchLeaveNotesComponent,
     BranchStudentsComponent,
     BranchFeesComponent,
@@ -149,7 +150,7 @@ import { BranchFacultiesComponent } from './dashboard/entities/branch/branch-fac
 
     HttpClientModule
   ],
-  entryComponents: [TaskWorkFormDialog,TimeTableFormDialog,ExamScheduleFormDialog],
+  entryComponents: [TaskWorkFormDialog,TimeTableFormDialog,NoticeFormDialog,ExamScheduleFormDialog],
   providers: [StudentService, AuthService],
   bootstrap: [AppComponent]
 })

@@ -1,2 +1,29 @@
 <div class="heading">Notice</div>
-<mat-card></mat-card>
+<mat-card>
+<mat-card class="example-card">
+  <mat-card-header>
+    <mat-card-title>Notice for Kitefest</mat-card-title>
+    <mat-card-subtitle>10/12/2019</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <p>
+        Class : 8th, 9th, 10th
+    </p>
+
+    <p>
+      The festival of Uttarayan is a uniquely Gujarati phenomenon, when the skies over most cities of the state fill with kites from before dawn until well after dark. The festival marks the days in the Hindu calendar when winter begins turning to summer, known as Makar Sankranti or Uttarayan. On what is usually a bright warm sunny day with brisk breezes to lift the kites aloft, across the state almost all normal activity is shut down and everyone takes to the rooftops and roadways to fly kites and compete with their neighbors.
+    </p>
+
+    <p>
+      Notice by : Branch ManagerA
+    </p>
+  </mat-card-content>
+  <mat-card-actions align="end">
+        <button mat-stroked-button color="warn" class="delete" (click)="onDeletetimetable()">Delete</button>
+  </mat-card-actions>
+</mat-card>
+
+<button class="new-btn" mat-fab (click)="openForm()" color="primary" aria-label="Example icon-button with a heart icon">
+    <mat-icon>add</mat-icon>
+</button>
+</mat-card>
