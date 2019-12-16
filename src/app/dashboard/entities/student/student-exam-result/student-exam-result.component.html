@@ -1,1 +1,46 @@
-<p>student-exam-result works!</p>
+<div>
+    <form class="example-form">
+        <mat-card class="form-mat-card">
+            <p class="txt">
+                Exam Result
+            </p>
+            <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 table">
+
+                <!--- Note that these columns can be defined in any order.
+                      The actual rendered columns are set as a property on the row definition" -->
+              
+                <!-- Position Column -->
+                <ng-container matColumnDef="sub">
+                  <th mat-header-cell *matHeaderCellDef> Subject </th>
+                  <td mat-cell *matCellDef="let element"> {{element.sub}} </td>
+                </ng-container>
+              
+                <!-- Name Column -->
+                <ng-container matColumnDef="marks">
+                  <th mat-header-cell *matHeaderCellDef> Obtained Marks </th>
+                  <td mat-cell *matCellDef="let element"> {{element.marks}} </td>
+                </ng-container>
+              
+                <!-- Weight Column -->
+                <ng-container matColumnDef="tmarks">
+                  <th mat-header-cell *matHeaderCellDef> Total Marks </th>
+                  <td mat-cell *matCellDef="let element"> {{element.tmarks}} </td>
+                </ng-container>
+              
+                <ng-container matColumnDef="examdate">
+                  <th mat-header-cell *matHeaderCellDef> Exam Date (DD/MM/YYYY) </th>
+                  <td mat-cell *matCellDef="let element"> {{element.examdate}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="desc">
+                  <th mat-header-cell *matHeaderCellDef> Description </th>
+                  <td mat-cell *matCellDef="let element"> {{element.desc}} </td>
+                </ng-container>
+                
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+              </table>
+        </mat-card>
+    </form>
+</div>
