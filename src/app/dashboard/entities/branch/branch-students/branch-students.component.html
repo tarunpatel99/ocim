@@ -1,172 +1,180 @@
 <div class="heading">Students</div>
 <mat-card>
-<mat-accordion>
-    <mat-expansion-panel  (opened)="panelOpenState1 = true" (closed)="panelOpenState1 = false">
-        <mat-expansion-panel-header>
-            <mat-panel-title>
-                Add Student
-            </mat-panel-title>
-            <mat-panel-description>
-                Click here to {{panelOpenState1 ? 'close' : 'open'}}
-            </mat-panel-description>
-        </mat-expansion-panel-header>
-        <!-- <mat-card class="form-mat-card"> -->
-        <!-- <div class="header">    
-            <h2>Add Student</h2>
-        </div>   -->
-        <form class="no-add-student">
-            <mat-card style="background: none; box-shadow: none;">
-                <mat-card-header>
-                    <div mat-card-avatar class="example-header-image"></div>
-                    <!-- <mat-card-title><span>User name</span></mat-card-title>
-                    <mat-card-subtitle><span>User Type</span></mat-card-subtitle> -->
-                </mat-card-header>
-            </mat-card>
-            <mat-form-field class="full-width">
-                <input type="text" matInput placeholder="First name" required>
-            </mat-form-field>
-            <mat-form-field class="full-width">
-                <input type="text" matInput placeholder="Middle name" required>
-            </mat-form-field>
-            <mat-form-field class="full-width">
-                <input type="text" matInput placeholder="Last name" required>
-            </mat-form-field>
-            <br>
-            <mat-form-field class="full-width">
-                <mat-label>Class</mat-label>
-                <mat-select required>
-                    <mat-option *ngFor="let class of classes" [value]="class.value">
-                    {{class.viewValue}}
-                    </mat-option>
-                </mat-select>
-            </mat-form-field>
-            <mat-form-field class="full-width">
-                <input type="text" matInput placeholder="Roll no." required>
-            </mat-form-field>
-            
-            <mat-form-field class="full-width">
-                <input matInput [matDatepicker]="pickerJoindob" placeholder="Date of birth" required>
-                <mat-datepicker-toggle matSuffix [for]="pickerJoindob"></mat-datepicker-toggle>
-                <mat-datepicker #pickerJoindob></mat-datepicker>
-            </mat-form-field>
-            <br>
-            <mat-form-field class="full-width">
-                <input matInput [matDatepicker]="pickerJoinjd" placeholder="Joining date" required>
-                <mat-datepicker-toggle matSuffix [for]="pickerJoinjd"></mat-datepicker-toggle>
-                <mat-datepicker #pickerJoinjd></mat-datepicker>
-            </mat-form-field>
-            
-            <div class="gndr">
-                <p><label class="half-width">Select Gender</label></p>
-                <mat-radio-group aria-label="Select Gender" class="half-width" color="primary" required>
-                    <mat-radio-button value="Male">Male</mat-radio-button>
-                    <mat-radio-button value="Female">Female</mat-radio-button>
-                    <mat-radio-button value="Other">Other</mat-radio-button>
-                </mat-radio-group>
-            </div>
-            <mat-form-field class="full-width">
-                <textarea type="text" matInput placeholder="Address" rows="3" required></textarea>
-            </mat-form-field>
-            <mat-form-field class="full-width">
-                <mat-label>City</mat-label>
-                <mat-select required>
-                    <mat-option *ngFor="let city of cities" [value]="city.value">
-                    {{city.viewValue}}
-                    </mat-option>
-                </mat-select>
-            </mat-form-field>
-            <mat-form-field class="full-width">
-                <mat-label>State</mat-label>
-                <mat-select required>
-                    <mat-option *ngFor="let state of states" [value]="state.value">
-                    {{state.viewValue}}
-                    </mat-option>
-                </mat-select>
-            </mat-form-field>
-            <mat-form-field class="full-width">
-                <input matInput #postalCode maxlength="6" placeholder="Postal Code" required>
-                <mat-hint align="end">{{postalCode.value.length}} / 6</mat-hint>
-            </mat-form-field>
-            <br>
-            <mat-form-field class="full-width">
-                <input type="text" matInput placeholder="Phone number" required>
-            </mat-form-field>
-            <mat-form-field class="full-width">
-                <input type="text" matInput placeholder="Email" required>
-            </mat-form-field>
-            <br>
-            <mat-form-field class="full-width">
-                <input type="password" matInput placeholder="Password" required>
-            </mat-form-field>
-            <mat-form-field class="full-width">
-                <input type="password" matInput placeholder="Confirm password" required>
-            </mat-form-field>
-            <!-- <div class="right"> -->
-                <mat-action-row>
-                    <button mat-flat-button color="primary" (click)="onAddstudent()">Add</button>
-                    <button mat-stroked-button color="warn" (click)="onClearstudent()">Cancle</button>    
-                </mat-action-row>
-            <!-- </div> -->
-        </form>
-        <!-- </mat-card> -->
-    </mat-expansion-panel>
-</mat-accordion>
 
-<!-- ======================================================================================================================= -->
+    <mat-tab-group dynamicHeight>
+        <!-- view Students -->
+        <mat-tab label="View Students">
+            <br>
+            <mat-form-field id="searchBar">
+                <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search">
+            </mat-form-field>
+            <mat-table [dataSource]="dataSource" class="mat-elevation-z8 tbl-shadow">
+                <!-- Position Column -->
+                <!-- <ng-container matColumnDef="position">
+                        <mat-header-cell *matHeaderCellDef> No. </mat-header-cell>
+                        <mat-cell *matCellDef="let element"> {{element.position}} </mat-cell>
+                    </ng-container> -->
 
-<br>
-<mat-form-field id="searchBar">
-    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search">
-</mat-form-field>
-<mat-table [dataSource]="dataSource" class="mat-elevation-z8 tbl-shadow">
-    <!-- Position Column -->
-    <!-- <ng-container matColumnDef="position">
-        <mat-header-cell *matHeaderCellDef> No. </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.position}} </mat-cell>
-    </ng-container> -->
-    
-    <!-- rollno Column -->
-    <ng-container matColumnDef="rollno">
-        <mat-header-cell *matHeaderCellDef> Roll no. </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.rollno}} </mat-cell>
-    </ng-container>
-    
-    <!-- Name Column -->
-    <ng-container matColumnDef="name">
-        <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
-    </ng-container>
-    
-    <!-- class Column -->
-    <ng-container matColumnDef="class">
-        <mat-header-cell *matHeaderCellDef> Class </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.class}} </mat-cell>
-    </ng-container>
-    
-    <!-- phone Column -->
-    <ng-container matColumnDef="phone">
-        <mat-header-cell *matHeaderCellDef> Phone no. </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.phone}} </mat-cell>
-    </ng-container>
-    
-    <!-- action Column -->
-    <ng-container matColumnDef="action">
-        <mat-header-cell *matHeaderCellDef class="tbl-right" > Action </mat-header-cell>
-        <mat-cell *matCellDef="let element" class="tbl-right">
-            <button mat-icon-button color="primary" matTooltip="View">
-                <mat-icon>visibility</mat-icon>
-            </button>
-            <button mat-icon-button color="primary" matTooltip="Edit">
-                <mat-icon>edit</mat-icon>
-            </button>
-            <button mat-icon-button color="primary" matTooltip="Delete">
-                <mat-icon>delete</mat-icon>
-            </button>
-        </mat-cell>
-    </ng-container> 
+                <!-- rollno Column -->
+                <ng-container matColumnDef="rollno">
+                    <mat-header-cell *matHeaderCellDef> Roll no. </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.rollno}} </mat-cell>
+                </ng-container>
 
-    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-</mat-table>
-<mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+                <!-- Name Column -->
+                <ng-container matColumnDef="name">
+                    <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+                </ng-container>
+
+                <!-- class Column -->
+                <ng-container matColumnDef="class">
+                    <mat-header-cell *matHeaderCellDef> Class </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.class}} </mat-cell>
+                </ng-container>
+
+                <!-- phone Column -->
+                <ng-container matColumnDef="phone">
+                    <mat-header-cell *matHeaderCellDef> Phone no. </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.phone}} </mat-cell>
+                </ng-container>
+
+                <!-- action Column -->
+                <ng-container matColumnDef="action">
+                    <mat-header-cell *matHeaderCellDef class="tbl-right"> Action </mat-header-cell>
+                    <mat-cell *matCellDef="let element" class="tbl-right">
+                        <button mat-icon-button color="primary" matTooltip="View">
+                            <mat-icon>visibility</mat-icon>
+                        </button>
+                        <button mat-icon-button color="primary" matTooltip="Edit">
+                            <mat-icon>edit</mat-icon>
+                        </button>
+                        <button mat-icon-button color="primary" matTooltip="Delete">
+                            <mat-icon>delete</mat-icon>
+                        </button>
+                    </mat-cell>
+                </ng-container>
+
+                <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+            </mat-table>
+            <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+
+        </mat-tab>
+
+        <!-- ======================================================================================================================= -->
+
+        <!-- Add Students -->
+        <mat-tab label="Add Student">
+            <br>
+                
+                    <!-- <mat-card class="form-mat-card"> -->
+                    <!-- <div class="header">    
+                            <h2>Add Student</h2>
+                        </div>   -->
+                    <form class="no-add-student">
+                        <mat-card style="background: none; box-shadow: none;">
+                            <mat-card-header>
+                                <div mat-card-avatar class="example-header-image"></div>
+                                <!-- <mat-card-title><span>User name</span></mat-card-title>
+                                    <mat-card-subtitle><span>User Type</span></mat-card-subtitle> -->
+                            </mat-card-header>
+                        </mat-card>
+                        <mat-form-field class="full-width">
+                            <input type="text" matInput placeholder="First name" required>
+                        </mat-form-field>
+                        <mat-form-field class="full-width">
+                            <input type="text" matInput placeholder="Middle name" required>
+                        </mat-form-field>
+                        <mat-form-field class="full-width">
+                            <input type="text" matInput placeholder="Last name" required>
+                        </mat-form-field>
+                        <br>
+                        <mat-form-field class="full-width">
+                            <mat-label>Class</mat-label>
+                            <mat-select required>
+                                <mat-option *ngFor="let class of classes" [value]="class.value">
+                                    {{class.viewValue}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                        <mat-form-field class="full-width">
+                            <input type="text" matInput placeholder="Roll no." required>
+                        </mat-form-field>
+
+                        <mat-form-field class="full-width">
+                            <input matInput [matDatepicker]="pickerJoindob" placeholder="Date of birth" required>
+                            <mat-datepicker-toggle matSuffix [for]="pickerJoindob"></mat-datepicker-toggle>
+                            <mat-datepicker #pickerJoindob></mat-datepicker>
+                        </mat-form-field>
+                        <br>
+                        <mat-form-field class="full-width">
+                            <input matInput [matDatepicker]="pickerJoinjd" placeholder="Joining date" required>
+                            <mat-datepicker-toggle matSuffix [for]="pickerJoinjd"></mat-datepicker-toggle>
+                            <mat-datepicker #pickerJoinjd></mat-datepicker>
+                        </mat-form-field>
+
+                        <div class="gndr">
+                            <p><label class="half-width">Select Gender</label></p>
+                            <mat-radio-group aria-label="Select Gender" class="half-width" color="primary" required>
+                                <mat-radio-button value="Male">Male</mat-radio-button>
+                                <mat-radio-button value="Female">Female</mat-radio-button>
+                                <mat-radio-button value="Other">Other</mat-radio-button>
+                            </mat-radio-group>
+                        </div>
+                        <mat-form-field class="full-width">
+                            <textarea type="text" matInput placeholder="Address" rows="3" required></textarea>
+                        </mat-form-field>
+                        <mat-form-field class="full-width">
+                            <mat-label>City</mat-label>
+                            <mat-select required>
+                                <mat-option *ngFor="let city of cities" [value]="city.value">
+                                    {{city.viewValue}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                        <mat-form-field class="full-width">
+                            <mat-label>State</mat-label>
+                            <mat-select required>
+                                <mat-option *ngFor="let state of states" [value]="state.value">
+                                    {{state.viewValue}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                        <mat-form-field class="full-width">
+                            <input matInput #postalCode maxlength="6" placeholder="Postal Code" required>
+                            <mat-hint align="end">{{postalCode.value.length}} / 6</mat-hint>
+                        </mat-form-field>
+                        <br>
+                        <mat-form-field class="full-width">
+                            <input type="text" matInput placeholder="Phone number" required>
+                        </mat-form-field>
+                        <mat-form-field class="full-width">
+                            <input type="text" matInput placeholder="Email" required>
+                        </mat-form-field>
+                        <br>
+                        <mat-form-field class="full-width">
+                            <input type="password" matInput placeholder="Password" required>
+                        </mat-form-field>
+                        <mat-form-field class="full-width">
+                            <input type="password" matInput placeholder="Confirm password" required>
+                        </mat-form-field>
+                        <!-- <div class="right"> -->
+                        <mat-action-row>
+                            <button mat-flat-button color="primary" (click)="onAddstudent()">Add</button>
+                            <button mat-stroked-button color="warn" (click)="onClearstudent()">Cancle</button>
+                        </mat-action-row>
+                        <!-- </div> -->
+                    </form>
+                    <!-- </mat-card> -->
+                
+        </mat-tab>
+    </mat-tab-group>
+
+
+
+
+
+    <br>
+
 </mat-card>
