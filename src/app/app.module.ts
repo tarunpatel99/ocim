@@ -40,7 +40,7 @@ import { AdminFeedbackComponent } from './dashboard/entities/admin/admin-feedbac
 import { AdminProfileComponent } from './dashboard/entities/admin/admin-profile/admin-profile.component';
 import { InstituteDashboardComponent } from './dashboard/entities/institute/institute-dashboard/institute-dashboard.component';
 import { InstituteBranchesComponent } from './dashboard/entities/institute/institute-branches/institute-branches.component';
-import { InstituteNoticeComponent } from './dashboard/entities/institute/institute-notice/institute-notice.component';
+import { InstituteNoticeComponent ,NoticeByIOFormDialog } from './dashboard/entities/institute/institute-notice/institute-notice.component';
 import { InstitutePaymentsComponent } from './dashboard/entities/institute/institute-payments/institute-payments.component';
 import { InstituteProfileComponent } from './dashboard/entities/institute/institute-profile/institute-profile.component';
 import { InstituteFeedbackComponent } from './dashboard/entities/institute/institute-feedback/institute-feedback.component';
@@ -99,6 +99,7 @@ import { BranchFacultiesComponent } from './dashboard/entities/branch/branch-fac
     InstituteDashboardComponent,
     InstituteBranchesComponent,
     InstituteNoticeComponent,
+    NoticeByIOFormDialog,
     InstitutePaymentsComponent,
     InstituteProfileComponent,
     InstituteFeedbackComponent,
@@ -150,7 +151,7 @@ import { BranchFacultiesComponent } from './dashboard/entities/branch/branch-fac
 
     HttpClientModule
   ],
-  entryComponents: [TaskWorkFormDialog,TimeTableFormDialog,NoticeFormDialog,ExamScheduleFormDialog],
+  entryComponents: [TaskWorkFormDialog,TimeTableFormDialog,NoticeByIOFormDialog,NoticeFormDialog,ExamScheduleFormDialog],
   providers: [StudentService, AuthService],
   bootstrap: [AppComponent]
 })
