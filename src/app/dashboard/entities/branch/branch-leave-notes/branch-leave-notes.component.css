@@ -4,3 +4,17 @@
     font-size: 36px;
     display: block;
 }
+table {
+    width: 100%;
+}
+
+.status {
+    padding: 3px;
+    border-radius: 2px;
+}
+
+#searchBar {
+    font-size: 14px;
+    margin-top: 10px;
+    width: 100%;
+}

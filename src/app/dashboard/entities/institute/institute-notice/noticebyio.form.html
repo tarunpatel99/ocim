@@ -1,0 +1,26 @@
+<h1 mat-dialog-title>Add Exam Schedule</h1>
+<div mat-dialog-content>
+    <form class="no-add-timetable">
+        <mat-form-field class="full-width">
+            <input type="text" matInput placeholder="Title" required>
+        </mat-form-field>
+        <mat-form-field class="full-width">
+            <mat-select placeholder="Class" [formControl]="tabs" multiple>
+                <mat-select-trigger>
+                {{tabs ? tabs[0] : ''}}
+                <span *ngIf="tabs.value?.length > 1" class="example-additional-selection">
+                    (+{{tabs.length - 1}} {{tabs?.length === 2 ? 'other' : 'others'}})
+                </span>
+                </mat-select-trigger>
+                <mat-option *ngFor="let tab of tabs" [value]="tab">{{tabs}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field class="full-width">
+            <textarea type="text" matInput placeholder="Description" rows="1" required></textarea>
+        </mat-form-field>
+    </form>
+</div>
+<div mat-dialog-actions>
+    <button mat-flat-button color="primary" (click)="onAddtimetable()">Add</button>
+    <button mat-stroked-button color="warn" (click)="onSave()">Cancle</button>
+</div>

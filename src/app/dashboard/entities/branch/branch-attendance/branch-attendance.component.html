@@ -1,1 +1,82 @@
 <div class="heading">Attendance</div>
+<mat-card>
+    <form class="no-add-student">
+        <mat-form-field class="full-width">
+            <mat-label>Class</mat-label>
+            <mat-select required>
+                <mat-option *ngFor="let class of classes" [value]="class.value">
+                {{class.viewValue}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </form>
+<!-- ======================================================================================================================= -->
+
+    <br>
+    <mat-form-field id="searchBar">
+        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search">
+    </mat-form-field>
+    <mat-table [dataSource]="dataSource" class="mat-elevation-z8 tbl-shadow">
+        <!-- Position Column -->
+        <!-- <ng-container matColumnDef="position">
+            <mat-header-cell *matHeaderCellDef> No. </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.position}} </mat-cell>
+        </ng-container> -->
+        
+        <!-- rollno Column -->
+        <ng-container matColumnDef="rollno">
+            <mat-header-cell *matHeaderCellDef> Roll no. </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.rollno}} </mat-cell>
+        </ng-container>
+        
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+            <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+        </ng-container>
+        
+        <!-- Maths Column -->
+        <ng-container matColumnDef="Maths">
+            <mat-header-cell *matHeaderCellDef> Maths </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.Maths}} </mat-cell>
+        </ng-container>
+        
+        <!-- Sci Column -->
+        <ng-container matColumnDef="Sci">
+            <mat-header-cell *matHeaderCellDef> Sci </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.Sci}} </mat-cell>
+        </ng-container>
+
+        <!-- English Column -->
+        <ng-container matColumnDef="English">
+            <mat-header-cell *matHeaderCellDef> English </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.English}} </mat-cell>
+        </ng-container>
+        
+        <!-- SS Column -->
+        <ng-container matColumnDef="SS">
+            <mat-header-cell *matHeaderCellDef> SS </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.SS}} </mat-cell>
+        </ng-container>
+        
+        <!-- Total Column -->
+        <ng-container matColumnDef="Total">
+            <mat-header-cell *matHeaderCellDef> Total </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.Total}} </mat-cell>
+        </ng-container>
+
+        <!-- action Column -->
+        <ng-container matColumnDef="action">
+            <mat-header-cell *matHeaderCellDef class="tbl-right" > Action </mat-header-cell>
+            <mat-cell *matCellDef="let element" class="tbl-right">
+                <button mat-icon-button color="primary" matTooltip="View">
+                    <mat-icon>visibility</mat-icon>
+                </button>
+            </mat-cell>
+        </ng-container> 
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+</mat-card>
