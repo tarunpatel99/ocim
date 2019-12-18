@@ -1,8 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatPaginator } from '@angular/material/paginator';
-import { MatSort } from '@angular/material/sort';
-import { MatTableDataSource } from '@angular/material/table';
-import { FormControl } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
 
 export interface Attatchment {
   id: string
@@ -27,44 +23,10 @@ export interface LeaveNote {
   styleUrls: ['./leavestatus.component.css']
 })
 export class LeavestatusComponent implements OnInit {
-  displayedColumns: string[] = ['name', 'class', 'subject', 'from', 'to', 'status','action'];
-  dataSource: MatTableDataSource<LeaveNote>;
 
-  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
-  @ViewChild(MatSort, { static: true }) sort: MatSort;
-  
-  // leave notes data
-  leaves: LeaveNote[] = [
-    { id: "132", class: "8", studentName: "Tarun Patel", subject: "Khabar nai", description: "Dr. ne mali lo", leaveFrom: "12/12/2019", leaveTo: "22/12/2019", attatchment: [{ id: "Attatchment one" }, { id: "Attatchment two" }], status: "Pending" },
-    { id: "132", class: "8", studentName: "Tarun Patel", subject: "Khabar nai", description: "Dr. ne mali lo", leaveFrom: "12/12/2019", leaveTo: "22/12/2019", attatchment: [{ id: "Attatchment one" }, { id: "Attatchment two" }], status: "Approved" },
-    { id: "126", class: "8", studentName: "Tarun Patel", subject: "Khabar nai", description: "Dr. ne mali lo", leaveFrom: "12/12/2019", leaveTo: "22/12/2019", attatchment: [{ id: "Attatchment one" }, { id: "Attatchment two" }], status: "Denied" },
-  ]
-  constructor() {
-    this.dataSource = new MatTableDataSource(this.leaves);
-   }
-  
+  constructor() { }
+
   ngOnInit() {
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
-  }
-   // filtering data
-   applyFilter(filterValue: string) {
-    this.dataSource.filter = filterValue.trim().toLowerCase();
-
-    if (this.dataSource.paginator) {
-      this.dataSource.paginator.firstPage();
-    }
-  }
-
-  getColor(status) {
-    switch (status) {
-      case 'Pending':
-        return '#e0e0e0'; // grey
-      case 'Approved':
-        return '#43a047'; // green
-      case 'Denied':
-        return '#e53935'; // red
-    }
   }
 
 }
