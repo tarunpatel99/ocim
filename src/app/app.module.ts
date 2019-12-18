@@ -58,7 +58,7 @@ import { BranchProfileComponent } from './dashboard/entities/branch/branch-profi
 import { FacultyDashboardComponent } from './dashboard/entities/faculty/faculty-dashboard/faculty-dashboard.component';
 import { FacultyTimeTableComponent } from './dashboard/entities/faculty/faculty-time-table/faculty-time-table.component';
 import { FacultyAttendanceComponent } from './dashboard/entities/faculty/faculty-attendance/faculty-attendance.component';
-import { FacultyTaskWorkComponent } from './dashboard/entities/faculty/faculty-task-work/faculty-task-work.component';
+import { FacultyTaskWorkComponent, TaskWorkFormDialog } from './dashboard/entities/faculty/faculty-task-work/faculty-task-work.component';
 import { FacultySyllabusComponent } from './dashboard/entities/faculty/faculty-syllabus/faculty-syllabus.component';
 import { FacultyExamScheduleComponent } from './dashboard/entities/faculty/faculty-exam-schedule/faculty-exam-schedule.component';
 import { FacultyExamResultComponent } from './dashboard/entities/faculty/faculty-exam-result/faculty-exam-result.component';
@@ -117,6 +117,7 @@ import { BranchFacultiesComponent } from './dashboard/entities/branch/branch-fac
     FacultyTimeTableComponent,
     FacultyAttendanceComponent,
     FacultyTaskWorkComponent,
+    TaskWorkFormDialog, // add/edit task and work dialog box
     FacultySyllabusComponent,
     FacultyExamScheduleComponent,
     FacultyExamResultComponent,
@@ -146,6 +147,7 @@ import { BranchFacultiesComponent } from './dashboard/entities/branch/branch-fac
 
     HttpClientModule
   ],
+  entryComponents: [TaskWorkFormDialog],
   providers: [StudentService, AuthService],
   bootstrap: [AppComponent]
 })
