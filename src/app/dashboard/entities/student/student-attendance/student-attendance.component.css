@@ -1,0 +1,11 @@
+mat-chip {
+    max-width: 200px;
+  }
+
+.mat-card-width {
+    width: 95%;
+}
+
+.mat-table-width {
+    width: 95%;
+}

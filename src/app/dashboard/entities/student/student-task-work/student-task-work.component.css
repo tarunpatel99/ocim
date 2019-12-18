@@ -1,11 +1,34 @@
-.half-width {
-    width: 47%;
+.form-mat-card {
+    padding: 10px;
+    padding: 20px;
+    height: fit-content;
+    width: 50%;
+}
+.example-form {
+    width: auto;
+    height: fit-content;
+  }
+
+.txt{
+    font-size: x-large;
+    font-family: sans-serif;
 }
 
-.full-width {
-    width: 98%;
+.largetxt{
+    font-size: large;
+}
+.tbl-style {
+    border-style: inset;
+    width: 100%;
 }
 
-mat-form-field {
-    margin-right: 12px;
+.td-row {
+    border-style: outset;
+}
+
+.table {
+    width: 100%;
+}
+.example-full-width{
+    width: 100%;
 }

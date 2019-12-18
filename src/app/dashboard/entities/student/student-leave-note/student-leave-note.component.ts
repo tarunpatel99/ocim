@@ -78,8 +78,8 @@ export class StudentLeaveNoteComponent implements OnInit {
 // Add task and work form dialog box
 @Component({
   selector: 'applyleave',
-  templateUrl: 'applyleave.html',
-  styleUrls: ['applyleave.css']
+  templateUrl: './applyleave.html',
+  styleUrls: ['./applyleave.css']
 })
 export class ApplyLeaveDialog {
   date = new FormControl(new Date());
