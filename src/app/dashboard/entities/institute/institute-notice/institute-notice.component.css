@@ -1,0 +1,89 @@
+.heading{
+    margin:20px 0;
+    color:#ffffff;
+    font-size: 36px;
+    display: block;
+}
+
+mat-form-field{
+    margin: 0 10px;
+    display: inline-block;
+}
+
+mat-radio-button{
+    margin: 0 5px;
+}
+
+button{
+    margin: 5px;
+}
+
+.example-card {
+  max-width: 400px;
+}
+
+/* .header {
+    margin-left: 28px;
+    text-align: left;
+} */
+
+.example-header-image {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
+    height: 50px;
+    width: 50px;
+  }
+  
+  /* .form-mat-card {
+    display: inline-table;
+    margin: 5% ;
+    /* padding: 10px; * /
+    padding: 20px;
+    width: auto;
+    /* padding: 10px;
+    margin: auto;
+    padding: 20px;
+    height: fit-content;
+    width: 400px; * /
+} */
+
+
+.full-width {
+    display: inline-block;
+    width: 30%;
+    margin: 0 10px;
+    /* max-width: 85%; */
+}
+
+.half-width {
+    display: inline;
+    /* width: 500px; */
+    margin: 0 10px;
+    max-width: 30%;
+}
+
+/* .right{
+    float: right;
+} */
+
+mat-panel-title{
+    width: 50%;
+}
+
+.example-card {
+    max-width: 25%;
+    box-shadow: none !important;
+    border: 2px solid #e0e0e0;
+
+}
+
+.delete{
+    right: 0 !important;
+}
+
+
+.new-btn {
+    position: fixed;
+    right: 30px;
+    bottom: 30px;
+}

@@ -21,6 +21,7 @@ button{
   
 .form-mat-card {
     display: inline-table;
+    box-shadow: none !important;
     margin: 3% ;
     /* padding: 10px; */
     padding: 20px;

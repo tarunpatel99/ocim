@@ -4,3 +4,147 @@
     font-size: 36px;
     display: block;
 }
+
+mat-form-field{
+    margin: 0 10px;
+    display: inline-block;
+}
+
+mat-radio-button{
+    margin: 0 5px;
+}
+
+button{
+    margin: 5px;
+}
+
+/* .header {
+    margin-left: 28px;
+    text-align: left;
+} */
+
+.example-header-image {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
+    height: 50px;
+    width: 50px;
+  }
+  
+/* .form-mat-card {
+    display: inline-table;
+    margin: 5% ;
+    /* padding: 10px; * /
+    padding: 20px;
+    width: auto;
+    /* padding: 10px;
+    margin: auto;
+    padding: 20px;
+    height: fit-content;
+    width: 400px; * /
+} */
+
+.gndr{
+    display: inline-block;
+    width: 30%;
+    margin: 0 10px;
+}
+
+.full-width {
+    display: inline-block;
+    width: 30%;
+    margin: 0 10px;
+    /* max-width: 85%; */
+}
+
+.half-width {
+    display: inline;
+    /* width: 500px; */
+    margin: 0 10px;
+    max-width: 30%;
+}
+
+.add-result{
+    display: block;
+    margin: 0 20px;
+}
+
+.obtnmark{
+    width: 150px;
+}
+
+.std-roll-no{
+    display: inline-block;
+    width: 150px;
+}
+
+.std-name{
+    display: inline-block;
+    width: 200px;
+}
+
+.obtn-mark{
+    display: inline-block;
+    width: 150px;
+}
+
+/* .right{
+    float: right;
+} */
+
+mat-panel-title{
+    width: 50%;
+}
+
+#searchBar {
+    font-size: 14px;
+    margin-top: 10px;
+    width: 100%;
+    margin: auto;
+  }
+
+.tbl-shadow{
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.tbl-right{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.large-width {
+    width: 85%;
+}
+
+.half-width {
+    width: 49.05%
+}
+
+.submit-btn {
+    width: 12%;
+}
+
+.small-width {
+    width: 27%
+}
+
+.mat-radio-button ~ .mat-radio-button {
+    margin-left: 16px;
+}
+
+table {
+    width: 100%;
+}
+
+#searchBar {
+    font-size: 14px;
+    margin-top: 10px;
+    width: 100%;
+}
+.tbl-shadow{
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.tbl-right{
+    display: flex;
+    justify-content: flex-end;
+}
