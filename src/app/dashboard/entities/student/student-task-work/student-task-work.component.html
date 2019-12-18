@@ -1,44 +1,35 @@
-<div>
-    <form class="example-form">
-        <mat-card class="form-mat-card">
-            <mat-accordion>
-                <mat-expansion-panel (opened)="panelOpenState = true"
-                                     (closed)="panelOpenState = false" #pan1>
-                  <mat-expansion-panel-header>
-                    <mat-panel-title class="txt">
-                      SCIENCE
-                    </mat-panel-title>
-                    <mat-panel-description class="largetxt">
-                       {{panelOpenState ? 'SubmissionDate 12/12/19' : 'IssueDate 9/12/19'}}
-                    </mat-panel-description>
-                  </mat-expansion-panel-header>
-                  <mat-selection-list #sci>
-                    <mat-list-option *ngFor="let science of stopics">
-                      {{science}}
-                    </mat-list-option>
-                  </mat-selection-list>
-                </mat-expansion-panel>
-              </mat-accordion>
-        </mat-card>
-        <mat-card class="form-mat-card">
-          <mat-accordion>
-              <mat-expansion-panel (opened)="panelOpenState = true"
-                                   (closed)="panelOpenState = false">
-                <mat-expansion-panel-header>
-                  <mat-panel-title class="txt">
-                    MATHS
-                  </mat-panel-title>
-                  <mat-panel-description class="largetxt">
-                     {{panelOpenState ? 'SubmissionDate 10/12/19' : 'IssueDate 7/12/19'}}
-                  </mat-panel-description>
-                </mat-expansion-panel-header>
-                <mat-selection-list #math>
-                  <mat-list-option *ngFor="let maths of mtopics">
-                    {{maths}}
-                  </mat-list-option>
-                </mat-selection-list>
-              </mat-expansion-panel>
-            </mat-accordion>
-      </mat-card>
+<h1 mat-dialog-title>Add Task & work</h1>
+<div mat-dialog-content>
+    <form action="" #addTask>
+        <mat-form-field class="half-width">
+            <mat-select placeholder="Select Class" required>
+                <mat-option value="tybca">TYBCA</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field class="half-width">
+            <mat-select placeholder="Select Subject" required>
+                <mat-option value="OSOS">OSOS</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field class="half-width">
+            <input matInput [matDatepicker]="IssueDatePicker" placeholder="Issue date" [value]="date.value" required>
+            <mat-datepicker-toggle matSuffix [for]="IssueDatePicker"></mat-datepicker-toggle>
+            <mat-datepicker #IssueDatePicker></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field class="half-width">
+            <input matInput [matDatepicker]="submissionDatePicker" placeholder="Submission date" required>
+            <mat-datepicker-toggle matSuffix [for]="submissionDatePicker"></mat-datepicker-toggle>
+            <mat-datepicker #submissionDatePicker></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field class="full-width">
+            <input matInput type="text" required placeholder="Title">
+        </mat-form-field>
+        <mat-form-field class="full-width">
+            <textarea matInput placeholder="Description"></textarea>
+        </mat-form-field>
     </form>
+</div>
+<div mat-dialog-actions>
+    <button mat-button (click)="onSave()">Cancel</button>
+    <button mat-button color="primary" cdkFocusInitial>Add</button>
 </div>

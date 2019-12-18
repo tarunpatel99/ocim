@@ -1,27 +1,14 @@
-.form-mat-card {
-    padding: 10px;
-    padding: 20px;
-    height: fit-content;
+table {
     width: 100%;
-}
-.example-form {
-    width: 100%;
-    height: fit-content;
   }
 
-.txt{
-    font-size: x-large;
-}
+  .status {
+      padding: 3px;
+      border-radius: 2px;
+  }
 
-.tbl-style {
-    border-style: inset;
+  #searchBar {
+    font-size: 14px;
+    margin-top: 10px;
     width: 100%;
-}
-
-.td-row {
-    border-style: outset;
-}
-
-.table {
-    width: 100%;
-}
+  }
