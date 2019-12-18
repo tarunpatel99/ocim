@@ -17,7 +17,7 @@
     </mat-toolbar>
 
     <mat-sidenav-container class="sidenav-container">
-        <mat-sidenav #drawer fixedInViewport="false" [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+        <mat-sidenav class="sidenav-container" #drawer fixedInViewport="false" [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
             [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="!(isHandset$ | async)">
             <span class="space-filler primary-color"></span>
             <mat-toolbar class="profile sidenav-header" color="primary">
@@ -135,7 +135,7 @@
             </mat-nav-list>
         </mat-sidenav>
 
-        <mat-sidenav-content style="position: relative; background-color: white;">
+        <mat-sidenav-content style="position: relative;">
 
             <!-- <div class="nav-space-filler"></div> -->
 

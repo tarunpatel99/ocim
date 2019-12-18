@@ -1,1 +1,59 @@
-<div class="heading">Leave Notes</div>
+<div class="heading">Leave notes</div>
+<mat-card>
+    <!-- leave notes list -->
+    <mat-form-field id="searchBar">
+        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search">
+    </mat-form-field>
+
+
+    <mat-table [dataSource]="dataSource" matSort>
+
+        <ng-container matColumnDef="name">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
+            <mat-cell *matCellDef="let leave"> {{leave.studentName}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="class">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Class </mat-header-cell>
+            <mat-cell *matCellDef="let leave"> {{leave.class}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="subject">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Subject </mat-header-cell>
+            <mat-cell *matCellDef="let leave"> {{leave.subject}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="from">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> From </mat-header-cell>
+            <mat-cell *matCellDef="let leave"> {{leave.leaveFrom}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="to">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> To </mat-header-cell>
+            <mat-cell *matCellDef="let leave"> {{leave.leaveTo}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="status">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Status </mat-header-cell>
+            <mat-cell *matCellDef="let leave">
+                <mat-chip-list>
+                    <mat-chip [ngStyle]="{background: getColor(leave.status), 'color': leave.status === 'Pending' ? 'black' : 'white'}">{{leave.status}}</mat-chip>
+                </mat-chip-list>
+            </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="action">
+            <mat-header-cell *matHeaderCellDef> Action </mat-header-cell>
+            <mat-cell *matCellDef="let leave">
+                <button mat-icon-button color="primary" matTooltip="view">
+                    <mat-icon>visibility</mat-icon>
+                </button>
+            </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let leave; columns: displayedColumns;"></mat-row>
+    </mat-table>
+
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+</mat-card>

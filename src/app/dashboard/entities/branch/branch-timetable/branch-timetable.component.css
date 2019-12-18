@@ -77,3 +77,10 @@ mat-panel-title{
 .delete{
     right: 0 !important;
 }
+
+
+.new-btn {
+    position: fixed;
+    right: 30px;
+    bottom: 30px;
+}
