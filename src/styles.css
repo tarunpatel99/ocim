@@ -1,5 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-@import "@angular/material/prebuilt-themes/indigo-pink.css";
+/* @import "@angular/material/prebuilt-themes/indigo-pink.css"; */
 /*
 deeppurple-amber.css
 indigo-pink.css
@@ -71,4 +71,12 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 .ocim-font-yellow {
     color: #f1c232;
+}
+
+/* component heading */
+.heading{
+    margin:20px 0;
+    color:#ffffff;
+    font-size: 36px;
+    display: block;
 }
