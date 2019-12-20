@@ -9,3 +9,13 @@ mat-chip {
 .mat-table-width {
     width: 95%;
 }
+
+.bar-height {
+    height: 20px;
+    
+}
+
+.per-chip {
+    width: 50px;
+    font-style: normal;
+}

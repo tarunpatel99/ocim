@@ -3,9 +3,20 @@
 }
 
 .full-width {
-    width: 98%;
+    width: 100%;
 }
 
 mat-form-field {
     margin-right: 12px;
 }
+
+.example-form {
+    min-width: 100px;
+    max-width: 500px;
+    width: 95%;
+  }
+  
+  .example-full-width {
+    width: 100%;
+  }
+  

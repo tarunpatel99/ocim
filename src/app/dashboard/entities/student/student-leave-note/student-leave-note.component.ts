@@ -41,15 +41,15 @@ export class StudentLeaveNoteComponent implements OnInit {
     this.dataSource = new MatTableDataSource(this.leaves);
    }
    openDialog(): void {
-    const dialogRef = this.dialog.open(ApplyLeaveDialog, {
-      width: '250px',
-     
+    const dialogRef = this.dialog.open(ApplyLeave, {
+      width: '500px',
     });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
     });
   }
+
   ngOnInit() {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
@@ -77,17 +77,17 @@ export class StudentLeaveNoteComponent implements OnInit {
 }
 // Add task and work form dialog box
 @Component({
-  selector: 'applyleave',
-  templateUrl: './applyleave.html',
-  styleUrls: ['./applyleave.css']
+  selector: 'apply-leave',
+  templateUrl: 'applyleave.html',
+  styleUrls: ['applyleave.css']
 })
-export class ApplyLeaveDialog {
-  date = new FormControl(new Date());
+export class ApplyLeave {
+
   constructor(
-    public dialogRef: MatDialogRef<ApplyLeaveDialog>,
+    public dialogRef: MatDialogRef<ApplyLeave>,
     @Inject(MAT_DIALOG_DATA) public data: LeaveNote) {}
 
-  onSave(): void {
+  onNoClick(): void {
     this.dialogRef.close();
   }
 

@@ -6,6 +6,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatDialogModule} from '@angular/material/dialog';
+import { CommonModule } from '@angular/common';
 
 import { FormsModule } from '@angular/forms';
 
@@ -67,7 +69,7 @@ import { FacultyLeaveNoteComponent } from './dashboard/entities/faculty/faculty-
 import { FacultyProfileComponent } from './dashboard/entities/faculty/faculty-profile/faculty-profile.component';
 import { StudentProfileComponent } from './dashboard/entities/student/student-profile/student-profile.component';
 import { StudentFeesComponent } from './dashboard/entities/student/student-fees/student-fees.component';
-import { StudentLeaveNoteComponent } from './dashboard/entities/student/student-leave-note/student-leave-note.component';
+import { StudentLeaveNoteComponent, ApplyLeave } from './dashboard/entities/student/student-leave-note/student-leave-note.component';
 import { StudentNoticeComponent } from './dashboard/entities/student/student-notice/student-notice.component';
 import { StudentExamResultComponent } from './dashboard/entities/student/student-exam-result/student-exam-result.component';
 import { StudentExamScheduleComponent } from './dashboard/entities/student/student-exam-schedule/student-exam-schedule.component';
@@ -139,7 +141,8 @@ import { BranchFacultiesComponent } from './dashboard/entities/branch/branch-fac
     StudentAttendanceComponent,
     StudentTimetableComponent,
     StudentDashboardComponent,
-    BranchFacultiesComponent
+    BranchFacultiesComponent,
+    ApplyLeave
   ],
   imports: [
     BrowserModule,
@@ -148,10 +151,12 @@ import { BranchFacultiesComponent } from './dashboard/entities/branch/branch-fac
     BrowserAnimationsModule,
     FormsModule,
     MaterialModule,
-
+    MatDialogModule,
+    CommonModule,
+    
     HttpClientModule
   ],
-  entryComponents: [TaskWorkFormDialog,TimeTableFormDialog,NoticeByIOFormDialog,NoticeFormDialog,ExamScheduleFormDialog],
+  entryComponents: [TaskWorkFormDialog,TimeTableFormDialog,NoticeByIOFormDialog,NoticeFormDialog,ExamScheduleFormDialog, ApplyLeave],
   providers: [StudentService, AuthService],
   bootstrap: [AppComponent]
 })
