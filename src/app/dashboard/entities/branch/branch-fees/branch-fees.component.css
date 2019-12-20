@@ -70,6 +70,21 @@ mat-panel-title{
     width: 50%;
 }
 
+#searchBar {
+    font-size: 14px;
+    margin-top: 10px;
+    width: 100%;
+    margin: auto;
+  }
+
+.tbl-shadow{
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.tbl-right{
+    display: flex;
+    justify-content: flex-end;
+}
 .example-card {
     max-width: 25%;
     box-shadow: none !important;

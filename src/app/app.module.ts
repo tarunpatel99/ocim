@@ -53,7 +53,7 @@ import { BranchExamResultComponent } from './dashboard/entities/branch/branch-ex
 import { BranchNoticeComponent, NoticeFormDialog } from './dashboard/entities/branch/branch-notice/branch-notice.component';
 import { BranchLeaveNotesComponent } from './dashboard/entities/branch/branch-leave-notes/branch-leave-notes.component';
 import { BranchStudentsComponent } from './dashboard/entities/branch/branch-students/branch-students.component';
-import { BranchFeesComponent } from './dashboard/entities/branch/branch-fees/branch-fees.component';
+import { BranchFeesComponent , announcementFormDialog} from './dashboard/entities/branch/branch-fees/branch-fees.component';
 import { BranchProfileComponent } from './dashboard/entities/branch/branch-profile/branch-profile.component';
 import { FacultyDashboardComponent } from './dashboard/entities/faculty/faculty-dashboard/faculty-dashboard.component';
 import { FacultyTimeTableComponent } from './dashboard/entities/faculty/faculty-time-table/faculty-time-table.component';
@@ -115,7 +115,8 @@ import { BranchFacultiesComponent } from './dashboard/entities/branch/branch-fac
     NoticeFormDialog, //add/edit notice dialog box
     BranchLeaveNotesComponent,
     BranchStudentsComponent,
-    BranchFeesComponent,
+    BranchFeesComponent, 
+    announcementFormDialog, //add annoncemenet dialog box
     BranchProfileComponent,
     FacultyDashboardComponent,
     FacultyTimeTableComponent,
@@ -151,7 +152,12 @@ import { BranchFacultiesComponent } from './dashboard/entities/branch/branch-fac
 
     HttpClientModule
   ],
-  entryComponents: [TaskWorkFormDialog,TimeTableFormDialog,NoticeByIOFormDialog,NoticeFormDialog,ExamScheduleFormDialog],
+  entryComponents: [TaskWorkFormDialog,
+                    TimeTableFormDialog,
+                    announcementFormDialog,
+                    NoticeByIOFormDialog,
+                    NoticeFormDialog,
+                    ExamScheduleFormDialog],
   providers: [StudentService, AuthService],
   bootstrap: [AppComponent]
 })

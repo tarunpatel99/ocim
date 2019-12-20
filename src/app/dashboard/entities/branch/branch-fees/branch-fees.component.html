@@ -31,4 +31,88 @@
 
 
     <!-- </div> -->
+            <br>
+            <form class="no-add-student">
+                <mat-form-field class="full-width">
+                    <mat-label>Class</mat-label>
+                    <mat-select required>
+                        <mat-option *ngFor="let class of classes" [value]="class.value">
+                        {{class.viewValue}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </form>
+            <mat-form-field id="searchBar">
+                <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search">
+            </mat-form-field>
+            <mat-table [dataSource]="dataSource" class="tbl-shadow" matSort>
+                <!-- Position Column -->
+                <!-- <ng-container matColumnDef="position">
+                        <mat-header-cell *matHeaderCellDef> No. </mat-header-cell>
+                        <mat-cell *matCellDef="let element"> {{element.position}} </mat-cell>
+                    </ng-container> -->
+
+                <!-- rollno Column -->
+                <ng-container matColumnDef="rollno">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header> Roll no. </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.rollno}} </mat-cell>
+                </ng-container>
+
+                <!-- Name Column -->
+                <ng-container matColumnDef="name">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+                </ng-container>
+
+                <!-- class Column -->
+                <ng-container matColumnDef="class">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header> Class </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.class}} </mat-cell>
+                </ng-container>
+
+                <!-- sem Column -->
+                <ng-container matColumnDef="sem">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header> Sem </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.sem}} </mat-cell>
+                </ng-container>
+
+                <!-- amount Column -->
+                <ng-container matColumnDef="amount">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header> Amount </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.amount}} </mat-cell>
+                </ng-container>
+
+                <!-- status Column -->
+                <ng-container matColumnDef="status">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header> Status </mat-header-cell>
+                    <mat-cell *matCellDef="let leave">
+                        <mat-chip-list>
+                            <mat-chip [ngStyle]="{color: getColor(leave.status)}" style="background: #f5f5f5" >{{leave.status}}</mat-chip>
+                        </mat-chip-list>
+                    </mat-cell>
+                </ng-container>
+
+                <!-- date Column -->
+                <ng-container matColumnDef="date">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header> date </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.date}} </mat-cell>
+                </ng-container>
+
+
+                <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+            </mat-table>
+            <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+
+        </mat-tab>
+
+        <!-- =================================================================================================================================================== -->
+
+        <mat-tab label="Announcement">
+                        
+            <button class="new-btn" mat-fab (click)="openForm()" color="primary" aria-label="Example icon-button with a heart icon">
+                <mat-icon>add</mat-icon>
+            </button>
+        </mat-tab>
+    </mat-tab-group>
 </mat-card>
