@@ -3,34 +3,6 @@
 
     <mat-tab-group dynamicHeight>
         <mat-tab label="Fees">
-            <mat-card class="form-mat-card">
-                <div class="header">
-                    <h2>Fees</h2>
-                </div>
-                
-                
-            </mat-card>
-        </mat-tab>
-
-        <!-- =================================================================================================================================================== -->
-
-        <mat-tab label="Anouncement">
-            <mat-card class="form-mat-card">
-                <div class="header">
-                    <h2>Anouncement</h2>
-                </div>
-                <button class="new-btn" mat-fab (click)="openForm()" color="primary" aria-label="Example icon-button with a heart icon">
-                    <mat-icon>add</mat-icon>
-                </button>
-            </mat-card>
-        </mat-tab>
-    </mat-tab-group>
-
-    <!-- <div class="container"> -->
-
-
-
-    <!-- </div> -->
             <br>
             <form class="no-add-student">
                 <mat-form-field class="full-width">
@@ -46,11 +18,6 @@
                 <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search">
             </mat-form-field>
             <mat-table [dataSource]="dataSource" class="tbl-shadow" matSort>
-                <!-- Position Column -->
-                <!-- <ng-container matColumnDef="position">
-                        <mat-header-cell *matHeaderCellDef> No. </mat-header-cell>
-                        <mat-cell *matCellDef="let element"> {{element.position}} </mat-cell>
-                    </ng-container> -->
 
                 <!-- rollno Column -->
                 <ng-container matColumnDef="rollno">
@@ -109,7 +76,41 @@
         <!-- =================================================================================================================================================== -->
 
         <mat-tab label="Announcement">
-                        
+            <br>
+            <mat-form-field id="searchBar">
+                <input matInput (keyup)="applyFilter_ancmnt($event.target.value)" placeholder="Search">
+            </mat-form-field>
+            <mat-table [dataSource]="dataSource_ancmnt" class="tbl-shadow" matSort>
+
+                <!-- date Column -->
+                <ng-container matColumnDef="date">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header> date </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.date}} </mat-cell>
+                </ng-container>
+
+                <!-- class Column -->
+                <ng-container matColumnDef="class">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header> Class </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.class}} </mat-cell>
+                </ng-container>
+
+                <!-- title Column -->
+                <ng-container matColumnDef="title">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header> Title </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.title}} </mat-cell>
+                </ng-container>
+
+                <!-- amount Column -->
+                <ng-container matColumnDef="amount">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header> Amount </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.amount}} </mat-cell>
+                </ng-container>
+
+                <mat-header-row *matHeaderRowDef="displayedColumns_ancmnt"></mat-header-row>
+                <mat-row *matRowDef="let row; columns: displayedColumns_ancmnt;"></mat-row>
+            </mat-table>
+            <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+
             <button class="new-btn" mat-fab (click)="openForm()" color="primary" aria-label="Example icon-button with a heart icon">
                 <mat-icon>add</mat-icon>
             </button>

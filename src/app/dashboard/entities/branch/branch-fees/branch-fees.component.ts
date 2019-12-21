@@ -5,6 +5,7 @@ import {MatTableDataSource} from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
 import { FormControl } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA, MatDialog } from '@angular/material';
+import { Stream } from 'stream';
 
 
 
@@ -40,17 +41,40 @@ export interface Std_element {
 
 
 const Student_Data: Std_element[] = [
-  {rollno: '19-bio-11', name: 'Student Middlename Surname', class: '11 Sci Bio' , sem: 'sem 2' , amount: '20000' , status: 'Paid' , date: ''},
-  {rollno: '19-bio-12', name: 'Student Middlename Surname', class: '11 Sci Bio' , sem: 'sem 2' , amount: '20000' , status: 'Unpaid' , date: ''},
-  {rollno: '19-bio-13', name: 'Student Middlename Surname', class: '11 Sci Bio' , sem: 'sem 2' , amount: '20000' , status: 'Paid' , date: ''},
-  {rollno: '19-bio-14', name: 'Student Middlename Surname', class: '11 Sci Bio' , sem: 'sem 2' , amount: '20000' , status: 'Unpaid' , date: ''},
-  {rollno: '19-bio-15', name: 'Student Middlename Surname', class: '11 Sci Bio' , sem: 'sem 2' , amount: '20000' , status: 'Unpaid' , date: ''},
-  {rollno: '19-bio-16', name: 'Student Middlename Surname', class: '11 Sci Bio' , sem: 'sem 2' , amount: '20000' , status: 'Paid' , date: ''},
-  {rollno: '19-bio-17', name: 'Student Middlename Surname', class: '11 Sci Bio' , sem: 'sem 2' , amount: '20000' , status: 'Unpaid' , date: ''},
-  {rollno: '19-bio-18', name: 'Student Middlename Surname', class: '11 Sci Bio' , sem: 'sem 2' , amount: '20000' , status: 'Paid' , date: ''},
-  {rollno: '19-bio-19', name: 'Student Middlename Surname', class: '11 Sci Bio' , sem: 'sem 2' , amount: '20000' , status: 'Paid' , date: ''},
-  {rollno: '19-bio-20', name: 'Student Middlename Surname', class: '11 Sci Bio' , sem: 'sem 2' , amount: '20000' , status: 'Unpaid' , date: ''},
+  {rollno: '19-bio-11', name: 'Student Middlename Surname', class: '11 Sci Bio' , sem: 'sem 2' , amount: '20000' , status: 'Paid' , date: '21-12-2019'},
+  {rollno: '19-bio-12', name: 'Student Middlename Surname', class: '11 Sci Bio' , sem: 'sem 2' , amount: '20000' , status: 'Unpaid' , date: '21-12-2019'},
+  {rollno: '19-bio-13', name: 'Student Middlename Surname', class: '11 Sci Bio' , sem: 'sem 2' , amount: '20000' , status: 'Paid' , date: '21-12-2019'},
+  {rollno: '19-bio-14', name: 'Student Middlename Surname', class: '11 Sci Bio' , sem: 'sem 2' , amount: '20000' , status: 'Unpaid' , date: '21-12-2019'},
+  {rollno: '19-bio-15', name: 'Student Middlename Surname', class: '11 Sci Bio' , sem: 'sem 2' , amount: '20000' , status: 'Unpaid' , date: '21-12-2019'},
+  {rollno: '19-bio-16', name: 'Student Middlename Surname', class: '11 Sci Bio' , sem: 'sem 2' , amount: '20000' , status: 'Paid' , date: '21-12-2019'},
+  {rollno: '19-bio-17', name: 'Student Middlename Surname', class: '11 Sci Bio' , sem: 'sem 2' , amount: '20000' , status: 'Unpaid' , date: '21-12-2019'},
+  {rollno: '19-bio-18', name: 'Student Middlename Surname', class: '11 Sci Bio' , sem: 'sem 2' , amount: '20000' , status: 'Paid' , date: '21-12-2019'},
+  {rollno: '19-bio-19', name: 'Student Middlename Surname', class: '11 Sci Bio' , sem: 'sem 2' , amount: '20000' , status: 'Paid' , date: '21-12-2019'},
+  {rollno: '19-bio-20', name: 'Student Middlename Surname', class: '11 Sci Bio' , sem: 'sem 2' , amount: '20000' , status: 'Unpaid' , date: '21-12-2019'},
 ];
+
+
+export interface Announcement_element {
+  date: string;
+  class: string;
+  title: string;
+  amount: string;
+}
+
+
+const Announcement_Data: Announcement_element[] = [
+  {date: '20-12-2019' , class: '11 Sci Bio' , title: 'Sem 2' , amount: '25000'},
+  {date: '20-12-2019' , class: '11 Sci Bio' , title: 'Sem 2' , amount: '25000'},
+  {date: '20-12-2019' , class: '11 Sci Bio' , title: 'Sem 2' , amount: '25000'},
+  {date: '20-12-2019' , class: '11 Sci Bio' , title: 'Sem 2' , amount: '25000'},
+  {date: '20-12-2019' , class: '11 Sci Bio' , title: 'Sem 2' , amount: '25000'},
+  {date: '20-12-2019' , class: '11 Sci Bio' , title: 'Sem 2' , amount: '25000'},
+  {date: '20-12-2019' , class: '11 Sci Bio' , title: 'Sem 2' , amount: '25000'},
+  {date: '20-12-2019' , class: '11 Sci Bio' , title: 'Sem 2' , amount: '25000'}
+]
+
+
+
 
 
 @Component({
@@ -82,7 +106,7 @@ export class BranchFeesComponent implements OnInit {
   ];
 
 
-  displayedColumns: string[] = ['rollno','name', 'class' , 'sem' , 'amount' , 'status' , 'date'];
+  displayedColumns: string[] = ['rollno' , 'name', 'class' , 'sem' , 'amount' , 'status' , 'date'];
   dataSource = new MatTableDataSource<Std_element>(Student_Data);
 
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
@@ -91,6 +115,8 @@ export class BranchFeesComponent implements OnInit {
   ngOnInit() {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
+    this.dataSource_ancmnt.paginator = this.paginator;
+    this.dataSource_ancmnt.sort = this.sort;
   }
 
   // filtering data
@@ -101,6 +127,23 @@ export class BranchFeesComponent implements OnInit {
       this.dataSource.paginator.firstPage();
     }
   }
+
+
+
+
+  displayedColumns_ancmnt: string[] = ['date' , 'class' , 'title' , 'amount'];
+  dataSource_ancmnt = new MatTableDataSource<Announcement_element>(Announcement_Data);
+
+  // filtering data
+  applyFilter_ancmnt(filterValue: string) {
+    this.dataSource_ancmnt.filter = filterValue.trim().toLowerCase();
+
+    if (this.dataSource_ancmnt.paginator) {
+      this.dataSource_ancmnt.paginator.firstPage();
+    }
+  }
+
+
 
  
   // open dialog box
@@ -149,12 +192,13 @@ export class announcementFormDialog {
     // classNoticeList: string[] = ['Extra cheese', 'Mushroom', 'Onion', 'Pepperoni', 'Sausage', 'Tomato'];
 
     Classsbj: classNoticeList[] = [
-      {value: '8-a-div', viewValue: '8 (A Div)'},
-      {value: '8-b-div', viewValue: '8 (B Div)'},
-      {value: '9-a-div', viewValue: '9 (A Div)'},
-      {value: '9-b-div', viewValue: '9 (B Div)'},
-      {value: '10-a-div', viewValue: '10 (A Div)'},
-      {value: '10-b-div', viewValue: '10 (B Div)'},
+      {value: 'All' , viewValue: 'All'},
+      {value: '8 (A Div)', viewValue: '8 (A Div)'},
+      {value: '8 (B Div)', viewValue: '8 (B Div)'},
+      {value: '9 (A Div)', viewValue: '9 (A Div)'},
+      {value: '9 (B Div)', viewValue: '9 (B Div)'},
+      {value: '10 (A Div)', viewValue: '10 (A Div)'},
+      {value: '10 (B Div)', viewValue: '10 (B Div)'},
       {value: '11-sci-maths-yellow-m', viewValue: '11 Sci Maths (Yellow M)'},
       {value: '11-sci-maths-blue-m', viewValue: '11 Sci Maths (Blue M)'},
       {value: '11-sci-bio-purple-b', viewValue: '11 Sci Bio (Purple B)'},

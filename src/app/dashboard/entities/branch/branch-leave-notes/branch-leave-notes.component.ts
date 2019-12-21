@@ -67,11 +67,11 @@ export class BranchLeaveNotesComponent implements OnInit {
   getColor(status) {
     switch (status) {
       case 'Pending':
-        return '#e0e0e0'; // grey
+        return '#212121'; // not black
       case 'Approved':
         return '#43a047'; // green
       case 'Denied':
-        return '#e53935'; // red
+        return '#C62828'; // red
     }
   }
 
