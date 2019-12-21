@@ -36,7 +36,7 @@ export class FacultyTaskWorkComponent implements OnInit {
     {
       name: "9th",
       subjects: [
-        { name: "Maths" },
+        { name: "Maths"},
         { name: "Science" }
       ]
     },
