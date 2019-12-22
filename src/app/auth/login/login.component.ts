@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
   constructor(private AuthService: AuthService, private router: Router) { }
   roles: Role[] = [
     {value: 'Admin', viewValue: 'Admin'},
-    {value: 'Owner', viewValue: 'Owner'},
+    {value: 'Owner', viewValue: 'Institute Owner'},
     {value: 'Branch Manager', viewValue: 'Branch Manager'},
     {value: 'Faculty', viewValue: 'Faculty'},
     {value: 'Student', viewValue: 'Student'}
