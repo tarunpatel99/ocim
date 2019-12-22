@@ -77,20 +77,17 @@ export class NoticeByIOFormDialog {
     // classNoticeList: string[] = ['Extra cheese', 'Mushroom', 'Onion', 'Pepperoni', 'Sausage', 'Tomato'];
 
     Classsbj: classNoticeList[] = [
-      {value: '8-a-div', viewValue: '8 (A Div)'},
-      {value: '8-b-div', viewValue: '8 (B Div)'},
-      {value: '9-a-div', viewValue: '9 (A Div)'},
-      {value: '9-b-div', viewValue: '9 (B Div)'},
-      {value: '10-a-div', viewValue: '10 (A Div)'},
-      {value: '10-b-div', viewValue: '10 (B Div)'},
-      {value: '11-sci-maths-yellow-m', viewValue: '11 Sci Maths (Yellow M)'},
-      {value: '11-sci-maths-blue-m', viewValue: '11 Sci Maths (Blue M)'},
-      {value: '11-sci-bio-purple-b', viewValue: '11 Sci Bio (Purple B)'},
-      {value: '11-sci-bio-green-b', viewValue: '11 Sci Bio (Green B)'},
-      {value: '12-sci-maths-golden-m', viewValue: '12 Sci Maths (Golden M)'},
-      {value: '12-sci-maths-red-m', viewValue: '12 Sci Maths (Red M)'},
-      {value: '12-sci-bio-silver-m', viewValue: '12 Sci Bio (Silver M)'},
-      {value: '12-sci-bio-pink-m', viewValue: '12 Sci Bio (Pink M)'}
+      {value: 'All', viewValue: 'All'},
+      {value: 'House Bopal', viewValue: 'House Bopal'},
+      {value: 'Ghuma', viewValue: 'Ghuma'},
+      {value: 'South Bopal', viewValue: 'South Bopal'},
+      {value: 'SBI Bopal', viewValue: 'SBI Bopal'},
+      {value: 'Science city', viewValue: 'Science city'},
+      {value: 'Maninagar', viewValue: 'Maninagar'},
+      {value: 'Bapunagar', viewValue: 'Bapunagar'},
+      {value: 'Nerunagar', viewValue: 'Nerunagar'},
+      {value: 'Iscon', viewValue: 'Iscon'},
+      {value: 'Vastrapur', viewValue: 'Vastrapur'},
     ];
 
     
