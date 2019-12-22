@@ -4,43 +4,63 @@
   <mat-vertical-stepper [linear]="isLinear" #stepper>
     <mat-step [stepControl]="firstFormGroup">
       <form [formGroup]="firstFormGroup">
-        <ng-template matStepLabel>Fill out your name</ng-template>
-        <mat-form-field>
-          <input matInput placeholder="First name" formControlName="firstCtrl" required>
-        </mat-form-field>
-        <mat-form-field>
-            <input matInput placeholder="Middle name" formControlName="firstCtrl" required>
-          </mat-form-field>
-          <mat-form-field>
-            <input matInput placeholder="Last name" formControlName="firstCtrl" required>
-          </mat-form-field>
-              <table>
-                  <tr aria-rowspan="2">
-                      <td>
-                        <mat-radio-group aria-label="Select an option">
-                            <label id="example-radio-group-label">Select Gender</label><br><br>
-                            <mat-radio-button value="Male"> Male </mat-radio-button>
-                            <mat-radio-button value="Female"> Female </mat-radio-button>
-                            <mat-radio-button value="Other"> Other </mat-radio-button>
-                        </mat-radio-group>
-                      </td>
-                      <td>
-                        <mat-form-field class="example-full-width">
-                            <textarea matInput placeholder="Owner Address"></textarea>
-                          </mat-form-field>
-                      </td>
-                  </tr>
-              </table>
+        <ng-template matStepLabel>Personal Details</ng-template>
         <div>
+        <mat-form-field class="full-width">
+            <input type="text" matInput placeholder="First name" required formControlName="firstCtrl">
+        </mat-form-field>
+        <mat-form-field class="full-width">
+            <input type="text" matInput placeholder="Middle name" required formControlName="firstCtrl">
+        </mat-form-field>
+        <mat-form-field class="full-width">
+            <input type="text" matInput placeholder="Last name" required formControlName="firstCtrl">
+        </mat-form-field>
+        <br>
+        <div class="gndr">
+            <p><label class="half-width">Select Gender</label></p>
+            <mat-radio-group aria-label="Select Gender" class="half-width" color="primary" required formControlName="firstCtrl">
+                <mat-radio-button value="Male">Male</mat-radio-button>
+                <mat-radio-button value="Female">Female</mat-radio-button>
+                <mat-radio-button value="Other">Other</mat-radio-button>
+            </mat-radio-group>
+        </div>
+        <mat-form-field class="full-width">
+            <textarea type="text" matInput placeholder="Address" rows="3" required formControlName="firstCtrl"></textarea>
+        </mat-form-field>
+        <br>
           <button mat-button matStepperNext>Next</button>
         </div>
       </form>
     </mat-step>
     <mat-step [stepControl]="secondFormGroup">
       <form [formGroup]="secondFormGroup">
-        <ng-template matStepLabel>Fill out your address</ng-template>
+        <ng-template matStepLabel>Institute Details</ng-template>
+        <mat-form-field class="full-width">
+          <input matInput placeholder="Institute Name" formControlName="secondCtrl" >
+        </mat-form-field>
+        <mat-form-field class="full-width">
+            <textarea type="text" matInput placeholder="Address" rows="3" required formControlName="secondCtrl"></textarea>
+        </mat-form-field>
+        <br>
+        <mat-form-field class="full-width">
+            <mat-label>City</mat-label>
+            <mat-select required formControlName="secondCtrl">
+                <mat-option *ngFor="let city of cities" [value]="city.value">
+                {{city.viewValue}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field class="full-width">
+            <mat-label>State</mat-label>
+            <mat-select required>
+                <mat-option *ngFor="let state of states" [value]="state.value">
+                {{state.viewValue}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
         <mat-form-field>
-          <input matInput placeholder="Address" formControlName="secondCtrl" required>
+            <input matInput #postalCode maxlength="6" placeholder="Postal Code" required>
+            <mat-hint align="end">{{postalCode.value.length}} / 6</mat-hint>
         </mat-form-field>
         <div>
           <button mat-button matStepperPrevious>Back</button>
@@ -49,11 +69,28 @@
       </form>
     </mat-step>
     <mat-step>
-      <ng-template matStepLabel>Done</ng-template>
-      You are now done.
+      <ng-template matStepLabel>Security Details</ng-template>
+      <mat-form-field class="full-width">
+        <input type="text" matInput placeholder="Phone number" required>
+    </mat-form-field>
+    <mat-form-field class="full-width">
+        <input type="text" matInput placeholder="Email" required>
+    </mat-form-field>
+    <br>
+    <mat-form-field class="full-width">
+        <input type="password" matInput placeholder="Old password" required>
+    </mat-form-field>
+    <mat-form-field class="full-width">
+        <input type="password" matInput placeholder="New password" required>
+    </mat-form-field>
+    <mat-form-field class="full-width">
+        <input type="password" matInput placeholder="Confirm new password" required>
+    </mat-form-field>
       <div>
         <button mat-button matStepperPrevious>Back</button>
         <button mat-button (click)="stepper.reset()">Reset</button>
+        <br>
+        <button mat-raised-button color="primary">Sign Up</button>
       </div>
     </mat-step>
   </mat-vertical-stepper>
