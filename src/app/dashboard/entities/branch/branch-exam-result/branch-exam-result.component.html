@@ -26,7 +26,7 @@
                     <input matInput type="time" placeholder="To [HH:MM AM/PM]" value="00:00">
                 </mat-form-field> -->
                 <button class="submit-btn" mat-raised-button color="primary">View</button>
-                <mat-divider></mat-divider>
+                <!-- <mat-divider></mat-divider> -->
             </form>
 
             <!-- student list -->
@@ -34,7 +34,7 @@
                 <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search">
             </mat-form-field>
             
-            <mat-table [dataSource]="dataSource" class="mat-elevation-z8 tbl-shadow" matSort>
+            <mat-table [dataSource]="dataSource" matSort>
 
                 <ng-container matColumnDef="id">
                     <mat-header-cell *matHeaderCellDef mat-sort-header> ID </mat-header-cell>
@@ -125,12 +125,12 @@
                 <mat-form-field class="full-width">
                     <textarea type="text" matInput placeholder="Description" rows="1" required></textarea>
                 </mat-form-field>
-                <mat-divider></mat-divider>
+                <!-- <mat-divider></mat-divider> -->
                 <!-- <div class="right"> -->
-                    <mat-action-row>
+                    <!-- <mat-action-row>
                         <button mat-flat-button color="primary" (click)="onAddbranch()">Add</button>
                         <button mat-stroked-button color="warn" (click)="onClearbranch()">Cancle</button>    
-                    </mat-action-row>
+                    </mat-action-row> -->
                 <!-- </div> -->
                 </form>
                 <mat-divider></mat-divider>
