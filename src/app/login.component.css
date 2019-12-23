@@ -1,0 +1,132 @@
+
+.main {
+    display: block;
+}
+
+.form-mat-card {
+    padding: 10px;
+    margin: auto;
+    padding: 20px;
+    height: fit-content;
+    width: 400px;
+}
+/* 
+.ocim-logo {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50% 50%;
+    height: 75px;
+    width: 75px;
+    overflow: hidden;
+    box-shadow: 0 3px 5px -1px rgba(0,0,0,.2), 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12);
+} */
+/* 
+.ocim-logo > img {
+    height: 75px;
+    width: 75px;
+    
+} */
+
+a {
+    cursor: pointer;
+}
+
+.logo-font {
+    font-family: 'CabinSketch-Bold';
+    font-size: 40pt;
+    text-align: center;
+    margin: 10px auto !important;
+}
+
+.centeredSign {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.header {
+    margin-left: 28px;
+    text-align: left;
+}
+
+.header > h2 {
+    font-weight: normal;
+    margin-top: 5px;
+}
+
+.login-form {
+    margin: auto;
+    text-align: center;
+    /* padding-left: 30px;
+    padding-right: 30px; */
+}
+
+.full-width {
+    display: block;
+    width: 500px;
+    margin: 5px auto;
+    max-width: 85%;
+}
+
+.form-btn {
+    display:flex;
+    align-items: stretch;
+    margin: auto 25px;
+    margin-left: 21px !important;
+    margin-top: 30px;
+    margin-bottom: 10px !important;
+}
+/* 
+.form-btn > .place-left {
+    flex-grow: 1;
+} */
+
+.form-btn > .space, .footer > .space {
+    flex-grow: 1;
+}
+/* 
+.form-btn > .place-right {
+    flex-grow: 1;
+} */
+
+.form-btn > .place-left {
+    padding: 0 8px !important;
+}
+/*
+.place-left {
+    position: absolute;
+    left: 0;
+} */
+
+.footer {
+    display:flex;
+    align-items: stretch;
+    width: 430px;
+    margin: 15px auto;
+}
+.example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 400px;
+    margin: auto;
+    height: fit-content;
+  }
+  
+  .example-full-width {
+    width: 100%;
+  }
+  
+  td {
+    padding-right: 8px;
+  }
+  
+  .form-container {
+    text-align: center;
+   }
+
+   .form-body {
+    text-align: left;
+   }

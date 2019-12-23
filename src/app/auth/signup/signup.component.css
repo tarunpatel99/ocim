@@ -1,0 +1,19 @@
+.gndr{
+    display: inline-block;
+    width: 30%;
+    margin: 0 10px;
+  }
+  
+  .full-width {
+    display: inline-block;
+    width: 30%;
+    margin: 0 10px;
+    /* max-width: 85%; */
+  }
+  
+  .half-width {
+    display: inline;
+    /* width: 500px; */
+    margin: 0 10px;
+    max-width: 30%;
+  }
