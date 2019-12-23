@@ -1,6 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { FormControl } from '@angular/forms';
+import { MatTabChangeEvent } from '@angular/material';
 
 export interface DialogData {
   class: string,
@@ -92,12 +93,16 @@ export class FacultyTaskWorkComponent implements OnInit {
   // get selected class and display its subjects
   chooseClass(event, newClass) {
     this.selectedClass = newClass;  
-    console.log(this.selectedClass.subjects)
+    
   }
 
   ngOnInit() {
     // select first class from class list by default
     this.selectedClass = this.classNames[0]
+  }
+
+  tabClick(tab: MatTabChangeEvent ) {
+    // console.log(tab)
   }
 
 }
