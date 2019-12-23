@@ -29,14 +29,14 @@
         <mat-table [dataSource]="Payments">
             <!-- Items Column -->
             <ng-container matColumnDef="item">
-              <mat-header-cell *matHeaderCellDef> Month ({{CurrentDate | date:'YYYY'}})</mat-header-cell>
+              <mat-header-cell *matHeaderCellDef> Month </mat-header-cell>
               <mat-cell *matCellDef="let Pay"> {{Pay.item}} </mat-cell>
               <mat-footer-cell *matFooterCellDef> Total Amount </mat-footer-cell>
             </ng-container>
           
             <!-- Value Column -->
             <ng-container matColumnDef="value">
-              <mat-header-cell *matHeaderCellDef class="tbl-right"> {{CurrentDate | date:'MM'}} ({{CurrentDate | date:'MMMM'}})</mat-header-cell>
+              <mat-header-cell *matHeaderCellDef class="tbl-right"> {{CurrentDate | date:'MM'}}({{CurrentDate | date:'MMMM'}}) - {{CurrentDate | date:'yyyy'}}</mat-header-cell>
               <mat-cell *matCellDef="let Pay" class="tbl-right"> {{Pay.value}} </mat-cell>
               <mat-footer-cell *matFooterCellDef class="tbl-right"> {{getTotalPay() | currency:"&#8377;"}} </mat-footer-cell><!-- Rs="&#8360" and symbol="&#8377"-->
             </ng-container>
