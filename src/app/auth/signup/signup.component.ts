@@ -1,24 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
-export interface Class {
-  value: string;
-  viewValue: string;
-}
 
-export interface Subject {
-  value: string;
-  viewValue: string;
-}
-
-export interface City {
-  value: string;
-  viewValue: string;
-}
-
-export interface State {
-  value: string;
-  viewValue: string;
-}
 
 @Component({
   selector: 'app-signup',
@@ -26,37 +9,18 @@ export interface State {
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
+  isLinear = false;
+  firstFormGroup: FormGroup;
+  secondFormGroup: FormGroup;
 
-  constructor() { }
+  constructor(private _formBuilder: FormBuilder) {}
 
-
-  classes: Class[] = [
-    {value: '11-sci-maths', viewValue: '11 Sci Maths'},
-    {value: '11-sci-bio', viewValue: '11 Sci Bio'},
-    {value: '12-sci-maths', viewValue: '12 Sci Maths'},
-    {value: '12-sci-bio', viewValue: '12 Sci Bio'}
-  ];
-
-  subjects: Subject[] = [
-    {value: 'maths', viewValue: 'Maths'},
-    {value: 'bio', viewValue: 'Bio'},
-    {value: 'physics', viewValue: 'Physics'},
-    {value: 'chemistry', viewValue: 'Chemistry'},
-    {value: 'english', viewValue: 'English'},
-    {value: 'computer', viewValue: 'Computer'}
-  ];
-
-  cities: City[] = [
-    {value: 'Ahmedabad', viewValue: 'Ahmedabad'},
-    {value: 'Rajkot', viewValue: 'Rajkot'}
-  ];
-
-  states: State[] = [
-    {value: 'Gujarat', viewValue: 'Gujarat'},
-    {value: 'Maharastra', viewValue: 'Maharastra'}
-  ];
-  
   ngOnInit() {
+    this.firstFormGroup = this._formBuilder.group({
+      firstCtrl: ['', Validators.required]
+    });
+    this.secondFormGroup = this._formBuilder.group({
+      secondCtrl: ['', Validators.required]
+    });
   }
-
 }

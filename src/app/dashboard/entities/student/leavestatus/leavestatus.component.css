@@ -1,0 +1,50 @@
+.form-mat-card {
+  padding: 10px;
+  padding: 20px;
+  height: fit-content;
+  width: 300px;
+  margin: auto;
+}
+
+.form-container {
+  text-align: center;
+ }
+
+ .example-table {
+  width: 100%;
+}
+
+.status {
+    padding: 3px;
+    border-radius: 2px;
+}
+
+#searchBar {
+  font-size: 14px;
+  margin-top: 10px;
+  width: 100%;
+}form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 400px;
+  margin: auto;
+  height: fit-content;
+}
+.example-full-width {
+  width: 100%;
+}
+.text-size {
+width: 85%;
+}
+
+.mat-date {
+width: 125px;
+}
+
+.title {
+width: 250px;
+}
+
+.txt-align {
+text-align: center;
+}

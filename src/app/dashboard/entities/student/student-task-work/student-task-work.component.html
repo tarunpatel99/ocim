@@ -1,1 +1,50 @@
-<p>student-task-work works!</p>
+<div>
+    <form class="example-form">
+        <mat-card class="form-mat-card">
+            <mat-accordion>
+                <mat-expansion-panel (opened)="panelOpenState = true"
+                                     (closed)="panelOpenState = false" #pan1>
+                  <mat-expansion-panel-header>
+                    <mat-panel-title class="txt">
+                      SCIENCE
+                    </mat-panel-title>
+                    <mat-panel-description class="largetxt">
+                       {{panelOpenState ? 'SubmissionDate 12/12/19' : 'IssueDate 9/12/19'}}
+                    </mat-panel-description>
+                  </mat-expansion-panel-header>
+                  <p>
+                      Assignment 1
+                  </p>
+                  <mat-selection-list #sci>
+                    <mat-list-option *ngFor="let science of stopics">
+                      {{science}}
+                    </mat-list-option>
+                  </mat-selection-list>
+                </mat-expansion-panel>
+              </mat-accordion>
+        </mat-card>
+        <mat-card class="form-mat-card">
+          <mat-accordion>
+              <mat-expansion-panel (opened)="panelOpenState = true"
+                                   (closed)="panelOpenState = false">
+                <mat-expansion-panel-header>
+                  <mat-panel-title class="txt">
+                    MATHS
+                  </mat-panel-title>
+                  <mat-panel-description class="largetxt">
+                     {{panelOpenState ? 'SubmissionDate 10/12/19' : 'IssueDate 7/12/19'}}
+                  </mat-panel-description>
+                </mat-expansion-panel-header>
+                <p>
+                    Assignment 1
+                </p>
+                <mat-selection-list #math>
+                  <mat-list-option *ngFor="let maths of mtopics">
+                    {{maths}}
+                  </mat-list-option>
+                </mat-selection-list>
+              </mat-expansion-panel>
+            </mat-accordion>
+      </mat-card>
+    </form>
+</div>

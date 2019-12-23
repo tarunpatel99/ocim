@@ -1,49 +1,61 @@
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<div>
-    <form class="example-form">
-        <mat-card class="form-mat-card">
-            <div style="font-weight: bold; font-size: larger; text-align: center;">
-               Apply For Leave
-            </div>
-            <div>
-                <mat-form-field class="title txt-align">
-                    <input matInput placeholder="Title">
-                </mat-form-field>
-            </div>
-            <div>
-            <table>
-                <tr>
-                    <td> <mat-form-field class="mat-date txt-align">
-                            <input matInput [matDatepicker]="pickerJoin" placeholder="From">
-                            <mat-datepicker-toggle matSuffix [for]="pickerJoin"></mat-datepicker-toggle>
-                                <mat-datepicker #pickerJoin></mat-datepicker>
-                        </mat-form-field></td>
-                        <td> <mat-form-field class="mat-date txt-align">
-                                <input matInput [matDatepicker]="pickerTo" placeholder="To">
-                                <mat-datepicker-toggle matSuffix [for]="pickerTo"></mat-datepicker-toggle>
-                                    <mat-datepicker #pickerTo></mat-datepicker>
-                            </mat-form-field></td>
-                </tr>
-            </table>
-            </div>
-            <div>
-                <mat-form-field class="text-size txt-align">
-                <textarea matInput placeholder="Message" ></textarea>
-                </mat-form-field>
-            </div>
-            <button mat-raised-button color="accent" aria-label="Example icon-button with a heart icon">
-                <mat-icon>attachment</mat-icon> Attachments
-            </button>
-            <table cellspacing="30">
-                <tr>
-                    <td>
-                            <button mat-raised-button color="primary" >Save Leave</button>
-                    </td>
-                    <td>
-                            <button mat-stroked-button color="warn" >Discard</button>
-                    </td>
-                </tr>
-            </table>
-        </mat-card>
-    </form>
-</div>
+<p class="heading">Leave notes</p>
+<mat-card>
+    <!-- leave notes list -->
+    <button mat-raised-button color="primary" (click)="openDialog()">Apply leave</button>
+    <mat-form-field id="searchBar">
+        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search">
+    </mat-form-field>
+
+
+    <table mat-table [dataSource]="dataSource" matSort>
+
+        <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+            <td mat-cell *matCellDef="let leave"> {{leave.studentName}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="class">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Class </th>
+            <td mat-cell *matCellDef="let leave"> {{leave.class}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="subject">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Subject </th>
+            <td mat-cell *matCellDef="let leave"> {{leave.subject}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="from">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> From </th>
+            <td mat-cell *matCellDef="let leave"> {{leave.leaveFrom}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="to">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> To </th>
+            <td mat-cell *matCellDef="let leave"> {{leave.leaveTo}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="status">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Status </th>
+            <td mat-cell *matCellDef="let leave">
+                <mat-chip-list>
+                    <mat-chip [ngStyle]="{background: getColor(leave.status), 'color': leave.status === 'Pending' ? 'black' : 'white'}">{{leave.status}}</mat-chip>
+                </mat-chip-list>
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="action">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Action </th>
+            <td mat-cell *matCellDef="let leave">
+                <button mat-icon-button matTooltip="view">
+                    <mat-icon>visibility</mat-icon>
+                </button>
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let leave; columns: displayedColumns;">
+        </tr>
+    </table>
+
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+</mat-card>

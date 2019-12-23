@@ -1,0 +1,21 @@
+mat-chip {
+    max-width: 200px;
+  }
+
+.mat-card-width {
+    width: 95%;
+}
+
+.mat-table-width {
+    width: 95%;
+}
+
+.bar-height {
+    height: 20px;
+    
+}
+
+.per-chip {
+    width: 50px;
+    font-style: normal;
+}
