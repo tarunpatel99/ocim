@@ -19,7 +19,9 @@ button{
 }
 
 .example-card {
-  max-width: 400px;
+    display: inline-block;
+    margin: 15px;
+    max-width: 25%;
 }
 
 /* .header {
@@ -68,10 +70,6 @@ button{
 
 mat-panel-title{
     width: 50%;
-}
-
-.example-card {
-  max-width: 25%;
 }
 
 .delete{

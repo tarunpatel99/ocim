@@ -12,4 +12,6 @@ export class FacultySyllabusComponent implements OnInit {
   ngOnInit() {
   }
 
+  onDownloadSyllabus(){}
+
 }

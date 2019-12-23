@@ -1,8 +1,10 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, Inject } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { FormControl } from '@angular/forms';
+import { MatDialogRef, MAT_DIALOG_DATA, MatDialog } from '@angular/material';
+
 
 export interface Attatchment {
   id: string
@@ -16,7 +18,7 @@ export interface LeaveNote {
   description: string,
   leaveFrom: string,
   leaveTo: string,
-  attatchment: Array<Attatchment>,
+  attatchments: Attatchment[],
   status: string
 }
 
@@ -28,18 +30,70 @@ export interface LeaveNote {
 export class FacultyLeaveNoteComponent implements OnInit {
   displayedColumns: string[] = ['name', 'class', 'subject', 'from', 'to', 'status','action'];
   dataSource: MatTableDataSource<LeaveNote>;
+  selectedLeave: any;
 
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
   
   // leave notes data
   leaves: LeaveNote[] = [
-    { id: "132", class: "8", studentName: "Tarun Patel", subject: "Khabar nai", description: "Dr. ne mali lo", leaveFrom: "12/12/2019", leaveTo: "22/12/2019", attatchment: [{ id: "Attatchment one" }, { id: "Attatchment two" }], status: "Pending" },
-    { id: "132", class: "8", studentName: "Tarun Patel", subject: "Khabar nai", description: "Dr. ne mali lo", leaveFrom: "12/12/2019", leaveTo: "22/12/2019", attatchment: [{ id: "Attatchment one" }, { id: "Attatchment two" }], status: "Approved" },
-    { id: "126", class: "8", studentName: "Tarun Patel", subject: "Khabar nai", description: "Dr. ne mali lo", leaveFrom: "12/12/2019", leaveTo: "22/12/2019", attatchment: [{ id: "Attatchment one" }, { id: "Attatchment two" }], status: "Denied" },
+    {
+      id: "132",
+      class: "8",
+      studentName: "Tarun Patel",
+      subject: "Khabar nai",
+      description: "Dr. ne mali lo",
+      leaveFrom: "12/12/2019",
+      leaveTo: "22/12/2019",
+      attatchments: [
+        {
+          id: "Attatchment one"
+        },
+        {
+          id: "Attatchment two"
+        }
+      ],
+      status: "Pending"
+    },
+    {
+      id: "132",
+      class: "8",
+      studentName: "Tarun Patel",
+      subject: "Khabar nai",
+      description: "Dr. ne mali lo",
+      leaveFrom: "12/12/2019",
+      leaveTo: "22/12/2019",
+      attatchments: [
+        {
+          id: "Attatchment one"
+        },
+        {
+          id: "Attatchment two"
+        }
+      ],
+      status: "Approved"
+    },
+    {
+      id: "126",
+      class: "8",
+      studentName: "Tarun Patel",
+      subject: "Khabar nai",
+      description: "Dr. ne mali lo",
+      leaveFrom: "12/12/2019",
+      leaveTo: "22/12/2019",
+      attatchments: [
+        {
+          id: "Attatchment one"
+        },
+        {
+          id: "Attatchment two"
+        }
+      ],
+      status: "Denied"
+    },
   ]
   
-  constructor() {
+  constructor(public dialog: MatDialog) {
     this.dataSource = new MatTableDataSource(this.leaves);
   }
 
@@ -57,15 +111,51 @@ export class FacultyLeaveNoteComponent implements OnInit {
     }
   }
 
+  // set status text color
   getColor(status) {
     switch (status) {
       case 'Pending':
-        return '#e0e0e0'; // grey
+        return '#212121'; // dark grey for status PENDING
       case 'Approved':
-        return '#43a047'; // green
+        return '#43a047'; // green for status APPROVED
       case 'Denied':
-        return '#e53935'; // red
+        return '#C62828'; // red for status DENIED
     }
+  }
+
+  // open dialog box
+  onViewLeaveNote(event, leave): void {
+    this.selectedLeave = leave
+    const dialogRef = this.dialog.open(LeaveNoteViewDialog, {
+      width: '500px',
+      data: {studentName: this.selectedLeave.studentName, class: this.selectedLeave.class, attatchments: this.selectedLeave.attatchments}
+    });
+    
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
+  }
+
+}
+
+// view leave note details dialog box
+@Component({
+  selector: 'dialog-leave=note',
+  templateUrl: 'leave-note.view.html',
+  styleUrls: ['leave-note.view.css']
+})
+export class LeaveNoteViewDialog implements OnInit{
+  constructor(
+    public dialogRef: MatDialogRef<LeaveNoteViewDialog>,
+    @Inject(MAT_DIALOG_DATA) public data: LeaveNote) { }
+
+  onSave(): void {
+    this.dialogRef.close();
+  }
+
+  ngOnInit() {
+    
   }
 
 }
