@@ -26,6 +26,12 @@
     padding: 5px 15px;
 }
 
+.task-card {
+    display: inline-block;
+    width: 300px;
+    margin: 15px;
+}
+
 
 
 
