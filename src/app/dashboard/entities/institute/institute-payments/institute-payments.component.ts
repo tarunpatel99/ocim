@@ -1,5 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { __values } from 'tslib';
+import { Action } from 'rxjs/internal/scheduler/Action';
+import {MatPaginator} from '@angular/material/paginator';
+import {MatTableDataSource} from '@angular/material/table';
+import { MatSort } from '@angular/material/sort';
+import { FormControl } from '@angular/forms';
+import { MatDialogRef, MAT_DIALOG_DATA, MatDialog } from '@angular/material';
+
+
+
 
 
 export interface Institute {
@@ -11,6 +20,28 @@ export interface Pay {
   item: string;
   value: number;
 }
+
+
+export interface Payment_element {
+  date: string;
+  nofostudents: number;
+  paymnet_method: string;
+  amount: number;
+}
+
+
+const Payment_Data: Payment_element[] = [
+  {date: '8-12-2019' , nofostudents: 1456 , paymnet_method: 'Debit Card' , amount: 29120},
+  {date: '6-11-2019' , nofostudents: 1456, paymnet_method: 'Debit Card' , amount: 29120},
+  {date: '5-10-2019' , nofostudents: 1456, paymnet_method: 'Debit Card' , amount: 29120},
+  {date: '4-9-2019' , nofostudents: 1456, paymnet_method: 'Debit Card' , amount: 29120},
+  {date: '3-8-2019' , nofostudents: 1456, paymnet_method: 'Debit Card' , amount: 29120},
+  {date: '1-7-2019' , nofostudents: 1456, paymnet_method: 'Debit Card' , amount: 29120},
+  {date: '2-6-2019' , nofostudents: 1456, paymnet_method: 'Debit Card' , amount: 29120},
+  {date: '1-5-2019' , nofostudents: 1456, paymnet_method: 'Debit Card' , amount: 29120}
+]
+
+
 
 
 @Component({
@@ -35,6 +66,32 @@ export class InstitutePaymentsComponent implements OnInit {
     {branch: 'Vastrapur', students: 450},
   ];
 
+
+
+  displayedColumns_pay: string[] = ['date' , 'nofostudents' , 'paymnet_method' , 'amount'];
+  dataSource_pay = new MatTableDataSource<Payment_element>(Payment_Data);
+
+  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
+  @ViewChild(MatSort, { static: true }) sort: MatSort;
+
+
+  ngOnInit() {
+    this.dataSource_pay.paginator = this.paginator;
+    this.dataSource_pay.sort = this.sort;
+  }
+
+  // filtering data
+  applyFilter_pay(filterValue: string) {
+    this.dataSource_pay.filter = filterValue.trim().toLowerCase();
+
+    if (this.dataSource_pay.paginator) {
+      this.dataSource_pay.paginator.firstPage();
+    }
+  }
+
+
+
+
   /** Gets the total students of all Institutes. */
   getTotalStudents() {
     return this.Institutes.map(t => t.students).reduce((acc, value) => acc + value, 0);
@@ -55,7 +112,5 @@ getTotalPay(){
 
   constructor() { }
 
-  ngOnInit() {
-  }
 
 }
