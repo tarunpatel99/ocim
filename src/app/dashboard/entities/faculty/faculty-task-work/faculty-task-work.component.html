@@ -18,7 +18,12 @@
         <mat-tab-group dynamicHeight (focusChange)="tabClick($event)">
 
             <mat-tab *ngFor="let subject of selectedClass.subjects" [label]="subject.name">
-                {{ subject.name }}
+                <mat-card class="task-card" *ngFor="let task of subject.tasks">
+                    <p> Issued date: {{ task.iss_date }} </p>
+                    <p> Submission date: {{ task.sub_date }} </p>
+                    <p> Title: {{ task.title }} </p>
+                    <p> Desciption: {{ task.desciption }} </p>
+                </mat-card>
             </mat-tab>
         </mat-tab-group>
     </div>
