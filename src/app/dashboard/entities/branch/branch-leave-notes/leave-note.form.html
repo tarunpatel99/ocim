@@ -1,0 +1,17 @@
+<p> Student : {{ data.studentName }} </p>
+<p> Class : {{ data.class }} </p>
+<p> Subject : {{ data.subject }} </p>
+<p> Description : {{ data.description }} </p>
+<p> From : {{ data.from }} </p>
+<p> To : {{ data.to }} </p>
+<p *ngFor="let attatchment of data.attatchments">Attatchments : {{ attatchment.id }} </p>
+<p> Status </p>
+<mat-button-toggle-group appearance="standard" name="action" aria-label="Action">
+        <mat-button-toggle value="accept" matTooltip="Approved" class="green"><mat-icon>done</mat-icon></mat-button-toggle>
+        <mat-button-toggle value="reject" matTooltip="Denied" class="red"><mat-icon>clear</mat-icon></mat-button-toggle>
+</mat-button-toggle-group>
+<div mat-dialog-actions class="right">
+        <button mat-stroked-button color="warn">Cancle</button>
+        <button mat-flat-button color="primary">Submit</button>
+</div>
+
