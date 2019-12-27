@@ -18,10 +18,6 @@ button{
     margin: 5px;
 }
 
-.example-card {
-  max-width: 400px;
-}
-
 /* .header {
     margin-left: 28px;
     text-align: left;
@@ -34,7 +30,7 @@ button{
     width: 50px;
   }
   
-  /* .form-mat-card {
+/* .form-mat-card {
     display: inline-table;
     margin: 5% ;
     /* padding: 10px; * /
@@ -47,6 +43,11 @@ button{
     width: 400px; * /
 } */
 
+.gndr{
+    display: inline-block;
+    width: 30%;
+    margin: 0 10px;
+}
 
 .full-width {
     display: inline-block;
@@ -56,10 +57,34 @@ button{
 }
 
 .half-width {
-    display: inline;
+    display: inline-block;
     /* width: 500px; */
     margin: 0 10px;
-    max-width: 30%;
+    max-width: 11%;
+}
+
+.add-result{
+    display: block;
+    margin: 0 20px;
+}
+
+.obtnmark{
+    width: 150px;
+}
+
+.std-roll-no{
+    display: inline-block;
+    width: 150px;
+}
+
+.std-name{
+    display: inline-block;
+    width: 200px;
+}
+
+.obtn-mark{
+    display: inline-block;
+    width: 150px;
 }
 
 /* .right{
@@ -70,19 +95,53 @@ mat-panel-title{
     width: 50%;
 }
 
-.example-card {
-    display: inline-block;
-    margin: 15px;
-    max-width: 25%;
+#searchBar {
+    font-size: 14px;
+    margin-top: 10px;
+    width: 100%;
+    margin: auto;
+  }
+
+.tbl-shadow{
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 
-.delete{
-    right: 0 !important;
+.tbl-right{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.large-width {
+    width: 85%;
 }
 
 
-.new-btn {
-    position: fixed;
-    right: 30px;
-    bottom: 30px;
+.submit-btn {
+    width: 12%;
+}
+
+.small-width {
+    width: 27%
+}
+
+.mat-radio-button ~ .mat-radio-button {
+    margin-left: 16px;
+}
+
+table {
+    width: 100%;
+}
+
+#searchBar {
+    font-size: 14px;
+    margin-top: 10px;
+    width: 100%;
+}
+.tbl-shadow{
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.tbl-right{
+    display: flex;
+    justify-content: flex-end;
 }
