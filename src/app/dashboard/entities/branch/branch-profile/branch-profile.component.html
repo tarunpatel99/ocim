@@ -1,5 +1,7 @@
 <div class="heading">Profile</div>
 <mat-card>
+    <mat-card class="no-shadow">
+    <mat-card-title>Personal details</mat-card-title>
     <form class="no-add-branch">
         <mat-card style="background: none; box-shadow: none;">
             <mat-card-header>
@@ -19,13 +21,19 @@
         </mat-form-field>
         <br>
         <div class="gndr">
-            <p><label class="half-width">Select Gender</label></p>
-            <mat-radio-group aria-label="Select Gender" class="half-width" color="primary" required disabled>
+            <p><label class="half-width">Gender : </label><label class="half-width">{{gender}}</label></p>
+            <!-- <mat-radio-group aria-label="Select Gender" class="half-width" color="primary" required disabled>
                 <mat-radio-button value="Male">Male</mat-radio-button>
                 <mat-radio-button value="Female">Female</mat-radio-button>
                 <mat-radio-button value="Other">Other</mat-radio-button>
-            </mat-radio-group>
+            </mat-radio-group> -->
         </div>
+    </form>
+</mat-card> 
+<br>
+<mat-card class="no-shadow">
+    <mat-card-title>Brnach details</mat-card-title>
+    <form class="no-add-branch">
         <mat-form-field class="full-width">
             <input type="text" matInput placeholder="Brnach name" required disabled>
         </mat-form-field>
@@ -53,7 +61,12 @@
             <input matInput #postalCode maxlength="6" placeholder="Postal Code" required disabled>
             <mat-hint align="end">{{postalCode.value.length}} / 6</mat-hint>
         </mat-form-field>
-        <br>
+    </form>
+</mat-card>
+<br>
+<mat-card class="no-shadow">
+    <mat-card-title>Security details</mat-card-title>
+    <form class="no-add-branch">
         <mat-form-field class="full-width">
             <input type="text" matInput placeholder="Phone number" required disabled>
         </mat-form-field>

@@ -73,3 +73,8 @@ button{
 /* .right{
     float: right;
 } */
+
+.no-shadow{
+    box-shadow: none !important;
+    border: 2px solid #e0e0e0;
+}
