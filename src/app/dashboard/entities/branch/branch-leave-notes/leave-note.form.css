@@ -1,0 +1,10 @@
+.right{
+    display: flex;
+    justify-content: flex-end;
+}
+.green{
+    color: #43a047;
+}
+.red{
+    color: #C62828;
+}

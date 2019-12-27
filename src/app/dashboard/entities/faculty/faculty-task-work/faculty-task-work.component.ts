@@ -4,16 +4,17 @@ import { FormControl } from '@angular/forms';
 import { MatTabChangeEvent } from '@angular/material';
 
 export interface DialogData {
-  class: string,
-  subject: string,
-  iss_date: Date, // Issue date
-  sub_date: Date, // submission date
+  class?: string, // "?" it specify that not required field
+  subject?: string,
+  iss_date: string, // Issue date
+  sub_date: string, // submission date
   title: string,
   description: string
 }
 
 export interface subjectData {
   name: string
+  tasks: DialogData[]
 }
 
 export interface classData {
@@ -37,45 +38,167 @@ export class FacultyTaskWorkComponent implements OnInit {
     {
       name: "9th",
       subjects: [
-        { name: "Maths"},
-        { name: "Science" }
+        {
+          name: "Maths",
+          tasks: [
+            {
+              iss_date: "24-12-2019",
+              sub_date: "26-12-2019",
+              title: "Sample Title(1)",
+              description: "Sample description of task and work(1)"
+            },
+            {
+              iss_date: "24-12-2019",
+              sub_date: "27-12-2019",
+              title: "Sample Title(2)",
+              description: "Sample description of task and work(2)"
+            },
+            {
+              iss_date: "24-12-2019",
+              sub_date: "26-12-2019",
+              title: "Sample Title(3)",
+              description: "Sample description of task and work(3)"
+            },
+          ]
+        },
+        {
+          name: "Science",
+          tasks: []
+        }
       ]
     },
     {
       name: "10th",
       subjects: [
-        { name: "Maths" },
+        {
+          name: "Maths",
+          tasks: [
+            {
+              iss_date: "24-12-2019",
+              sub_date: "26-12-2019",
+              title: "Sample Title(1)",
+              description: "Sample description of task and work(1)"
+            },
+            {
+              iss_date: "24-12-2019",
+              sub_date: "27-12-2019",
+              title: "Sample Title(2)",
+              description: "Sample description of task and work(2)"
+            },
+            {
+              iss_date: "24-12-2019",
+              sub_date: "26-12-2019",
+              title: "Sample Title(3)",
+              description: "Sample description of task and work(3)"
+            },
+          ]
+        },
+
       ]
     },
     {
       name: "11th Commerce",
       subjects: [
-        { name: "Statistics" },
-        { name: "Accountancy " },
-        { name: "English" }
+        {
+          name: "Statistics",
+          tasks: []
+        },
+        {
+          name: "Accountancy ",
+          tasks: [
+            {
+              iss_date: "24-12-2019",
+              sub_date: "26-12-2019",
+              title: "Sample Title(1)",
+              description: "Sample description of task and work(1)"
+            },
+            {
+              iss_date: "24-12-2019",
+              sub_date: "27-12-2019",
+              title: "Sample Title(2)",
+              description: "Sample description of task and work(2)"
+            },
+            {
+              iss_date: "24-12-2019",
+              sub_date: "26-12-2019",
+              title: "Sample Title(3)",
+              description: "Sample description of task and work(3)"
+            },
+          ]
+        },
+        {
+          name: "English",
+          tasks: []
+        }
       ]
     },
     {
       name: "11th Science",
       subjects: [
-        { name: "English" }
+        {
+          name: "English",
+          tasks: []
+        }
       ]
     },
     {
       name: "12th Commerce",
       subjects: [
-        { name: "Statistics" },
-        { name: "Accountancy " },
-        { name: "English" }
+        {
+          name: "Statistics",
+          tasks: []
+        },
+        {
+          name: "Accountancy ",
+          tasks: [
+            {
+              iss_date: "24-12-2019",
+              sub_date: "26-12-2019",
+              title: "Sample Title(1)",
+              description: "Sample description of task and work(1)"
+            },
+            {
+              iss_date: "24-12-2019",
+              sub_date: "27-12-2019",
+              title: "Sample Title(2)",
+              description: "Sample description of task and work(2)"
+            },
+            {
+              iss_date: "24-12-2019",
+              sub_date: "26-12-2019",
+              title: "Sample Title(3)",
+              description: "Sample description of task and work(3)"
+            },
+            {
+              iss_date: "24-12-2019",
+              sub_date: "27-12-2019",
+              title: "Sample Title(4)",
+              description: "Sample description of task and work(5)"
+            },
+            {
+              iss_date: "24-12-2019",
+              sub_date: "27-12-2019",
+              title: "Sample Title(6)",
+              description: "Sample description of task and work(6)"
+            },
+          ]
+        },
+        {
+          name: "English",
+          tasks: []
+        }
       ]
     },
     {
       name: "12th Science",
       subjects: [
-        { name: "English" }
+        {
+          name: "English",
+          tasks: []
+        }
       ]
     },
-    
+
   ]
 
   // open dialog box
@@ -92,8 +215,8 @@ export class FacultyTaskWorkComponent implements OnInit {
 
   // get selected class and display its subjects
   chooseClass(event, newClass) {
-    this.selectedClass = newClass;  
-    
+    this.selectedClass = newClass;
+
   }
 
   ngOnInit() {
@@ -101,7 +224,7 @@ export class FacultyTaskWorkComponent implements OnInit {
     this.selectedClass = this.classNames[0]
   }
 
-  tabClick(tab: MatTabChangeEvent ) {
+  tabClick(tab: MatTabChangeEvent) {
     // console.log(tab)
   }
 
