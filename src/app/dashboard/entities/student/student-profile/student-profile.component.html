@@ -65,7 +65,13 @@
             <input type="text" matInput placeholder="Phone number" required>
         </mat-form-field>
         <mat-form-field class="full-width">
-            <input type="text" matInput placeholder="Email" required>
+            <input matInput placeholder="Email" [formControl]="emailFormControl">
+            <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+                 enter a valid email address
+             </mat-error>
+             <mat-error *ngIf="emailFormControl.hasError('required')">
+                Email is <strong>required</strong>
+            </mat-error>
         </mat-form-field>
         <br>
         <mat-form-field class="full-width">
@@ -75,6 +81,7 @@
             <input type="password" matInput placeholder="Confirm password" required>
         </mat-form-field>
         <!-- <div class="right"> -->
+            <br>
         <mat-action-row>
             <button mat-flat-button color="primary" (click)="onUpdate()">Update</button>
             <button mat-stroked-button color="warn" (click)="onClearbranch()">Cancle</button>
