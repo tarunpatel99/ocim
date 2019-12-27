@@ -66,12 +66,7 @@
                     </mat-form-field>
 
                     <mat-form-field class="full-width">
-                        <mat-label>Class</mat-label>
-                        <mat-select required>
-                            <mat-option *ngFor="let classsbj of classsbjs" [value]="classsbj.value">
-                                {{classsbj.viewValue}}
-                            </mat-option>
-                        </mat-select>
+                        <input type="text" matInput placeholder="Subject name*">
                     </mat-form-field>
 
                 </form>
