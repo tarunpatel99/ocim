@@ -71,7 +71,9 @@ mat-panel-title{
 }
 
 .example-card {
-  max-width: 25%;
+    display: inline-block;
+    margin: 15px;
+    max-width: 25%;
 }
 
 .delete{

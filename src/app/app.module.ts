@@ -6,8 +6,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatDialogModule} from '@angular/material/dialog';
-import { CommonModule } from '@angular/common';
 
 import { FormsModule } from '@angular/forms';
 
@@ -65,11 +63,11 @@ import { FacultySyllabusComponent } from './dashboard/entities/faculty/faculty-s
 import { FacultyExamScheduleComponent } from './dashboard/entities/faculty/faculty-exam-schedule/faculty-exam-schedule.component';
 import { FacultyExamResultComponent } from './dashboard/entities/faculty/faculty-exam-result/faculty-exam-result.component';
 import { FacultyNoticeComponent } from './dashboard/entities/faculty/faculty-notice/faculty-notice.component';
-import { FacultyLeaveNoteComponent } from './dashboard/entities/faculty/faculty-leave-note/faculty-leave-note.component';
+import { FacultyLeaveNoteComponent, LeaveNoteViewDialog } from './dashboard/entities/faculty/faculty-leave-note/faculty-leave-note.component';
 import { FacultyProfileComponent } from './dashboard/entities/faculty/faculty-profile/faculty-profile.component';
 import { StudentProfileComponent } from './dashboard/entities/student/student-profile/student-profile.component';
 import { StudentFeesComponent } from './dashboard/entities/student/student-fees/student-fees.component';
-import { StudentLeaveNoteComponent, ApplyLeave } from './dashboard/entities/student/student-leave-note/student-leave-note.component';
+import { StudentLeaveNoteComponent } from './dashboard/entities/student/student-leave-note/student-leave-note.component';
 import { StudentNoticeComponent } from './dashboard/entities/student/student-notice/student-notice.component';
 import { StudentExamResultComponent } from './dashboard/entities/student/student-exam-result/student-exam-result.component';
 import { StudentExamScheduleComponent } from './dashboard/entities/student/student-exam-schedule/student-exam-schedule.component';
@@ -81,6 +79,7 @@ import { StudentDashboardComponent } from './dashboard/entities/student/student-
 import { StudentService } from './student.service';
 import { AuthService } from './auth/auth.service';
 import { BranchFacultiesComponent } from './dashboard/entities/branch/branch-faculties/branch-faculties.component';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -130,6 +129,7 @@ import { BranchFacultiesComponent } from './dashboard/entities/branch/branch-fac
     FacultyExamResultComponent,
     FacultyNoticeComponent,
     FacultyLeaveNoteComponent,
+    LeaveNoteViewDialog, //  view leave note dialog box
     FacultyProfileComponent,
     StudentProfileComponent,
     StudentFeesComponent,
@@ -142,8 +142,7 @@ import { BranchFacultiesComponent } from './dashboard/entities/branch/branch-fac
     StudentAttendanceComponent,
     StudentTimetableComponent,
     StudentDashboardComponent,
-    BranchFacultiesComponent,
-    ApplyLeave
+    BranchFacultiesComponent
   ],
   imports: [
     BrowserModule,
@@ -152,18 +151,23 @@ import { BranchFacultiesComponent } from './dashboard/entities/branch/branch-fac
     BrowserAnimationsModule,
     FormsModule,
     MaterialModule,
-    MatDialogModule,
     CommonModule,
-    
     HttpClientModule
   ],
-  entryComponents: [TaskWorkFormDialog,
-                    TimeTableFormDialog,
-                    announcementFormDialog,
-                    NoticeByIOFormDialog,
-                    NoticeFormDialog,
-                    ExamScheduleFormDialog],
-  providers: [StudentService, AuthService],
+  entryComponents: [
+    // dialog boxes
+    TaskWorkFormDialog,
+    TimeTableFormDialog,
+    announcementFormDialog,
+    NoticeByIOFormDialog,
+    NoticeFormDialog,
+    ExamScheduleFormDialog,
+    LeaveNoteViewDialog
+  ],
+  providers: [
+    StudentService,
+    AuthService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
