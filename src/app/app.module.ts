@@ -48,7 +48,7 @@ import { BranchDashboardComponent } from './dashboard/entities/branch/branch-das
 import { BranchTimetableComponent, TimeTableFormDialog } from './dashboard/entities/branch/branch-timetable/branch-timetable.component';
 import { BranchAttendanceComponent } from './dashboard/entities/branch/branch-attendance/branch-attendance.component';
 import { BranchClassComponent } from './dashboard/entities/branch/branch-class/branch-class.component';
-import { BranchExamScheduleComponent, ExamScheduleFormDialog } from './dashboard/entities/branch/branch-exam-schedule/branch-exam-schedule.component';
+import { BranchExamScheduleComponent } from './dashboard/entities/branch/branch-exam-schedule/branch-exam-schedule.component';
 import { BranchExamResultComponent } from './dashboard/entities/branch/branch-exam-result/branch-exam-result.component';
 import { BranchNoticeComponent, NoticeFormDialog } from './dashboard/entities/branch/branch-notice/branch-notice.component';
 import { BranchLeaveNotesComponent, LeaveNoteFormDialog } from './dashboard/entities/branch/branch-leave-notes/branch-leave-notes.component';
@@ -110,7 +110,6 @@ import { CommonModule } from '@angular/common';
     BranchAttendanceComponent,
     BranchClassComponent,
     BranchExamScheduleComponent,
-    ExamScheduleFormDialog, //add/edit exam schedule dialog box
     BranchExamResultComponent,
     BranchNoticeComponent,
     NoticeFormDialog, //add/edit notice dialog box
@@ -163,7 +162,6 @@ import { CommonModule } from '@angular/common';
     NoticeByIOFormDialog,
     NoticeFormDialog,
     LeaveNoteFormDialog,
-    ExamScheduleFormDialog,
     LeaveNoteViewDialog
   ],
   providers: [

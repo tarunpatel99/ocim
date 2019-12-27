@@ -4,9 +4,9 @@
     <mat-tab-group dynamicHeight>
         <mat-tab label="Class">
             <div class="form-mat-card">
-                <div class="header">
+                <!-- <div class="header">
                     <h2>Add Class</h2>
-                </div>
+                </div> -->
                 <form class="add-standard">
 
                     <mat-form-field class="full-width">
@@ -52,9 +52,9 @@
 
         <mat-tab label="Subject">
             <div class="form-mat-card">
-                <div class="header">
+                <!-- <div class="header">
                     <h2>Add Subject</h2>
-                </div>
+                </div> -->
                 <form class="add-subject">
                     <mat-form-field class="full-width">
                         <mat-label>Class</mat-label>
@@ -66,7 +66,12 @@
                     </mat-form-field>
 
                     <mat-form-field class="full-width">
-                        <input type="text" matInput placeholder="Subject name*">
+                        <mat-label>Class</mat-label>
+                        <mat-select required>
+                            <mat-option *ngFor="let classsbj of classsbjs" [value]="classsbj.value">
+                                {{classsbj.viewValue}}
+                            </mat-option>
+                        </mat-select>
                     </mat-form-field>
 
                 </form>
