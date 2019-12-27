@@ -1,7 +1,5 @@
-<button mat-raised-button (click)="isLinear = !isLinear" id="toggle-linear">
-    {{!isLinear ? 'Enable linear mode' : 'Disable linear mode'}}
-  </button>
-  <mat-vertical-stepper [linear]="isLinear" #stepper>
+ <mat-card>
+ <mat-vertical-stepper [linear]="!isLinear" #stepper>
     <mat-step [stepControl]="firstFormGroup">
       <form [formGroup]="firstFormGroup">
         <ng-template matStepLabel>Personal Details</ng-template>
@@ -94,4 +92,4 @@
       </div>
     </mat-step>
   </mat-vertical-stepper>
-  
+</mat-card>

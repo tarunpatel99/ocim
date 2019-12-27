@@ -1,4 +1,41 @@
 <p class="heading">Task & Work</p>
+<mat-card class="task-work-container">
+    <!-- class list -->
+    <div class="class-list-container">
+        <p class="mat-h1">Class list</p>
+
+        <button mat-button class="class-list-btn"
+            [ngClass]="{'active': selectedClass == class}"
+            (click)="chooseClass($event, class)"
+            *ngFor="let class of classNames">
+            {{ class.name }}
+        </button>
+    </div>
+
+    <!-- subject tabs and its tasks -->
+    <div class="subject-list-container">
+        <p class="mat-h1">Class : {{ selectedClass.name }}</p>
+        <mat-tab-group dynamicHeight>
+
+            <mat-tab *ngFor="let subject of selectedClass.subjects" [label]="subject.name">
+
+            </mat-tab>
+        </mat-tab-group>
+    </div>
+
+</mat-card>
+
+
+
+
+
+
+
+
+
+
+
+
 <button class="new-btn" mat-fab (click)="openForm()" aria-label="Example icon-button with a heart icon">
     <mat-icon>add</mat-icon>
 </button>

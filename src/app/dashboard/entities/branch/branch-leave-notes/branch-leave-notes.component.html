@@ -37,11 +37,12 @@
             <mat-header-cell *matHeaderCellDef mat-sort-header> Status </mat-header-cell>
             <mat-cell *matCellDef="let leave">
                 <mat-chip-list>
-                    <mat-chip [ngStyle]="{background: getColor(leave.status), 'color': leave.status === 'Pending' ? 'black' : 'white'}">{{leave.status}}</mat-chip>
+                    <mat-chip [ngStyle]="{color: getColor(leave.status)}" style="background-color: #f5f5f5;">{{leave.status}}</mat-chip>
                 </mat-chip-list>
             </mat-cell>
         </ng-container>
 
+        
         <ng-container matColumnDef="action">
             <mat-header-cell *matHeaderCellDef> Action </mat-header-cell>
             <mat-cell *matCellDef="let leave">
