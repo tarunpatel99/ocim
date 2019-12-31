@@ -6,8 +6,8 @@ import { MatTabChangeEvent } from '@angular/material';
 export interface DialogData {
   class?: string, // "?" it specify that not required field
   subject?: string,
-  iss_date: string, // Issue date
-  sub_date: string, // submission date
+  iss_date: Date, // Issue date
+  sub_date: Date, // submission date
   title: string,
   description: string
 }
@@ -42,20 +42,20 @@ export class FacultyTaskWorkComponent implements OnInit {
           name: "Maths",
           tasks: [
             {
-              iss_date: "24-12-2019",
-              sub_date: "26-12-2019",
+              iss_date: new Date(2019, 13, 25),
+              sub_date: new Date(2019, 12, 26),
               title: "Sample Title(1)",
               description: "Sample description of task and work(1)"
             },
             {
-              iss_date: "24-12-2019",
-              sub_date: "27-12-2019",
+              iss_date: new Date(2019, 12, 25),
+              sub_date: new Date(2019, 12, 26),
               title: "Sample Title(2)",
               description: "Sample description of task and work(2)"
             },
             {
-              iss_date: "24-12-2019",
-              sub_date: "26-12-2019",
+              iss_date: new Date(2019, 12, 25),
+              sub_date: new Date(2019, 12, 26),
               title: "Sample Title(3)",
               description: "Sample description of task and work(3)"
             },
@@ -74,20 +74,20 @@ export class FacultyTaskWorkComponent implements OnInit {
           name: "Maths",
           tasks: [
             {
-              iss_date: "24-12-2019",
-              sub_date: "26-12-2019",
+              iss_date: new Date(2019, 12, 25),
+              sub_date: new Date(2019, 12, 26),
               title: "Sample Title(1)",
               description: "Sample description of task and work(1)"
             },
             {
-              iss_date: "24-12-2019",
-              sub_date: "27-12-2019",
+              iss_date: new Date(2019, 12, 25),
+              sub_date: new Date(2019, 12, 26),
               title: "Sample Title(2)",
               description: "Sample description of task and work(2)"
             },
             {
-              iss_date: "24-12-2019",
-              sub_date: "26-12-2019",
+              iss_date: new Date(2019, 12, 25),
+              sub_date: new Date(2019, 12, 26),
               title: "Sample Title(3)",
               description: "Sample description of task and work(3)"
             },
@@ -107,20 +107,20 @@ export class FacultyTaskWorkComponent implements OnInit {
           name: "Accountancy ",
           tasks: [
             {
-              iss_date: "24-12-2019",
-              sub_date: "26-12-2019",
+              iss_date: new Date(2019, 12, 25),
+              sub_date: new Date(2019, 12, 26),
               title: "Sample Title(1)",
               description: "Sample description of task and work(1)"
             },
             {
-              iss_date: "24-12-2019",
-              sub_date: "27-12-2019",
+              iss_date: new Date(2019, 12, 25),
+              sub_date: new Date(2019, 12, 26),
               title: "Sample Title(2)",
               description: "Sample description of task and work(2)"
             },
             {
-              iss_date: "24-12-2019",
-              sub_date: "26-12-2019",
+              iss_date: new Date(2019, 12, 25),
+              sub_date: new Date(2019, 12, 26),
               title: "Sample Title(3)",
               description: "Sample description of task and work(3)"
             },
@@ -152,32 +152,32 @@ export class FacultyTaskWorkComponent implements OnInit {
           name: "Accountancy ",
           tasks: [
             {
-              iss_date: "24-12-2019",
-              sub_date: "26-12-2019",
+              iss_date: new Date(2019, 12, 25),
+              sub_date: new Date(2019, 12, 26),
               title: "Sample Title(1)",
               description: "Sample description of task and work(1)"
             },
             {
-              iss_date: "24-12-2019",
-              sub_date: "27-12-2019",
+              iss_date: new Date(2019, 12, 25),
+              sub_date: new Date(2019, 12, 26),
               title: "Sample Title(2)",
               description: "Sample description of task and work(2)"
             },
             {
-              iss_date: "24-12-2019",
-              sub_date: "26-12-2019",
+              iss_date: new Date(2019, 12, 25),
+              sub_date: new Date(2019, 12, 26),
               title: "Sample Title(3)",
               description: "Sample description of task and work(3)"
             },
             {
-              iss_date: "24-12-2019",
-              sub_date: "27-12-2019",
+              iss_date: new Date(2019, 12, 25),
+              sub_date: new Date(2019, 12, 26),
               title: "Sample Title(4)",
               description: "Sample description of task and work(5)"
             },
             {
-              iss_date: "24-12-2019",
-              sub_date: "27-12-2019",
+              iss_date: new Date(2019, 12, 25),
+              sub_date: new Date(2019, 12, 26),
               title: "Sample Title(6)",
               description: "Sample description of task and work(6)"
             },
