@@ -6,8 +6,8 @@ const express = require('express');
 
 const app = express();
 
-const mongoose = require('mongoose')
-mongoose.connect('mongodb+srv://imuserAtocim:GxOkVaJrCBEOw83t@cluster0-cqqj8.mongodb.net/test?retryWrites=true&w=majority')
+// const mongoose = require('mongoose')
+// mongoose.connect('mongodb+srv://imuserAtocim:GxOkVaJrCBEOw83t@cluster0-cqqj8.mongodb.net/test?retryWrites=true&w=majority')
 
 app.use((req, res, next) => {
     res.setHeader("Access-Control-Allow-Origin", "*");
