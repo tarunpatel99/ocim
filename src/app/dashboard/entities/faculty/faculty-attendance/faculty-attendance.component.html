@@ -1,10 +1,10 @@
 <p class="heading">Attendance</p>
 <mat-card>
     <form action="">
-        <mat-form-field class="large-width">
+        <!-- <mat-form-field class="large-width">
             <input matInput placeholder="Faculty name" disabled [value]="facultyname">
-        </mat-form-field>
-        <button class="submit-btn" mat-raised-button color="primary">Submit</button>
+        </mat-form-field> -->
+        <!-- <button class="submit-btn" mat-raised-button color="primary">Submit</button> -->
         <!-- <mat-form-field class="small-width">
             <mat-select placeholder="Select Institute">
                 <mat-option value="option">XICA - Xavier Institute of Computer Applications</mat-option>
@@ -15,12 +15,12 @@
                 <mat-option value="option">Ahmedabad</mat-option>
             </mat-select>
         </mat-form-field> -->
-        <mat-form-field class="half-width">
+        <mat-form-field class="small-width">
             <mat-select placeholder="Select class">
                 <mat-option value="option">TYBCA</mat-option>
             </mat-select>
         </mat-form-field>
-        <mat-form-field class="half-width">
+        <mat-form-field class="small-width">
             <mat-select placeholder="Select subject">
                 <mat-option value="option">SDP-II</mat-option>
             </mat-select>
@@ -55,4 +55,10 @@
             </mat-grid-list>
         </mat-selection-list>
     </form>
+<mat-divider></mat-divider>
+    <mat-card-actions align="end">
+        <button mat-flat-button color="primary">Submit</button>
+        <button mat-stroked-button color="warn">Cancel</button>    
+    </mat-card-actions>
+
 </mat-card>
