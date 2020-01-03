@@ -1,22 +1,23 @@
-.heading{
-    margin:20px 0;
-    color:#ffffff;
+.heading {
+    margin: 20px 0;
+    color: #ffffff;
     font-size: 36px;
     display: block;
 }
 
-mat-form-field{
+mat-form-field {
     margin: 0 10px;
     display: inline-block;
 }
 
-mat-radio-button{
+mat-radio-button {
     margin: 0 5px;
 }
 
-button{
+button {
     margin: 5px;
 }
+
 
 /* .header {
     margin-left: 28px;
@@ -28,8 +29,9 @@ button{
     background-size: cover;
     height: 50px;
     width: 50px;
-  }
-  
+}
+
+
 /* .form-mat-card {
     display: inline-table;
     margin: 5% ;
@@ -43,7 +45,7 @@ button{
     width: 400px; * /
 } */
 
-.gndr{
+.gndr {
     display: inline-block;
     width: 30%;
     margin: 0 10px;
@@ -60,38 +62,39 @@ button{
     display: inline-block;
     /* width: 500px; */
     margin: 0 10px;
-    max-width: 11%;
+    max-width: 13%;
 }
 
-.add-result{
+.add-result {
     display: block;
     margin: 0 20px;
 }
 
-.obtnmark{
+.obtnmark {
     width: 150px;
 }
 
-.std-roll-no{
+.std-roll-no {
     display: inline-block;
     width: 150px;
 }
 
-.std-name{
+.std-name {
     display: inline-block;
     width: 200px;
 }
 
-.obtn-mark{
+.obtn-mark {
     display: inline-block;
     width: 150px;
 }
+
 
 /* .right{
     float: right;
 } */
 
-mat-panel-title{
+mat-panel-title {
     width: 50%;
 }
 
@@ -100,31 +103,26 @@ mat-panel-title{
     margin-top: 10px;
     width: 100%;
     margin: auto;
-  }
+}
 
-.tbl-shadow{
+.tbl-shadow {
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 
-.tbl-right{
+.tbl-right {
     display: flex;
     justify-content: flex-end;
 }
 
 .large-width {
-    width: 85%;
-}
-
-
-.submit-btn {
-    width: 12%;
+    width: 100%;
 }
 
 .small-width {
-    width: 27%
+    width: 20%
 }
 
-.mat-radio-button ~ .mat-radio-button {
+.mat-radio-button~.mat-radio-button {
     margin-left: 16px;
 }
 
@@ -137,11 +135,12 @@ table {
     margin-top: 10px;
     width: 100%;
 }
-.tbl-shadow{
+
+.tbl-shadow {
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 
-.tbl-right{
+.tbl-right {
     display: flex;
     justify-content: flex-end;
 }
