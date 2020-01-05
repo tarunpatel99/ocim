@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth.service';
 import { NgForm } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 export interface Role {
   value: string;
@@ -20,8 +20,10 @@ export interface signIn {
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  returnUrl: string;
 
-  constructor(private AuthService: AuthService, private router: Router) { }
+  constructor(private AuthService: AuthService, private router: Router, 
+    private route: ActivatedRoute) { }
   roles: Role[] = [
     {value: 'Admin', viewValue: 'Admin'},
     {value: 'Owner', viewValue: 'Institute Owner'},
@@ -30,7 +32,15 @@ export class LoginComponent implements OnInit {
     {value: 'Student', viewValue: 'Student'}
   ];
 
-  ngOnInit() { }
+  ngOnInit() {
+    const user = JSON.parse(localStorage.getItem('currentUser'))
+    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+    console.log(user)
+    if (user != null) {
+      this.router.navigate(['/'])
+    }
+    
+  }
   
   // get login info of user
   onLogin(form: NgForm) {
@@ -41,7 +51,8 @@ export class LoginComponent implements OnInit {
     }
 
     // Authentication
-    this.AuthService.checkUser(user)
+    this.AuthService.login(user, this.returnUrl)
+    
   }
 
 }
