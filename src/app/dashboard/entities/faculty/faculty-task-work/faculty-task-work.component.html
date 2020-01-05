@@ -19,8 +19,8 @@
 
             <mat-tab *ngFor="let subject of selectedClass.subjects" [label]="subject.name">
                 <mat-card class="task-card" *ngFor="let task of subject.tasks">
-                    <p> Issued date: {{ task.iss_date }} </p>
-                    <p> Submission date: {{ task.sub_date }} </p>
+                    <p> Issued date: {{ task.iss_date | date:'longDate' }} </p> <!-- it will concate long date to short date -->
+                    <p> Submission date: {{ task.sub_date | date:'mediumDate' }} </p> <!-- it will concate long date to short date -->
                     <p> Title: {{ task.title }} </p>
                     <p> Desciption: {{ task.desciption }} </p>
                 </mat-card>
