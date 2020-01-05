@@ -41,6 +41,29 @@ button{
     width: 400px; * /
 } */
 
+.mat-column-icons {
+    flex: 0 0 3% !important;
+}
+
+.mat-column-name {
+    flex: 0 0 70% !important;
+}
+
+mat-row:hover {
+    cursor: pointer;
+    background: #f5f5f5;
+}
+
+
+tr.mat-row:hover {
+    background: #f5f5f5;
+    cursor: pointer;
+}
+
+.verticle_align_center {
+    line-height: 100px;
+    white-space: nowrap;
+}
 
 .full-width {
     display: inline-block;
@@ -72,6 +95,13 @@ mat-panel-title{
 
 .delete{
     right: 0 !important;
+}
+
+.file-list-card {
+    box-shadow: none !important;
+    border: 2px solid #e0e0e0;
+    width: 300px;
+    padding: 0px;
 }
 
 
