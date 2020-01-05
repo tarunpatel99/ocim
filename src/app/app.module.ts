@@ -48,10 +48,10 @@ import { BranchDashboardComponent } from './dashboard/entities/branch/branch-das
 import { BranchTimetableComponent, TimeTableFormDialog } from './dashboard/entities/branch/branch-timetable/branch-timetable.component';
 import { BranchAttendanceComponent } from './dashboard/entities/branch/branch-attendance/branch-attendance.component';
 import { BranchClassComponent } from './dashboard/entities/branch/branch-class/branch-class.component';
-import { BranchExamScheduleComponent, ExamScheduleFormDialog } from './dashboard/entities/branch/branch-exam-schedule/branch-exam-schedule.component';
+import { BranchExamScheduleComponent } from './dashboard/entities/branch/branch-exam-schedule/branch-exam-schedule.component';
 import { BranchExamResultComponent } from './dashboard/entities/branch/branch-exam-result/branch-exam-result.component';
 import { BranchNoticeComponent, NoticeFormDialog } from './dashboard/entities/branch/branch-notice/branch-notice.component';
-import { BranchLeaveNotesComponent } from './dashboard/entities/branch/branch-leave-notes/branch-leave-notes.component';
+import { BranchLeaveNotesComponent, LeaveNoteFormDialog } from './dashboard/entities/branch/branch-leave-notes/branch-leave-notes.component';
 import { BranchStudentsComponent } from './dashboard/entities/branch/branch-students/branch-students.component';
 import { BranchFeesComponent , announcementFormDialog} from './dashboard/entities/branch/branch-fees/branch-fees.component';
 import { BranchProfileComponent } from './dashboard/entities/branch/branch-profile/branch-profile.component';
@@ -110,11 +110,11 @@ import { CommonModule } from '@angular/common';
     BranchAttendanceComponent,
     BranchClassComponent,
     BranchExamScheduleComponent,
-    ExamScheduleFormDialog, //add/edit exam schedule dialog box
     BranchExamResultComponent,
     BranchNoticeComponent,
     NoticeFormDialog, //add/edit notice dialog box
     BranchLeaveNotesComponent,
+    LeaveNoteFormDialog, //accept and reject leave
     BranchStudentsComponent,
     BranchFeesComponent, 
     announcementFormDialog, //add annoncemenet dialog box
@@ -161,7 +161,7 @@ import { CommonModule } from '@angular/common';
     announcementFormDialog,
     NoticeByIOFormDialog,
     NoticeFormDialog,
-    ExamScheduleFormDialog,
+    LeaveNoteFormDialog,
     LeaveNoteViewDialog
   ],
   providers: [

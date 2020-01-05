@@ -44,9 +44,9 @@
 
         
         <ng-container matColumnDef="action">
-            <mat-header-cell *matHeaderCellDef> Action </mat-header-cell>
-            <mat-cell *matCellDef="let leave">
-                <button mat-icon-button color="primary" matTooltip="view">
+            <mat-header-cell *matHeaderCellDef class="tbl-right"> Action </mat-header-cell>
+            <mat-cell *matCellDef="let leave" class="tbl-right">
+                <button mat-icon-button color="primary" matTooltip="view" (click)="onViewLeaveNote($event, leave)">
                     <mat-icon>visibility</mat-icon>
                 </button>
             </mat-cell>
@@ -57,4 +57,5 @@
     </mat-table>
 
     <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+
 </mat-card>

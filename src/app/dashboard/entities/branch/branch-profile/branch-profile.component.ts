@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class BranchProfileComponent implements OnInit {
 
   constructor() { }
-
+  gender = "Male";
   ngOnInit() {
   }
 

@@ -1,57 +1,101 @@
 <div class="heading">Payments</div>
 <mat-card>
     <div class="container">
-    <mat-card class="no-shadow card-50">
-        <mat-card-title>Institute details</mat-card-title>
-        <mat-table [dataSource]="Institutes">
-            <!-- Branch Column -->
-            <ng-container matColumnDef="branch">
-              <mat-header-cell *matHeaderCellDef> Branch </mat-header-cell>
-              <mat-cell *matCellDef="let Institute"> {{Institute.branch}} </mat-cell>
-              <mat-footer-cell *matFooterCellDef> Total Students</mat-footer-cell>
-            </ng-container>
-          
-            <!-- Students Column -->
-            <ng-container matColumnDef="students">
-              <mat-header-cell *matHeaderCellDef class="tbl-right"> Students </mat-header-cell>
-              <mat-cell *matCellDef="let Institute" class="tbl-right"> {{Institute.students}} </mat-cell>
-              <mat-footer-cell *matFooterCellDef class="tbl-right"> {{getTotalStudents()}} </mat-footer-cell>
-            </ng-container>
-          
-            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-            <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-            <mat-footer-row *matFooterRowDef="displayedColumns"></mat-footer-row>
-        </mat-table>
-    </mat-card>
-    <mat-card class="no-shadow card-50">
-        <mat-card-title>Current billing</mat-card-title>
-        <mat-card-subtitle>Price : 20/Student/Month</mat-card-subtitle>
-        <mat-table [dataSource]="Payments">
-            <!-- Items Column -->
-            <ng-container matColumnDef="item">
-              <mat-header-cell *matHeaderCellDef> Month </mat-header-cell>
-              <mat-cell *matCellDef="let Pay"> {{Pay.item}} </mat-cell>
-              <mat-footer-cell *matFooterCellDef> Total Amount </mat-footer-cell>
-            </ng-container>
-          
-            <!-- Value Column -->
-            <ng-container matColumnDef="value">
-              <mat-header-cell *matHeaderCellDef class="tbl-right"> {{CurrentDate | date:'MM'}}({{CurrentDate | date:'MMMM'}}) - {{CurrentDate | date:'yyyy'}}</mat-header-cell>
-              <mat-cell *matCellDef="let Pay" class="tbl-right"> {{Pay.value}} </mat-cell>
-              <mat-footer-cell *matFooterCellDef class="tbl-right"> {{getTotalPay() | currency:"&#8377;"}} </mat-footer-cell><!-- Rs="&#8360" and symbol="&#8377"-->
-            </ng-container>
-          
-            <mat-header-row *matHeaderRowDef="displayedColumnsPay"></mat-header-row>
-            <mat-row *matRowDef="let row; columns: displayedColumnsPay;"></mat-row>
-            <mat-footer-row *matFooterRowDef="displayedColumnsPay"></mat-footer-row>
-        </mat-table>
-        <mat-card-actions class="tbl-right">
-            <button mat-flat-button color="primary">Pay</button>
-        </mat-card-actions>
-    </mat-card>
+        <!-- <mat-grid-list cols="2" [rowHeight]="fit">
+      <mat-grid-tile> -->
+        <mat-card class="no-shadow card-50">
+            <mat-card-title>Institute details</mat-card-title>
+            <mat-table [dataSource]="Institutes">
+                <!-- Branch Column -->
+                <ng-container matColumnDef="branch">
+                    <mat-header-cell *matHeaderCellDef> Branch </mat-header-cell>
+                    <mat-cell *matCellDef="let Institute"> {{Institute.branch}} </mat-cell>
+                    <mat-footer-cell *matFooterCellDef> Total Students</mat-footer-cell>
+                </ng-container>
+
+                <!-- Students Column -->
+                <ng-container matColumnDef="students">
+                    <mat-header-cell *matHeaderCellDef class="tbl-right"> Students </mat-header-cell>
+                    <mat-cell *matCellDef="let Institute" class="tbl-right"> {{Institute.students}} </mat-cell>
+                    <mat-footer-cell *matFooterCellDef class="tbl-right"> {{getTotalStudents()}} </mat-footer-cell>
+                </ng-container>
+
+                <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+                <mat-footer-row *matFooterRowDef="displayedColumns"></mat-footer-row>
+            </mat-table>
+        </mat-card>
+        <!-- </mat-grid-tile>
+      <mat-grid-tile> -->
+        <mat-card class="no-shadow card-50">
+            <mat-card-title>Current billing</mat-card-title>
+            <mat-card-subtitle>Price : 20/Student/Month</mat-card-subtitle>
+            <mat-table [dataSource]="Payments">
+                <!-- Items Column -->
+                <ng-container matColumnDef="item">
+                    <mat-header-cell *matHeaderCellDef> Month </mat-header-cell>
+                    <mat-cell *matCellDef="let Pay"> {{Pay.item}} </mat-cell>
+                    <mat-footer-cell *matFooterCellDef> Total Amount </mat-footer-cell>
+                </ng-container>
+
+                <!-- Value Column -->
+                <ng-container matColumnDef="value">
+                    <mat-header-cell *matHeaderCellDef class="tbl-right">
+                        {{CurrentDate | date:'MM'}}({{CurrentDate | date:'MMMM'}}) - {{CurrentDate | date:'yyyy'}}
+                    </mat-header-cell>
+                    <mat-cell *matCellDef="let Pay" class="tbl-right"> {{Pay.value}} </mat-cell>
+                    <mat-footer-cell *matFooterCellDef class="tbl-right"> {{getTotalPay() | currency:"&#8377;"}}
+                    </mat-footer-cell>
+                    <!-- Rs="&#8360" and symbol="&#8377"-->
+                </ng-container>
+
+                <mat-header-row *matHeaderRowDef="displayedColumnsPay"></mat-header-row>
+                <mat-row *matRowDef="let row; columns: displayedColumnsPay;"></mat-row>
+                <mat-footer-row *matFooterRowDef="displayedColumnsPay"></mat-footer-row>
+            </mat-table>
+            <mat-card-actions class="tbl-right">
+                <button mat-flat-button color="primary">Pay</button>
+            </mat-card-actions>
+        </mat-card>
+        <!-- </mat-grid-tile>
+    </mat-grid-list> -->
     </div>
     <br>
     <mat-card class="no-shadow">
         <mat-card-title>Subscription history</mat-card-title>
+        <mat-form-field id="searchBar">
+            <input matInput (keyup)="applyFilter_pay($event.target.value)" placeholder="Search">
+        </mat-form-field>
+        <mat-table [dataSource]="dataSource_pay" class="tbl-shadow" matSort>
+
+            <!-- date Column -->
+            <ng-container matColumnDef="date">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Sate </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.date}} </mat-cell>
+            </ng-container>
+
+            <!-- nofostudents Column -->
+            <ng-container matColumnDef="nofostudents">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Students </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.nofostudents}} </mat-cell>
+            </ng-container>
+
+            <!-- paymnet_method Column -->
+            <ng-container matColumnDef="paymnet_method">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Paymnet Method </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.paymnet_method}} </mat-cell>
+            </ng-container>
+
+            <!-- amount Column -->
+            <ng-container matColumnDef="amount">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Amount </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.amount}} </mat-cell>
+            </ng-container>
+
+            <mat-header-row *matHeaderRowDef="displayedColumns_pay"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns_pay;"></mat-row>
+        </mat-table>
+        <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+
     </mat-card>
 </mat-card>
