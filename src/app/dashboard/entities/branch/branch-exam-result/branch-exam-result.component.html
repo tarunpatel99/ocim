@@ -34,8 +34,6 @@
                 <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search">
             </mat-form-field>
 
-            <mat-table [dataSource]="dataSource" matSort>
-
             <button type="button" (click)="downloadAsPDF()">Print</button>
             <!-- <table  width="400">
                 <tr>
@@ -79,27 +77,33 @@
                         <td mat-cell *matCellDef="let student"> {{student.obt_marks}} </td>
                     </ng-container>
 
-                <!-- action Column -->
-                <ng-container matColumnDef="action">
-                    <mat-header-cell *matHeaderCellDef class="tbl-right"> Action </mat-header-cell>
-                    <mat-cell *matCellDef="let element" class="tbl-right">
-                        <!-- <button mat-icon-button color="primary" matTooltip="View">
+                    <ng-container matColumnDef="ttl_marks">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Total </th>
+                        <td mat-cell *matCellDef="let student"> {{student.ttl_marks}} </td>
+                    </ng-container>
+
+                    <!-- action Column -->
+                    <ng-container matColumnDef="action" #actionCotainer data-html2canvas-ignore="true">
+                        <th mat-header-cell *matHeaderCellDef data-html2canvas-ignore="true"> Action </th>
+                        <td mat-cell *matCellDef="let element" data-html2canvas-ignore="true">
+                            <!-- <button mat-icon-button color="primary" matTooltip="View">
                             <mat-icon>visibility</mat-icon>
                         </button> -->
-                        <button mat-icon-button color="primary" matTooltip="Edit">
-                            <mat-icon>edit</mat-icon>
-                        </button>
-                        <button mat-icon-button color="primary" matTooltip="Delete">
-                            <mat-icon>delete</mat-icon>
-                        </button>
-                    </mat-cell>
-                </ng-container>
+                            <button mat-icon-button color="primary" matTooltip="Edit">
+                                <mat-icon>edit</mat-icon>
+                            </button>
+                            <button mat-icon-button color="primary" matTooltip="Delete">
+                                <mat-icon>delete</mat-icon>
+                            </button>
+                        </td>
+                    </ng-container>
 
 
-                <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-                <mat-row *matRowDef="let student; columns: displayedColumns;"
-                    [ngStyle]="{'background-color':student.obt_marks <= '17' ? '#ffebee': 'none'}"></mat-row>
-            </mat-table>
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let student; columns: displayedColumns;"
+                        [ngStyle]="{'background-color':student.obt_marks <= '17' ? '#ffebee': 'none'}"></tr>
+                </table>
+            </div>
             <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
 
         </mat-tab>
