@@ -34,7 +34,7 @@
                 <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search">
             </mat-form-field>
 
-            <button type="button" (click)="downloadAsPDF()">Print</button>
+            <!-- <button type="button" (click)="downloadAsPDF()">Print</button> -->
             <!-- <table  width="400">
                 <tr>
                   <th>Month</th>
@@ -100,8 +100,7 @@
 
 
                     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-                    <tr mat-row *matRowDef="let student; columns: displayedColumns;"
-                        [ngStyle]="{'background-color':student.obt_marks <= '17' ? '#ffebee': 'none'}"></tr>
+                    <tr mat-row *matRowDef="let student; columns: displayedColumns;" [ngStyle]="{'background-color':student.obt_marks <= '17' ? '#ffebee': 'none'}"></tr>
                 </table>
             </div>
             <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
