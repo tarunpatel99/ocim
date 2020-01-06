@@ -49,6 +49,7 @@ import { StudentSyllabusComponent } from './dashboard/entities/student/student-s
 import { StudentTaskWorkComponent } from './dashboard/entities/student/student-task-work/student-task-work.component';
 import { StudentTimetableComponent } from './dashboard/entities/student/student-timetable/student-timetable.component';
 import { BranchFacultiesComponent } from './dashboard/entities/branch/branch-faculties/branch-faculties.component';
+import { AuthGuard } from './auth/auth.guard';
 
 
 const routes: Routes = [
@@ -60,6 +61,7 @@ const routes: Routes = [
   },
   {
     path: '', component: DashboardComponent,
+    canActivate: [AuthGuard],
     children: [
 
       // admin routing

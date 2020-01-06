@@ -5,6 +5,13 @@ import { StudentService } from "../student.service";
 import { Router } from '@angular/router';
 import { AuthService } from '../auth/auth.service';
 
+export class User {
+  username?: string;
+  password?: string;
+  role: string
+}
+
+
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -13,8 +20,11 @@ import { AuthService } from '../auth/auth.service';
 export class DashboardComponent implements OnInit, OnDestroy {
   mobileQuery: MediaQueryList;
 
+  username = 'Not Assigned'
+  role: any
 
   private _mobileQueryListener: () => void;
+  currentUser: User;
 
   constructor(
     changeDetectorRef: ChangeDetectorRef, 
@@ -26,15 +36,17 @@ export class DashboardComponent implements OnInit, OnDestroy {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
+    this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
   }
 
   onLogout() {
-    this.AuthService.role = null
-    this.AuthService.username = null
+    this.AuthService.logout()
   }
 
   ngOnInit() {
     this.AuthService.navigateUser()
+    this.username = this.currentUser.username;
+    this.role = this.currentUser.role;
 
     $(document).ready(function () {
       var winHeight = $(window).outerHeight();
