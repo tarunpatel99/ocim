@@ -33,7 +33,8 @@ import {
     MatSnackBarModule,
     MatTableModule,
     MatSortModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatRippleModule
 
 } from "@angular/material";
 
@@ -74,7 +75,8 @@ import {
         MatSnackBarModule,
         MatTableModule,
         MatSortModule,
-        MatPaginatorModule
+        MatPaginatorModule,
+        MatRippleModule
     ],
     exports: [
         BrowserAnimationsModule,
@@ -110,7 +112,8 @@ import {
         MatSnackBarModule,
         MatTableModule,
         MatSortModule,
-        MatPaginatorModule
+        MatPaginatorModule,
+        MatRippleModule
     ],
     providers: [
         MatNativeDateModule
