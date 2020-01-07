@@ -12,18 +12,20 @@ export class AuthGuard implements CanActivate {
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
     if (localStorage.getItem('currentUser')) {
       // logged in so return true
+      console.log(this.router.url)
       return true;
     }
 
     // not logged in so redirect to login page with the return url
     this.router.navigate(['/login'], { queryParams: { returnUrl: state.url } });
+    
     return false;
   }
-  // canActivateChild(
-  //   next: ActivatedRouteSnapshot,
-  //   state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-  //   return true;
-  // }
+  canActivateChild(
+    next: ActivatedRouteSnapshot,
+    state: RouterStateSnapshot) {
+    return true;
+  }
   // canLoad(
   //   route: Route,
   //   segments: UrlSegment[]): Observable<boolean> | Promise<boolean> | boolean {

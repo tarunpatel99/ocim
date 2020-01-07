@@ -1,6 +1,6 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject, OnDestroy } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { MatTabChangeEvent } from '@angular/material';
 
 export interface DialogData {
@@ -237,14 +237,40 @@ export class FacultyTaskWorkComponent implements OnInit {
   templateUrl: 'add-task-work.form.html',
   styleUrls: ['add-task-work.form.css']
 })
-export class TaskWorkFormDialog {
+export class TaskWorkFormDialog implements OnInit, OnDestroy{
+  addTaskForm: FormGroup;
   date = new FormControl(new Date());
   constructor(
     public dialogRef: MatDialogRef<TaskWorkFormDialog>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData) { }
 
   onSave(): void {
-    this.dialogRef.close();
+    // this.dialogRef.close();
+    if (this.addTaskForm.invalid) {
+      return;
+    }
   }
+
+  ngOnInit() {
+    this.addTaskForm = new FormGroup({
+      class: new FormControl(null, {
+        validators: [Validators.required]
+      }),
+      subject: new FormControl(null, {
+        validators: [Validators.required]
+      }),
+      issueDate: new FormControl(null, {
+        validators: [Validators.required]
+      }),
+      submissionDate: new FormControl(null, {
+        validators: [Validators.required]
+      }),
+      title: new FormControl(null, {
+        validators: [Validators.required]
+      }),
+    });
+
+  }
+  ngOnDestroy() { }
 
 }
