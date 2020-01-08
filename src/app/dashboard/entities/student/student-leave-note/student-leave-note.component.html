@@ -1,7 +1,9 @@
 <p class="heading">Leave notes</p>
 <mat-card>
     <!-- leave notes list -->
-    <button mat-raised-button color="primary" (click)="openDialog()">Apply leave</button>
+    <button class="new-btn" mat-fab (click)="openDialog()" aria-label="Example icon-button with a heart icon">
+        <mat-icon>add</mat-icon>
+    </button>
     <mat-form-field id="searchBar">
         <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search">
     </mat-form-field>

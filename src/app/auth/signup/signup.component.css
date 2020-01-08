@@ -60,40 +60,33 @@ button{
 
 .gndr{
   display: inline-block;
-  width: 30%;
+  width: 52%;
   margin: 0 10px;
 }
 
 .full-width {
   display: inline-block;
-  width: 30%;
+  width: 40%;
   margin: 0 10px;
   /* max-width: 85%; */
+}
+.address {
+  display: inline-block;
+  width: 100%;
+  margin: 0 10px;
 }
 
 .half-width {
   display: inline;
   /* width: 500px; */
   margin: 0 10px;
-  max-width: 30%;
+  max-width: 40%;
 }
 
 /* .right{
   float: right;
 } */
 
-.centered {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-}
-
-.main {
-  display: block;
-  text-align: center;
-  height: 100%;
-}
 
 .header{
   font-family: sans-serif;
@@ -101,3 +94,35 @@ button{
   text-align: center;
   font-size: x-large;
 }
+.main {
+  display: block;
+  height: 100%;
+}
+
+.form-mat-card {
+  padding: 10px;
+  margin: 0 auto;
+  padding: 20px;
+  height: fit-content;
+  width: 600px;
+}
+.centered {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer {
+  display:flex;
+  align-items: stretch;
+  width: 430px;
+  margin: 15px auto;
+}
+
+.place-left {
+    position: absolute;
+    left: 0;
+} 
+ 
+.place-right {
+    flex-grow: 1;
+} 

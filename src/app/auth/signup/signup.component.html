@@ -1,4 +1,6 @@
- <mat-card class="mat-card">
+<div class="main centered">
+
+  <mat-card class="form-mat-card">
   <div class="header"> 
   <h2>Sign Up</h2>
   </div>
@@ -17,7 +19,7 @@
         <mat-form-field class="full-width">
             <input type="text" matInput placeholder="Last name" required formControlName="firstCtrl">
         </mat-form-field>
-        <br>
+        
         <div class="gndr">
             <p><label class="half-width">Select Gender</label></p>
             <mat-radio-group aria-label="Select Gender" class="half-width" color="primary" required formControlName="firstCtrl">
@@ -26,7 +28,7 @@
                 <mat-radio-button value="Other">Other</mat-radio-button>
             </mat-radio-group>
         </div>
-        <mat-form-field class="full-width">
+        <mat-form-field class="address">
             <textarea type="text" matInput placeholder="Address" rows="3" required formControlName="firstCtrl"></textarea>
         </mat-form-field>
         <br>
@@ -45,17 +47,18 @@
         </mat-form-field>
         <br>
         <mat-form-field class="full-width">
-            <mat-label>City</mat-label>
-            <mat-select required formControlName="secondCtrl">
-              <mat-option value="option">Ahmedabad</mat-option>
-            </mat-select>
-        </mat-form-field>
-        <mat-form-field class="full-width">
             <mat-label>State</mat-label>
             <mat-select required formControlName="secondCtrl">
               <mat-option value="option">Gujarat</mat-option>
             </mat-select>
         </mat-form-field>
+        
+        <mat-form-field class="full-width">
+          <mat-label>City</mat-label>
+          <mat-select required formControlName="secondCtrl">
+            <mat-option value="option">Ahmedabad</mat-option>
+          </mat-select>
+      </mat-form-field>
         <mat-form-field>
             <input matInput #postalCode maxlength="6" placeholder="Postal Code" required formControlName="secondCtrl">
             <mat-hint align="end">{{postalCode.value.length}} / 6</mat-hint>
@@ -97,3 +100,10 @@
     </mat-step>
   </mat-vertical-stepper>
 </mat-card>
+<div class="footer">
+  <p class="place-left">Sign in instead?</p>
+  <button mat-raised-button color="primary" class="place-left">Sign In</button>
+  <span class="space"></span>
+  <a routerLink="" class="place-right">Contact Us</a>
+</div>
+</div>

@@ -1,6 +1,6 @@
 <p class="heading">Profile</p>
 <mat-card>
-    <form class="no-add-faculty">
+    <form class="no-add-faculty" name="profile">
         <mat-card style="background: none; box-shadow: none;">
             <mat-card-header>
                 <div mat-card-avatar class="example-header-image"></div>
@@ -9,7 +9,7 @@
             </mat-card-header>
         </mat-card>
         <mat-form-field class="full-width">
-            <input type="text" matInput placeholder="First name" required>
+            <input name="fname" type="text" matInput placeholder="First name" required>
         </mat-form-field>
         <mat-form-field class="full-width">
             <input type="text" matInput placeholder="Middle name">
@@ -62,7 +62,7 @@
         </mat-form-field>
         <br>
         <mat-form-field class="full-width">
-            <input type="text" matInput placeholder="Phone number" required>
+            <input type="number" pattern="[0-9]* matInput placeholder="Phone number" required [formControl]="numberForm" maxlength="10" minlength="10">
         </mat-form-field>
         <mat-form-field class="full-width">
             <input matInput placeholder="Email" [formControl]="emailFormControl">

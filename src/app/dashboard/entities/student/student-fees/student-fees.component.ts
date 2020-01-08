@@ -1,6 +1,20 @@
 import { Component, OnInit } from '@angular/core';
+import { MatTableDataSource } from '@angular/material/table';
 
+export interface StudentFees {
+  std: number;
+  sem: number;
+  mode: string; 
+  date: string;
+  amount: number;
+  status: string;
+  print: string;
+}
 
+const students: StudentFees[] = [
+  { std: 8 , sem: 2, mode: 'Online', date: '29-12-2019', amount: 45000, status: "Unpaid", print: "Print"},
+  { std: 8 , sem: 1, mode: 'Online', date: '29-12-2019', amount: 45000, status: "Paid", print: "Print"},
+]
 @Component({
   selector: 'app-student-fees',
   templateUrl: './student-fees.component.html',
@@ -8,7 +22,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StudentFeesComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+    this.dataSource = new MatTableDataSource(students);
+   }
+   displayedColumns: string[] = ['std' , 'sem', 'mode', 'date', 'amount', 'status', 'print'];
+  dataSource: MatTableDataSource<StudentFees>;
   ngOnInit() {
+  }
+
+  getColor(status) {
+    switch (status) {
+      case 'Paid':
+        return '#43a047'; // green
+      case 'Unpaid':
+        return '#e53935'; // red
+    }
   }
 }

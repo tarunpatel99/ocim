@@ -1,17 +1,46 @@
-.example-container {
-    height: 270px;
-    overflow: auto;
-  }
   
-  table {
+  .mat-card{
+    display: inline-block;
+    max-width: 300px;
     width: 100%;
+    margin: 15px;
   }
-  
-  tr.mat-footer-row {
-    font-weight: bold;
+  .mat-card2{
+    display: inline-block;
+    max-width: 90%;
+    width: 100%;
+    margin: 15px;
   }
-  
-  .mat-table-sticky {
-    border-top: 1px solid #e0e0e0;
+  .button2{
+    margin-left: -8px;
+    margin-right: 322px;
+    padding: 8px 0;
+    display: block;
+    margin-bottom: -58px;
   }
-  
+  .heading{
+    margin:20px 0;
+    color:#ffffff;
+    font-size: 36px;
+    display: block;
+}
+
+.space {
+  width: 100%;
+  flex: 1 1 10%;
+}
+
+.mat-card1{
+  max-width: 100%;
+  width: 80%;
+}
+
+.table {
+  width: 100%;
+  text-align: center;
+}
+
+.print-button {
+  height: 34px;
+  width: 79px;
+}

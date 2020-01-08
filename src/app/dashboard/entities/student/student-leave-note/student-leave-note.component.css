@@ -13,4 +13,16 @@ table {
     margin-top: 10px;
     width: 100%;
   }
+
+  .class-list-btn {
+    width: 100%;
+    text-align: left;
+    padding: 5px 15px;
+}
+
+.new-btn {
+  position: fixed;
+  right: 30px;
+  bottom: 30px;
+}
   

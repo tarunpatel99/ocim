@@ -4,3 +4,6 @@
     font-size: 36px;
     display: block;
 }
+.card-shadow{
+    box-shadow: none;
+}

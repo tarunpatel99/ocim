@@ -26,7 +26,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
   styleUrls: ['./student-attendance.component.css']
 })
 export class StudentAttendanceComponent implements OnInit {
-
+  progress = "80%"
   constructor() { }
   displayedColumns: string[] = ['subject', 'total', 'present', 'absent', 'per'];
   dataSource = ELEMENT_DATA;
@@ -35,5 +35,16 @@ export class StudentAttendanceComponent implements OnInit {
   availableColors: ChipColor[] = [
     {name: 'Primary', color: 'primary'},
   ];
-
+  attendance(per) {
+    switch (per) {
+      case '100%':
+        return '#4CAF50';
+      case '67%':
+        return '#F44336';
+      case '80%':
+        return '#FFA726';
+      case '75%':
+        return '#FFA726';
+    }
+  }
 }
