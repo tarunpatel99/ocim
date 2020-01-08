@@ -1,13 +1,13 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject, OnDestroy } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { MatTabChangeEvent } from '@angular/material';
 
 export interface DialogData {
   class?: string, // "?" it specify that not required field
   subject?: string,
-  iss_date: string, // Issue date
-  sub_date: string, // submission date
+  iss_date: Date, // Issue date
+  sub_date: Date, // submission date
   title: string,
   description: string
 }
@@ -42,20 +42,20 @@ export class FacultyTaskWorkComponent implements OnInit {
           name: "Maths",
           tasks: [
             {
-              iss_date: "24-12-2019",
-              sub_date: "26-12-2019",
+              iss_date: new Date(2019, 13, 25),
+              sub_date: new Date(2019, 12, 26),
               title: "Sample Title(1)",
               description: "Sample description of task and work(1)"
             },
             {
-              iss_date: "24-12-2019",
-              sub_date: "27-12-2019",
+              iss_date: new Date(2019, 12, 25),
+              sub_date: new Date(2019, 12, 26),
               title: "Sample Title(2)",
               description: "Sample description of task and work(2)"
             },
             {
-              iss_date: "24-12-2019",
-              sub_date: "26-12-2019",
+              iss_date: new Date(2019, 12, 25),
+              sub_date: new Date(2019, 12, 26),
               title: "Sample Title(3)",
               description: "Sample description of task and work(3)"
             },
@@ -74,20 +74,20 @@ export class FacultyTaskWorkComponent implements OnInit {
           name: "Maths",
           tasks: [
             {
-              iss_date: "24-12-2019",
-              sub_date: "26-12-2019",
+              iss_date: new Date(2019, 12, 25),
+              sub_date: new Date(2019, 12, 26),
               title: "Sample Title(1)",
               description: "Sample description of task and work(1)"
             },
             {
-              iss_date: "24-12-2019",
-              sub_date: "27-12-2019",
+              iss_date: new Date(2019, 12, 25),
+              sub_date: new Date(2019, 12, 26),
               title: "Sample Title(2)",
               description: "Sample description of task and work(2)"
             },
             {
-              iss_date: "24-12-2019",
-              sub_date: "26-12-2019",
+              iss_date: new Date(2019, 12, 25),
+              sub_date: new Date(2019, 12, 26),
               title: "Sample Title(3)",
               description: "Sample description of task and work(3)"
             },
@@ -107,20 +107,20 @@ export class FacultyTaskWorkComponent implements OnInit {
           name: "Accountancy ",
           tasks: [
             {
-              iss_date: "24-12-2019",
-              sub_date: "26-12-2019",
+              iss_date: new Date(2019, 12, 25),
+              sub_date: new Date(2019, 12, 26),
               title: "Sample Title(1)",
               description: "Sample description of task and work(1)"
             },
             {
-              iss_date: "24-12-2019",
-              sub_date: "27-12-2019",
+              iss_date: new Date(2019, 12, 25),
+              sub_date: new Date(2019, 12, 26),
               title: "Sample Title(2)",
               description: "Sample description of task and work(2)"
             },
             {
-              iss_date: "24-12-2019",
-              sub_date: "26-12-2019",
+              iss_date: new Date(2019, 12, 25),
+              sub_date: new Date(2019, 12, 26),
               title: "Sample Title(3)",
               description: "Sample description of task and work(3)"
             },
@@ -152,32 +152,32 @@ export class FacultyTaskWorkComponent implements OnInit {
           name: "Accountancy ",
           tasks: [
             {
-              iss_date: "24-12-2019",
-              sub_date: "26-12-2019",
+              iss_date: new Date(2019, 12, 25),
+              sub_date: new Date(2019, 12, 26),
               title: "Sample Title(1)",
               description: "Sample description of task and work(1)"
             },
             {
-              iss_date: "24-12-2019",
-              sub_date: "27-12-2019",
+              iss_date: new Date(2019, 12, 25),
+              sub_date: new Date(2019, 12, 26),
               title: "Sample Title(2)",
               description: "Sample description of task and work(2)"
             },
             {
-              iss_date: "24-12-2019",
-              sub_date: "26-12-2019",
+              iss_date: new Date(2019, 12, 25),
+              sub_date: new Date(2019, 12, 26),
               title: "Sample Title(3)",
               description: "Sample description of task and work(3)"
             },
             {
-              iss_date: "24-12-2019",
-              sub_date: "27-12-2019",
+              iss_date: new Date(2019, 12, 25),
+              sub_date: new Date(2019, 12, 26),
               title: "Sample Title(4)",
               description: "Sample description of task and work(5)"
             },
             {
-              iss_date: "24-12-2019",
-              sub_date: "27-12-2019",
+              iss_date: new Date(2019, 12, 25),
+              sub_date: new Date(2019, 12, 26),
               title: "Sample Title(6)",
               description: "Sample description of task and work(6)"
             },
@@ -237,14 +237,40 @@ export class FacultyTaskWorkComponent implements OnInit {
   templateUrl: 'add-task-work.form.html',
   styleUrls: ['add-task-work.form.css']
 })
-export class TaskWorkFormDialog {
+export class TaskWorkFormDialog implements OnInit, OnDestroy{
+  addTaskForm: FormGroup;
   date = new FormControl(new Date());
   constructor(
     public dialogRef: MatDialogRef<TaskWorkFormDialog>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData) { }
 
   onSave(): void {
-    this.dialogRef.close();
+    // this.dialogRef.close();
+    if (this.addTaskForm.invalid) {
+      return;
+    }
   }
+
+  ngOnInit() {
+    this.addTaskForm = new FormGroup({
+      class: new FormControl(null, {
+        validators: [Validators.required]
+      }),
+      subject: new FormControl(null, {
+        validators: [Validators.required]
+      }),
+      issueDate: new FormControl(null, {
+        validators: [Validators.required]
+      }),
+      submissionDate: new FormControl(null, {
+        validators: [Validators.required]
+      }),
+      title: new FormControl(null, {
+        validators: [Validators.required]
+      }),
+    });
+
+  }
+  ngOnDestroy() { }
 
 }

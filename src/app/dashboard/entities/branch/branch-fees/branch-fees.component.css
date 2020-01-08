@@ -1,26 +1,27 @@
-.heading{
-    margin:20px 0;
-    color:#ffffff;
+.heading {
+    margin: 20px 0;
+    color: #ffffff;
     font-size: 36px;
     display: block;
 }
 
-mat-form-field{
+mat-form-field {
     margin: 0 10px;
     display: inline-block;
 }
 
-mat-radio-button{
+mat-radio-button {
     margin: 0 5px;
 }
 
-button{
+button {
     margin: 5px;
 }
 
 .example-card {
-  max-width: 400px;
+    max-width: 400px;
 }
+
 
 /* .header {
     margin-left: 28px;
@@ -32,9 +33,10 @@ button{
     background-size: cover;
     height: 50px;
     width: 50px;
-  }
-  
-  /* .form-mat-card {
+}
+
+
+/* .form-mat-card {
     display: inline-table;
     margin: 5% ;
     /* padding: 10px; * /
@@ -46,7 +48,6 @@ button{
     height: fit-content;
     width: 400px; * /
 } */
-
 
 .full-width {
     display: inline-block;
@@ -62,11 +63,12 @@ button{
     max-width: 30%;
 }
 
+
 /* .right{
     float: right;
 } */
 
-mat-panel-title{
+mat-panel-title {
     width: 50%;
 }
 
@@ -75,30 +77,38 @@ mat-panel-title{
     margin-top: 10px;
     width: 100%;
     margin: auto;
-  }
+}
 
-.tbl-shadow{
+.tbl-shadow {
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 
-.tbl-right{
+.tbl-right {
     display: flex;
     justify-content: flex-end;
 }
+
 .example-card {
     max-width: 25%;
     box-shadow: none !important;
     border: 2px solid #e0e0e0;
-
 }
 
-.delete{
+.delete {
     right: 0 !important;
 }
-
 
 .new-btn {
     position: fixed;
     right: 30px;
     bottom: 30px;
+}
+
+.mat-column-name {
+    word-wrap: break-word !important;
+    white-space: unset !important;
+    flex: 0 0 28% !important;
+    width: 28% !important;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
 }

@@ -41,6 +41,26 @@ button{
     width: 400px; * /
 } */
 
+.mat-column-icons {
+    flex: 0 0 3% !important;
+}
+
+.mat-column-name {
+    flex: 0 0 65% !important;
+}
+
+.mat-column-uploadDate {
+    flex: 0 0 13% !important;
+}
+
+.mat-column-fileOwnerName {
+    flex: 0 0 10% !important;
+}
+
+.verticle_align_center {
+    line-height: 100px;
+    white-space: nowrap;
+}
 
 .full-width {
     display: inline-block;
@@ -72,6 +92,13 @@ mat-panel-title{
 
 .delete{
     right: 0 !important;
+}
+
+.file-list-card {
+    box-shadow: none !important;
+    border: 2px solid #e0e0e0;
+    width: 300px;
+    padding: 0px;
 }
 
 

@@ -1,9 +1,9 @@
 <div class="example-container" [class.example-is-mobile]="mobileQuery.matches" [ngClass]="{
-    'admin-theme': AuthService.role=='Admin',
-    'owner-theme': AuthService.role=='Owner',
-    'bm-theme': AuthService.role=='Branch Manager',
-    'faculty-theme': AuthService.role=='Faculty',
-    'student-theme': AuthService.role=='Student'
+    'admin-theme': role=='Admin',
+    'owner-theme': role=='Owner',
+    'bm-theme': role=='Branch Manager',
+    'faculty-theme': role=='Faculty',
+    'student-theme': role=='Student'
     }">
     <mat-toolbar color="primary" class="nav mat-elevation-z10">
         <button type="button" *ngIf="(isHandset$ | async) ? 'false' : 'true'" aria-label="Toggle sidenav"
@@ -27,124 +27,124 @@
                 <mat-card style="background: none; box-shadow: none;">
                     <mat-card-header>
                         <div mat-card-avatar class="example-header-image"></div>
-                        <mat-card-title><span>{{AuthService.username}}</span></mat-card-title>
-                        <mat-card-subtitle><span>{{AuthService.role}}</span></mat-card-subtitle>
+                        <mat-card-title><span>{{username}}</span></mat-card-title>
+                        <mat-card-subtitle><span>{{role}}</span></mat-card-subtitle>
                     </mat-card-header>
                 </mat-card>
             </mat-toolbar>
             <mat-nav-list>
 
                 <!-- For admin -->
-                <a mat-list-item routerLinkActive="active" *ngIf="AuthService.role=='Admin'"
+                <a mat-list-item routerLinkActive="active" *ngIf="role=='Admin'"
                     routerLink="/admin-dashboard">
                     <mat-icon aria-hidden="false" aria-label="Dashboard">dashboard</mat-icon>
                     Dashboard
                 </a>
-                <a mat-list-item routerLinkActive="active" *ngIf="AuthService.role=='Admin'"
+                <a mat-list-item routerLinkActive="active" *ngIf="role=='Admin'"
                     routerLink="/admin-institute">
                     <mat-icon aria-hidden="false" aria-label="Dashboard">account_balance</mat-icon>
                     Institutes
                 </a>
-                <a mat-list-item routerLinkActive="active" *ngIf="AuthService.role=='Admin'"
+                <a mat-list-item routerLinkActive="active" *ngIf="role=='Admin'"
                     routerLink="/admin-payment">
                     <mat-icon aria-hidden="false" aria-label="Dashboard">payment</mat-icon>
                     Payment
                 </a>
-                <!-- <a mat-list-item routerLinkActive="active" *ngIf="AuthService.role=='Admin'"
+                <!-- <a mat-list-item routerLinkActive="active" *ngIf="role=='Admin'"
                     routerLink="/admin-feedback">Feedback</a> -->
-                <a mat-list-item routerLinkActive="active" *ngIf="AuthService.role=='Admin'"
+                <a mat-list-item routerLinkActive="active" *ngIf="role=='Admin'"
                     routerLink="/admin-profile">
                     <mat-icon aria-hidden="false" aria-label="Dashboard">account_circle</mat-icon>
                     Profile
                 </a>
 
                 <!-- For Institute owner -->
-                <a mat-list-item routerLinkActive="active" *ngIf="AuthService.role=='Owner'"
+                <a mat-list-item routerLinkActive="active" *ngIf="role=='Owner'"
                     routerLink="/institute-dashboard">
                     <mat-icon aria-hidden="false" aria-label="Dashboard">dashboard</mat-icon>
                     Dashboard
                 </a>
-                <a mat-list-item routerLinkActive="active" *ngIf="AuthService.role=='Owner'"
+                <a mat-list-item routerLinkActive="active" *ngIf="role=='Owner'"
                     routerLink="/institute-branches">
                     <mat-icon aria-hidden="false" aria-label="Dashboard">table_chart</mat-icon>
                     Branches
                 </a>
-                <a mat-list-item routerLinkActive="active" *ngIf="AuthService.role=='Owner'"
+                <a mat-list-item routerLinkActive="active" *ngIf="role=='Owner'"
                     routerLink="/institute-notice">
                     <mat-icon aria-hidden="false" aria-label="Dashboard">announcement</mat-icon>
                     Notice
                 </a>
-                <a mat-list-item routerLinkActive="active" *ngIf="AuthService.role=='Owner'"
+                <a mat-list-item routerLinkActive="active" *ngIf="role=='Owner'"
                     routerLink="/institute-payments">
                     <mat-icon aria-hidden="false" aria-label="Dashboard">payment</mat-icon>
                     Payments
                 </a>
-                <a mat-list-item routerLinkActive="active" *ngIf="AuthService.role=='Owner'"
+                <a mat-list-item routerLinkActive="active" *ngIf="role=='Owner'"
                     routerLink="/institute-profile">
                     <mat-icon aria-hidden="false" aria-label="Dashboard">account_circle</mat-icon>
                     Profile
                 </a>
-                <!-- <a mat-list-item routerLinkActive="active" *ngIf="AuthService.role=='Owner'"
+                <!-- <a mat-list-item routerLinkActive="active" *ngIf="role=='Owner'"
                     routerLink="/institute-feedback">Feedback</a> -->
 
                 <!-- For branch manager -->
 
-                <a mat-list-item routerLinkActive="active" *ngIf="AuthService.role=='Branch Manager'"
+                <a mat-list-item routerLinkActive="active" *ngIf="role=='Branch Manager'"
                     routerLink="/branch-dashboard">
                     <mat-icon aria-hidden="false" aria-label="Dashboard">dashboard</mat-icon>
                     Dashboard
                 </a>
-                <a mat-list-item routerLinkActive="active" *ngIf="AuthService.role=='Branch Manager'"
+                <a mat-list-item routerLinkActive="active" *ngIf="role=='Branch Manager'"
                     routerLink="/branch-timetable">
                     <mat-icon aria-hidden="false" aria-label="Dashboard">event</mat-icon>
                     Time Table
                 </a>
-                <a mat-list-item routerLinkActive="active" *ngIf="AuthService.role=='Branch Manager'"
+                <a mat-list-item routerLinkActive="active" *ngIf="role=='Branch Manager'"
                     routerLink="/branch-attendance">
                     <mat-icon aria-hidden="false" aria-label="Dashboard">assignment_turned_in</mat-icon>
                     Attendance
                 </a>
-                <a mat-list-item routerLinkActive="active" *ngIf="AuthService.role=='Branch Manager'"
+                <a mat-list-item routerLinkActive="active" *ngIf="role=='Branch Manager'"
                     routerLink="/branch-class">
                     <mat-icon aria-hidden="false" aria-label="Dashboard">group_work</mat-icon>
                     Class
                 </a>
-                <a mat-list-item routerLinkActive="active" *ngIf="AuthService.role=='Branch Manager'"
+                <a mat-list-item routerLinkActive="active" *ngIf="role=='Branch Manager'"
                     routerLink="/branch-exam-schedule">
                     <mat-icon aria-hidden="false" aria-label="Dashboard">event_note</mat-icon>
                     Exam Schedule
                 </a>
-                <a mat-list-item routerLinkActive="active" *ngIf="AuthService.role=='Branch Manager'"
+                <a mat-list-item routerLinkActive="active" *ngIf="role=='Branch Manager'"
                     routerLink="/branch-exam-result">
                     <mat-icon aria-hidden="false" aria-label="Dashboard">assessment</mat-icon>
                     Exam result
                 </a>
-                <a mat-list-item routerLinkActive="active" *ngIf="AuthService.role=='Branch Manager'"
+                <a mat-list-item routerLinkActive="active" *ngIf="role=='Branch Manager'"
                     routerLink="/branch-notice">
                     <mat-icon aria-hidden="false" aria-label="Dashboard">announcement</mat-icon>
                     Notice
                 </a>
-                <a mat-list-item routerLinkActive="active" *ngIf="AuthService.role=='Branch Manager'"
+                <a mat-list-item routerLinkActive="active" *ngIf="role=='Branch Manager'"
                     routerLink="/branch-leave-notes">
                     <mat-icon aria-hidden="false" aria-label="Dashboard">flight_takeoff</mat-icon>
                     Leave notes
                 </a>
-                <a mat-list-item routerLinkActive="active" *ngIf="AuthService.role=='Branch Manager'"
+                <a mat-list-item routerLinkActive="active" *ngIf="role=='Branch Manager'"
                     routerLink="/branch-faculty">
                     <mat-icon aria-hidden="false" aria-label="Dashboard">person</mat-icon>
                     Faculties
                 </a>
-                <a mat-list-item routerLinkActive="active" *ngIf="AuthService.role=='Branch Manager'"
+                <a mat-list-item routerLinkActive="active" *ngIf="role=='Branch Manager'"
                     routerLink="/branch-student">
                     <mat-icon aria-hidden="false" aria-label="Dashboard">people</mat-icon>
                     Students
                 </a>
-                <a mat-list-item routerLinkActive="active" *ngIf="AuthService.role=='Branch Manager'"
+                <a mat-list-item routerLinkActive="active" *ngIf="role=='Branch Manager'"
                     routerLink="/branch-fees">
                     <mat-icon aria-hidden="false" aria-label="Dashboard">payment</mat-icon>
                     Fees
                 </a>
-                <a mat-list-item routerLinkActive="active" *ngIf="AuthService.role=='Branch Manager'"
+                <a mat-list-item routerLinkActive="active" *ngIf="role=='Branch Manager'"
                     routerLink="/branch-profile">
                     <mat-icon aria-hidden="false" aria-label="Dashboard">account_circle</mat-icon>
                     Profile
@@ -152,109 +152,109 @@
 
 
                 <!-- For faculty -->
-                <a mat-list-item routerLinkActive="active" *ngIf="AuthService.role=='Faculty'"
+                <a mat-list-item routerLinkActive="active" *ngIf="role=='Faculty'"
                     routerLink="/faculty-dashboard">
                     <mat-icon aria-hidden="false" aria-label="Dashboard">dashboard</mat-icon>
                     Dashboard
                 </a>
-                <a mat-list-item routerLinkActive="active" *ngIf="AuthService.role=='Faculty'"
+                <a mat-list-item routerLinkActive="active" *ngIf="role=='Faculty'"
                     routerLink="/faculty-time-table">
                     <mat-icon aria-hidden="false" aria-label="Dashboard">event</mat-icon>
                     Time Table
                 </a>
-                <a mat-list-item routerLinkActive="active" *ngIf="AuthService.role=='Faculty'"
+                <a mat-list-item routerLinkActive="active" *ngIf="role=='Faculty'"
                     routerLink="/faculty-attendance">
                     <mat-icon aria-hidden="false" aria-label="Dashboard">assignment_turned_in</mat-icon>
                     Attendance
                 </a>
-                <a mat-list-item routerLinkActive="active" *ngIf="AuthService.role=='Faculty'"
+                <a mat-list-item routerLinkActive="active" *ngIf="role=='Faculty'"
                     routerLink="/faculty-task-work">
                     <mat-icon aria-hidden="false" aria-label="Dashboard">assignment</mat-icon>
                     Task & work
                 </a>
-                <a mat-list-item routerLinkActive="active" *ngIf="AuthService.role=='Faculty'"
+                <a mat-list-item routerLinkActive="active" *ngIf="role=='Faculty'"
                     routerLink="/faculty-syllabus">
                     <mat-icon aria-hidden="false" aria-label="Dashboard">book</mat-icon>
                     Syllabus
                 </a>
-                <a mat-list-item routerLinkActive="active" *ngIf="AuthService.role=='Faculty'"
+                <a mat-list-item routerLinkActive="active" *ngIf="role=='Faculty'"
                     routerLink="/faculty-exam-schedule">
                     <mat-icon aria-hidden="false" aria-label="Dashboard">event_note</mat-icon>
                     Exam Schedule
                 </a>
-                <a mat-list-item routerLinkActive="active" *ngIf="AuthService.role=='Faculty'"
+                <a mat-list-item routerLinkActive="active" *ngIf="role=='Faculty'"
                     routerLink="/faculty-exam-result">
                     <mat-icon aria-hidden="false" aria-label="Dashboard">assessment</mat-icon>
                     Exam result
                 </a>
-                <a mat-list-item routerLinkActive="active" *ngIf="AuthService.role=='Faculty'"
+                <a mat-list-item routerLinkActive="active" *ngIf="role=='Faculty'"
                     routerLink="/faculty-notice">
                     <mat-icon aria-hidden="false" aria-label="Dashboard">announcement</mat-icon>
                     Notice
                 </a>
-                <a mat-list-item routerLinkActive="active" *ngIf="AuthService.role=='Faculty'"
+                <a mat-list-item routerLinkActive="active" *ngIf="role=='Faculty'"
                     routerLink="/faculty-leave-note">
                     <mat-icon aria-hidden="false" aria-label="Dashboard">flight_takeoff</mat-icon>
                     Leave notes
                 </a>
-                <a mat-list-item routerLinkActive="active" *ngIf="AuthService.role=='Faculty'"
+                <a mat-list-item routerLinkActive="active" *ngIf="role=='Faculty'"
                     routerLink="/faculty-profile">
                     <mat-icon aria-hidden="false" aria-label="Dashboard">account_circle</mat-icon>
                     Profile
                 </a>
 
                 <!-- For student -->
-                <a mat-list-item routerLinkActive="active" *ngIf="AuthService.role=='Student'"
+                <a mat-list-item routerLinkActive="active" *ngIf="role=='Student'"
                     routerLink="/student-dashboard">
                     <mat-icon aria-hidden="false" aria-label="Dashboard">dashboard</mat-icon>
                     Dashboard
                 </a>
-                <a mat-list-item routerLinkActive="active" *ngIf="AuthService.role=='Student'"
+                <a mat-list-item routerLinkActive="active" *ngIf="role=='Student'"
                     routerLink="/student-time-table">
                     <mat-icon aria-hidden="false" aria-label="Dashboard">event</mat-icon>
                     Time Table
                 </a>
-                <a mat-list-item routerLinkActive="active" *ngIf="AuthService.role=='Student'"
+                <a mat-list-item routerLinkActive="active" *ngIf="role=='Student'"
                     routerLink="/student-attendance">
                     <mat-icon aria-hidden="false" aria-label="Dashboard">assignment_turned_in</mat-icon>
                     Attendance
                 </a>
-                <a mat-list-item routerLinkActive="active" *ngIf="AuthService.role=='Student'"
+                <a mat-list-item routerLinkActive="active" *ngIf="role=='Student'"
                     routerLink="/student-task-work">
                     <mat-icon aria-hidden="false" aria-label="Dashboard">assignment</mat-icon>
                     Task & work
                 </a>
-                <a mat-list-item routerLinkActive="active" *ngIf="AuthService.role=='Student'"
+                <a mat-list-item routerLinkActive="active" *ngIf="role=='Student'"
                     routerLink="/student-syllabus">
                     <mat-icon aria-hidden="false" aria-label="Dashboard">book</mat-icon>
                     Syllabus
                 </a>
-                <a mat-list-item routerLinkActive="active" *ngIf="AuthService.role=='Student'"
+                <a mat-list-item routerLinkActive="active" *ngIf="role=='Student'"
                     routerLink="/student-exam-schedule">
                     <mat-icon aria-hidden="false" aria-label="Dashboard">event_note</mat-icon>
                     Exam Schedule
                 </a>
-                <a mat-list-item routerLinkActive="active" *ngIf="AuthService.role=='Student'"
+                <a mat-list-item routerLinkActive="active" *ngIf="role=='Student'"
                     routerLink="/student-exam-result">
                     <mat-icon aria-hidden="false" aria-label="Dashboard">assessment</mat-icon>
                     Exam result
                 </a>
-                <a mat-list-item routerLinkActive="active" *ngIf="AuthService.role=='Student'"
+                <a mat-list-item routerLinkActive="active" *ngIf="role=='Student'"
                     routerLink="/student-notice">
                     <mat-icon aria-hidden="false" aria-label="Dashboard">announcement</mat-icon>
                     Notice
                 </a>
-                <a mat-list-item routerLinkActive="active" *ngIf="AuthService.role=='Student'"
+                <a mat-list-item routerLinkActive="active" *ngIf="role=='Student'"
                     routerLink="/student-leave-note">
                     <mat-icon aria-hidden="false" aria-label="Dashboard">flight_takeoff</mat-icon>
                     Leave notes
                 </a>
-                <a mat-list-item routerLinkActive="active" *ngIf="AuthService.role=='Student'"
+                <a mat-list-item routerLinkActive="active" *ngIf="role=='Student'"
                     routerLink="/student-fees">
                     <mat-icon aria-hidden="false" aria-label="Dashboard">payment</mat-icon>
                     Fees
                 </a>
-                <a mat-list-item routerLinkActive="active" *ngIf="AuthService.role=='Student'"
+                <a mat-list-item routerLinkActive="active" *ngIf="role=='Student'"
                     routerLink="/student-profile">
                     <mat-icon aria-hidden="false" aria-label="Dashboard">account_circle</mat-icon>
                     Profile

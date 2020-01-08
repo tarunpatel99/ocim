@@ -65,10 +65,12 @@ export class BranchAttendanceComponent implements OnInit {
   dataSource = new MatTableDataSource<Std_element>(Student_Data);
 
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
+  @ViewChild(MatSort, {static: true}) sort: MatSort;
 
   ngOnInit() {
     this.dataSource.paginator = this.paginator;
-  }
+    this.dataSource.sort = this.sort;
+}
 
 
   applyFilter(filterValue: string) {

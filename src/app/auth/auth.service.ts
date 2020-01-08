@@ -2,50 +2,62 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { StudentService } from '../student.service';
 
+export class User {
+  username?: string;
+  password?: string;
+  role: string
+}
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  role = ""
-  username = ""
-  
+  currentuser: User;
+
   constructor(
     private router: Router,
     private StudentService: StudentService
   ) { }
-  checkUser(user: import("./login/login.component").signIn) {
-    this.router.navigate([''])
-    this.role = user.role
-    this.username = user.username
+
+  login(user: import("./login/login.component").signIn, currentUrl) {
+    localStorage.setItem('currentUser', JSON.stringify(user));
+    if (user) {
+      this.router.navigate([currentUrl]);
+    }
     
   }
-  
-  navigateUser() { 
+
+  navigateUser() {
     const currentNav = this.router.url;
+    this.currentuser = JSON.parse(localStorage.getItem('currentUser'));
 
     // check if role is assigned or not
-    if (this.role == "") {
+    if (this.currentuser.role == "") {
       this.router.navigate(['/login'])
     }
 
     // navigate according user role
     if (currentNav == "/") {
-      if (this.role == 'Admin') {
+      if (this.currentuser.role == 'Admin') {
         this.router.navigate(['admin-dashboard'])
       }
-      if (this.role == 'Owner') {
+      if (this.currentuser.role == 'Owner') {
         this.router.navigate(['institute-dashboard'])
       }
-      if (this.role == 'Branch Manager') {
+      if (this.currentuser.role == 'Branch Manager') {
         this.router.navigate(['branch-dashboard'])
       }
-      if (this.role == 'Faculty') {
+      if (this.currentuser.role == 'Faculty') {
         this.router.navigate(['faculty-dashboard'])
       }
-      if (this.role == 'Student') {
+      if (this.currentuser.role == 'Student') {
         this.router.navigate(['student-dashboard'])
       }
     }
+  }
+
+  logout() {
+    // remove user from local storage to log user out
+    localStorage.removeItem('currentUser');
   }
 }

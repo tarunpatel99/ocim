@@ -4,9 +4,9 @@
     <mat-tab-group dynamicHeight>
         <mat-tab label="Class">
             <div class="form-mat-card">
-                <div class="header">
+                <!-- <div class="header">
                     <h2>Add Class</h2>
-                </div>
+                </div> -->
                 <form class="add-standard">
 
                     <mat-form-field class="full-width">
@@ -27,7 +27,7 @@
                 <button mat-stroked-button color="warn" (click)="onClear()">Cancle</button>
 
                 <mat-accordion>
-                    <mat-expansion-panel (opened)="panelOpenState1 = true" (closed)="panelOpenState1 = false">
+                    <mat-expansion-panel (opened)="panelOpenState1 = true" (closed)="panelOpenState1 = false" class="mat-elevation-z1">
                         <mat-expansion-panel-header>
                             <mat-panel-title>
                                 Classes
@@ -52,9 +52,9 @@
 
         <mat-tab label="Subject">
             <div class="form-mat-card">
-                <div class="header">
+                <!-- <div class="header">
                     <h2>Add Subject</h2>
-                </div>
+                </div> -->
                 <form class="add-subject">
                     <mat-form-field class="full-width">
                         <mat-label>Class</mat-label>
@@ -74,7 +74,7 @@
                 <button mat-stroked-button color="warn" (click)="onClear()">Cancle</button>
 
                 <mat-accordion>
-                    <mat-expansion-panel (opened)="panelOpenState2 = true" (closed)="panelOpenState2 = false">
+                    <mat-expansion-panel (opened)="panelOpenState2 = true" (closed)="panelOpenState2 = false" class="mat-elevation-z1">
                         <mat-expansion-panel-header>
                             <mat-panel-title>
                                 8
