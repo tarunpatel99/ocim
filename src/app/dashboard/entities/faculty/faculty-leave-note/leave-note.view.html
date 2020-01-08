@@ -1,3 +1,15 @@
 <p> Student : {{ data.studentName }} </p>
 <p> Class : {{ data.class }} </p>
-<p *ngFor="let attatchment of data.attatchments"> {{ attatchment.id }} </p>
+<p> Subject : {{ data.subject }} </p>
+<p> Description : {{ data.description }} </p>
+<p> From : {{ data.from }} </p>
+<p> To : {{ data.to }} </p>
+<p *ngFor="let attatchment of data.attatchments">Attatchments : {{ attatchment.id }} </p>
+<p>
+    Status : <mat-chip [ngStyle]="{color: getColor(data.status)}" style="background-color: #f5f5f5;">{{data.status}}
+    </mat-chip>
+</p>
+<div mat-dialog-actions align="end">
+    <button mat-stroked-button color="warn">Cancle</button>
+    <button mat-flat-button color="primary">Submit</button>
+</div>

@@ -27,6 +27,7 @@ export interface LeaveNote {
   templateUrl: './faculty-leave-note.component.html',
   styleUrls: ['./faculty-leave-note.component.css']
 })
+  
 export class FacultyLeaveNoteComponent implements OnInit {
   displayedColumns: string[] = ['name', 'class', 'subject', 'from', 'to', 'status','action'];
   dataSource: MatTableDataSource<LeaveNote>;
@@ -128,7 +129,16 @@ export class FacultyLeaveNoteComponent implements OnInit {
     this.selectedLeave = leave
     const dialogRef = this.dialog.open(LeaveNoteViewDialog, {
       width: '500px',
-      data: {studentName: this.selectedLeave.studentName, class: this.selectedLeave.class, attatchments: this.selectedLeave.attatchments}
+      data: {
+        studentName: this.selectedLeave.studentName,
+        class: this.selectedLeave.class,
+        subject: this.selectedLeave.subject,
+        attatchments: this.selectedLeave.attatchments,
+        description: this.selectedLeave.description,
+        from: this.selectedLeave.leaveFrom,
+        to: this.selectedLeave.leaveTo,
+        status: this.selectedLeave.status
+      }
     });
     
 
@@ -154,8 +164,19 @@ export class LeaveNoteViewDialog implements OnInit{
     this.dialogRef.close();
   }
 
+  getColor(status) {
+    switch (status) {
+      case 'Pending':
+        return '#212121'; // dark grey for status PENDING
+      case 'Approved':
+        return '#43a047'; // green for status APPROVED
+      case 'Denied':
+        return '#C62828'; // red for status DENIED
+    }
+  }
+
   ngOnInit() {
-    
+    console.log(this.data)
   }
 
 }
