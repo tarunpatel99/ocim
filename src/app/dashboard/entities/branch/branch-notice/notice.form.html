@@ -1,4 +1,4 @@
-<h1 mat-dialog-title>Add Exam Schedule</h1>
+<h1 mat-dialog-title>Add Notice</h1>
 <div mat-dialog-content>
     <form class="no-add-timetable">
         <mat-form-field class="full-width">
@@ -7,8 +7,8 @@
         <mat-form-field class="full-width">
             <mat-select placeholder="Class" [formControl]="classNotice" multiple>
                 <mat-select-trigger>
-                {{classNotice.value ? classNotice.value[0] : ''}}
-                <span *ngIf="classNotice.value?.length > 1" class="example-additional-selection">
+                    {{classNotice.value ? classNotice.value[0] : ''}}
+                    <span *ngIf="classNotice.value?.length > 1" class="example-additional-selection">
                     (+{{classNotice.value.length - 1}} {{classNotice.value?.length === 2 ? 'other' : 'others'}})
                 </span>
                 </mat-select-trigger>
@@ -19,9 +19,9 @@
             <textarea type="text" matInput placeholder="Description" rows="1" required></textarea>
         </mat-form-field>
     </form>
-    
+
 </div>
 <div mat-dialog-actions>
     <button mat-flat-button color="primary" (click)="onAddtimetable()">Add</button>
-    <button mat-stroked-button color="warn" (click)="onSave()">Cancle</button>
+    <button mat-stroked-button color="warn" (click)="onSave()">Cancel</button>
 </div>

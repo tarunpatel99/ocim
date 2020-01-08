@@ -2,8 +2,7 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { FormControl } from '@angular/forms';
-import { Subject } from 'rxjs';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import * as html2pdf from "html2pdf.js";
 
 
@@ -121,12 +120,35 @@ export class BranchExamResultComponent implements OnInit {
 
 
 
+  addExamresultForm: FormGroup;
+
 
   ngOnInit() {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
+
+    this.addExamresultForm = new FormGroup({
+      class: new FormControl(null, {
+        validators: [Validators.required]
+      }),
+      exam: new FormControl(null, {
+        validators: [Validators.required]
+      }),
+      subject: new FormControl(null, {
+        validators: [Validators.required]
+      }),
+      obtainedmark: new FormControl(null, {
+        validators: [Validators.required]
+      }),
+    });
   }
 
+  onSave(): void {
+    // console.log("Form Submitted!");
+    if (this.addExamresultForm.invalid) {
+      return;
+    }
+  }
 
 
   // filtering data

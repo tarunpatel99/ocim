@@ -120,7 +120,7 @@ export class LeaveNoteFormDialog implements OnInit{
     public dialogRef: MatDialogRef<LeaveNoteFormDialog>,
     @Inject(MAT_DIALOG_DATA) public data: LeaveNote) { }
 
-  onSave(): void {
+  onClose(): void {
     this.dialogRef.close();
   }
 
