@@ -57,6 +57,7 @@ import { BranchFeesComponent , announcementFormDialog} from './dashboard/entitie
 import { BranchProfileComponent } from './dashboard/entities/branch/branch-profile/branch-profile.component';
 import { FacultyDashboardComponent } from './dashboard/entities/faculty/faculty-dashboard/faculty-dashboard.component';
 import { FacultyTimeTableComponent } from './dashboard/entities/faculty/faculty-time-table/faculty-time-table.component';
+import { ViewTimeTableComponent } from './dashboard/entities/faculty/faculty-time-table/view-time-table/view-time-table.component'; // view time table dialog
 import { FacultyAttendanceComponent } from './dashboard/entities/faculty/faculty-attendance/faculty-attendance.component';
 import { FacultyTaskWorkComponent, TaskWorkFormDialog } from './dashboard/entities/faculty/faculty-task-work/faculty-task-work.component';
 import { FacultySyllabusComponent } from './dashboard/entities/faculty/faculty-syllabus/faculty-syllabus.component';
@@ -80,6 +81,7 @@ import { StudentService } from './student.service';
 import { AuthService } from './auth/auth.service';
 import { BranchFacultiesComponent } from './dashboard/entities/branch/branch-faculties/branch-faculties.component';
 import { CommonModule } from '@angular/common';
+
 
 @NgModule({
   declarations: [
@@ -121,6 +123,7 @@ import { CommonModule } from '@angular/common';
     BranchProfileComponent,
     FacultyDashboardComponent,
     FacultyTimeTableComponent,
+    ViewTimeTableComponent,
     FacultyAttendanceComponent,
     FacultyTaskWorkComponent,
     TaskWorkFormDialog, // add/edit task and work dialog box
@@ -165,6 +168,7 @@ import { CommonModule } from '@angular/common';
     NoticeFormDialog,
     LeaveNoteFormDialog,
     LeaveNoteViewDialog,
+    ViewTimeTableComponent
     ApplyLeave,
     actiondialog
   ],

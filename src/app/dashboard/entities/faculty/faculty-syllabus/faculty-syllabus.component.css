@@ -107,3 +107,7 @@ mat-panel-title{
     right: 30px;
     bottom: 30px;
 }
+
+#searchBar {
+    width: 98%;
+}

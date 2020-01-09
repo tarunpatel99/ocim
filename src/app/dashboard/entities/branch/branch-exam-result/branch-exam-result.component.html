@@ -37,6 +37,23 @@
                 <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search">
             </mat-form-field>
 
+
+            <!-- <button type="button" (click)="downloadAsPDF()">Print</button> -->
+            <!-- <table  width="400">
+                <tr>
+                  <th>Month</th>
+                  <th>Savings</th>
+                </tr>
+                <tr>
+                  <td>January</td>
+                  <td>$100</td>
+                </tr>
+                <tr>
+                  <td>February</td>
+                  <td>$80</td>
+                </tr>
+              </table> -->
+
             <div id="table" #table>
                 <mat-table [dataSource]="dataSource" matSort>
 
@@ -84,9 +101,15 @@
                     </ng-container>
 
 
+
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let student; columns: displayedColumns;" [ngStyle]="{'background-color':student.obt_marks <= '17' ? '#ffebee': 'none'}"></tr>
+                </table>
+
                     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
                     <mat-row *matRowDef="let student; columns: displayedColumns;" [ngStyle]="{'background-color':student.obt_marks <= '17' ? '#ffebee': 'micro'}"></mat-row>
                 </mat-table>
+
             </div>
             <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
 

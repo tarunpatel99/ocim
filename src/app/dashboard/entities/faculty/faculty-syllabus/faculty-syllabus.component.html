@@ -1,30 +1,9 @@
 <p class="heading">Syllabus</p>
 <mat-card>
-    <!-- -------------------------- New version ------------------------ -->
-    <!-- <mat-list>
-        <h3 mat-subheader>Syllabus</h3>
-        <mat-card class="file-list-card">
-            <mat-list-item>
-                <mat-icon mat-list-icon>note</mat-icon>
-                <h4 mat-line>Syllabus</h4>
-                <p mat-line>02-01-2020</p>
-                <a mat-icon-button routerLink="." download="../../../../../assets/timetable.jpg">
-                    <mat-icon>arrow_downward</mat-icon>
-                </a>
-            </mat-list-item>
-        </mat-card>
-    </mat-list> -->
-    <div *ngFor="let file of temp">
-        <a mat-icon-button [attr.href]="file.fileSoureceUrl" target="_blank" [attr.download]="file.fileSoureceUrl">
-            <mat-icon>save_alt</mat-icon>
-            download
-        </a>
-    </div>
-    <!-- ----------------------- New version 2 ------------------------- -->
+    <!-- ----------------------- New version ------------------------- -->
     <mat-form-field id="searchBar">
         <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search files">
     </mat-form-field>
-
 
     <mat-table [dataSource]="dataSource" matSort>
 
@@ -66,82 +45,4 @@
     </mat-table>
 
     <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
-
-
-    <!-- -------------------------- Old Version ----------------------------- -->
-    <!-- <mat-card class="example-card">
-        <mat-card-header>
-            <mat-card-title>Syllabus</mat-card-title>
-            <mat-card-subtitle>10/12/2019</mat-card-subtitle>
-        </mat-card-header>
-        <img mat-card-image src="../../../../../assets/timetable.jpg" alt="Photo of a Shiba Inu">
-        <mat-card-content>
-            <p>
-                Syllabus of OSOS
-            </p>
-        </mat-card-content>
-        <mat-card-actions align="end">
-            <button mat-stroked-button color="primary" class="delete" (click)="onDownloadSyllabus()">Download</button>
-        </mat-card-actions>
-    </mat-card>
-    <mat-card class="example-card">
-        <mat-card-header>
-            <mat-card-title>Syllabus</mat-card-title>
-            <mat-card-subtitle>10/12/2019</mat-card-subtitle>
-        </mat-card-header>
-        <img mat-card-image src="../../../../../assets/timetable.jpg" alt="Photo of a Shiba Inu">
-        <mat-card-content>
-            <p>
-                Syllabus of OSOS
-            </p>
-        </mat-card-content>
-        <mat-card-actions align="end">
-            <button mat-stroked-button color="primary" class="delete" (click)="onDownloadSyllabus()">Download</button>
-        </mat-card-actions>
-    </mat-card>
-    <mat-card class="example-card">
-        <mat-card-header>
-            <mat-card-title>Syllabus</mat-card-title>
-            <mat-card-subtitle>10/12/2019</mat-card-subtitle>
-        </mat-card-header>
-        <img mat-card-image src="../../../../../assets/timetable.jpg" alt="Photo of a Shiba Inu">
-        <mat-card-content>
-            <p>
-                Syllabus of OSOS
-            </p>
-        </mat-card-content>
-        <mat-card-actions align="end">
-            <button mat-stroked-button color="primary" class="delete" (click)="onDownloadSyllabus()">Download</button>
-        </mat-card-actions>
-    </mat-card>
-    <mat-card class="example-card">
-        <mat-card-header>
-            <mat-card-title>Syllabus</mat-card-title>
-            <mat-card-subtitle>10/12/2019</mat-card-subtitle>
-        </mat-card-header>
-        <img mat-card-image src="../../../../../assets/timetable.jpg" alt="Photo of a Shiba Inu">
-        <mat-card-content>
-            <p>
-                Syllabus of OSOS
-            </p>
-        </mat-card-content>
-        <mat-card-actions align="end">
-            <button mat-stroked-button color="primary" class="delete" (click)="onDownloadSyllabus()">Download</button>
-        </mat-card-actions>
-    </mat-card>
-    <mat-card class="example-card">
-        <mat-card-header>
-            <mat-card-title>Syllabus</mat-card-title>
-            <mat-card-subtitle>10/12/2019</mat-card-subtitle>
-        </mat-card-header>
-        <img mat-card-image src="../../../../../assets/timetable.jpg" alt="Photo of a Shiba Inu">
-        <mat-card-content>
-            <p>
-                Syllabus of OSOS
-            </p>
-        </mat-card-content>
-        <mat-card-actions align="end">
-            <button mat-stroked-button color="primary" class="delete" (click)="onDownloadSyllabus()">Download</button>
-        </mat-card-actions>
-    </mat-card>-->
 </mat-card>

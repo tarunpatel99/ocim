@@ -56,6 +56,13 @@ button{
     max-width: 30%;
 }
 
+#searchBar {
+    font-size: 14px;
+    margin-top: 10px;
+    width: 100%;
+    margin: auto;
+}
+
 /* .right{
     float: right;
 } */

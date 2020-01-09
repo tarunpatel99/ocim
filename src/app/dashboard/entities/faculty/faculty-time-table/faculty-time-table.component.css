@@ -19,6 +19,7 @@ button{
 }
 
 .example-card {
+    cursor: pointer;
     display: inline-block;
     max-width: 25%;
     margin: 15px;

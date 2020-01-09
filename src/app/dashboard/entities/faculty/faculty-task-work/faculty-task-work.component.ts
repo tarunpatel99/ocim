@@ -1,6 +1,6 @@
 import { Component, OnInit, Inject, OnDestroy } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { FormGroup, FormControl, Validators } from "@angular/forms";
+import { FormGroup, FormControl, Validators, FormGroupDirective } from "@angular/forms";
 import { MatTabChangeEvent } from '@angular/material';
 
 export interface DialogData {
@@ -22,6 +22,10 @@ export interface classData {
   subjects: subjectData[]
 }
 
+export interface Student {
+  studentname: String
+}
+
 @Component({
   selector: 'app-faculty-task-work',
   templateUrl: './faculty-task-work.component.html',
@@ -31,7 +35,35 @@ export class FacultyTaskWorkComponent implements OnInit {
 
 
   selectedClass = { subjects: [] } as classData;
+  selectedSubject = { tasks: [] } as subjectData;
+  selectedtask = {} as DialogData;
+  submitTaskForm: FormGroup;
   constructor(public dialog: MatDialog) { }
+
+  ngOnInit() {
+    // select first class from class list by default
+    this.selectedClass = this.classNames[0]
+  }
+
+  classControl = new FormControl('', [
+    Validators.required
+  ]);
+  subjectControl = new FormControl('', [
+    Validators.required
+  ]);
+  taskControl = new FormControl('', [
+    Validators.required
+  ]);
+  
+  date = new FormControl(new Date());
+  students: Student[] = [
+    { studentname: 'Harshil Sureja' },
+    { studentname: 'Nirav Kadiya' },
+    { studentname: 'Shubham mevada' },
+    { studentname: 'Shubha Bhatt' },
+    { studentname: 'Tarun Patel' },
+    { studentname: 'Aakash Bhavasar' }
+  ]
 
   // dummy class and its subject data
   classNames: classData[] = [
@@ -205,6 +237,8 @@ export class FacultyTaskWorkComponent implements OnInit {
   openForm(): void {
     const dialogRef = this.dialog.open(TaskWorkFormDialog, {
       width: '500px',
+      height: 'fit-content',
+      panelClass: 'custom-dialog'
       // data: {name: this.name, animal: this.animal}
     });
 
@@ -213,15 +247,22 @@ export class FacultyTaskWorkComponent implements OnInit {
     });
   }
 
+  setClass(className) {
+    this.selectedClass = className
+  }
+
+  setSubject(subjectName) {
+    this.selectedSubject = subjectName
+  }
+
+  setTask(task) {
+    this.selectedtask = task
+  }
+
   // get selected class and display its subjects
   chooseClass(event, newClass) {
     this.selectedClass = newClass;
 
-  }
-
-  ngOnInit() {
-    // select first class from class list by default
-    this.selectedClass = this.classNames[0]
   }
 
   tabClick(tab: MatTabChangeEvent) {
@@ -239,6 +280,8 @@ export class FacultyTaskWorkComponent implements OnInit {
 })
 export class TaskWorkFormDialog implements OnInit, OnDestroy{
   addTaskForm: FormGroup;
+  submitTaskForm: FormControl;
+
   date = new FormControl(new Date());
   constructor(
     public dialogRef: MatDialogRef<TaskWorkFormDialog>,
@@ -269,7 +312,6 @@ export class TaskWorkFormDialog implements OnInit, OnDestroy{
         validators: [Validators.required]
       }),
     });
-
   }
   ngOnDestroy() { }
 

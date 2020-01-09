@@ -95,6 +95,10 @@ body {
     display: block;
 }
 
+.custom-dialog {
+    /* Faculty -> Time table : to diplay photo in center of the dialogbox */
+    text-align: center;
+}
 
 /* common css property */
 
