@@ -5,7 +5,7 @@
   <h2>Sign Up</h2>
   </div>
   <mat-divider></mat-divider>
-  <mat-vertical-stepper [linear]="isLinear" #stepper>
+  <mat-vertical-stepper [linear]="!isLinear" #stepper>
     <mat-step [stepControl]="firstFormGroup">
       <form [formGroup]="firstFormGroup">
         <ng-template matStepLabel>Personal Details</ng-template>
@@ -60,7 +60,7 @@
           </mat-select>
       </mat-form-field>
         <mat-form-field>
-            <input matInput #postalCode maxlength="6" placeholder="Postal Code" required formControlName="secondCtrl">
+            <input matInput #postalCode minlength="6" maxlength="6" placeholder="Postal Code" required formControlName="secondCtrl">
             <mat-hint align="end">{{postalCode.value.length}} / 6</mat-hint>
         </mat-form-field>
         <div>
@@ -69,13 +69,21 @@
         </div>
       </form>
     </mat-step>
-    <mat-step>
+    <mat-step [stepControl]="thirdFormGroup">
+      <form [formGroup]="thirdFormGroup">
       <ng-template matStepLabel>Security Details</ng-template>
       <mat-form-field class="full-width">
-        <input type="text" matInput placeholder="Phone number" required >
+        <input matInput placeholder="Phone number"  [formControl]="pnum" required>
+        <mat-error *ngIf="!pnum.hasError('pattern')">
+          Please enter digits only
+        </mat-error>
+        <mat-error *ngIf="pnum.hasError('required')">
+          Phone number is <strong>required</strong>
+        </mat-error>
+        <mat-hint align="end">{{pnum.value.length}} / 10</mat-hint>
     </mat-form-field>
     <mat-form-field class="full-width">
-      <input matInput placeholder="Email" [formControl]="emailFormControl">
+      <input matInput placeholder="Email" [formControl]="emailFormControl" required>
       <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
         Please enter a valid email address
       </mat-error>
@@ -97,6 +105,7 @@
         <button mat-raised-button color="primary">Sign Up</button>
         
       </div>
+    </form>
     </mat-step>
   </mat-vertical-stepper>
 </mat-card>

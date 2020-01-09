@@ -8,12 +8,11 @@ export interface StudentFees {
   date: string;
   amount: number;
   status: string;
-  print: string;
 }
 
 const students: StudentFees[] = [
-  { std: 8 , sem: 2, mode: 'Online', date: '29-12-2019', amount: 45000, status: "Unpaid", print: "Print"},
-  { std: 8 , sem: 1, mode: 'Online', date: '29-12-2019', amount: 45000, status: "Paid", print: "Print"},
+  { std: 8 , sem: 2, mode: 'Online', date: '29-12-2019', amount: 45000, status: "Unpaid"},
+  { std: 8 , sem: 1, mode: 'Online', date: '29-12-2019', amount: 45000, status: "Paid"},
 ]
 @Component({
   selector: 'app-student-fees',

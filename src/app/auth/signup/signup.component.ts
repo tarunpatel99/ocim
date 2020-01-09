@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {FormBuilder, FormGroup, Validators, MaxLengthValidator} from '@angular/forms';
 import {FormControl} from '@angular/forms';
 
 
@@ -16,6 +16,12 @@ export class SignupComponent implements OnInit {
   emailFormControl = new FormControl('', [
     Validators.required,
     Validators.email,
+  ]);
+  pnum = new FormControl('', [
+    Validators.required,
+    Validators.maxLength(10),
+    Validators.minLength(10),
+    Validators.pattern('0-9*'),
   ]);
   constructor(private _formBuilder: FormBuilder) {}
 

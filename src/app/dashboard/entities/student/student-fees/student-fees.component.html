@@ -41,7 +41,10 @@
   <ng-container matColumnDef="print">
     <mat-header-cell  *matHeaderCellDef > Print </mat-header-cell>
     <mat-cell *matCellDef="let fees" >
-      <button mat-flat-button color="primary" class="print-button"><mat-icon svgIcon="print" aria-hidden="false"></mat-icon>Print</button>
+      <button mat-flat-button color="primary" class="print-button">
+        <mat-icon aria-hidden="false">print</mat-icon>
+        Print
+      </button>
     </mat-cell>
   </ng-container>
 

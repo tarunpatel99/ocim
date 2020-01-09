@@ -4,7 +4,7 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { FormControl } from '@angular/forms';
 import { Subject } from 'rxjs';
-import * as html2pdf from "html2pdf.js";
+//import * as html2pdf from "html2pdf.js";
 
 
 export interface StudentData {
@@ -154,7 +154,7 @@ export class BranchExamResultComponent implements OnInit {
 
     
 
-    html2pdf().from(table).set(options).save()
+    //html2pdf().from(table).set(options).save()
 
   }
 
