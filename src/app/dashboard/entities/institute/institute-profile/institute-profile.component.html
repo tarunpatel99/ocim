@@ -1,8 +1,8 @@
 <div class="heading">Profile</div>
 <mat-card>
-    <mat-card class="no-shadow">
-        <mat-card-title>Personal details</mat-card-title>
-        <form class="no-add-branch">
+    <form class="no-add-branch">
+        <mat-card class="no-shadow">
+            <mat-card-title>Personal details</mat-card-title>
             <mat-card style="background: none; box-shadow: none;">
                 <mat-card-header>
                     <div mat-card-avatar class="example-header-image"></div>
@@ -31,12 +31,10 @@
             <mat-form-field class="full-width">
                 <textarea type="text" matInput placeholder="Address" rows="3" required></textarea>
             </mat-form-field>
-        </form>
-    </mat-card> 
-    <br>
-    <mat-card class="no-shadow">
-        <mat-card-title>Institute details</mat-card-title>
-        <form class="no-add-branch">
+        </mat-card>
+        <br>
+        <mat-card class="no-shadow">
+            <mat-card-title>Institute details</mat-card-title>
             <mat-form-field class="full-width">
                 <input type="text" matInput placeholder="Institute name" required>
             </mat-form-field>
@@ -51,7 +49,7 @@
                 <mat-label>City</mat-label>
                 <mat-select required>
                     <mat-option *ngFor="let city of cities" [value]="city.value">
-                    {{city.viewValue}}
+                        {{city.viewValue}}
                     </mat-option>
                 </mat-select>
             </mat-form-field>
@@ -59,7 +57,7 @@
                 <mat-label>State</mat-label>
                 <mat-select required>
                     <mat-option *ngFor="let state of states" [value]="state.value">
-                    {{state.viewValue}}
+                        {{state.viewValue}}
                     </mat-option>
                 </mat-select>
             </mat-form-field>
@@ -67,12 +65,10 @@
                 <input matInput #postalCode maxlength="6" placeholder="Postal Code" required>
                 <mat-hint align="end">{{postalCode.value.length}} / 6</mat-hint>
             </mat-form-field>
-        </form>
-    </mat-card>
-    <br>
-    <mat-card class="no-shadow">
-        <mat-card-title>Security details</mat-card-title>
-        <form class="no-add-branch">
+        </mat-card>
+        <br>
+        <mat-card class="no-shadow">
+            <mat-card-title>Security details</mat-card-title>
             <mat-form-field class="full-width">
                 <input type="text" matInput placeholder="Phone number" required>
             </mat-form-field>
@@ -89,13 +85,13 @@
             <mat-form-field class="full-width">
                 <input type="password" matInput placeholder="Confirm new password" required>
             </mat-form-field>
-        </form>
-    </mat-card>
-    <br>
+        </mat-card>
+        <br>
         <!-- <div class="right"> -->
-            <mat-action-row>
-                <button mat-flat-button color="primary" align="right" (click)="onChangePassword()">Update</button>
-                <button mat-stroked-button color="warn" align="right" (click)="onClearbranch()">Cancle</button>    
-            </mat-action-row>
+        <mat-action-row>
+            <button mat-flat-button color="primary" align="right" (click)="onChangePassword()">Update</button>
+            <button mat-stroked-button color="warn" align="right" (click)="onClearbranch()">Cancle</button>
+        </mat-action-row>
         <!-- </div> -->
+    </form>
 </mat-card>

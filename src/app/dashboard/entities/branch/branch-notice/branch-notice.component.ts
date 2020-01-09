@@ -1,6 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { FormControl } from '@angular/forms';
+import { FormControl, FormGroup, Validators, FormControlName } from '@angular/forms';
 
 
 export interface DialogData {
@@ -50,7 +50,7 @@ export interface classNoticeList {
   templateUrl: 'notice.form.html',
   styleUrls: ['notice.form.css']
 })
-export class NoticeFormDialog {
+export class NoticeFormDialog implements OnInit {
   date = new FormControl(new Date());
   constructor(
     public dialogRef: MatDialogRef<NoticeFormDialog>,
@@ -61,6 +61,7 @@ export class NoticeFormDialog {
     // classNoticeList: string[] = ['Extra cheese', 'Mushroom', 'Onion', 'Pepperoni', 'Sausage', 'Tomato'];
 
     Classsbj: classNoticeList[] = [
+      {value: 'allclass', viewValue: 'All class'},
       {value: '8-a-div', viewValue: '8 (A Div)'},
       {value: '8-b-div', viewValue: '8 (B Div)'},
       {value: '9-a-div', viewValue: '9 (A Div)'},
@@ -77,10 +78,25 @@ export class NoticeFormDialog {
       {value: '12-sci-bio-pink-m', viewValue: '12 Sci Bio (Pink M)'}
     ];
 
-  onSave(): void {
+  onCancel(): void {
     this.dialogRef.close();
   }
 
-  onAddtimetable(): void { }
+  addNoticeForm: FormGroup;
 
+
+
+  ngOnInit() {
+    this.addNoticeForm = new FormGroup({
+      title: new FormControl(null, {
+        validators: [Validators.required]
+      }),
+      classNotice: new FormControl (null, {
+        validators: [Validators.required]
+      }),
+      description: new FormControl(null, {
+        validators: [Validators.required]
+      }),
+    });
+  }
 }

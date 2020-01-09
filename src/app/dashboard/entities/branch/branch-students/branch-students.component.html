@@ -3,7 +3,7 @@
 
     <mat-tab-group dynamicHeight>
         <!-- view Students -->
-        <mat-tab label="View Students">
+        <mat-tab label="View students">
             <br>
             <mat-form-field id="searchBar">
                 <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search">
@@ -65,116 +65,140 @@
         <!-- ======================================================================================================================= -->
 
         <!-- Add Students -->
-        <mat-tab label="Add Student">
+        <mat-tab label="Add student">
             <br>
-
-            <!-- <mat-card class="form-mat-card"> -->
-            <!-- <div class="header">    
-                            <h2>Add Student</h2>
-                        </div>   -->
-            <form class="no-add-student">
-                <mat-card style="background: none; box-shadow: none;">
-                    <mat-card-header>
-                        <div mat-card-avatar class="example-header-image"></div>
-                        <!-- <mat-card-title><span>User name</span></mat-card-title>
+            <form action="" [formGroup]="addStudentForm" #addStudent>
+                <mat-card class="no-shadow">
+                    <mat-card-title>Personal details</mat-card-title>
+                    <mat-card style="background: none; box-shadow: none;">
+                        <mat-card-header>
+                            <div mat-card-avatar class="example-header-image"></div>
+                            <!-- <mat-card-title><span>User name</span></mat-card-title>
                                     <mat-card-subtitle><span>User Type</span></mat-card-subtitle> -->
-                    </mat-card-header>
+                        </mat-card-header>
+                    </mat-card>
+                    <mat-form-field class="full-width">
+                        <input type="text" matInput placeholder="First name" formControlName="firstname" required>
+                        <mat-error *ngIf="addStudentForm.get('firstname').invalid">Please enter first name
+                        </mat-error>
+                    </mat-form-field>
+                    <mat-form-field class="full-width">
+                        <input type="text" matInput placeholder="Middle name" formControlName="middlename" required>
+                        <mat-error *ngIf="addStudentForm.get('middlename').invalid">Please enter middle name
+                        </mat-error>
+                    </mat-form-field>
+                    <mat-form-field class="full-width">
+                        <input type="text" matInput placeholder="Last name" formControlName="lastname" required>
+                        <mat-error *ngIf="addStudentForm.get('lastname').invalid">Please enter last name
+                        </mat-error>
+                    </mat-form-field>
+                    <mat-form-field class="full-width">
+                        <input matInput [matDatepicker]="pickerdob" placeholder="Date of birth" formControlName="dateofbirth" required>
+                        <mat-datepicker-toggle matSuffix [for]="pickerdob"></mat-datepicker-toggle>
+                        <mat-datepicker #pickerdob></mat-datepicker>
+                        <mat-error *ngIf="addStudentForm.get('dateofbirth').invalid">Please select date of birth
+                        </mat-error>
+                    </mat-form-field>
+                    <div class="gndr">
+                        <p><label class="half-width">Select Gender</label></p>
+                        <mat-radio-group aria-label="Select Gender" class="half-width" color="primary">
+                            <mat-radio-button value="Male" checked>Male</mat-radio-button>
+                            <mat-radio-button value="Female">Female</mat-radio-button>
+                            <mat-radio-button value="Other">Other</mat-radio-button>
+                        </mat-radio-group>
+                    </div>
                 </mat-card>
-                <mat-form-field class="full-width">
-                    <input type="text" matInput placeholder="First name" required>
-                </mat-form-field>
-                <mat-form-field class="full-width">
-                    <input type="text" matInput placeholder="Middle name" required>
-                </mat-form-field>
-                <mat-form-field class="full-width">
-                    <input type="text" matInput placeholder="Last name" required>
-                </mat-form-field>
                 <br>
-                <mat-form-field class="full-width">
-                    <mat-label>Class</mat-label>
-                    <mat-select required>
-                        <mat-option *ngFor="let class of classes" [value]="class.value">
-                            {{class.viewValue}}
-                        </mat-option>
-                    </mat-select>
-                </mat-form-field>
-                <mat-form-field class="full-width">
-                    <input type="text" matInput placeholder="Roll no." required>
-                </mat-form-field>
-
-                <mat-form-field class="full-width">
-                    <input matInput [matDatepicker]="pickerJoindob" placeholder="Date of birth" required>
-                    <mat-datepicker-toggle matSuffix [for]="pickerJoindob"></mat-datepicker-toggle>
-                    <mat-datepicker #pickerJoindob></mat-datepicker>
-                </mat-form-field>
+                <mat-card class="no-shadow">
+                    <mat-card-title>Class details</mat-card-title>
+                    <mat-form-field class="full-width">
+                        <mat-label>Class</mat-label>
+                        <mat-select formControlName="class" required>
+                            <mat-option *ngFor="let class of classes" [value]="class.value">
+                                {{class.viewValue}}
+                            </mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="addStudentForm.get('class').invalid">Please select class
+                        </mat-error>
+                    </mat-form-field>
+                    <mat-form-field class="full-width">
+                        <input type="text" matInput placeholder="Roll no." formControlName="rollno" required>
+                        <mat-error *ngIf="addStudentForm.get('rollno').invalid">Please enter roll number
+                        </mat-error>
+                    </mat-form-field>
+                    <mat-form-field class="full-width">
+                        <input matInput [matDatepicker]="pickerJoinjd" placeholder="Joining date" formControlName="joiningdate" required>
+                        <mat-datepicker-toggle matSuffix [for]="pickerJoinjd"></mat-datepicker-toggle>
+                        <mat-datepicker #pickerJoinjd></mat-datepicker>
+                        <mat-error *ngIf="addStudentForm.get('joiningdate').invalid">Please select joining date
+                        </mat-error>
+                    </mat-form-field>
+                </mat-card>
                 <br>
-                <mat-form-field class="full-width">
-                    <input matInput [matDatepicker]="pickerJoinjd" placeholder="Joining date" required>
-                    <mat-datepicker-toggle matSuffix [for]="pickerJoinjd"></mat-datepicker-toggle>
-                    <mat-datepicker #pickerJoinjd></mat-datepicker>
-                </mat-form-field>
-
-                <div class="gndr">
-                    <p><label class="half-width">Select Gender</label></p>
-                    <mat-radio-group aria-label="Select Gender" class="half-width" color="primary" required>
-                        <mat-radio-button value="Male">Male</mat-radio-button>
-                        <mat-radio-button value="Female">Female</mat-radio-button>
-                        <mat-radio-button value="Other">Other</mat-radio-button>
-                    </mat-radio-group>
-                </div>
-                <mat-form-field class="full-width">
-                    <textarea type="text" matInput placeholder="Address" rows="3" required></textarea>
-                </mat-form-field>
-                <mat-form-field class="full-width">
-                    <mat-label>City</mat-label>
-                    <mat-select required>
-                        <mat-option *ngFor="let city of cities" [value]="city.value">
-                            {{city.viewValue}}
-                        </mat-option>
-                    </mat-select>
-                </mat-form-field>
-                <mat-form-field class="full-width">
-                    <mat-label>State</mat-label>
-                    <mat-select required>
-                        <mat-option *ngFor="let state of states" [value]="state.value">
-                            {{state.viewValue}}
-                        </mat-option>
-                    </mat-select>
-                </mat-form-field>
-                <mat-form-field class="full-width">
-                    <input matInput #postalCode maxlength="6" placeholder="Postal Code" required>
-                    <mat-hint align="end">{{postalCode.value.length}} / 6</mat-hint>
-                </mat-form-field>
+                <mat-card class="no-shadow">
+                    <mat-card-title>Address details</mat-card-title>
+                    <mat-form-field class="full-width">
+                        <textarea type="text" matInput placeholder="Address" rows="3" formControlName="address" required></textarea>
+                        <mat-error *ngIf="addStudentForm.get('address').invalid">Please enter address
+                        </mat-error>
+                    </mat-form-field>
+                    <mat-form-field class="full-width">
+                        <mat-label>City</mat-label>
+                        <mat-select formControlName="city" required>
+                            <mat-option *ngFor="let city of cities" [value]="city.value">
+                                {{city.viewValue}}
+                            </mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="addStudentForm.get('city').invalid">Please select city
+                        </mat-error>
+                    </mat-form-field>
+                    <mat-form-field class="full-width">
+                        <mat-label>State</mat-label>
+                        <mat-select formControlName="state" required>
+                            <mat-option *ngFor="let state of states" [value]="state.value">
+                                {{state.viewValue}}
+                            </mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="addStudentForm.get('state').invalid">Please select state
+                        </mat-error>
+                    </mat-form-field>
+                    <mat-form-field class="full-width">
+                        <input matInput #postalCode maxlength="6" placeholder="Postal code" formControlName="postalcode" required>
+                        <mat-error *ngIf="addStudentForm.get('postalcode').invalid">Please enter postal code
+                        </mat-error>
+                        <mat-hint align="end">{{postalCode.value.length}} / 6</mat-hint>
+                    </mat-form-field>
+                </mat-card>
                 <br>
-                <mat-form-field class="full-width">
-                    <input type="text" matInput placeholder="Phone number" required>
-                </mat-form-field>
-                <mat-form-field class="full-width">
-                    <input type="text" matInput placeholder="Email" required>
-                </mat-form-field>
-                <br>
-                <mat-form-field class="full-width">
-                    <input type="password" matInput placeholder="Password" required>
-                </mat-form-field>
-                <mat-form-field class="full-width">
-                    <input type="password" matInput placeholder="Confirm password" required>
-                </mat-form-field>
-                <!-- <div class="right"> -->
+                <mat-card class="no-shadow">
+                    <mat-card-title>Security details</mat-card-title>
+                    <mat-form-field class="full-width">
+                        <input type="text" matInput placeholder="Phone number" formControlName="phonenumber" required>
+                        <mat-error *ngIf="addStudentForm.get('phonenumber').invalid">Please enter phonenumber
+                        </mat-error>
+                    </mat-form-field>
+                    <mat-form-field class="full-width">
+                        <input type="text" matInput placeholder="Email" formControlName="email" email required>
+                        <mat-error *ngIf="addStudentForm.get('email').invalid">Please enter email
+                        </mat-error>
+                    </mat-form-field>
+                    <br>
+                    <mat-form-field class="full-width">
+                        <input type="password" matInput placeholder="Password" formControlName="password" required>
+                        <mat-error *ngIf="addStudentForm.get('password').invalid">Please enter password
+                        </mat-error>
+                    </mat-form-field>
+                    <mat-form-field class="full-width">
+                        <input type="password" matInput placeholder="Confirm password" formControlName="confirmpassword" required>
+                        <mat-error *ngIf="addStudentForm.get('confirmpassword').invalid">Please enter confirm password
+                        </mat-error>
+                    </mat-form-field>
+                </mat-card>
                 <mat-action-row>
-                    <button mat-flat-button color="primary" (click)="onAddstudent()">Add</button>
-                    <button mat-stroked-button color="warn" (click)="onClearstudent()">Cancel</button>
+                    <button mat-flat-button color="primary" type="submit">Add</button>
+                    <button mat-stroked-button color="warn" type="reset">Cancel</button>
                 </mat-action-row>
-                <!-- </div> -->
             </form>
-            <!-- </mat-card> -->
-
         </mat-tab>
     </mat-tab-group>
-
-
-
-
-
-    <br>
-
 </mat-card>
