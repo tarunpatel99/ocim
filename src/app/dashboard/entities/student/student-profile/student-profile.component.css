@@ -73,3 +73,7 @@ mat-panel-title{
     display: flex;
     justify-content: flex-end;
 }
+.no-shadow{
+    box-shadow: none !important;
+    border: 2px solid #e0e0e0;
+}
