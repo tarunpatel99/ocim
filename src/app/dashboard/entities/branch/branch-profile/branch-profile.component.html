@@ -1,94 +1,94 @@
 <div class="heading">Profile</div>
 <mat-card>
     <mat-card class="no-shadow">
-    <mat-card-title>Personal details</mat-card-title>
-    <form class="no-add-branch">
-        <mat-card style="background: none; box-shadow: none;">
-            <mat-card-header>
-                <div mat-card-avatar class="example-header-image"></div>
-                <!-- <mat-card-title><span>User name</span></mat-card-title>
+        <mat-card-title>Personal details</mat-card-title>
+        <form class="no-add-branch">
+            <mat-card style="background: none; box-shadow: none;">
+                <mat-card-header>
+                    <div mat-card-avatar class="example-header-image"></div>
+                    <!-- <mat-card-title><span>User name</span></mat-card-title>
                 <mat-card-subtitle><span>User Type</span></mat-card-subtitle> -->
-            </mat-card-header>
-        </mat-card>
-        <mat-form-field class="full-width">
-            <input type="text" matInput placeholder="First name" required disabled>
-        </mat-form-field>
-        <mat-form-field class="full-width">
-            <input type="text" matInput placeholder="Middle name" required disabled>
-        </mat-form-field>
-        <mat-form-field class="full-width">
-            <input type="text" matInput placeholder="Last name" required disabled>
-        </mat-form-field>
-        <br>
-        <div class="gndr">
-            <p><label class="half-width">Gender : </label><label class="half-width">{{gender}}</label></p>
-            <!-- <mat-radio-group aria-label="Select Gender" class="half-width" color="primary" required disabled>
+                </mat-card-header>
+            </mat-card>
+            <mat-form-field class="full-width">
+                <input type="text" matInput placeholder="First name" required disabled>
+            </mat-form-field>
+            <mat-form-field class="full-width">
+                <input type="text" matInput placeholder="Middle name" required disabled>
+            </mat-form-field>
+            <mat-form-field class="full-width">
+                <input type="text" matInput placeholder="Last name" required disabled>
+            </mat-form-field>
+            <br>
+            <div class="gndr">
+                <p><label class="half-width">Gender : </label><label class="half-width">{{gender}}</label></p>
+                <!-- <mat-radio-group aria-label="Select Gender" class="half-width" color="primary" required disabled>
                 <mat-radio-button value="Male">Male</mat-radio-button>
                 <mat-radio-button value="Female">Female</mat-radio-button>
                 <mat-radio-button value="Other">Other</mat-radio-button>
             </mat-radio-group> -->
-        </div>
-    </form>
-</mat-card> 
-<br>
-<mat-card class="no-shadow">
-    <mat-card-title>Branch details</mat-card-title>
-    <form class="no-add-branch">
-        <mat-form-field class="full-width">
-            <input type="text" matInput placeholder="Brnach name" required disabled>
-        </mat-form-field>
-        <mat-form-field class="full-width">
-            <textarea type="text" matInput placeholder="Address" rows="3" required disabled></textarea>
-        </mat-form-field>
-        <br>
-        <mat-form-field class="full-width">
-            <mat-label>City</mat-label>
-            <mat-select required disabled>
-                <mat-option *ngFor="let city of cities" [value]="city.value">
-                {{city.viewValue}}
-                </mat-option>
-            </mat-select>
-        </mat-form-field>
-        <mat-form-field class="full-width">
-            <mat-label>State</mat-label>
-            <mat-select required disabled>
-                <mat-option *ngFor="let state of states" [value]="state.value">
-                {{state.viewValue}}
-                </mat-option>
-            </mat-select>
-        </mat-form-field>
-        <mat-form-field class="full-width">
-            <input matInput #postalCode maxlength="6" placeholder="Postal Code" required disabled>
-            <mat-hint align="end">{{postalCode.value.length}} / 6</mat-hint>
-        </mat-form-field>
-    </form>
-</mat-card>
-<br>
-<mat-card class="no-shadow">
-    <mat-card-title>Security details</mat-card-title>
-    <form class="no-add-branch">
-        <mat-form-field class="full-width">
-            <input type="text" matInput placeholder="Phone number" required disabled>
-        </mat-form-field>
-        <mat-form-field class="full-width">
-            <input type="text" matInput placeholder="Email" required disabled>
-        </mat-form-field>
-        <br>
-        <mat-form-field class="full-width">
-            <input type="password" matInput placeholder="Old password" required>
-        </mat-form-field>
-        <mat-form-field class="full-width">
-            <input type="password" matInput placeholder="New password" required>
-        </mat-form-field>
-        <mat-form-field class="full-width">
-            <input type="password" matInput placeholder="Confirm new password" required>
-        </mat-form-field>
-        
-        <!-- <div class="right"> -->
+            </div>
+        </form>
+    </mat-card>
+    <br>
+    <mat-card class="no-shadow">
+        <mat-card-title>Branch details</mat-card-title>
+        <form class="no-add-branch">
+            <mat-form-field class="full-width">
+                <input type="text" matInput placeholder="Brnach name" required disabled>
+            </mat-form-field>
+            <mat-form-field class="full-width">
+                <textarea type="text" matInput placeholder="Address" rows="3" required disabled></textarea>
+            </mat-form-field>
+            <br>
+            <mat-form-field class="full-width">
+                <mat-label>City</mat-label>
+                <mat-select required disabled>
+                    <mat-option *ngFor="let city of cities" [value]="city.value">
+                        {{city.viewValue}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field class="full-width">
+                <mat-label>State</mat-label>
+                <mat-select required disabled>
+                    <mat-option *ngFor="let state of states" [value]="state.value">
+                        {{state.viewValue}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field class="full-width">
+                <input matInput #postalCode maxlength="6" placeholder="Postal Code" required disabled>
+                <mat-hint align="end">{{postalCode.value.length}} / 6</mat-hint>
+            </mat-form-field>
+        </form>
+    </mat-card>
+    <br>
+    <mat-card class="no-shadow">
+        <mat-card-title>Security details</mat-card-title>
+        <form class="no-add-branch">
+            <mat-form-field class="full-width">
+                <input type="text" matInput placeholder="Phone number" required disabled>
+            </mat-form-field>
+            <mat-form-field class="full-width">
+                <input type="text" matInput placeholder="Email" required disabled>
+            </mat-form-field>
+            <br>
+            <mat-form-field class="full-width">
+                <input type="password" matInput placeholder="Old password" required>
+            </mat-form-field>
+            <mat-form-field class="full-width">
+                <input type="password" matInput placeholder="New password" required>
+            </mat-form-field>
+            <mat-form-field class="full-width">
+                <input type="password" matInput placeholder="Confirm new password" required>
+            </mat-form-field>
+
+            <!-- <div class="right"> -->
             <mat-action-row>
                 <button mat-flat-button color="primary" align="right" (click)="onChangePassword()">Change password</button>
-                <button mat-stroked-button color="warn" align="right" (click)="onClearbranch()">Cancle</button>    
+                <button mat-stroked-button color="warn" align="right" (click)="onClearbranch()">Cancel</button>
             </mat-action-row>
-        <!-- </div> -->
-    </form>
-</mat-card>
+            <!-- </div> -->
+        </form>
+    </mat-card>

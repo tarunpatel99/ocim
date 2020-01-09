@@ -68,7 +68,7 @@ import { FacultyLeaveNoteComponent, LeaveNoteViewDialog } from './dashboard/enti
 import { FacultyProfileComponent } from './dashboard/entities/faculty/faculty-profile/faculty-profile.component';
 import { StudentProfileComponent } from './dashboard/entities/student/student-profile/student-profile.component';
 import { StudentFeesComponent } from './dashboard/entities/student/student-fees/student-fees.component';
-import { StudentLeaveNoteComponent } from './dashboard/entities/student/student-leave-note/student-leave-note.component';
+import { StudentLeaveNoteComponent, ApplyLeave, actiondialog } from './dashboard/entities/student/student-leave-note/student-leave-note.component';
 import { StudentNoticeComponent } from './dashboard/entities/student/student-notice/student-notice.component';
 import { StudentExamResultComponent } from './dashboard/entities/student/student-exam-result/student-exam-result.component';
 import { StudentExamScheduleComponent } from './dashboard/entities/student/student-exam-schedule/student-exam-schedule.component';
@@ -146,6 +146,8 @@ import { CommonModule } from '@angular/common';
     StudentTimetableComponent,
     StudentDashboardComponent,
     BranchFacultiesComponent,
+    ApplyLeave, // leave dialog,
+    actiondialog
   ],
   imports: [
     BrowserModule,
@@ -167,6 +169,8 @@ import { CommonModule } from '@angular/common';
     LeaveNoteFormDialog,
     LeaveNoteViewDialog,
     ViewTimeTableComponent
+    ApplyLeave,
+    actiondialog
   ],
   providers: [
     StudentService,

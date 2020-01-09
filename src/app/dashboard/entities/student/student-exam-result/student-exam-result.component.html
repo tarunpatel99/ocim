@@ -2,11 +2,12 @@
 <mat-card>
 
             <!-- student list -->
-            <mat-form-field id="searchBar">
+            <mat-form-field id="searchBar" style="width: 100%;">
                 <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search">
             </mat-form-field>
-            
-            <mat-table [dataSource]="dataSource" class="mat-elevation-z8 tbl-shadow" matSort>
+            <mat-card class="card-shadow">
+            <mat-card-title>Unit Test 1</mat-card-title>
+            <mat-table [dataSource]="dataSource" class="mat-elevation-z8 card-shadow" matSort>
 
                 <ng-container matColumnDef="exmdate">
                     <mat-header-cell *matHeaderCellDef mat-sort-header> Date </mat-header-cell>
@@ -27,27 +28,15 @@
                     <mat-header-cell *matHeaderCellDef mat-sort-header> Total </mat-header-cell>
                     <mat-cell *matCellDef="let student"> {{student.ttl_marks}} </mat-cell>
                 </ng-container>
-
+                
+                <ng-container matColumnDef="per">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header> Percentage </mat-header-cell>
+                    <mat-cell *matCellDef="let student"> {{student.per}} </mat-cell>
+                </ng-container>
                 <!-- action Column -->
-                <ng-container matColumnDef="action">
-                    <mat-header-cell *matHeaderCellDef class="tbl-right" > Action </mat-header-cell>
-                    <mat-cell *matCellDef="let element" class="tbl-right">
-                        <!-- <button mat-icon-button color="primary" matTooltip="View">
-                            <mat-icon>visibility</mat-icon>
-                        </button> -->
-                        <button mat-icon-button color="primary" matTooltip="Edit">
-                            <mat-icon>edit</mat-icon>
-                        </button>
-                        <button mat-icon-button color="primary" matTooltip="Delete">
-                            <mat-icon>delete</mat-icon>
-                        </button>
-                    </mat-cell>
-                </ng-container> 
-
 
                 <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
                 <mat-row *matRowDef="let student; columns: displayedColumns;" [ngStyle]="{'background-color':student.obt_marks <= '17' ? '#ffebee': 'none'}"></mat-row>
             </mat-table>
-            <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
-
+        </mat-card>
 </mat-card>

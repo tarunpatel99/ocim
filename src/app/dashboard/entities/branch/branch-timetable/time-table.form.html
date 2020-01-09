@@ -1,31 +1,34 @@
 <h1 mat-dialog-title>Add Time Table</h1>
 <div mat-dialog-content>
-    <form class="no-add-timetable">
+    <form action="" [formGroup]="addTimeTableForm" #addTimeTable (click)="onSave()">
         <mat-form-field class="full-width">
-            <input type="text" matInput placeholder="Title" required>
+            <input type="text" matInput placeholder="Title" formControlName="title" required>
+            <mat-error *ngIf="addTimeTableForm.get('title').invalid">Please enter Title</mat-error>
         </mat-form-field>
         <mat-form-field class="full-width">
-            <input matInput [matDatepicker]="pickertimetable" placeholder="Date of Time Table" required>
+            <input matInput [matDatepicker]="pickertimetable" placeholder="Date of Time Table" formControlName="dateofTimeTable" required>
             <mat-datepicker-toggle matSuffix [for]="pickertimetable"></mat-datepicker-toggle>
             <mat-datepicker #pickertimetable></mat-datepicker>
+            <mat-error *ngIf="addTimeTableForm.get('dateofTimeTable').invalid">Please select date</mat-error>
         </mat-form-field>
         <mat-form-field class="full-width">
-            <textarea type="text" matInput placeholder="Description" rows="1" required></textarea>
+            <textarea type="text" matInput placeholder="Description" rows="1"></textarea>
         </mat-form-field>
+        <div class="uploadfilecontainer" (click)="fileInput.click()" appDragDrop (onFileDropped)="uploadFile($event)">
+            <input hidden type="file" #fileInput (change)="uploadFile($event.target.files)">Drag & Drop
+            <mat-icon color="primary">cloud_upload</mat-icon>
+        </div>
+        <div class="files-list" *ngFor="let file of files;let i= index">
+            <p> {{ file }} </p>
+            <button class="delete-file" (click)="deleteAttachment(i)">
+                <img src="../../assets/Recycle_Bin_Full.png">
+            </button>
+        </div>
+        <div mat-dialog-actions>
+            <input #photoInput hidden="true" type="file" onclick="this.value=null" (change)="photoInputChange($event)" accept=".jpg" />
+            <button mat-stroked-button color="primary" class="button" (click)="photoInput.click()">Upload <mat-icon>cloud_upload</mat-icon></button>
+            <button mat-flat-button color="primary" cdkFocusInitial>Add</button>
+            <button mat-stroked-button color="warn" type="reset">Cancel</button>
+        </div>
     </form>
-    <div class="uploadfilecontainer" (click)="fileInput.click()" appDragDrop (onFileDropped)="uploadFile($event)">
-        <input hidden type="file" #fileInput (change)="uploadFile($event.target.files)">Drag & Drop<mat-icon color="primary">cloud_upload</mat-icon>
-      </div>
-      <div  class="files-list" *ngFor="let file of files;let i= index">
-          <p> {{ file }} </p>
-          <button class="delete-file" (click)="deleteAttachment(i)">
-            <img src="../../assets/Recycle_Bin_Full.png">
-          </button>
-       </div>
-</div>
-<div mat-dialog-actions>
-    <input #photoInput hidden="true" type="file" onclick="this.value=null" (change)="photoInputChange($event)" accept=".jpg"/>
-    <button mat-stroked-button color="primary" class="button" (click)="photoInput.click()">Upload <mat-icon>cloud_upload</mat-icon></button>                
-    <button mat-flat-button color="primary" (click)="onAddtimetable()">Add</button>
-    <button mat-stroked-button color="warn" (click)="onSave()">Cancle</button>
 </div>

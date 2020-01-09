@@ -1,19 +1,128 @@
+.heading{
+  margin:20px 0;
+  color:#ffffff;
+  font-size: 36px;
+  display: block;
+}
+
+mat-form-field{
+  margin: 0 10px;
+  display: inline-block;
+}
+
+mat-radio-button{
+  margin: 0 5px;
+}
+
+button{
+  margin: 5px;
+}
+
+/* .header {
+  margin-left: 28px;
+  text-align: left;
+} */
+
+.example-header-image {
+  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+  background-size: cover;
+  height: 50px;
+  width: 50px;
+}
+
+.example-header-image {
+  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+  background-size: cover;
+  height: 50px;
+  width: 50px;
+}
+
+/* .form-mat-card {
+  display: inline-table;
+  margin: 5% ;
+  /* padding: 10px; * /
+  padding: 20px;
+  width: auto;
+  /* padding: 10px;
+  margin: auto;
+  padding: 20px;
+  height: fit-content;
+  width: 400px; * /
+} */
+
+.mat-card {
+  display: block;
+  margin: 10%;
+  width: 75%;
+  padding: 10px;
+  margin-top: 5%;
+}
+
 .gndr{
-    display: inline-block;
-    width: 30%;
-    margin: 0 10px;
-  }
-  
-  .full-width {
-    display: inline-block;
-    width: 30%;
-    margin: 0 10px;
-    /* max-width: 85%; */
-  }
-  
-  .half-width {
-    display: inline;
-    /* width: 500px; */
-    margin: 0 10px;
-    max-width: 30%;
-  }
+  display: inline-block;
+  width: 52%;
+  margin: 0 10px;
+}
+
+.full-width {
+  display: inline-block;
+  width: 40%;
+  margin: 0 10px;
+  /* max-width: 85%; */
+}
+.address {
+  display: inline-block;
+  width: 100%;
+  margin: 0 10px;
+}
+
+.half-width {
+  display: inline;
+  /* width: 500px; */
+  margin: 0 10px;
+  max-width: 40%;
+}
+
+/* .right{
+  float: right;
+} */
+
+
+.header{
+  font-family: sans-serif;
+  color: darkslateblue;
+  text-align: center;
+  font-size: x-large;
+}
+.main {
+  display: block;
+  height: 100%;
+}
+
+.form-mat-card {
+  padding: 10px;
+  margin: 0 auto;
+  padding: 20px;
+  height: fit-content;
+  width: 600px;
+}
+.centered {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer {
+  display:flex;
+  align-items: stretch;
+  width: 430px;
+  margin: 15px auto;
+}
+
+.place-left {
+    position: absolute;
+    left: 0;
+} 
+ 
+.place-right {
+    flex-grow: 1;
+} 

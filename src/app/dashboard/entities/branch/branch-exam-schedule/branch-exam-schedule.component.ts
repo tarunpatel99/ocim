@@ -2,8 +2,8 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { FormControl } from '@angular/forms';
-import { Subject } from 'rxjs';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+
 
 export interface StudentData {
   title: string;
@@ -118,11 +118,34 @@ export class BranchExamScheduleComponent implements OnInit {
   date = new FormControl(new Date());
 
  
+  addExamscheduleForm: FormGroup;
+
 
 
   ngOnInit() {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
+
+    this.addExamscheduleForm = new FormGroup({
+      title: new FormControl(null, {
+        validators: [Validators.required]
+      }),
+      class: new FormControl(null, {
+        validators: [Validators.required]
+      }),
+      subject: new FormControl(null, {
+        validators: [Validators.required]
+      }),
+      dateofexam: new FormControl(null, {
+        validators: [Validators.required]
+      }),
+      totalmark: new FormControl(null, {
+        validators: [Validators.required]
+      }),
+      passingmark: new FormControl(null, {
+        validators: [Validators.required]
+      }),
+    });
   }
 
 
@@ -133,6 +156,15 @@ export class BranchExamScheduleComponent implements OnInit {
 
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
+    }
+  }
+
+
+
+  onSave(): void {
+    // console.log("Form Submitted!");
+    if (this.addExamscheduleForm.invalid) {
+      return;
     }
   }
 

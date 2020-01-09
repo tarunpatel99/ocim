@@ -1,6 +1,6 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject, OnDestroy } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { FormControl } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 
 export interface DialogData {
@@ -50,14 +50,34 @@ export class BranchTimetableComponent implements OnInit {
   templateUrl: 'time-table.form.html',
   styleUrls: ['time-table.form.css']
 })
-export class TimeTableFormDialog {
+export class TimeTableFormDialog implements OnInit, OnDestroy{
   date = new FormControl(new Date());
+  addTimeTableForm: FormGroup;
   constructor(
     public dialogRef: MatDialogRef<TimeTableFormDialog>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData) {}
 
-  onSave(): void {
+  onCancle(): void {
     this.dialogRef.close();
   }
+
+  onSave(): void {
+    // this.dialogRef.close();
+    if (this.addTimeTableForm.invalid) {
+      return;
+    }
+  }
+
+  ngOnInit() {
+    this.addTimeTableForm = new FormGroup({
+      title: new FormControl(null, {
+        validators: [Validators.required]
+      }),
+      dateofTimeTable: new FormControl(null, {
+        validators: [Validators.required]
+      }),
+    });
+  }
+  ngOnDestroy() { }
 
 }

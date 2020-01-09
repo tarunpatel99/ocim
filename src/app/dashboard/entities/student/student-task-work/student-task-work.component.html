@@ -1,50 +1,41 @@
-<div>
-    <form class="example-form">
-        <mat-card class="form-mat-card">
-            <mat-accordion>
-                <mat-expansion-panel (opened)="panelOpenState = true"
-                                     (closed)="panelOpenState = false" #pan1>
-                  <mat-expansion-panel-header>
-                    <mat-panel-title class="txt">
-                      SCIENCE
-                    </mat-panel-title>
-                    <mat-panel-description class="largetxt">
-                       {{panelOpenState ? 'SubmissionDate 12/12/19' : 'IssueDate 9/12/19'}}
-                    </mat-panel-description>
-                  </mat-expansion-panel-header>
-                  <p>
-                      Assignment 1
-                  </p>
-                  <mat-selection-list #sci>
-                    <mat-list-option *ngFor="let science of stopics">
-                      {{science}}
-                    </mat-list-option>
-                  </mat-selection-list>
-                </mat-expansion-panel>
-              </mat-accordion>
-        </mat-card>
-        <mat-card class="form-mat-card">
-          <mat-accordion>
-              <mat-expansion-panel (opened)="panelOpenState = true"
-                                   (closed)="panelOpenState = false">
-                <mat-expansion-panel-header>
-                  <mat-panel-title class="txt">
-                    MATHS
-                  </mat-panel-title>
-                  <mat-panel-description class="largetxt">
-                     {{panelOpenState ? 'SubmissionDate 10/12/19' : 'IssueDate 7/12/19'}}
-                  </mat-panel-description>
-                </mat-expansion-panel-header>
-                <p>
-                    Assignment 1
-                </p>
-                <mat-selection-list #math>
-                  <mat-list-option *ngFor="let maths of mtopics">
-                    {{maths}}
-                  </mat-list-option>
-                </mat-selection-list>
-              </mat-expansion-panel>
-            </mat-accordion>
+<p class="heading" style="margin-top: 8%;">Task And Work</p>
+<mat-card>
+<mat-tab-group>
+  <mat-tab label="Science"> 
+    <mat-card class="task-card">
+      <mat-card-title>
+        <mat-selection-list disabled>
+          <mat-list-option>Assignment 1</mat-list-option>
+        </mat-selection-list>
+        </mat-card-title>
+          <p> Issued date: 24-12-2019 </p>
+          <p> Submission date: 26-12-2019 </p>
+          <p> Desciption: Chapter 1 and 2 with diagrams </p>
       </mat-card>
-    </form>
-</div>
+  </mat-tab>
+  <mat-tab label="Maths">
+    <mat-card class="task-card">
+      <mat-card-title>
+        <mat-selection-list disabled>
+          <mat-list-option>Assignment 1</mat-list-option>
+        </mat-selection-list>
+        </mat-card-title>
+          <p> Issued date: 24-12-2019 </p>
+          <p> Submission date: 26-12-2019 </p>
+          <p> Desciption: Chapter 1 and 2 with diagrams </p>
+      </mat-card>
+  </mat-tab>
+  <mat-tab label="English"> 
+    <mat-card class="task-card">
+      <mat-card-title>
+        <mat-selection-list disabled>
+          <mat-list-option>Assignment 1</mat-list-option>
+        </mat-selection-list>
+        </mat-card-title>
+          <p> Issued date: 24-12-2019 </p>
+          <p> Submission date: 26-12-2019 </p>
+          <p> Desciption: Chapter 1 and 2 with diagrams </p>
+      </mat-card>
+  </mat-tab>
+</mat-tab-group>
+</mat-card>

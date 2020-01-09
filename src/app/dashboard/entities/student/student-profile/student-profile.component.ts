@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder ,FormControl, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-student-profile',
@@ -6,10 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./student-profile.component.css']
 })
 export class StudentProfileComponent implements OnInit {
-
+  emailFormControl = new FormControl('', [
+    Validators.required,
+    Validators.email,
+  ]);
+  
   constructor() { }
-
+  gender="Male"
   ngOnInit() {
   }
+  
 
 }

@@ -1,27 +1,30 @@
-<h1 mat-dialog-title>Add Exam Schedule</h1>
-<div mat-dialog-content>
-    <form class="no-add-timetable">
+<h1 mat-dialog-title>Add Notice</h1>
+<div mat-dialog-content class="content">
+    <form action="" [formGroup]="addNoticeForm" #addNotice>
         <mat-form-field class="full-width">
-            <input type="text" matInput placeholder="Title" required>
+            <input type="text" matInput placeholder="Title" formControlName="title" required>
+            <mat-error *ngIf="addNoticeForm.get('title').invalid">Please enter title</mat-error>
         </mat-form-field>
         <mat-form-field class="full-width">
-            <mat-select placeholder="Class" [formControl]="classNotice" multiple>
+            <mat-select placeholder="Class" [formControl]="classNotice" multiple required>
                 <mat-select-trigger>
-                {{classNotice.value ? classNotice.value[0] : ''}}
-                <span *ngIf="classNotice.value?.length > 1" class="example-additional-selection">
+                    {{classNotice.value ? classNotice.value[0] : ''}}
+                    <span *ngIf="classNotice.value?.length > 1" class="example-additional-selection">
                     (+{{classNotice.value.length - 1}} {{classNotice.value?.length === 2 ? 'other' : 'others'}})
                 </span>
                 </mat-select-trigger>
-                <mat-option *ngFor="let classNotice of Classsbj" [value]="classNotice.value">{{classNotice.viewValue}}</mat-option>
+                <mat-option *ngFor="let classNotice of Classsbj" [value]="classNotice.viewValue">{{classNotice.viewValue}}
+                </mat-option>
             </mat-select>
+            <mat-error *ngIf="addNoticeForm.get('classNotice').invalid">Please select class</mat-error>
         </mat-form-field>
         <mat-form-field class="full-width">
-            <textarea type="text" matInput placeholder="Description" rows="1" required></textarea>
+            <textarea type="text" matInput placeholder="Description" rows="1" formControlName="description" required></textarea>
+            <mat-error *ngIf="addNoticeForm.get('description').invalid">Please enter description</mat-error>
         </mat-form-field>
+        <div mat-dialog-actions>
+            <button mat-flat-button color="primary" type="submit">Add</button>
+            <button mat-stroked-button color="warn" type="reset" (click)="onCancel()">Cancel</button>
+        </div>
     </form>
-    
-</div>
-<div mat-dialog-actions>
-    <button mat-flat-button color="primary" (click)="onAddtimetable()">Add</button>
-    <button mat-stroked-button color="warn" (click)="onSave()">Cancle</button>
 </div>

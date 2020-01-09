@@ -61,7 +61,7 @@ export class BranchAttendanceComponent implements OnInit {
   ];
 
   
-  displayedColumns: string[] = ['rollno','name', 'Maths','Sci','English','SS','Total','action'];
+  displayedColumns: string[] = ['rollno','name', 'Maths','Sci','English','SS','Total'];
   dataSource = new MatTableDataSource<Std_element>(Student_Data);
 
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;

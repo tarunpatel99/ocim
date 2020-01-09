@@ -7,8 +7,8 @@
         <mat-form-field class="full-width">
             <mat-select placeholder="Class" [formControl]="classannouncement" multiple>
                 <mat-select-trigger>
-                {{classannouncement.value ? classannouncement.value[0] : ''}}
-                <span *ngIf="classannouncement.value?.length > 1" class="example-additional-selection">
+                    {{classannouncement.value ? classannouncement.value[0] : ''}}
+                    <span *ngIf="classannouncement.value?.length > 1" class="example-additional-selection">
                     (+{{classannouncement.value.length - 1}} {{classannouncement.value?.length === 2 ? 'other' : 'others'}})
                 </span>
                 </mat-select-trigger>
@@ -22,5 +22,5 @@
 </div>
 <div mat-dialog-actions>
     <button mat-flat-button color="primary" (click)="onAddtimetable()">Add</button>
-    <button mat-stroked-button color="warn" (click)="onSave()">Cancle</button>
+    <button mat-stroked-button color="warn" (click)="onSave()">Cancel</button>
 </div>

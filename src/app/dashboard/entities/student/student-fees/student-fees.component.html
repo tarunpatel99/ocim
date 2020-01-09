@@ -1,32 +1,71 @@
-<div>
-    <form class="example-form">
-        <mat-card class="form-mat-card">
-            <mat-card-title>Fee Payment</mat-card-title>
-              <mat-divider></mat-divider>
+<p class="heading" style="margin-top: 8%;">Pay Fees</p>
+<mat-card class="mat-card1">
+<mat-card class="mat-card2">
+  <mat-card-title>Fees Details</mat-card-title>
+  <mat-table [dataSource]="dataSource" class="table"matSort>
 
-              <div class="example-container mat-elevation-z8">
-                <table mat-table [dataSource]="transactions">
-                  <!-- Item Column -->
-                  <ng-container matColumnDef="item">
-                    <th mat-header-cell *matHeaderCellDef> Subject </th>
-                    <td mat-cell *matCellDef="let transaction"> {{transaction.item}} </td>
-                    <td mat-footer-cell *matFooterCellDef> Total </td>
-                  </ng-container>
-              
-                  <!-- Cost Column -->
-                  <ng-container matColumnDef="cost">
-                    <th mat-header-cell *matHeaderCellDef> Fee </th>
-                    <td mat-cell *matCellDef="let transaction"> {{transaction.cost | currency}} </td>
-                    <td mat-footer-cell *matFooterCellDef> {{getTotalCost() | currency}} </td>
-                  </ng-container>
-              
-                  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-                  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-                  <tr mat-footer-row *matFooterRowDef="displayedColumns; sticky: true"></tr>
-                </table>
-              </div>
-              <br>
-              <button mat-raised-button color="primary">Pay Now</button>
-        </mat-card>
-    </form>
-</div>
+    <ng-container matColumnDef="std">
+        <mat-header-cell   *matHeaderCellDef mat-sort-header> Standard </mat-header-cell  >
+        <mat-cell *matCellDef="let fees"> {{fees.std}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="sem">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Sem </mat-header-cell>
+      <mat-cell *matCellDef="let fees"> {{fees.sem}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="mode">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> Mode </mat-header-cell>
+    <mat-cell *matCellDef="let fees"> {{fees.mode}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="date">
+   <mat-header-cell *matHeaderCellDef mat-sort-header> Date </mat-header-cell>
+   <mat-cell *matCellDef="let fees"> {{fees.date}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="amount">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> Amount </mat-header-cell>
+    <mat-cell *matCellDef="let fees"> {{fees.amount}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="status">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> Status </mat-header-cell>
+    <mat-cell *matCellDef="let fees">
+        <mat-chip-list>
+            <mat-chip [ngStyle]="{color: getColor(fees.status)}" style="background-color: #f5f5f5;">{{fees.status}}</mat-chip>
+        </mat-chip-list>
+    </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="print">
+    <mat-header-cell  *matHeaderCellDef > Print </mat-header-cell>
+    <mat-cell *matCellDef="let fees" >
+      <button mat-flat-button color="primary" class="print-button">
+        <mat-icon aria-hidden="false">print</mat-icon>
+        Print
+      </button>
+    </mat-cell>
+  </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let fees; columns: displayedColumns;"></mat-row>
+</mat-table>
+</mat-card>
+<br>
+<mat-card class="mat-card">
+  <mat-card-title>Sem 2</mat-card-title>
+  <mat-card-subtitle>Date: 22-12-2019</mat-card-subtitle>
+  <mat-divider></mat-divider>
+  <p>Class: 8th</p>
+  <p> Amount: 45000</p>
+  <p> Last date: 01-01-2020</p>
+  <p class="ocim-font-red" style="font-weight: bold;"> Note<br><span style="color: black;">
+  <strong>If you select to pay fees by cash then you wont be able to select "Pay online" option</strong></span></p>
+  <mat-card-actions>
+    <button mat-raised-button color="primary" name="button1">Pay Now</button>
+    <span class="space">-------- or --------</span>
+    <button mat-stroked-button>Pay by cash</button>
+  </mat-card-actions>
+</mat-card>
+</mat-card>

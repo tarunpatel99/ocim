@@ -1,33 +1,29 @@
 <div class="heading">Classes & Subjects</div>
 <mat-card>
-
     <mat-tab-group dynamicHeight>
         <mat-tab label="Class">
             <div class="form-mat-card">
                 <!-- <div class="header">
                     <h2>Add Class</h2>
                 </div> -->
-                <form class="add-standard">
-
+                <form class="add-standard" action="" [formGroup]="addClassForm" #addClass>
                     <mat-form-field class="full-width">
                         <mat-label>Standard</mat-label>
-                        <mat-select required>
+                        <mat-select formControlName="standard" required>
                             <mat-option *ngFor="let class of classes" [value]="class.value">
                                 {{class.viewValue}}
                             </mat-option>
                         </mat-select>
+                        <mat-error *ngIf="addClassForm.get('standard').invalid">Please select standard</mat-error>
                     </mat-form-field>
-
                     <mat-form-field class="full-width">
                         <input type="text" matInput placeholder="Batch name">
                     </mat-form-field>
-
+                    <button mat-flat-button color="primary" type="submit" (click)="onSave()">Add</button>
+                    <button mat-stroked-button color="warn" type="reset">Cancel</button>
                 </form>
-                <button mat-flat-button color="primary" (click)="onAddstandards()">Add</button>
-                <button mat-stroked-button color="warn" (click)="onClear()">Cancle</button>
-
                 <mat-accordion>
-                    <mat-expansion-panel (opened)="panelOpenState1 = true" (closed)="panelOpenState1 = false">
+                    <mat-expansion-panel (opened)="panelOpenState1 = true" (closed)="panelOpenState1 = false" class="mat-elevation-z1">
                         <mat-expansion-panel-header>
                             <mat-panel-title>
                                 Classes
@@ -47,34 +43,31 @@
                 </mat-accordion>
             </div>
         </mat-tab>
-
-        <!-- =================================================================================================================================================== -->
-
+        <!-- ================================================================================================================================================== -->
         <mat-tab label="Subject">
             <div class="form-mat-card">
                 <!-- <div class="header">
                     <h2>Add Subject</h2>
                 </div> -->
-                <form class="add-subject">
+                <form class="add-subject" action="" [formGroup]="addSubjectForm" #addSubject>
                     <mat-form-field class="full-width">
                         <mat-label>Class</mat-label>
-                        <mat-select required>
+                        <mat-select formControlName="class" required>
                             <mat-option *ngFor="let classsbj of classsbjs" [value]="classsbj.value">
                                 {{classsbj.viewValue}}
                             </mat-option>
                         </mat-select>
+                        <mat-error *ngIf="addSubjectForm.get('class').invalid">Please select class</mat-error>
                     </mat-form-field>
-
                     <mat-form-field class="full-width">
-                        <input type="text" matInput placeholder="Subject name*">
+                        <input type="text" matInput placeholder="Subject name" formControlName="subjectname" required>
+                        <mat-error *ngIf="addSubjectForm.get('subjectname').invalid">Please enter subject name</mat-error>
                     </mat-form-field>
-
+                    <button mat-flat-button color="primary" type="submit" (click)="onSave()">Add</button>
+                    <button mat-stroked-button color="warn" type="reset">Cancel</button>
                 </form>
-                <button mat-flat-button color="primary" (click)="onAddclass()">Add</button>
-                <button mat-stroked-button color="warn" (click)="onClear()">Cancle</button>
-
                 <mat-accordion>
-                    <mat-expansion-panel (opened)="panelOpenState2 = true" (closed)="panelOpenState2 = false">
+                    <mat-expansion-panel (opened)="panelOpenState2 = true" (closed)="panelOpenState2 = false" class="mat-elevation-z1">
                         <mat-expansion-panel-header>
                             <mat-panel-title>
                                 8
@@ -91,7 +84,6 @@
                             <button mat-stroked-button color="warn" (click)="onDeletesubjects()">Delete</button>
                         </mat-action-row>
                     </mat-expansion-panel>
-
                     <mat-expansion-panel (opened)="panelOpenState3 = true" (closed)="panelOpenState3 = false">
                         <mat-expansion-panel-header>
                             <mat-panel-title>
@@ -109,7 +101,6 @@
                             <button mat-stroked-button color="warn" (click)="onDeletesubjects()">Delete</button>
                         </mat-action-row>
                     </mat-expansion-panel>
-
                     <mat-expansion-panel (opened)="panelOpenState4 = true" (closed)="panelOpenState4 = false">
                         <mat-expansion-panel-header>
                             <mat-panel-title>
@@ -127,7 +118,6 @@
                             <button mat-stroked-button color="warn" (click)="onDeletesubjects()">Delete</button>
                         </mat-action-row>
                     </mat-expansion-panel>
-
                     <mat-expansion-panel (opened)="panelOpenState5 = true" (closed)="panelOpenState5 = false">
                         <mat-expansion-panel-header>
                             <mat-panel-title>
@@ -145,7 +135,6 @@
                             <button mat-stroked-button color="warn" (click)="onDeletesubjects()">Delete</button>
                         </mat-action-row>
                     </mat-expansion-panel>
-
                     <mat-expansion-panel (opened)="panelOpenState6 = true" (closed)="panelOpenState6 = false">
                         <mat-expansion-panel-header>
                             <mat-panel-title>
@@ -163,7 +152,6 @@
                             <button mat-stroked-button color="warn" (click)="onDeletesubjects()">Delete</button>
                         </mat-action-row>
                     </mat-expansion-panel>
-
                     <mat-expansion-panel (opened)="panelOpenState7 = true" (closed)="panelOpenState7 = false">
                         <mat-expansion-panel-header>
                             <mat-panel-title>
@@ -181,7 +169,6 @@
                             <button mat-stroked-button color="warn" (click)="onDeletesubjects()">Delete</button>
                         </mat-action-row>
                     </mat-expansion-panel>
-
                     <mat-expansion-panel (opened)="panelOpenState8 = true" (closed)="panelOpenState8 = false">
                         <mat-expansion-panel-header>
                             <mat-panel-title>
