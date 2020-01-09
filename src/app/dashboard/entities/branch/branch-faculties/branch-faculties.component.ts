@@ -3,7 +3,7 @@ import { Action } from 'rxjs/internal/scheduler/Action';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
-import { FormControl } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 
 
@@ -109,9 +109,74 @@ export class BranchFacultiesComponent implements OnInit {
   dataSource = new MatTableDataSource<Fac_element>(Faculty_Data);
 
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
+  
+  addFacultybyemailForm: FormGroup;
+  addFacultyForm: FormGroup;
 
   ngOnInit() {
     this.dataSource.paginator = this.paginator;
+
+
+  this.addFacultybyemailForm = new FormGroup({
+    email: new FormControl(null, {
+      validators: [Validators.required]
+    }),
+  });
+
+  this.addFacultyForm = new FormGroup({
+    firstname: new FormControl(null, {
+      validators: [Validators.required]
+    }),
+    middlename: new FormControl(null, {
+      validators: [Validators.required]
+    }),
+    lastname: new FormControl(null, {
+      validators: [Validators.required]
+    }),
+    class: new FormControl(null, {
+      validators: [Validators.required]
+    }),
+    subject: new FormControl(null, {
+      validators: [Validators.required]
+    }),
+    dateofbirth: new FormControl(null, {
+      validators: [Validators.required]
+    }),
+    joiningdate: new FormControl(null, {
+      validators: [Validators.required]
+    }),
+    experienceyear: new FormControl(null, {
+      validators: [Validators.required]
+    }),
+    gender: new FormControl(null, {
+      validators: [Validators.required]
+    }),
+    address: new FormControl(null, {
+      validators: [Validators.required]
+    }),
+    city: new FormControl(null, {
+      validators: [Validators.required]
+    }),
+    state: new FormControl(null, {
+      validators: [Validators.required]
+    }),
+    postalcode: new FormControl(null, {
+      validators: [Validators.required]
+    }),
+    phonenumber: new FormControl(null, {
+      validators: [Validators.required]
+    }),
+    email: new FormControl(null, {
+      validators: [Validators.required]
+    }),
+    password: new FormControl(null, {
+      validators: [Validators.required]
+    }),
+    confirmpassword: new FormControl(null, {
+      validators: [Validators.required]
+    }),
+  })
+
   }
 
 
@@ -122,5 +187,6 @@ export class BranchFacultiesComponent implements OnInit {
       this.dataSource.paginator.firstPage();
     }
   } 
+
 
 }

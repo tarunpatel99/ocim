@@ -106,3 +106,7 @@ body {
     overflow-wrap: break-word;
     word-wrap: break-word;
 }
+
+mat-form-field {
+    margin: 8px !important;
+}
