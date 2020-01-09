@@ -176,7 +176,7 @@ export class BranchExamResultComponent implements OnInit {
 
     
 
-    //html2pdf().from(table).set(options).save()
+    html2pdf().from(table).set(options).save()
 
   }
 
