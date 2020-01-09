@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, Validators} from '@angular/forms';
+import { FormBuilder ,FormControl, Validators} from '@angular/forms';
+
 @Component({
   selector: 'app-student-profile',
   templateUrl: './student-profile.component.html',
@@ -10,9 +11,11 @@ export class StudentProfileComponent implements OnInit {
     Validators.required,
     Validators.email,
   ]);
+  
   constructor() { }
-
+  gender="Male"
   ngOnInit() {
   }
+  
 
 }

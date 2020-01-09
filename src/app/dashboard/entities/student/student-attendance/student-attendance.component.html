@@ -42,8 +42,8 @@
         <ng-container matColumnDef="per">
             <th mat-header-cell *matHeaderCellDef> Percentage </th>
             <td mat-cell *matCellDef="let element">
-              <div class="w3-light-grey w3-round-xlarge" [ngStyle]="{'width': element.per}">
-                <div class="w3-container w3-round-xlarge w3-center"  [ngStyle]="{'background-color': attendance(element.per)}">{{ element.per }}</div>
+              <div class="w3-light-grey w3-round-xlarge">
+                <div class="w3-container w3-round-xlarge w3-center"  [ngStyle]="{'background-color': attendance(element.per), 'width': element.per}">{{ element.per }}</div>
               </div>
             </td>
           </ng-container>

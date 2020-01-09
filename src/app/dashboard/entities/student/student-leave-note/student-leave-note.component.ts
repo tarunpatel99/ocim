@@ -8,12 +8,16 @@ export interface Attatchment {
   id: string
 }
 
+
 export interface LeaveNote {
+  id: string,
+  class: string,
+  studentName: string,
   subject: string,
   description: string,
   leaveFrom: string,
   leaveTo: string,
-  attatchment: Array<Attatchment>,
+  attatchments: Attatchment[],
   status: string
 }
 
@@ -27,15 +31,66 @@ export class StudentLeaveNoteComponent implements OnInit {
 
   displayedColumns: string[] = [ 'subject', 'from', 'to', 'status','action'];
   dataSource: MatTableDataSource<LeaveNote>;
-
+  selectedLeave: any;
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
   
   // leave notes data
   leaves: LeaveNote[] = [
-    { subject: "Sick Leave", description: "Dr. ne mali lo", leaveFrom: "12/12/2019", leaveTo: "22/12/2019", attatchment: [{ id: "Attatchment one" }, { id: "Attatchment two" }], status: "Pending" },
-    { subject: "Sick Leave", description: "Dr. ne mali lo", leaveFrom: "12/12/2019", leaveTo: "22/12/2019", attatchment: [{ id: "Attatchment one" }, { id: "Attatchment two" }], status: "Approved" },
-    { subject: "Sick Leave", description: "Dr. ne mali lo", leaveFrom: "12/12/2019", leaveTo: "22/12/2019", attatchment: [{ id: "Attatchment one" }, { id: "Attatchment two" }], status: "Denied" },
+    {
+      id: "132",
+      class: "8",
+      studentName: "Tarun Patel",
+      subject: "Sick Leave",
+      description: "Cold",
+      leaveFrom: "12/12/2019",
+      leaveTo: "22/12/2019",
+      attatchments: [
+        {
+          id: "Attatchment one"
+        },
+        {
+          id: "Attatchment two"
+        }
+      ],
+      status: "Pending"
+    },
+    {
+      id: "132",
+      class: "8",
+      studentName: "Tarun Patel",
+      subject: "Sick Leave",
+      description: "Fever",
+      leaveFrom: "12/12/2019",
+      leaveTo: "22/12/2019",
+      attatchments: [
+        {
+          id: "Attatchment one"
+        },
+        {
+          id: "Attatchment two"
+        }
+      ],
+      status: "Approved"
+    },
+    {
+      id: "126",
+      class: "8",
+      studentName: "Tarun Patel",
+      subject: "Sick Leave",
+      description: "Malaria",
+      leaveFrom: "12/12/2019",
+      leaveTo: "22/12/2019",
+      attatchments: [
+        {
+          id: "Attatchment one"
+        },
+        {
+          id: "Attatchment two"
+        }
+      ],
+      status: "Denied"
+    },
   ]
   constructor(public dialog: MatDialog) {
     this.dataSource = new MatTableDataSource(this.leaves);
@@ -44,6 +99,18 @@ export class StudentLeaveNoteComponent implements OnInit {
     const dialogRef = this.dialog.open(ApplyLeave, {
       width: '500px',
     });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
+  }
+  onViewLeaveNote(event, leave): void {
+    this.selectedLeave = leave
+    const dialogRef = this.dialog.open(actiondialog, {
+      width: '300px',
+      data: {studentName: this.selectedLeave.studentName, class: this.selectedLeave.class, attatchments: this.selectedLeave.attatchments}
+    });
+    
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
@@ -66,12 +133,32 @@ export class StudentLeaveNoteComponent implements OnInit {
   getColor(status) {
     switch (status) {
       case 'Pending':
-        return '#e0e0e0'; // grey
+        return '#212121'; // grey
       case 'Approved':
         return '#43a047'; // green
       case 'Denied':
-        return '#e53935'; // red
+        return '#C62828'; // red
     }
+  }
+
+}
+
+@Component({
+  selector: 'actionview',
+  templateUrl: 'actionview.html',
+  styleUrls: ['actionview.css']
+})
+export class actiondialog implements OnInit{
+  constructor(
+    public dialogRef: MatDialogRef<actiondialog>,
+    @Inject(MAT_DIALOG_DATA) public data: LeaveNote) { }
+
+  onSave(): void {
+    this.dialogRef.close();
+  }
+
+  ngOnInit() {
+    
   }
 
 }

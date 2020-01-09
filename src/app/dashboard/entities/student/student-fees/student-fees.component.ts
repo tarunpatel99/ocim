@@ -31,10 +31,12 @@ export class StudentFeesComponent implements OnInit {
 
   getColor(status) {
     switch (status) {
+      case 'Pending':
+        return '#212121'; // grey
       case 'Paid':
         return '#43a047'; // green
       case 'Unpaid':
-        return '#e53935'; // red
+        return '#C62828'; // red
     }
   }
 }

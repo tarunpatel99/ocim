@@ -44,6 +44,7 @@ export interface exmmark{
   styleUrls: ['./student-exam-result.component.css']
 })
 export class StudentExamResultComponent implements OnInit {
+  student: any;
 
   constructor() {
     // Assign the data to the data source for the table to render
@@ -72,5 +73,8 @@ export class StudentExamResultComponent implements OnInit {
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
+  }
+  getTotal() {
+    return this.student.map(t => t.obt_marks).reduce((acc, value) => acc + value, 0);
   }
 }
