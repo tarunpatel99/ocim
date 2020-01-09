@@ -32,3 +32,16 @@
 .example-full-width{
     width: 100%;
 }
+
+.task-card {
+    display: inline-block;
+    width: 300px;
+    margin: 15px;
+}
+
+.heading{
+    margin:20px 0;
+    color:#ffffff;
+    font-size: 36px;
+    display: block;
+}

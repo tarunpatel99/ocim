@@ -6,19 +6,19 @@
       </div>
       <div>
           <mat-form-field class="example-full-width">
-              <input matInput placeholder="Title">
+              <input matInput name="title" placeholder="Title" required minlength="3">
           </mat-form-field>
       </div>
       <div>
       <table>
           <tr>
               <td> <mat-form-field class="example-full-width">
-                      <input matInput [matDatepicker]="pickerJoin" placeholder="From">
+                      <input matInput [matDatepicker]="pickerJoin" placeholder="From" required>
                       <mat-datepicker-toggle matSuffix [for]="pickerJoin"></mat-datepicker-toggle>
                           <mat-datepicker #pickerJoin></mat-datepicker>
                   </mat-form-field></td>
                   <td> <mat-form-field class="example-full-width">
-                          <input matInput [matDatepicker]="pickerTo" placeholder="To">
+                          <input matInput [matDatepicker]="pickerTo" placeholder="To" required>
                           <mat-datepicker-toggle matSuffix [for]="pickerTo"></mat-datepicker-toggle>
                               <mat-datepicker #pickerTo></mat-datepicker>
                       </mat-form-field></td>
@@ -27,7 +27,7 @@
       </div>
       <div>
           <mat-form-field class="example-full-width">
-          <textarea matInput placeholder="Message" style="width: 80px; height: 50px;"></textarea>
+          <textarea matInput placeholder="Message" required></textarea>
           </mat-form-field>
       </div>
       <button mat-raised-button color="accent" aria-label="Example icon-button with a heart icon">

@@ -1,10 +1,19 @@
 import { Component, OnInit } from '@angular/core';
+import { MatTableDataSource } from '@angular/material/table';
 
-export interface Transaction {
-  item: string;
-  cost: number;
+export interface StudentFees {
+  std: number;
+  sem: number;
+  mode: string; 
+  date: string;
+  amount: number;
+  status: string;
 }
 
+const students: StudentFees[] = [
+  { std: 8 , sem: 2, mode: 'Online', date: '29-12-2019', amount: 45000, status: "Unpaid"},
+  { std: 8 , sem: 1, mode: 'Online', date: '29-12-2019', amount: 45000, status: "Paid"},
+]
 @Component({
   selector: 'app-student-fees',
   templateUrl: './student-fees.component.html',
@@ -12,19 +21,22 @@ export interface Transaction {
 })
 export class StudentFeesComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+    this.dataSource = new MatTableDataSource(students);
+   }
+   displayedColumns: string[] = ['std' , 'sem', 'mode', 'date', 'amount', 'status', 'print'];
+  dataSource: MatTableDataSource<StudentFees>;
   ngOnInit() {
   }
-  displayedColumns = ['item', 'cost'];
-  transactions: Transaction[] = [
-    {item: 'Maths', cost: 4},
-    {item: 'Science', cost: 5},
-    {item: 'English', cost: 2},
-    {item: 'Social Studies', cost: 4},
-  ];
 
-  /** Gets the total cost of all transactions. */
-  getTotalCost() {
-    return this.transactions.map(t => t.cost).reduce((acc, value) => acc + value, 0);
+  getColor(status) {
+    switch (status) {
+      case 'Pending':
+        return '#212121'; // grey
+      case 'Paid':
+        return '#43a047'; // green
+      case 'Unpaid':
+        return '#C62828'; // red
+    }
   }
 }
