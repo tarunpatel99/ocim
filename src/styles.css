@@ -83,3 +83,8 @@ body {
     font-size: 36px;
     display: block;
 }
+
+.custom-dialog {
+    /* Faculty -> Time table : to diplay photo in center of the dialogbox */
+    text-align: center;
+}

@@ -1,6 +1,6 @@
 <h1 mat-dialog-title>Add Task & work</h1>
-<div mat-dialog-content>
-    <form action="" [formGroup]="addTaskForm" #addTask (click)="onSave()">
+<form action="" [formGroup]="addTaskForm" #addTask (submit)="onSave()">
+    <div>
         <mat-form-field class="half-width">
             <mat-select placeholder="Select Class" formControlName="class" required>
                 <mat-option value="tybca">TYBCA</mat-option>
@@ -14,13 +14,15 @@
             <mat-error *ngIf="addTaskForm.get('subject').invalid">Please select subject.</mat-error>
         </mat-form-field>
         <mat-form-field class="half-width">
-            <input matInput [matDatepicker]="IssueDatePicker" placeholder="Issue date" [value]="date.value" formControlName="issueDate" required>
+            <input matInput [matDatepicker]="IssueDatePicker" placeholder="Issue date" [value]="date.value"
+                formControlName="issueDate" required>
             <mat-datepicker-toggle matSuffix [for]="IssueDatePicker"></mat-datepicker-toggle>
             <mat-datepicker #IssueDatePicker></mat-datepicker>
             <mat-error *ngIf="addTaskForm.get('issueDate').invalid">Please select Issue date.</mat-error>
         </mat-form-field>
         <mat-form-field class="half-width">
-            <input matInput [matDatepicker]="submissionDatePicker" placeholder="Submission date" formControlName="submissionDate" required>
+            <input matInput [matDatepicker]="submissionDatePicker" placeholder="Submission date"
+                formControlName="submissionDate" required>
             <mat-datepicker-toggle matSuffix [for]="submissionDatePicker"></mat-datepicker-toggle>
             <mat-datepicker #submissionDatePicker></mat-datepicker>
             <mat-error *ngIf="addTaskForm.get('submissionDate').invalid">Please select Issue date.</mat-error>
@@ -32,9 +34,13 @@
         <mat-form-field class="full-width">
             <textarea matInput placeholder="Description"></textarea>
         </mat-form-field>
-        <div mat-dialog-actions>
-            <button mat-button type="submit">Cancel</button>
-            <button mat-button color="primary" cdkFocusInitial>Add</button>
-        </div>
-    </form>
-</div>
+
+
+
+    </div>
+
+    <div mat-dialog-actions align="end">
+        <button mat-stroked-button type="reset" color="warn">Cancel</button>
+        <button mat-flat-button type="submit" color="primary" cdkFocusInitial>Add</button>
+    </div>
+</form>

@@ -4,6 +4,7 @@ import * as $ from 'jquery';
 import { StudentService } from "../student.service";
 import { Router } from '@angular/router';
 import { AuthService } from '../auth/auth.service';
+import { OverlayContainer } from '@angular/cdk/overlay';
 
 export class User {
   username?: string;
@@ -31,12 +32,25 @@ export class DashboardComponent implements OnInit, OnDestroy {
     media: MediaMatcher, 
     private StudentService: StudentService,
     private AuthService: AuthService,
-    private router: Router
+    private router: Router,
+    overlayContainer: OverlayContainer
     ) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    switch (this.currentUser.role) {
+      case 'Admin':
+        overlayContainer.getContainerElement().classList.add('admin-theme');
+      case 'Owner':
+        overlayContainer.getContainerElement().classList.add('owner-theme');
+      case 'Branch Manager':
+        overlayContainer.getContainerElement().classList.add('bm-theme');
+      case 'Faculty':
+        overlayContainer.getContainerElement().classList.add('faculty-theme');
+      case 'Student':
+        overlayContainer.getContainerElement().classList.add('student-theme');
+    }
   }
 
   onLogout() {

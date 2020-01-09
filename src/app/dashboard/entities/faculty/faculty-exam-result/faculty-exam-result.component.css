@@ -11,11 +11,11 @@
 }
 
 .small-width {
-    width: 24%;
+    width: 20%;
 }
 
 mat-form-field {
-    margin-right: 12px;
+    margin: 8px;
 }
 
 .mat-radio-button ~ .mat-radio-button {

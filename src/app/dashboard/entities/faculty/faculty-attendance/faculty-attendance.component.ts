@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { FormControl, Validators } from '@angular/forms';
 
 export interface Student {
   studentname: String
@@ -22,6 +22,13 @@ export class FacultyAttendanceComponent implements OnInit {
     { studentname: 'Aakash Bhavasar' }
   ]
   date = new FormControl(new Date());
+
+  classControl = new FormControl('', [
+    Validators.required
+  ]);
+  subjectControl = new FormControl('', [
+    Validators.required
+  ]);
 
   ngOnInit() {
   }
