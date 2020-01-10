@@ -99,13 +99,7 @@
                             </button>
                         </mat-cell>
                     </ng-container>
-
-
-
-                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-                    <tr mat-row *matRowDef="let student; columns: displayedColumns;" [ngStyle]="{'background-color':student.obt_marks <= '17' ? '#ffebee': 'none'}"></tr>
-                </table>
-
+                    
                     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
                     <mat-row *matRowDef="let student; columns: displayedColumns;" [ngStyle]="{'background-color':student.obt_marks <= '17' ? '#ffebee': 'micro'}"></mat-row>
                 </mat-table>
