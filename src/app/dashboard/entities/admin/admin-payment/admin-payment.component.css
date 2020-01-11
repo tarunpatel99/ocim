@@ -1,0 +1,22 @@
+.no-shadow {
+    box-shadow: none !important;
+    border: 2px solid #e0e0e0;
+}
+
+.card-50 {
+    display: inline-block;
+    width: 45%;
+    height: fit-content;
+}
+
+.tbl-right {
+    display: flex;
+    justify-content: flex-end;
+}
+
+#searchBar {
+    font-size: 14px;
+    margin-top: 10px;
+    width: 100%;
+    margin: auto;
+}
