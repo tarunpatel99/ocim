@@ -168,7 +168,7 @@ import { CommonModule } from '@angular/common';
     NoticeFormDialog,
     LeaveNoteFormDialog,
     LeaveNoteViewDialog,
-    ViewTimeTableComponent
+    ViewTimeTableComponent,
     ApplyLeave,
     actiondialog
   ],

@@ -5,31 +5,35 @@
   <h2>Sign Up</h2>
   </div>
   <mat-divider></mat-divider>
-  <mat-vertical-stepper [linear]="!isLinear" #stepper>
-    <mat-step [stepControl]="firstFormGroup">
-      <form [formGroup]="firstFormGroup">
+  <mat-vertical-stepper [linear]="isLinear" #stepper>
+
+    <mat-step [stepControl]="regformgroup">
+      <form [formGroup]="regformgroup">
         <ng-template matStepLabel>Personal Details</ng-template>
         <div>
         <mat-form-field class="full-width">
-            <input type="text" matInput placeholder="First name" required formControlName="firstCtrl">
+            <input type="text" matInput placeholder="First name" formControlName="fname" required>
+            <mat-error *ngIf="regformgroup.get('fname').invalid">First name is required</mat-error>
         </mat-form-field>
         <mat-form-field class="full-width">
             <input type="text" matInput placeholder="Middle name">
         </mat-form-field>
         <mat-form-field class="full-width">
-            <input type="text" matInput placeholder="Last name" required formControlName="firstCtrl">
+            <input type="text" matInput placeholder="Last name" required formControlName="lname">
+            <mat-error *ngIf="regformgroup.get('lname').invalid">Last name is required</mat-error>
         </mat-form-field>
         
         <div class="gndr">
             <p><label class="half-width">Select Gender</label></p>
-            <mat-radio-group aria-label="Select Gender" class="half-width" color="primary" required formControlName="firstCtrl">
+            <mat-radio-group aria-label="Select Gender" class="half-width" color="primary" required>
                 <mat-radio-button value="Male">Male</mat-radio-button>
                 <mat-radio-button value="Female">Female</mat-radio-button>
                 <mat-radio-button value="Other">Other</mat-radio-button>
             </mat-radio-group>
         </div>
         <mat-form-field class="address">
-            <textarea type="text" matInput placeholder="Address" rows="3" required formControlName="firstCtrl"></textarea>
+            <textarea type="text" matInput placeholder="Address" rows="3" required formControlName="address"></textarea>
+            <mat-error *ngIf="regformgroup.get('address').invalid">Address is required</mat-error>
         </mat-form-field>
         <br>
           <button mat-button matStepperNext>Next</button>
@@ -40,27 +44,31 @@
       <form [formGroup]="secondFormGroup">
         <ng-template matStepLabel>Institute Details</ng-template>
         <mat-form-field class="full-width">
-          <input matInput placeholder="Institute Name" required formControlName="secondCtrl" >
+          <input type="text" matInput placeholder="Institute Name" required formControlName="iname">
+          <mat-error *ngIf="secondFormGroup.get('iname').invalid">Institute name is required</mat-error>
         </mat-form-field>
         <mat-form-field class="full-width">
-            <textarea type="text" matInput placeholder="Address" rows="3" required formControlName="secondCtrl"></textarea>
+            <textarea type="text" matInput placeholder="Address" rows="3" required formControlName="address"></textarea>
+            <mat-error *ngIf="secondFormGroup.get('address').invalid">Address is required</mat-error>
         </mat-form-field>
         <br>
         <mat-form-field class="full-width">
             <mat-label>State</mat-label>
-            <mat-select required formControlName="secondCtrl">
+            <mat-select required formControlName="state">
               <mat-option value="option">Gujarat</mat-option>
             </mat-select>
+            <mat-error *ngIf="secondFormGroup.get('state').invalid">State is required</mat-error>
         </mat-form-field>
         
         <mat-form-field class="full-width">
           <mat-label>City</mat-label>
-          <mat-select required formControlName="secondCtrl">
+          <mat-select required formControlName="city">
             <mat-option value="option">Ahmedabad</mat-option>
           </mat-select>
+          <mat-error *ngIf="secondFormGroup.get('city').invalid">City is required</mat-error>
       </mat-form-field>
         <mat-form-field>
-            <input matInput #postalCode minlength="6" maxlength="6" placeholder="Postal Code" required formControlName="secondCtrl">
+            <input matInput #postalCode minlength="6" maxlength="6" placeholder="Postal Code" required formControlName="pcode">
             <mat-hint align="end">{{postalCode.value.length}} / 6</mat-hint>
         </mat-form-field>
         <div>
@@ -69,12 +77,12 @@
         </div>
       </form>
     </mat-step>
-    <mat-step [stepControl]="thirdFormGroup">
-      <form [formGroup]="thirdFormGroup">
+    <mat-step [stepControl]="regformgroup">
+      <form [formGroup]="regformgroup">
       <ng-template matStepLabel>Security Details</ng-template>
       <mat-form-field class="full-width">
         <input matInput placeholder="Phone number"  [formControl]="pnum" required>
-        <mat-error *ngIf="!pnum.hasError('pattern')">
+        <mat-error *ngIf="pnum.hasError('pattern') && !pnum.hasError('required')">
           Please enter digits only
         </mat-error>
         <mat-error *ngIf="pnum.hasError('required')">
@@ -101,18 +109,16 @@
       <div>
         <button mat-button matStepperPrevious>Back</button>
         <button mat-button (click)="stepper.reset()">Reset</button>
-        <br>
-        <button mat-raised-button color="primary">Sign Up</button>
         
       </div>
     </form>
     </mat-step>
   </mat-vertical-stepper>
-</mat-card>
-<div class="footer">
-  <p class="place-left">Sign in instead?</p>
-  <button mat-raised-button color="primary" class="place-left">Sign In</button>
-  <span class="space"></span>
-  <a routerLink="" class="place-right">Contact Us</a>
+  <div class="footer">
+  <button mat-stroked-button color="basic" class="signin" routerLink="/login">Sign In Instead</button>
+  <button mat-raised-button color="primary" class="place-left">Sign Up</button>
+  <!--<a routerLink="" class="place-left">Contact Us</a>-->
 </div>
+</mat-card>
+
 </div>

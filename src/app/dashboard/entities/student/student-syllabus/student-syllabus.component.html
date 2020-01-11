@@ -1,83 +1,48 @@
 <p class="heading">Syllabus</p>
 <mat-card>
-    <mat-card class="example-card">
-        <mat-card-header>
-            <!-- <div mat-card-avatar class="example-header-image"></div> -->
-            <mat-card-title>Syllabus</mat-card-title>
-            <mat-card-subtitle>10/12/2019</mat-card-subtitle>
-        </mat-card-header>
-        <img mat-card-image src="../../../../../assets/timetable.jpg" alt="Photo of a Shiba Inu">
-        <mat-card-content>
-            <p>
-                Syllabus of OSOS
-            </p>
-        </mat-card-content>
-        <mat-card-actions align="end">
-            <button mat-stroked-button color="primary" class="delete" (click)="onDownloadSyllabus()">Download</button>
-        </mat-card-actions>
-    </mat-card>
-    <mat-card class="example-card">
-        <mat-card-header>
-            <!-- <div mat-card-avatar class="example-header-image"></div> -->
-            <mat-card-title>Syllabus</mat-card-title>
-            <mat-card-subtitle>10/12/2019</mat-card-subtitle>
-        </mat-card-header>
-        <img mat-card-image src="../../../../../assets/timetable.jpg" alt="Photo of a Shiba Inu">
-        <mat-card-content>
-            <p>
-                Syllabus of OSOS
-            </p>
-        </mat-card-content>
-        <mat-card-actions align="end">
-            <button mat-stroked-button color="primary" class="delete" (click)="onDownloadSyllabus()">Download</button>
-        </mat-card-actions>
-    </mat-card>
-    <mat-card class="example-card">
-        <mat-card-header>
-            <!-- <div mat-card-avatar class="example-header-image"></div> -->
-            <mat-card-title>Syllabus</mat-card-title>
-            <mat-card-subtitle>10/12/2019</mat-card-subtitle>
-        </mat-card-header>
-        <img mat-card-image src="../../../../../assets/timetable.jpg" alt="Photo of a Shiba Inu">
-        <mat-card-content>
-            <p>
-                Syllabus of OSOS
-            </p>
-        </mat-card-content>
-        <mat-card-actions align="end">
-            <button mat-stroked-button color="primary" class="delete" (click)="onDownloadSyllabus()">Download</button>
-        </mat-card-actions>
-    </mat-card>
-    <mat-card class="example-card">
-        <mat-card-header>
-            <!-- <div mat-card-avatar class="example-header-image"></div> -->
-            <mat-card-title>Syllabus</mat-card-title>
-            <mat-card-subtitle>10/12/2019</mat-card-subtitle>
-        </mat-card-header>
-        <img mat-card-image src="../../../../../assets/timetable.jpg" alt="Photo of a Shiba Inu">
-        <mat-card-content>
-            <p>
-                Syllabus of OSOS
-            </p>
-        </mat-card-content>
-        <mat-card-actions align="end">
-            <button mat-stroked-button color="primary" class="delete" (click)="onDownloadSyllabus()">Download</button>
-        </mat-card-actions>
-    </mat-card>
-    <mat-card class="example-card">
-        <mat-card-header>
-            <!-- <div mat-card-avatar class="example-header-image"></div> -->
-            <mat-card-title>Syllabus</mat-card-title>
-            <mat-card-subtitle>10/12/2019</mat-card-subtitle>
-        </mat-card-header>
-        <img mat-card-image src="../../../../../assets/timetable.jpg" alt="Photo of a Shiba Inu">
-        <mat-card-content>
-            <p>
-                Syllabus of OSOS
-            </p>
-        </mat-card-content>
-        <mat-card-actions align="end">
-            <button mat-stroked-button color="primary" class="delete" (click)="onDownloadSyllabus()">Download</button>
-        </mat-card-actions>
-    </mat-card>
+    <!-- ----------------------- New version ------------------------- -->
+    <mat-form-field id="searchBar">
+        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search files">
+    </mat-form-field>
+
+    <mat-table [dataSource]="dataSource" matSort>
+
+        <ng-container matColumnDef="icons">
+            <mat-header-cell *matHeaderCellDef mat-sort-header></mat-header-cell>
+            <mat-cell *matCellDef="let file">
+                <mat-icon>note</mat-icon>
+            </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="name">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
+            <mat-cell *matCellDef="let file">
+                <span>{{file.name}}</span>
+            </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="uploadDate">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Upload Date </mat-header-cell>
+            <mat-cell *matCellDef="let file"> {{file.uploadDate | date: 'longDate'}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="fileOwnerName">
+            <mat-header-cell *matHeaderCellDef mat-sort-header class="cell-right"> Upload by </mat-header-cell>
+            <mat-cell *matCellDef="let file" class="cell-right"> {{file.ownerName}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="download">
+            <mat-header-cell *matHeaderCellDef mat-sort-header></mat-header-cell>
+            <mat-cell *matCellDef="let file">
+                <a mat-icon-button (click)="onDownloadSyllabus(file.name, file.fileSoureceUrl)" download>
+                    <mat-icon>save_alt</mat-icon>
+                </a>
+            </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let file; columns: displayedColumns;"></mat-row>
+    </mat-table>
+
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
 </mat-card>

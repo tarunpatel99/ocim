@@ -10,13 +10,14 @@ mat-form-field {
     margin-right: 12px;
 }
 
-.example-form {
-    min-width: 100px;
-    max-width: 500px;
+.uploadfilecontainer:hover {
+    cursor: pointer;
+    background-color: #9ecbec !important;
+    opacity: 0.8;
+}
+
+.example-form{
+    height: 100%;
     width: 95%;
-  }
-  
-  .example-full-width {
-    width: 100%;
-  }
-  
+}
+
