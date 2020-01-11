@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild, Inject } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { FormControl } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 export interface Attatchment {
   id: string
@@ -108,7 +108,7 @@ export class StudentLeaveNoteComponent implements OnInit {
     this.selectedLeave = leave
     const dialogRef = this.dialog.open(actiondialog, {
       width: '300px',
-      data: {studentName: this.selectedLeave.studentName, class: this.selectedLeave.class, attatchments: this.selectedLeave.attatchments}
+      data: {studentName: this.selectedLeave.studentName, class: this.selectedLeave.class,subject: this.selectedLeave.subject, description: this.selectedLeave.description, attatchments: this.selectedLeave.attatchments}
     });
     
 
@@ -169,7 +169,8 @@ export class actiondialog implements OnInit{
   styleUrls: ['applyleave.css']
 })
 export class ApplyLeave {
-
+  date = new FormControl(new Date());
+  applyleavedialog: FormGroup;
   constructor(
     public dialogRef: MatDialogRef<ApplyLeave>,
     @Inject(MAT_DIALOG_DATA) public data: LeaveNote) {}
@@ -178,4 +179,27 @@ export class ApplyLeave {
     this.dialogRef.close();
   }
 
+  onCancle(): void {
+    this.dialogRef.close();
+  }
+
+  onSave(): void {
+    // this.dialogRef.close();
+    if (this.applyleavedialog.invalid) {
+      return;
+    }
+  }
+  ngOnInit(){
+    this.applyleavedialog = new FormGroup({
+      title: new FormControl(null, {
+        validators: [Validators.required]
+      }),
+      date: new FormControl(null, {
+        validators: [Validators.required]
+      }),
+      msg: new FormControl(null, {
+        validators: [Validators.required]
+      }),
+    });
+  }
 }

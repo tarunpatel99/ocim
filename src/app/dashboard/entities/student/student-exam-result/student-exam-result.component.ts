@@ -39,19 +39,18 @@ export interface exmmark{
 })
 export class StudentExamResultComponent implements OnInit {
    students: StudentData[] = [
-    { exmdate: '14/11/2019' , subject: 'OSOS', obt_marks: 45, ttl_marks: 50, per: "90%"},
-    { exmdate: '14/12/2019' , subject: 'OSOS', obt_marks: 45, ttl_marks: 50, per: "90%" },
-    { exmdate: '14/12/2019' , subject: 'Python', obt_marks: 44, ttl_marks: 50, per: "88%" },
-    { exmdate: '14/12/2019' , subject: 'VB', obt_marks: 35, ttl_marks: 50, per: "70%" },
-    { exmdate: '14/12/2019' , subject: 'DCN', obt_marks: 49, ttl_marks: 50, per: "98%" }
+    { exmdate: '14/12/2019' , subject: 'Maths', obt_marks: 45, ttl_marks: 50, per: "90%"},
+    { exmdate: '15/12/2019' , subject: 'Science', obt_marks: 45, ttl_marks: 50, per: "90%" },
+    { exmdate: '16/12/2019' , subject: 'English', obt_marks: 44, ttl_marks: 50, per: "88%" },
+    { exmdate: '17/12/2019' , subject: 'Hindi', obt_marks: 35, ttl_marks: 50, per: "70%" },
+    { exmdate: '18/12/2019' , subject: 'Social Studies', obt_marks: 49, ttl_marks: 50, per: "98%" }
   ]
   constructor() {
     // Assign the data to the data source for the table to render
     this.dataSource = new MatTableDataSource(this.students);
    }
-  tobt="218"
-  tmarks="250"
   tper="87%"
+   
   displayedColumns: string[] = ['exmdate' , 'subject', 'obt_marks', 'ttl_marks', 'per'];
   dataSource: MatTableDataSource<StudentData>;
 
