@@ -13,13 +13,7 @@ export interface StudentData {
   per: string;
 }
 
-const students: StudentData[] = [
-  { exmdate: '14/11/2019' , subject: 'OSOS', obt_marks: 45, ttl_marks: 50, per: "90%"},
-  { exmdate: '14/12/2019' , subject: 'OSOS', obt_marks: 45, ttl_marks: 50, per: "90%" },
-  { exmdate: '14/12/2019' , subject: 'Python', obt_marks: 44, ttl_marks: 50, per: "88%" },
-  { exmdate: '14/12/2019' , subject: 'VB', obt_marks: 35, ttl_marks: 50, per: "70%" },
-  { exmdate: '14/12/2019' , subject: 'DCN', obt_marks: 49, ttl_marks: 50, per: "98%" }
-]
+
 
 
 export interface Classsbj {
@@ -44,11 +38,16 @@ export interface exmmark{
   styleUrls: ['./student-exam-result.component.css']
 })
 export class StudentExamResultComponent implements OnInit {
-  student: any;
-
+   students: StudentData[] = [
+    { exmdate: '14/11/2019' , subject: 'OSOS', obt_marks: 45, ttl_marks: 50, per: "90%"},
+    { exmdate: '14/12/2019' , subject: 'OSOS', obt_marks: 45, ttl_marks: 50, per: "90%" },
+    { exmdate: '14/12/2019' , subject: 'Python', obt_marks: 44, ttl_marks: 50, per: "88%" },
+    { exmdate: '14/12/2019' , subject: 'VB', obt_marks: 35, ttl_marks: 50, per: "70%" },
+    { exmdate: '14/12/2019' , subject: 'DCN', obt_marks: 49, ttl_marks: 50, per: "98%" }
+  ]
   constructor() {
     // Assign the data to the data source for the table to render
-    this.dataSource = new MatTableDataSource(students);
+    this.dataSource = new MatTableDataSource(this.students);
    }
   tobt="218"
   tmarks="250"
@@ -74,7 +73,10 @@ export class StudentExamResultComponent implements OnInit {
       this.dataSource.paginator.firstPage();
     }
   }
+  getTotalObt() {
+    return this.students.map(t => t.obt_marks).reduce((acc, value) => acc + value, 0);
+  }
   getTotal() {
-    return this.student.map(t => t.obt_marks).reduce((acc, value) => acc + value, 0);
+    return this.students.map(t => t.ttl_marks).reduce((acc, value) => acc + value, 0);
   }
 }
