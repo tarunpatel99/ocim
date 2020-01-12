@@ -1,13 +1,13 @@
 <p class="heading">Time Table</p>
 <mat-card>
-  <mat-card (click)="onViewTimeTable('http://assrm.com/img/semester-3-time-table.jpg')" class="example-card">
+  <mat-card class="example-card">
     <mat-card-header>
       <!-- <div mat-card-avatar class="example-header-image"></div> -->
       <mat-card-title>Regular Time Table</mat-card-title>
       <mat-card-subtitle>10/12/2019</mat-card-subtitle>
     </mat-card-header>
     <!-- <img mat-card-image src="../../../../../assets/timetable.jpg" alt="Photo of a Shiba Inu"> -->
-    <img mat-card-image src="http://assrm.com/img/semester-3-time-table.jpg" alt="Photo of a Shiba Inu">
+    <img mat-card-image (click)="onViewTimeTable('http://assrm.com/img/semester-3-time-table.jpg')" src="http://assrm.com/img/semester-3-time-table.jpg" alt="Photo of a Shiba Inu">
     <mat-card-content>
       <p>
         Every saturday and sunday follow this time table.

@@ -50,6 +50,8 @@ export class DashboardComponent implements OnInit, OnDestroy {
         overlayContainer.getContainerElement().classList.add('faculty-theme');
       case 'Student':
         overlayContainer.getContainerElement().classList.add('student-theme');
+      default:
+        overlayContainer.getContainerElement().classList.add('owner-theme');
     }
   }
 
