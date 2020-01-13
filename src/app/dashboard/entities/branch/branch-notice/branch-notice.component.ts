@@ -1,6 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { FormControl, FormGroup, Validators, FormControlName } from '@angular/forms';
+import { ConfirmDeleteComponent } from '../../confirm-delete/confirm-delete.component';
 
 
 export interface DialogData {
@@ -34,6 +35,14 @@ export class BranchNoticeComponent implements OnInit {
       // this.animal = result;
     });
   }
+
+  onDeleteNotice(): void {
+    const dialogRef = this.dialog.open(ConfirmDeleteComponent, {
+      width: 'auto',
+      data: {}
+    });
+  }
+  
   ngOnInit() {
   }
 

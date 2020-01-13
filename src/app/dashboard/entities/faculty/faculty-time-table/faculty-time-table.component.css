@@ -24,30 +24,16 @@ button{
     margin: 15px;
 }
 
-/* .header {
-    margin-left: 28px;
-    text-align: left;
-} */
-
 .example-header-image {
     background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
     background-size: cover;
     height: 50px;
     width: 50px;
   }
-  
-  /* .form-mat-card {
-    display: inline-table;
-    margin: 5% ;
-    /* padding: 10px; * /
-    padding: 20px;
-    width: auto;
-    /* padding: 10px;
-    margin: auto;
-    padding: 20px;
-    height: fit-content;
-    width: 400px; * /
-} */
+
+  img {
+    cursor: pointer;
+  }
 
 
 .full-width {
@@ -63,10 +49,6 @@ button{
     margin: 0 10px;
     max-width: 30%;
 }
-
-/* .right{
-    float: right;
-} */
 
 mat-panel-title{
     width: 50%;

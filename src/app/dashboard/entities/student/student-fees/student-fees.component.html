@@ -1,4 +1,4 @@
-<p class="heading" style="margin-top: 8%;">Pay Fees</p>
+<p class="heading">Pay Fees</p>
 <mat-card class="mat-card1">
 <mat-card class="mat-card2">
   <mat-card-title>Fees Details</mat-card-title>
@@ -41,10 +41,9 @@
   <ng-container matColumnDef="print">
     <mat-header-cell  *matHeaderCellDef > Print </mat-header-cell>
     <mat-cell *matCellDef="let fees" >
-      <button mat-flat-button color="primary" class="print-button">
-        <mat-icon aria-hidden="false">print</mat-icon>
-        Print
-      </button>
+      <a mat-icon-button (click)="onDownloadSyllabus(file.name, file.fileSoureceUrl)" print>
+        <mat-icon>print</mat-icon>
+    </a>
     </mat-cell>
   </ng-container>
 

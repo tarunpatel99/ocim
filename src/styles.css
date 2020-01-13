@@ -95,6 +95,10 @@ body {
     display: block;
 }
 
+.custom-dialog {
+    /* Faculty -> Time table : to diplay photo in center of the dialogbox */
+    text-align: center;
+}
 
 /* common css property */
 
@@ -109,4 +113,20 @@ body {
 
 mat-form-field {
     margin: 8px !important;
+}
+
+button{
+    margin: 5px !important;
+}
+
+.whats-new {
+    display: inline-block !important;
+    width: 58%;
+    margin: 16px 8px 16px 0;
+}
+
+.total {
+    display: inline-block !important;
+    width: 35%;
+    margin: 16px 0 8px 16px;
 }

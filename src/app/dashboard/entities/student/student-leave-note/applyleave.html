@@ -1,47 +1,50 @@
-<h1 mat-dialog-title>Add Task & work</h1>
 <div mat-dialog-content class="full-width">
-   <mat-card class="example-form">
+    <form action="" [formGroup]="applyleavedialog" #applyleave (click)="onSave()">
+   <mat-card style="height:fit-content" class="example-form">
       <div style="font-weight: bold; font-size: larger; text-align: center;">
          Apply For Leave
       </div>
       <div>
-          <mat-form-field class="example-full-width">
-              <input matInput name="title" placeholder="Title" required minlength="3">
+          <mat-form-field class="full-width">
+              <input matInput name="title" placeholder="Title" formControlName="title" required>
+              <mat-error *ngIf="applyleavedialog.get('title').invalid">Title is required</mat-error>
           </mat-form-field>
       </div>
       <div>
       <table>
           <tr>
               <td> <mat-form-field class="example-full-width">
-                      <input matInput [matDatepicker]="pickerJoin" placeholder="From" required>
+                      <input matInput [matDatepicker]="pickerJoin" placeholder="From" formControlName="date" required>
                       <mat-datepicker-toggle matSuffix [for]="pickerJoin"></mat-datepicker-toggle>
                           <mat-datepicker #pickerJoin></mat-datepicker>
-                  </mat-form-field></td>
+                          <mat-error *ngIf="applyleavedialog.get('date').invalid">Date is required</mat-error>
+                  </mat-form-field>
+                </td>
                   <td> <mat-form-field class="example-full-width">
-                          <input matInput [matDatepicker]="pickerTo" placeholder="To" required>
+                          <input matInput [matDatepicker]="pickerTo" placeholder="To" formControlName="date" required>
                           <mat-datepicker-toggle matSuffix [for]="pickerTo"></mat-datepicker-toggle>
                               <mat-datepicker #pickerTo></mat-datepicker>
+                              <mat-error *ngIf="applyleavedialog.get('date').invalid">Date is required</mat-error>
                       </mat-form-field></td>
           </tr>
       </table>
       </div>
       <div>
-          <mat-form-field class="example-full-width">
-          <textarea matInput placeholder="Message" required></textarea>
+          <mat-form-field class="full-width">
+          <textarea matInput placeholder="Message" formControlName="msg" required></textarea>
+          <mat-error *ngIf="applyleavedialog.get('msg').invalid">Message is required</mat-error>
           </mat-form-field>
       </div>
-      <button mat-raised-button color="accent" aria-label="Example icon-button with a heart icon">
-          <mat-icon>attachment</mat-icon> Attachments
-      </button>
-      <table cellspacing="30">
-          <tr>
-              <td>
-                      <button mat-raised-button color="primary">Save Leave</button>
-              </td>
-              <td>
-                      <button mat-stroked-button color="warn">Discard</button>
-              </td>
-          </tr>
-      </table>
+      <div class="uploadfilecontainer" (click)="fileInput.click()" appDragDrop (onFileDropped)="uploadFile($event)">
+            <input hidden type="file" #fileInput (change)="uploadFile($event.target.files)">Drag & Drop
+            <mat-icon color="primary">cloud_upload</mat-icon>
+        </div>
+      <div mat-dialog-actions>
+        <input #photoInput hidden="true" type="file" onclick="this.value=null" (change)="photoInputChange($event)" accept=".jpg" />
+        <button mat-stroked-button color="primary" class="button" (click)="photoInput.click()">Attachment <mat-icon>attachment</mat-icon></button>
+        <button mat-flat-button color="primary" cdkFocusInitial>Save Leave</button>
+        <button mat-stroked-button color="warn" type="reset">Cancel</button>
+    </div>
   </mat-card>
+</form>
 </div>

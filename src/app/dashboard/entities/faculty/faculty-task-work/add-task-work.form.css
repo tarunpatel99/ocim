@@ -1,5 +1,9 @@
 .half-width {
-    width: 47%;
+    width: 45%;
+}
+
+div, h1 {
+    text-align: left;
 }
 
 .full-width {
@@ -7,5 +11,5 @@
 }
 
 mat-form-field {
-    margin-right: 12px;
+    margin: 8px;
 }

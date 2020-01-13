@@ -32,11 +32,21 @@
     margin: 15px;
 }
 
-
-
-
 .new-btn {
     position: fixed;
     right: 30px;
     bottom: 30px;
+}
+
+/* submission */
+.half-width {
+    width: 49.05%
+}
+
+.submit-btn {
+    width: 12%;
+}
+
+.small-width {
+    width: 15.4%;
 }

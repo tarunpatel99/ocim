@@ -1,46 +1,99 @@
 <p class="heading">Task & Work</p>
-<mat-card class="task-work-container">
-    <!-- class list -->
-    <div class="class-list-container">
-        <p class="mat-h1">Class list</p>
+<mat-card>
+    <mat-tab-group dynamicHeight>
+        <mat-tab label="View Task and work">
+            <mat-card class="task-work-container">
+                <!-- class list -->
+                <div class="class-list-container">
+                    <p class="mat-h1">Class list</p>
 
-        <button mat-button class="class-list-btn"
-            [ngClass]="{'active': selectedClass == class}"
-            (click)="chooseClass($event, class)"
-            *ngFor="let class of classNames">
-            {{ class.name }}
-        </button>
-    </div>
+                    <button mat-button class="class-list-btn" [ngClass]="{'active': selectedClass == class}"
+                        (click)="chooseClass($event, class)" *ngFor="let class of classNames">
+                        {{ class.name }}
+                    </button>
+                </div>
 
-    <!-- subject tabs and its tasks -->
-    <div class="subject-list-container">
-        <p class="mat-h1">Class : {{ selectedClass.name }}</p>
-        <mat-tab-group dynamicHeight (focusChange)="tabClick($event)">
+                <!-- subject tabs and its tasks -->
+                <div class="subject-list-container">
+                    <p class="mat-h1">Class : {{ selectedClass.name }}</p>
+                    <mat-tab-group dynamicHeight (focusChange)="tabClick($event)">
 
-            <mat-tab *ngFor="let subject of selectedClass.subjects" [label]="subject.name">
-                <mat-card class="task-card" *ngFor="let task of subject.tasks">
-                    <p> Issued date: {{ task.iss_date | date:'longDate' }} </p> <!-- it will concate long date to short date -->
-                    <p> Submission date: {{ task.sub_date | date:'mediumDate' }} </p> <!-- it will concate long date to short date -->
-                    <p> Title: {{ task.title }} </p>
-                    <p> Desciption: {{ task.desciption }} </p>
-                </mat-card>
-            </mat-tab>
-        </mat-tab-group>
-    </div>
+                        <mat-tab *ngFor="let subject of selectedClass.subjects" [label]="subject.name">
+                            <mat-card class="task-card" *ngFor="let task of subject.tasks">
+                                <p> Issued date: {{ task.iss_date | date:'longDate' }} </p>
+                                <!-- it will concate long date to short date -->
+                                <p> Submission date: {{ task.sub_date | date:'mediumDate' }} </p>
+                                <!-- it will concate long date to short date -->
+                                <p> Title: {{ task.title }} </p>
+                                <p> Desciption: {{ task.desciption }} </p>
+                            </mat-card>
+                        </mat-tab>
+                    </mat-tab-group>
+                </div>
+                <button class="new-btn" mat-fab (click)="openForm()" aria-label="Example icon-button with a heart icon">
+                    <mat-icon>add</mat-icon>
+                </button>
+            </mat-card>
+        </mat-tab>
+        <mat-tab label="Submission">
+            <mat-card>
+                <!-- form for filtering the student list -->
+                <form action="">
+                    <mat-form-field class="small-width">
+                        <mat-select placeholder="Select class" [formControl]="classControl" required>
+                            <mat-option *ngFor="let class of classNames" [value]="class.name" (onSelectionChange)="setClass(class)">{{class.name}}</mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="classControl.hasError('required')">Please select class.</mat-error>
+                    </mat-form-field>
+                    <mat-form-field class="small-width">
+                        <mat-select placeholder="Select subject"  [formControl]="subjectControl" [disabled]="classControl.hasError('required')" required>
+                            <mat-option *ngFor="let subject of selectedClass.subjects" [value]="subject.name" (onSelectionChange)="setSubject(subject)">{{subject.name}}</mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="subjectControl.hasError('required')">Please select subject.</mat-error>
+                        <mat-hint *ngIf="subjectControl.hasError('required')">Choose class to enable this field</mat-hint>
+                    </mat-form-field>
+                    <mat-form-field class="small-width">
+                        <mat-select placeholder="Select Task" [formControl]="taskControl" [disabled]="subjectControl.hasError('required')" required>
+                            <mat-option *ngFor="let task of selectedSubject.tasks" [value]="task.title" (onSelectionChange)="setTask(task)">{{task.title}}</mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="taskControl.hasError('required')">Please select task.</mat-error>
+                        <mat-hint *ngIf="taskControl.hasError('required')">Choose subject to enable this field</mat-hint>
+                    </mat-form-field>
+                    <mat-form-field class="small-width">
+                        <input matInput [matDatepicker]="datepicker" placeholder="Choose date" [value]="date.value" disabled>
+                        <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
+                        <mat-datepicker #datepicker></mat-datepicker>
+                    </mat-form-field>
+                    <mat-form-field class="small-width" disabled>
+                        <input matInput type="time" placeholder="From [HH:MM AM/PM]" value="00:00"
+                            pattern="^([0-1]?[0-9]|2[0-4]):([0-5][0-9])(:[0-5][0-9])?$" disabled>
+                    </mat-form-field>
+                    <mat-form-field class="small-width" disabled>
+                        <input matInput type="time" placeholder="To [HH:MM AM/PM]" value="00:00"
+                            pattern="^([0-1]?[0-9]|2[0-4]):([0-5][0-9])(:[0-5][0-9])?$" disabled>
+                    </mat-form-field>
+
+                    <mat-divider></mat-divider>
+
+                    <!-- student list -->
+                    <mat-selection-list>
+                        <mat-grid-list cols="3" rowHeight="55px">
+                            <mat-grid-tile *ngFor="let student of students">
+                                <mat-list-option>
+                                    {{student.studentname}}
+                                </mat-list-option>
+                            </mat-grid-tile>
+                        </mat-grid-list>
+                    </mat-selection-list>
+                    <mat-divider></mat-divider>
+                <mat-card-actions align="end">
+                    <button mat-flat-button color="primary" type="submit">Submit</button>
+                    <button mat-stroked-button color="warn" type="reset">Cancel</button>
+                </mat-card-actions>
+                </form>
+                
+            </mat-card>
+        </mat-tab>
+    </mat-tab-group>
 
 </mat-card>
-
-
-
-
-
-
-
-
-
-
-
-
-<button class="new-btn" mat-fab (click)="openForm()" aria-label="Example icon-button with a heart icon">
-    <mat-icon>add</mat-icon>
-</button>

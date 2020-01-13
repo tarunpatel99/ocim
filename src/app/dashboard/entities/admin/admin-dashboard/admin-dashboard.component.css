@@ -1,0 +1,26 @@
+.container {
+    display: flex;
+    width: auto;
+    box-shadow: none;
+    background: none;
+}
+
+table {
+    margin: auto;
+}
+
+td {
+    font-size: 20px;
+    padding: 2px;
+}
+
+tr td:last-of-type {
+    text-align: right;
+}
+
+
+.bar-chart-container {
+    width: 800px;
+    height: 400px !important;
+    margin: auto;
+}

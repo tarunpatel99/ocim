@@ -1,19 +1,53 @@
-<p class="heading">Time Table</p>
+<p class="heading">Exam Schedule</p>
 <mat-card>
-    <mat-card class="example-card">
-      <mat-card-header>
-        <!-- <div mat-card-avatar class="example-header-image"></div> -->
-        <mat-card-title>Regular Time Table</mat-card-title>
-        <mat-card-subtitle>10/12/2019</mat-card-subtitle>
-      </mat-card-header>
-      <img mat-card-image src="../../../../../assets/timetable.jpg" alt="Photo of a Shiba Inu">
-      <mat-card-content>
-        <p>
-          Every saturday and sunday follow this time table.
-        </p>
-      </mat-card-content>
-      <mat-card-actions align="end">
-        <button mat-stroked-button color="primary" (click)="onDownloadTimeTable()">Download</button>
-      </mat-card-actions>
-    </mat-card>
-  </mat-card>
+    <form action="">
+        <!-- student list -->
+        <mat-form-field id="searchBar" class="table">
+            <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search">
+        </mat-form-field>
+
+        <mat-table [dataSource]="dataSource" matSort>
+
+            <ng-container matColumnDef="title">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Title </mat-header-cell>
+                <mat-cell *matCellDef="let student"> {{student.title}} </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="description">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Description </mat-header-cell>
+                <mat-cell *matCellDef="let student"> {{student.description}} </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="exmdate">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Date </mat-header-cell>
+                <mat-cell *matCellDef="let student"> {{student.exmdate}} </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="class">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Class </mat-header-cell>
+                <mat-cell *matCellDef="let student"> {{student.class}} </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="subject">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Subject </mat-header-cell>
+                <mat-cell *matCellDef="let student"> {{student.subject}} </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="ttl_marks">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Total </mat-header-cell>
+                <mat-cell *matCellDef="let student"> {{student.ttl_marks}} </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="passing_mark">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Passing Mark </mat-header-cell>
+                <mat-cell *matCellDef="let student"> {{student.passing_mark}} </mat-cell>
+            </ng-container>
+
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let student; columns: displayedColumns;"></mat-row>
+        </mat-table>
+        <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+
+
+    </form>
+</mat-card>
