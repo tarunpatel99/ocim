@@ -1,0 +1,34 @@
+
+#searchBar {
+    font-size: 14px;
+    margin-top: 10px;
+    width: 100%;
+    margin: auto;
+  }
+
+.tbl-shadow{
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.mat-column-email {
+    flex: 0 0 25% !important;
+}
+
+.mat-column-name {
+    flex: 0 0 10% !important;
+}
+
+.mat-column-branches, .mat-column-faculties, .mat-column-students {
+    display:flex !important;
+    justify-content:center !important;
+}
+
+mat-header-cell.mat-column-branches, mat-header-cell.mat-column-faculties, mat-header-cell.mat-column-students {
+    display:flex !important;
+    justify-content:center !important;
+}
+
+.tbl-right{
+    display: flex;
+    justify-content: flex-end;
+}

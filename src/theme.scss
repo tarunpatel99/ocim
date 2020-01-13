@@ -61,23 +61,6 @@ $bm-theme: mat-light-theme($bm-primary, $bm-accent);
 }
 
 
-// theme for student
-$student-primary: mat-palette($mat-teal, 700);
-$student-accent: mat-palette($mat-pink, 500);
-
-$student-theme: mat-light-theme($student-primary, $student-accent);
-
-.student-theme {
-    @include angular-material-theme($student-theme);
-    
-    .primary-color {
-        background-color: mat-color($student-primary);
-    }
-    .active {
-        color: mat-color($student-primary) !important;
-    }
-}
-
 
 // theme for faculty
 $faculty-primary: mat-palette($mat-cyan, 700);
@@ -98,4 +81,22 @@ $faculty-theme: mat-light-theme($faculty-primary, $faculty-accent);
         color: mat-color($faculty-primary) !important;
     }
 }
+
+// theme for student
+$student-primary: mat-palette($mat-teal, 700);
+$student-accent: mat-palette($mat-pink, 500);
+
+$student-theme: mat-light-theme($student-primary, $student-accent);
+
+.student-theme {
+    @include angular-material-theme($student-theme);
+    
+    .primary-color {
+        background-color: mat-color($student-primary);
+    }
+    .active {
+        color: mat-color($student-primary) !important;
+    }
+}
+
 

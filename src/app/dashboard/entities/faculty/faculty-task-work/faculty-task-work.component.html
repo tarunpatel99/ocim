@@ -50,12 +50,14 @@
                             <mat-option *ngFor="let subject of selectedClass.subjects" [value]="subject.name" (onSelectionChange)="setSubject(subject)">{{subject.name}}</mat-option>
                         </mat-select>
                         <mat-error *ngIf="subjectControl.hasError('required')">Please select subject.</mat-error>
+                        <mat-hint *ngIf="subjectControl.hasError('required')">Choose class to enable this field</mat-hint>
                     </mat-form-field>
                     <mat-form-field class="small-width">
                         <mat-select placeholder="Select Task" [formControl]="taskControl" [disabled]="subjectControl.hasError('required')" required>
                             <mat-option *ngFor="let task of selectedSubject.tasks" [value]="task.title" (onSelectionChange)="setTask(task)">{{task.title}}</mat-option>
                         </mat-select>
                         <mat-error *ngIf="taskControl.hasError('required')">Please select task.</mat-error>
+                        <mat-hint *ngIf="taskControl.hasError('required')">Choose subject to enable this field</mat-hint>
                     </mat-form-field>
                     <mat-form-field class="small-width">
                         <input matInput [matDatepicker]="datepicker" placeholder="Choose date" [value]="date.value" disabled>
