@@ -81,6 +81,7 @@ import { StudentService } from './student.service';
 import { AuthService } from './auth/auth.service';
 import { BranchFacultiesComponent } from './dashboard/entities/branch/branch-faculties/branch-faculties.component';
 import { CommonModule } from '@angular/common';
+import { ConfirmDeleteComponent } from './dashboard/entities/confirm-delete/confirm-delete.component';
 
 
 @NgModule({
@@ -147,7 +148,7 @@ import { CommonModule } from '@angular/common';
     StudentDashboardComponent,
     BranchFacultiesComponent,
     ApplyLeave, // leave dialog,
-    actiondialog
+    actiondialog, ConfirmDeleteComponent
   ],
   imports: [
     BrowserModule,
@@ -170,7 +171,8 @@ import { CommonModule } from '@angular/common';
     LeaveNoteViewDialog,
     ViewTimeTableComponent,
     ApplyLeave,
-    actiondialog
+    actiondialog,
+    ConfirmDeleteComponent
   ],
   providers: [
     StudentService,

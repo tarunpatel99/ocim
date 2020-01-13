@@ -1,6 +1,7 @@
 import { Component, OnInit, Inject, OnDestroy } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ConfirmDeleteComponent } from '../../confirm-delete/confirm-delete.component';
 
 
 export interface DialogData {
@@ -33,6 +34,14 @@ export class BranchTimetableComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
       // this.animal = result;
+    });
+  }
+
+  // open delete dialog box
+  onDeleteTimeTable(): void {
+    const dialogRef = this.dialog.open(ConfirmDeleteComponent, {
+      width: '500px',
+      data: {}
     });
   }
   ngOnInit() {

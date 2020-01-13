@@ -114,3 +114,7 @@ body {
 mat-form-field {
     margin: 8px !important;
 }
+
+button{
+    margin: 5px !important;
+}

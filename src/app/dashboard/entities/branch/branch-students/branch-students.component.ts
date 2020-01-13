@@ -4,6 +4,8 @@ import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
 import { FormControl, Validators, FormGroup } from '@angular/forms';
+import { ConfirmDeleteComponent } from '../../confirm-delete/confirm-delete.component';
+import { MatDialog } from '@angular/material';
 
 export interface Class {
   value: string;
@@ -47,7 +49,7 @@ const Student_Data: Std_element[] = [
 })
 export class BranchStudentsComponent implements OnInit {
 
-  constructor() { }
+  constructor(public dialog: MatDialog) { }
 
   classes: Class[] = [
     {value: '1', viewValue: '1'},
@@ -155,6 +157,13 @@ export class BranchStudentsComponent implements OnInit {
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
-  } 
+  }
+
+  onDeleteStudent(): void {
+    const dialogRef = this.dialog.open(ConfirmDeleteComponent, {
+      width: 'auto',
+      data: {}
+    });
+  }
 
 }

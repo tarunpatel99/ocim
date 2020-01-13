@@ -44,7 +44,7 @@
                     <mat-icon aria-hidden="false" aria-label="Dashboard">payment</mat-icon>
                     Payment
                 </a>
-                <a mat-list-item routerLinkActive="active" *ngIf="role=='Admin'" routerLink="/admin-feedback">Feedback</a>
+                <a mat-list-item routerLinkActive="active" *ngIf="role=='Admin'" routerLink="/admin-feedback"><mat-icon aria-hidden="false" aria-label="Dashboard">edit</mat-icon>Feedback</a>
                 <a mat-list-item routerLinkActive="active" *ngIf="role=='Admin'" routerLink="/admin-profile">
                     <mat-icon aria-hidden="false" aria-label="Dashboard">account_circle</mat-icon>
                     Profile
@@ -71,7 +71,7 @@
                     <mat-icon aria-hidden="false" aria-label="Dashboard">account_circle</mat-icon>
                     Profile
                 </a>
-                <a mat-list-item routerLinkActive="active" *ngIf="role=='Owner'" routerLink="/institute-feedback">Feedback</a>
+                <a mat-list-item routerLinkActive="active" *ngIf="role=='Owner'" routerLink="/institute-feedback"><mat-icon aria-hidden="false" aria-label="Dashboard">edit</mat-icon>Feedback</a>
 
                 <!-- For branch manager -->
 

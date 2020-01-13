@@ -24,11 +24,9 @@
                 <img src="../../assets/Recycle_Bin_Full.png">
             </button>
         </div>
-        <div mat-dialog-actions>
-            <input #photoInput hidden="true" type="file" onclick="this.value=null" (change)="photoInputChange($event)" accept=".jpg" />
-            <button mat-stroked-button color="primary" class="button" (click)="photoInput.click()">Upload <mat-icon>cloud_upload</mat-icon></button>
-            <button mat-flat-button color="primary" cdkFocusInitial>Add</button>
+        <div mat-dialog-actions align="end">
             <button mat-stroked-button color="warn" type="reset">Cancel</button>
+            <button mat-flat-button color="primary" cdkFocusInitial>Add</button>
         </div>
     </form>
 </div>
