@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Chart } from "chart.js";
 
 @Component({
   selector: 'app-student-dashboard',
@@ -7,9 +8,34 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StudentDashboardComponent implements OnInit {
 
+  //studentdash = new studentThemeColors()
   constructor() { }
+  chart: any;
 
-  ngOnInit() {
-  }
+  ngOnInit() {this.chart = new Chart('myChart', {
+    // The type of chart we want to create
+    type: 'bar',
 
+    // The data for our dataset
+    data: {
+      labels: ['English', 'Science', 'Maths', 'Social Studies'],
+      datasets: [{
+        label: 'Attendance',
+        backgroundColor: '#673AB7',
+        data: [67, 80, 80, 75],
+        borderWidth: 1
+      }]
+    },
+
+    // Configuration options go here
+    options: {
+      //   legend: {
+      //     labels: {
+      //         // This more specific font property overrides the global property
+      //         fontSize: '24'
+      //     }
+      // }
+    }
+  });
+}
 }
