@@ -13,6 +13,7 @@ export class SignupComponent implements OnInit {
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
   thirdFormGroup: FormGroup;
+  regformgroup: FormGroup;
   emailFormControl = new FormControl('', [
     Validators.required,
     Validators.email,
@@ -26,14 +27,33 @@ export class SignupComponent implements OnInit {
   constructor(private _formBuilder: FormBuilder) {}
 
   ngOnInit() {
-    this.firstFormGroup = this._formBuilder.group({
-      firstCtrl: ['', Validators.required]
-    });
-    this.secondFormGroup = this._formBuilder.group({
-      secondCtrl: ['', Validators.required]
-    });
-    this.thirdFormGroup = this._formBuilder.group({
-      thirdCtrl: ['', Validators.required]
+    this.regformgroup = new FormGroup({
+      fname: new FormControl(null, {
+        validators: [Validators.required]
+      }),
+      lname: new FormControl(null, {
+        validators: [Validators.required]
+      }),
+      address: new FormControl(null, {
+        validators: [Validators.required]
+      }),
+    }),
+    this.secondFormGroup = new FormGroup({
+      iname: new FormControl(null, {
+        validators: [Validators.required]
+      }),
+      state: new FormControl(null, {
+        validators: [Validators.required]
+      }),
+      city: new FormControl(null, {
+        validators: [Validators.required]
+      }),
+      pcode: new FormControl(null, {
+        validators: [Validators.required]
+      }),
+      address: new FormControl(null, {
+        validators: [Validators.required]
+      }),
     });
   }
 }

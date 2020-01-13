@@ -1,0 +1,7 @@
+<div mat-dialog-content class="full-width">
+<p> Student : {{ data.studentName }} </p>
+<p> Class : {{ data.class }} </p>
+<p> Subject: {{data.subject}}</p>
+<p> Description: {{data.description}}</p>
+<p *ngFor="let attatchment of data.attatchments"> {{ attatchment.id }} </p>
+</div>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material';
 
 @Component({
   selector: 'app-student-timetable',
@@ -7,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StudentTimetableComponent implements OnInit {
 
-  constructor() { }
+  constructor(public dialog: MatDialog) { }
 
   ngOnInit() {
   }
+  
 
 }
+
