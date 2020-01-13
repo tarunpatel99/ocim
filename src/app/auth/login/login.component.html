@@ -40,7 +40,7 @@
       <!-- role -->
       <mat-form-field class="full-width">
         <mat-label>Role</mat-label>
-        <mat-select required ngModel name="role">
+        <mat-select required ngModel name="role" color="primary">
           <mat-option *ngFor="let role of roles" [value]="role.value">
             {{role.viewValue}}
           </mat-option>

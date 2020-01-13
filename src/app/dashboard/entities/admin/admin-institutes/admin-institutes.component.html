@@ -1,1 +1,56 @@
-<p>admin-institutes works!</p>
+<div class="heading">Institutes</div>
+<mat-card>
+    <mat-form-field id="searchBar">
+        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search">
+    </mat-form-field>
+    <mat-table [dataSource]="dataSource" matSort>
+        <!-- Institute Name Column -->
+        <ng-container matColumnDef="name">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Institute Name </mat-header-cell>
+            <mat-cell *matCellDef="let institute">{{institute.name}}</mat-cell>
+        </ng-container>
+
+        <!-- Email Column -->
+        <ng-container matColumnDef="email">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Email </mat-header-cell>
+            <mat-cell *matCellDef="let institute">{{institute.email}}</mat-cell>
+        </ng-container>
+
+        <!-- Phone Column -->
+        <ng-container matColumnDef="phone">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Phone </mat-header-cell>
+            <mat-cell *matCellDef="let institute">{{institute.phone}}</mat-cell>
+        </ng-container>
+
+        <!-- Total branches Column -->
+        <ng-container matColumnDef="branches">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Branches </mat-header-cell>
+            <mat-cell *matCellDef="let institute">{{institute.branches}}</mat-cell>
+        </ng-container>
+
+        <!-- Total faculties Column -->
+        <ng-container matColumnDef="faculties">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Faculties </mat-header-cell>
+            <mat-cell *matCellDef="let institute">{{institute.faculties}}</mat-cell>
+        </ng-container>
+
+        <!-- Total Students Column -->
+        <ng-container matColumnDef="students">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Students </mat-header-cell>
+            <mat-cell *matCellDef="let institute">{{institute.students}}</mat-cell>
+        </ng-container>
+
+        <!-- action Column -->
+        <ng-container matColumnDef="action">
+            <mat-header-cell *matHeaderCellDef class="tbl-right"> Action </mat-header-cell>
+            <mat-cell *matCellDef="let institute" class="tbl-right">
+                <button mat-icon-button color="primary" matTooltip="View">
+                    <mat-icon>visibility</mat-icon>
+                </button>
+            </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+</mat-card>

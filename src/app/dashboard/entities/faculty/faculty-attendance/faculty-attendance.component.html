@@ -30,6 +30,7 @@
             <mat-error *ngIf="subjectControl.hasError('required')">
                 Please Select subject
             </mat-error>
+            <mat-hint *ngIf="subjectControl.hasError('required')">Choose class to enable this field</mat-hint>
         </mat-form-field>
         <mat-form-field class="small-width">
             <input matInput [matDatepicker]="datepicker" placeholder="Choose date" [formControl]="date">

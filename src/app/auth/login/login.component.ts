@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth.service';
 import { NgForm } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
+import { OverlayContainer } from '@angular/cdk/overlay';
 
 export interface Role {
   value: string;
@@ -22,8 +23,12 @@ export interface signIn {
 export class LoginComponent implements OnInit {
   returnUrl: string;
 
-  constructor(private AuthService: AuthService, private router: Router, 
-    private route: ActivatedRoute) { }
+  constructor(private AuthService: AuthService,
+    private router: Router, 
+    private route: ActivatedRoute,
+    overlayContainer: OverlayContainer) {
+      overlayContainer.getContainerElement().classList.add('owner-theme');
+    }
   roles: Role[] = [
     {value: 'Admin', viewValue: 'Admin'},
     {value: 'Owner', viewValue: 'Institute Owner'},
