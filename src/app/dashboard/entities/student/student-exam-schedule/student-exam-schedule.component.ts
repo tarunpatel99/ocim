@@ -3,10 +3,8 @@ import { MatTableDataSource, MatPaginator, MatSort } from '@angular/material';
 import { FormControl } from '@angular/forms';
 
 export interface StudentData {
-  title: string;
   description: string;
   exmdate: string;
-  class: string;
   subject: string;
   ttl_marks: number; // totla marks
   passing_mark: number;
@@ -20,24 +18,17 @@ export interface StudentData {
 
 export class StudentExamScheduleComponent implements OnInit {
   students: StudentData[] = [
-    { title: 'class test 3' , description: 'Unit 1, 2, 3' , exmdate: '14/12/2019' , class: '11 SCI Bio' , subject: 'Bio', ttl_marks: 50, passing_mark: 17 },
-    { title: 'class test 1' , description: 'Unit 1' , exmdate: '14/12/2019' , class: '11 SCI Bio' , subject: 'Bio', ttl_marks: 50, passing_mark: 17 },
-    { title: 'class test 3' , description: 'Unit 1, 2, 3' , exmdate: '14/12/2019' , class: '11 SCI Bio' , subject: 'Physics', ttl_marks: 50, passing_mark: 17 },
-    { title: 'class test 1' , description: 'Unit 1' , exmdate: '14/12/2019' , class: '11 SCI Bio' , subject: 'Chemistry', ttl_marks: 50, passing_mark: 17 },
-    { title: 'class test 3' , description: 'Unit 1, 2, 3' , exmdate: '14/12/2019' , class: '11 SCI Bio' , subject: 'Physics', ttl_marks: 50, passing_mark: 17 },
-    { title: 'class test 3' , description: 'Unit 1, 2, 3' , exmdate: '14/12/2019' , class: '11 SCI Bio' , subject: 'Bio', ttl_marks: 50, passing_mark: 17 },
-    { title: 'class test 1' , description: 'Unit 1' , exmdate: '14/12/2019' , class: '11 SCI Bio' , subject: 'Bio', ttl_marks: 50, passing_mark: 17 },
-    { title: 'class test 2' , description: 'Unit 1, 2' , exmdate: '14/12/2019' , class: '11 SCI Bio' , subject: 'Physics', ttl_marks: 50, passing_mark: 17 },
-    { title: 'class test 2' , description: 'Unit 1, 2' , exmdate: '14/12/2019' , class: '11 SCI Bio' , subject: 'Chemistry', ttl_marks: 50, passing_mark: 17 },
-    { title: 'class test 2' , description: 'Unit 1, 2' , exmdate: '14/12/2019' , class: '11 SCI Bio' , subject: 'Bio', ttl_marks: 50, passing_mark: 17 },
-    { title: 'class test 2' , description: 'Unit 1, 2' , exmdate: '14/12/2019' , class: '11 SCI Bio' , subject: 'Physics', ttl_marks: 50, passing_mark: 17 }
+    { description: 'Unit 1, 2' , exmdate: '14/12/2019', subject: 'Maths', ttl_marks: 50, passing_mark: 17 },
+    { description: 'Unit 1' , exmdate: '15/12/2019', subject: 'Science', ttl_marks: 50, passing_mark: 17 },
+    { description: 'Unit 1, 2, 3' , exmdate: '16/12/2019', subject: 'English', ttl_marks: 50, passing_mark: 17 },
+    { description: 'Unit 1, 2' , exmdate: '17/12/2019', subject: 'SST', ttl_marks: 50, passing_mark: 17 },
   ]
 
   constructor() {
     this.dataSource = new MatTableDataSource(this.students);
   }
 
-  displayedColumns: string[] = ['title', 'description', 'exmdate' , 'class' , 'subject', 'ttl_marks' , 'passing_mark'];
+  displayedColumns: string[] = ['exmdate', 'subject', 'description','ttl_marks' , 'passing_mark'];
   dataSource: MatTableDataSource<StudentData>;
   
 
