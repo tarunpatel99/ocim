@@ -5,7 +5,8 @@
     display: block;
 }
 .card-shadow{
-    box-shadow: none;
+    box-shadow: none !important;
+    border: 2px solid #e0e0e0;
 }
 .example-container {
     height: 270px;

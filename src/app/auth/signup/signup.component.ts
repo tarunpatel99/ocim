@@ -22,8 +22,10 @@ export class SignupComponent implements OnInit {
     Validators.required,
     Validators.maxLength(10),
     Validators.minLength(10),
-    Validators.pattern('0-9*'),
+    Validators.pattern('[0-9]'),
   ]);
+  contact: FormGroup;
+  
   constructor(private _formBuilder: FormBuilder) {}
 
   ngOnInit() {
@@ -54,6 +56,10 @@ export class SignupComponent implements OnInit {
       address: new FormControl(null, {
         validators: [Validators.required]
       }),
+    });
+    let MOBILE_PATTERN = /[0-9\+\-\ ]/;
+    this.contact = new FormGroup({
+      PhoneNumber:new FormControl('',[Validators.pattern(MOBILE_PATTERN)])
     });
   }
 }
