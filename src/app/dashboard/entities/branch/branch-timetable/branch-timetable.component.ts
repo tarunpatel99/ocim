@@ -2,6 +2,7 @@ import { Component, OnInit, Inject, OnDestroy } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ConfirmDeleteComponent } from '../../confirm-delete/confirm-delete.component';
+import { ViewTimetableComponent } from './view-timetable/view-timetable.component';
 
 
 export interface DialogData {
@@ -45,6 +46,21 @@ export class BranchTimetableComponent implements OnInit {
     });
   }
   ngOnInit() {
+  }
+
+
+  // open dialog box
+  onViewTimetable(url: string): void {
+    const dialogRef = this.dialog.open(ViewTimetableComponent, {
+      width: 'fit-content',
+      panelClass: 'custom-dialog',
+      data: {url: url}
+    });
+    
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
   }
 
 }
