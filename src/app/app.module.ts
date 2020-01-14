@@ -83,6 +83,7 @@ import { AuthService } from './auth/auth.service';
 import { BranchFacultiesComponent } from './dashboard/entities/branch/branch-faculties/branch-faculties.component';
 import { CommonModule } from '@angular/common';
 import { ConfirmDeleteComponent } from './dashboard/entities/confirm-delete/confirm-delete.component';
+import { EditResultMarkComponent } from './dashboard/entities/branch/branch-exam-result/edit-result-mark/edit-result-mark.component';
 
 @NgModule({
   declarations: [
@@ -149,7 +150,7 @@ import { ConfirmDeleteComponent } from './dashboard/entities/confirm-delete/conf
     StudentDashboardComponent,
     BranchFacultiesComponent,
     ApplyLeave, // leave dialog,
-    actiondialog, ConfirmDeleteComponent
+    actiondialog, ConfirmDeleteComponent, EditResultMarkComponent
   ],
   imports: [
     BrowserModule,
