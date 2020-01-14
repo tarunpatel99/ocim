@@ -30,7 +30,7 @@ export class FacultySyllabusComponent implements OnInit {
   constructor(private http: HttpClient) {
     // get student info from local data
     const files = [
-      { name: 'Syllabus', subject: 'OSOS', class: "12th Commerce", uploadDate: new Date(2019, 12, 25), ownerName: "Tarun", fileSoureceUrl: "https://www.w3schools.com/images/myw3schoolsimage.jpg" },
+      { name: 'Syllabus', subject: 'OSOS', class: "12th Commerce", uploadDate: new Date(2019, 12, 25), ownerName: "Tarun", fileSoureceUrl: "../../../../../assets/logo.jpg" },
       { name: 'Importance', subject: 'DCB', class: "12th Science", uploadDate: new Date(2019, 12, 24), ownerName: "Shubh", fileSoureceUrl: "www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png" },
       { name: 'Syllabus', subject: 'VB', class: "9th (A)", uploadDate: new Date(2019, 12, 28), ownerName: "Nirav", fileSoureceUrl: "www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png" },
       { name: 'Syllabus', subject: 'VB(p)', class: "8th (B)", uploadDate: new Date(2019, 12, 19), ownerName: "Shubham", fileSoureceUrl: "www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png" },

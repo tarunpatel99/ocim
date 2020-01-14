@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostBinding } from '@angular/core';
+import { OverlayContainer } from '@angular/cdk/overlay';
 
 @Component({
   selector: 'app-branch',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BranchComponent implements OnInit {
 
-  constructor() { }
+  @HostBinding('class') componentCssClass;
+  
+  constructor(public overlayContainer: OverlayContainer) {
+  }
 
   ngOnInit() {
+    // this.overlayContainer.getContainerElement().classList.add('bm-theme');
+    // this.componentCssClass = 'bm-theme';
   }
 
 }
