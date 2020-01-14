@@ -126,6 +126,12 @@ button{
 }
 
 /* dashboard */
+.dashboard-container {
+    box-shadow: none !important;
+    background: none !important;
+    padding: 0 !important;
+}
+
 .container {
     display: flex;
     width: auto;
