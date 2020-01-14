@@ -82,6 +82,7 @@ import { AuthService } from './auth/auth.service';
 import { BranchFacultiesComponent } from './dashboard/entities/branch/branch-faculties/branch-faculties.component';
 import { CommonModule } from '@angular/common';
 import { ConfirmDeleteComponent } from './dashboard/entities/confirm-delete/confirm-delete.component';
+import { OverlayModule } from '@angular/cdk/overlay';
 
 
 @NgModule({
@@ -158,7 +159,8 @@ import { ConfirmDeleteComponent } from './dashboard/entities/confirm-delete/conf
     FormsModule,
     MaterialModule,
     CommonModule,
-    HttpClientModule
+    HttpClientModule,
+    OverlayModule
   ],
   entryComponents: [
     // dialog boxes

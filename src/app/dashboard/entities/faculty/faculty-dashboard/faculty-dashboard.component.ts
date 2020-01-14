@@ -17,23 +17,34 @@ export class FacultyDashboardComponent implements OnInit {
 
       // The data for our dataset
       data: {
-        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'Aug', 'Sup', 'Oct'],
+        labels: ['7th', '8th', '10t', '11th Science', '11th Commerce', '12th Science', '12th Commerce'],
         datasets: [{
-          label: 'Institutes Registerd',
+          label: "Today' attendance",
           backgroundColor: '#673AB7',
-          data: [0, 10, 5, 2, 20, 30, 45, 35, 50, 67],
+          data: [58, 75, 76, 65, 87, 50, 67],
           borderWidth: 1
         }]
       },
 
       // Configuration options go here
       options: {
-        //   legend: {
-        //     labels: {
-        //         // This more specific font property overrides the global property
-        //         fontSize: '24'
-        //     }
-        // }
+        scales: {
+          yAxes: [
+            {
+              // scaleLabel: {
+              //   display: true,
+              //   labelString: '0'
+              // },
+              stacked: true,
+              ticks: {
+                min: 0,
+                max: 100,
+                stepSize: 10,
+              }
+
+            }
+          ]
+        }
       }
     });
   }
