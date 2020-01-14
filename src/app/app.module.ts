@@ -168,6 +168,7 @@ import { EditResultMarkComponent } from './dashboard/entities/branch/branch-exam
     TimeTableFormDialog,
     announcementFormDialog,
     ViewTimetableComponent, //branch
+    EditResultMarkComponent,
     NoticeByIOFormDialog,
     NoticeFormDialog,
     LeaveNoteFormDialog,
