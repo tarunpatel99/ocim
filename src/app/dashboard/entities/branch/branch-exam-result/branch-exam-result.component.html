@@ -91,7 +91,7 @@
                     <ng-container matColumnDef="action" #actionCotainer data-html2canvas-ignore="true">
                         <mat-header-cell *matHeaderCellDef data-html2canvas-ignore="true" class="tbl-right"> Action </mat-header-cell>
                         <mat-cell *matCellDef="let element" data-html2canvas-ignore="true" class="tbl-right">
-                            <button mat-icon-button color="primary" matTooltip="Edit">
+                            <button mat-icon-button color="primary" (click)="onEditResultMark()" matTooltip="Edit">
                                 <mat-icon>edit</mat-icon>
                             </button>
                             <button mat-icon-button color="primary" matTooltip="Delete">

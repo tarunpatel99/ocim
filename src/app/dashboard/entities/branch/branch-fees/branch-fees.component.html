@@ -7,7 +7,7 @@
             <form class="no-add-student">
                 <mat-form-field class="full-width">
                     <mat-label>Class</mat-label>
-                    <mat-select required>
+                    <mat-select>
                         <mat-option *ngFor="let class of classes" [value]="class.value">
                             {{class.viewValue}}
                         </mat-option>
