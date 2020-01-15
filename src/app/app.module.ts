@@ -84,6 +84,7 @@ import { BranchFacultiesComponent } from './dashboard/entities/branch/branch-fac
 import { CommonModule } from '@angular/common';
 import { ConfirmDeleteComponent } from './dashboard/entities/confirm-delete/confirm-delete.component';
 import { EditResultMarkComponent } from './dashboard/entities/branch/branch-exam-result/edit-result-mark/edit-result-mark.component';
+import { OverlayModule } from '@angular/cdk/overlay';
 
 @NgModule({
   declarations: [
@@ -160,7 +161,8 @@ import { EditResultMarkComponent } from './dashboard/entities/branch/branch-exam
     FormsModule,
     MaterialModule,
     CommonModule,
-    HttpClientModule
+    HttpClientModule,
+    OverlayModule
   ],
   entryComponents: [
     // dialog boxes

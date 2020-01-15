@@ -119,6 +119,44 @@ button{
     margin: 5px !important;
 }
 
+.bar-chart-container {
+    width: 800px;
+    height: 400px !important;
+    margin: auto;
+}
+
+/* dashboard */
+.dashboard-container {
+    box-shadow: none !important;
+    background: none !important;
+    padding: 0 !important;
+}
+
+.container {
+    display: flex;
+    width: auto;
+    box-shadow: none;
+    background: none;
+}
+
+.container .whats-new p {
+    margin: auto 10px;
+}
+
+table {
+    margin: auto;
+    width: 200px;
+}
+
+td {
+    font-size: 20px;
+    padding: 2px;
+}
+
+tr td:last-of-type {
+    text-align: right;
+}
+
 .whats-new {
     display: inline-block !important;
     width: 58%;

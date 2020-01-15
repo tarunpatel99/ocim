@@ -97,8 +97,7 @@ export class StudentLeaveNoteComponent implements OnInit {
    }
    openDialog(): void {
     const dialogRef = this.dialog.open(ApplyLeave, {
-      width: '500px',
-      height: '500px',
+      width: '500px'
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -180,7 +179,7 @@ export class ApplyLeave {
     this.dialogRef.close();
   }
 
-  onCancle(): void {
+  onCancel(): void {
     this.dialogRef.close();
   }
 
