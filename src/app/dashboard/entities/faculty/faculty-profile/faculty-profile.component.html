@@ -1,106 +1,150 @@
 <p class="heading">Profile</p>
 <mat-card>
-    <form class="no-add-faculty">
+    <form action="" [formGroup]="addFacultyForm" #addFaculty>
         <mat-card class="no-shadow">
             <mat-card-title>Personal details</mat-card-title>
             <mat-card style="background: none; box-shadow: none;">
                 <mat-card-header>
                     <div mat-card-avatar class="example-header-image"></div>
                     <!-- <mat-card-title><span>User name</span></mat-card-title>
-                <mat-card-subtitle><span>User Type</span></mat-card-subtitle> -->
+                    <mat-card-subtitle><span>User Type</span></mat-card-subtitle> -->
                 </mat-card-header>
             </mat-card>
             <mat-form-field class="full-width">
-                <input type="text" matInput placeholder="First name" required>
+                <input type="text" matInput placeholder="First name" formControlName="firstname" required>
+                <mat-error *ngIf="addFacultyForm.get('firstname').invalid">Please enter first name
+                </mat-error>
             </mat-form-field>
             <mat-form-field class="full-width">
-                <input type="text" matInput placeholder="Middle name">
+                <input type="text" matInput placeholder="Middle name" formControlName="middlename" required>
+                <mat-error *ngIf="addFacultyForm.get('middlename').invalid">Please enter middle name
+                </mat-error>
             </mat-form-field>
             <mat-form-field class="full-width">
-
-                <input type="text" matInput placeholder="Last name" required>
+                <input type="text" matInput placeholder="Last name" formControlName="lastname" required>
+                <mat-error *ngIf="addFacultyForm.get('lastname').invalid">Please enter last name
+                </mat-error>
             </mat-form-field>
-
             <mat-form-field class="full-width">
-                <input matInput [matDatepicker]="pickerJoindob" placeholder="Date of birth" required>
+                <input matInput [matDatepicker]="pickerJoindob" placeholder="Date of birth" formControlName="dateofbirth" required>
                 <mat-datepicker-toggle matSuffix [for]="pickerJoindob"></mat-datepicker-toggle>
                 <mat-datepicker #pickerJoindob></mat-datepicker>
+                <mat-error *ngIf="addFacultyForm.get('dateofbirth').invalid">Please select date of birth
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="full-width">
+                <input matInput [matDatepicker]="pickerJoinjd" placeholder="Joining date" formControlName="joiningdate" required>
+                <mat-datepicker-toggle matSuffix [for]="pickerJoinjd"></mat-datepicker-toggle>
+                <mat-datepicker #pickerJoinjd></mat-datepicker>
+                <mat-error *ngIf="addFacultyForm.get('joiningdate').invalid">Please select joining date
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="full-width">
+                <input type="number" matInput placeholder="Experience" formControlName="experienceyear" required min="0">
+                <mat-error *ngIf="addFacultyForm.get('experienceyear').invalid">Please select experience year
+                </mat-error>
             </mat-form-field>
             <div class="gndr">
                 <p><label class="half-width">Select Gender</label></p>
-                <mat-radio-group aria-label="Select Gender" class="half-width" color="primary" required>
-                    <mat-radio-button checked value="Male">Male</mat-radio-button>
+                <mat-radio-group aria-label="Select Gender" class="half-width" color="primary">
+                    <mat-radio-button value="Male" checked>Male</mat-radio-button>
                     <mat-radio-button value="Female">Female</mat-radio-button>
                     <mat-radio-button value="Other">Other</mat-radio-button>
                 </mat-radio-group>
             </div>
-        <!-- </mat-card> -->
-        <mat-divider [inset]="true" style="margin-bottom: 16px;"></mat-divider>
-        <br>
-        <!-- <mat-card class="no-shadow"> -->
-            <mat-card-title>More about you</mat-card-title>
+            <mat-divider [inset]="true"></mat-divider>
+            <mat-card-title>Class and subject details</mat-card-title>
             <mat-form-field class="full-width">
-                <input matInput [matDatepicker]="pickerJoinjd" placeholder="Joining date" required>
-                <mat-datepicker-toggle matSuffix [for]="pickerJoinjd"></mat-datepicker-toggle>
-                <mat-datepicker #pickerJoinjd></mat-datepicker>
+                <mat-label>Class</mat-label>
+                <mat-select formControlName="class" required>
+                    <mat-option *ngFor="let class of classes" [value]="class.value">
+                        {{class.viewValue}}
+                    </mat-option>
+                </mat-select>
+                <mat-error *ngIf="addFacultyForm.get('class').invalid">Please select class
+                </mat-error>
             </mat-form-field>
             <mat-form-field class="full-width">
-                <input type="number" matInput placeholder="Experience years" required min="0" value="0">
+                <mat-label>Subject</mat-label>
+                <mat-select formControlName="subject" required>
+                    <mat-option *ngFor="let subject of subjects" [value]="subject.value">
+                        {{subject.viewValue}}
+                    </mat-option>
+                </mat-select>
+                <mat-error *ngIf="addFacultyForm.get('subject').invalid">Please select subject
+                </mat-error>
             </mat-form-field>
+            <button class="no-full-width" mat-icon-button color="primary" aria-label="add more class and subject">
+                <mat-icon>add</mat-icon>
+            </button>
+            <mat-divider [inset]="true"></mat-divider>
+            <mat-card-title>Address details</mat-card-title>
             <mat-form-field class="full-width">
-                <textarea type="text" matInput placeholder="Address" rows="3" required></textarea>
-            </mat-form-field>
-            <mat-form-field class="full-width">
-                <textarea type="text" matInput placeholder="Bio" rows="3"></textarea>
+                <textarea type="text" matInput placeholder="Address" rows="3" formControlName="address" required></textarea>
+                <mat-error *ngIf="addFacultyForm.get('address').invalid">Please enter address
+                </mat-error>
             </mat-form-field>
             <mat-form-field class="full-width">
                 <mat-label>City</mat-label>
-                <mat-select required>
+                <mat-select formControlName="city" required>
                     <mat-option *ngFor="let city of cities" [value]="city.value">
                         {{city.viewValue}}
                     </mat-option>
                 </mat-select>
+                <mat-error *ngIf="addFacultyForm.get('city').invalid">Please select city
+                </mat-error>
             </mat-form-field>
             <mat-form-field class="full-width">
                 <mat-label>State</mat-label>
-                <mat-select required>
+                <mat-select formControlName="state" required>
                     <mat-option *ngFor="let state of states" [value]="state.value">
                         {{state.viewValue}}
                     </mat-option>
                 </mat-select>
+                <mat-error *ngIf="addFacultyForm.get('state').invalid">Please select state
+                </mat-error>
             </mat-form-field>
             <mat-form-field class="full-width">
-
-                <input matInput #postalCode maxlength="6" placeholder="Postal Code" required>
+                <input matInput #postalCode maxlength="6" placeholder="Postal code" formControlName="postalcode" required>
+                <mat-error *ngIf="addFacultyForm.get('postalcode').invalid">Please enter postal code
+                </mat-error>
                 <mat-hint align="end">{{postalCode.value.length}} / 6</mat-hint>
             </mat-form-field>
             <mat-card-actions align="end">
-                <button mat-flat-button color="primary" (click)="onUpdate()">Update</button>
-                <button mat-stroked-button color="warn" (click)="onClearbranch()">Cancle</button>
+                <button mat-stroked-button color="warn" type="reset">Cancel</button>
+                <button mat-flat-button color="primary" type="submit">Update</button>
             </mat-card-actions>
         </mat-card>
-        <mat-divider [inset]="true" style="margin-bottom: 32px;"></mat-divider>
+        <br>
         <mat-card class="no-shadow">
-            <mat-card-title>Contact and Security details</mat-card-title>
+            <mat-card-title>Security details</mat-card-title>
             <mat-form-field class="full-width">
-                <input type="text" matInput placeholder="Phone number" required>
+                <input type="text" matInput placeholder="Phone number" formControlName="phonenumber" required>
+                <mat-error *ngIf="addFacultyForm.get('phonenumber').invalid">Please enter phonenumber
+                </mat-error>
             </mat-form-field>
             <mat-form-field class="full-width">
-                <input type="text" matInput placeholder="Email" required>
+                <input type="text" matInput placeholder="Email" formControlName="email" email required>
+                <mat-error *ngIf="addFacultyForm.get('email').invalid">Please enter email
+                </mat-error>
+            </mat-form-field>
+            <br>
+            <mat-form-field class="full-width">
+                <input type="password" matInput placeholder="Password" formControlName="password" required>
+                <mat-error *ngIf="addFacultyForm.get('password').invalid">Please enter password
+                </mat-error>
             </mat-form-field>
             <mat-form-field class="full-width">
-                <input type="password" matInput placeholder="Password" required>
-            </mat-form-field>
-            <mat-form-field class="full-width">
-                <input type="password" matInput placeholder="Confirm password" required>
-            </mat-form-field>
-            <mat-card-actions align="end">
-                <button mat-flat-button color="primary" (click)="onUpdate()">Change Password</button>
-                <button mat-stroked-button color="warn" (click)="onClearbranch()">Cancle</button>
-            </mat-card-actions>
-        </mat-card>
-        <!-- <div class="right"> -->
 
-        <!-- </div> -->
+                <input type="password" matInput placeholder="Confirm password" formControlName="confirmpassword" required>
+                <mat-error *ngIf="addFacultyForm.get('confirmpassword').invalid">Please enter confirm password
+                </mat-error>
+            </mat-form-field>
+            
+        <mat-card-actions align="end">
+            <button mat-stroked-button color="warn" type="reset">Cancel</button>
+            <button mat-flat-button color="primary" type="submit">Change password</button>
+        </mat-card-actions>
+        </mat-card>
     </form>
 </mat-card>
