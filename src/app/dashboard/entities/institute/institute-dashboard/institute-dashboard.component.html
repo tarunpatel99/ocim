@@ -1,2 +1,73 @@
-<div class="heading">Dashboard</div>
-<mat-card></mat-card>
+<p class="heading">Dashboard</p>
+<mat-card>
+  <!-- graph -->
+  <mat-card>
+    <div class="bar-chart-container">
+      <canvas id="myChart"></canvas>
+    </div>
+  </mat-card>
+  <div class="container">
+    <mat-card class="whats-new">
+      <mat-card-title>What's new!</mat-card-title>
+      <mat-card-content>
+        <mat-list role="list">
+          <mat-list-item role="listitem">
+            <mat-icon aria-hidden="false" aria-label="leavenote">table_chart</mat-icon>
+            <p>New <b>Notice</b> announced from <b>Bopal</b> branch</p>
+          </mat-list-item>
+        </mat-list>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card class="total">
+      <mat-card-title>Total users</mat-card-title>
+      <mat-card-content>
+        <table border="0">
+            <tr>
+            <td>
+              <span>Branches</span>
+            </td>
+            <td>
+              <span>35</span>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span>Faculties</span>
+            </td>
+            <td>
+              <span>202</span>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span>Students</span>
+            </td>
+            <td>
+              <span>1500</span>
+            </td>
+          </tr>
+          <tr>
+            <td>
+
+            </td>
+            <td>
+              <span>
+                <hr>
+              </span>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span>Total</span>
+            </td>
+            <td>
+              <span>2490</span>
+            </td>
+          </tr>
+        </table>
+
+      </mat-card-content>
+    </mat-card>
+  </div>
+</mat-card>
