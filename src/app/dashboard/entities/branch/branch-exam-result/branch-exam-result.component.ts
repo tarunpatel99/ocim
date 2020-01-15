@@ -4,6 +4,9 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import * as html2pdf from "html2pdf.js";
+import { ConfirmDeleteComponent } from '../../confirm-delete/confirm-delete.component';
+import { MatDialog } from '@angular/material';
+import { EditResultMarkComponent } from './edit-result-mark/edit-result-mark.component';
 
 
 export interface StudentData {
@@ -56,7 +59,7 @@ export class BranchExamResultComponent implements OnInit {
   @ViewChild('table', { static: false }) datatable: ElementRef;
   @ViewChild('actionCotainer', { static: false }) actionbutton: ElementRef;
 
-  constructor() {
+  constructor(public dialog: MatDialog) {
 
     // Assign the data to the data source for the table to render
     this.dataSource = new MatTableDataSource(students);
@@ -158,6 +161,13 @@ export class BranchExamResultComponent implements OnInit {
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
+  }
+
+  onEditResultMark(): void {
+    const dialogRef = this.dialog.open(EditResultMarkComponent, {
+      width: 'auto',
+      data: {}
+    });
   }
 
   // generate report

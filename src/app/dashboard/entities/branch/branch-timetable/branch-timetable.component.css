@@ -1,20 +1,20 @@
-.heading{
-    margin:20px 0;
-    color:#ffffff;
+.heading {
+    margin: 20px 0;
+    color: #ffffff;
     font-size: 36px;
     display: block;
 }
 
-mat-form-field{
+mat-form-field {
     margin: 0 10px;
     display: inline-block;
 }
 
-mat-radio-button{
+mat-radio-button {
     margin: 0 5px;
 }
 
-button{
+button {
     margin: 5px;
 }
 
@@ -23,6 +23,11 @@ button{
     margin: 15px;
     max-width: 25%;
 }
+
+img {
+    cursor: pointer;
+}
+
 
 /* .header {
     margin-left: 28px;
@@ -34,9 +39,10 @@ button{
     background-size: cover;
     height: 50px;
     width: 50px;
-  }
-  
-  /* .form-mat-card {
+}
+
+
+/* .form-mat-card {
     display: inline-table;
     margin: 5% ;
     /* padding: 10px; * /
@@ -48,7 +54,6 @@ button{
     height: fit-content;
     width: 400px; * /
 } */
-
 
 .full-width {
     display: inline-block;
@@ -64,18 +69,18 @@ button{
     max-width: 30%;
 }
 
+
 /* .right{
     float: right;
 } */
 
-mat-panel-title{
+mat-panel-title {
     width: 50%;
 }
 
-.delete{
+.delete {
     right: 0 !important;
 }
-
 
 .new-btn {
     position: fixed;

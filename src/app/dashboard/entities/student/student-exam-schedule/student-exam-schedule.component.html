@@ -1,31 +1,17 @@
 <p class="heading">Exam Schedule</p>
 <mat-card>
+    <mat-form-field id="searchBar" class="table"><input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search"></mat-form-field>
+
+<mat-card>
+    <mat-card-title>CIA 1</mat-card-title>
     <form action="">
         <!-- student list -->
-        <mat-form-field id="searchBar" class="table">
-            <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search">
-        </mat-form-field>
 
         <mat-table [dataSource]="dataSource" matSort>
-
-            <ng-container matColumnDef="title">
-                <mat-header-cell *matHeaderCellDef mat-sort-header> Title </mat-header-cell>
-                <mat-cell *matCellDef="let student"> {{student.title}} </mat-cell>
-            </ng-container>
-
-            <ng-container matColumnDef="description">
-                <mat-header-cell *matHeaderCellDef mat-sort-header> Description </mat-header-cell>
-                <mat-cell *matCellDef="let student"> {{student.description}} </mat-cell>
-            </ng-container>
 
             <ng-container matColumnDef="exmdate">
                 <mat-header-cell *matHeaderCellDef mat-sort-header> Date </mat-header-cell>
                 <mat-cell *matCellDef="let student"> {{student.exmdate}} </mat-cell>
-            </ng-container>
-
-            <ng-container matColumnDef="class">
-                <mat-header-cell *matHeaderCellDef mat-sort-header> Class </mat-header-cell>
-                <mat-cell *matCellDef="let student"> {{student.class}} </mat-cell>
             </ng-container>
 
             <ng-container matColumnDef="subject">
@@ -33,6 +19,11 @@
                 <mat-cell *matCellDef="let student"> {{student.subject}} </mat-cell>
             </ng-container>
 
+            <ng-container matColumnDef="description">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Description </mat-header-cell>
+                <mat-cell *matCellDef="let student"> {{student.description}} </mat-cell>
+            </ng-container>
+            
             <ng-container matColumnDef="ttl_marks">
                 <mat-header-cell *matHeaderCellDef mat-sort-header> Total </mat-header-cell>
                 <mat-cell *matCellDef="let student"> {{student.ttl_marks}} </mat-cell>
@@ -50,4 +41,5 @@
 
 
     </form>
+</mat-card>
 </mat-card>
