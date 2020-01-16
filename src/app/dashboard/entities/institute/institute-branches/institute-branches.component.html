@@ -115,10 +115,7 @@
                 </mat-form-field>
                 <br>
                 <mat-form-field class="full-width">
-                    <input type="text" matInput placeholder="Phone number" [formControl]="pnum" required>
-                    <mat-error *ngIf="pnum.hasError('pattern') && !pnum.hasError('required')">
-                        Please enter digits only
-                      </mat-error>
+                    <input type="text" type="number" matInput placeholder="Phone number" [formControl]="pnum" required>
                       <mat-error *ngIf="pnum.hasError('required')">
                         Phone number is <strong>required</strong>
                       </mat-error>
