@@ -5,7 +5,7 @@
   <h2>Sign Up</h2>
   </div>
   <mat-divider></mat-divider>
-  <mat-vertical-stepper [linear]="isLinear" #stepper>
+  <mat-vertical-stepper [linear]="!isLinear" #stepper>
 
     <mat-step [stepControl]="regformgroup">
       <form [formGroup]="regformgroup">
@@ -101,10 +101,19 @@
     </mat-form-field>
     <br>
     <mat-form-field class="full-width">
-        <input type="password" matInput placeholder="Password" required>
+        <input type="password" matInput placeholder="Password" minlength="8" [formControl]="npass" required>
+        <mat-error *ngIf="npass.hasError('required')">
+          Password is <strong>required</strong>
+        </mat-error>
     </mat-form-field>
     <mat-form-field class="full-width">
-        <input type="password" matInput placeholder="Confirm password" required>
+        <input type="password" matInput placeholder="Confirm password" [formControl]="pass" required>
+        <mat-error *ngIf="pass.hasError('pattern') && !pass.hasError('required')">
+          Password does not match
+        </mat-error>
+        <mat-error *ngIf="pass.hasError('required')">
+          Password is <strong>required</strong>
+        </mat-error>
     </mat-form-field>
       <div>
         <button mat-button matStepperPrevious>Back</button>
