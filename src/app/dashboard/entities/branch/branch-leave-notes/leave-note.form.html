@@ -1,10 +1,10 @@
-<p> Student : {{ data.studentName }} </p>
-<p> Class : {{ data.class }} </p>
-<p> Subject : {{ data.subject }} </p>
-<p> Description : {{ data.description }} </p>
-<p> From : {{ data.from }} </p>
-<p> To : {{ data.to }} </p>
-<p *ngFor="let attatchment of data.attatchments">Attatchments : {{ attatchment.id }} </p>
+<p> <b>Student :</b> {{ data.studentName }} </p>
+<p> <b>Class :</b> {{ data.class }} </p>
+<p> <b>Subject :</b> {{ data.subject }} </p>
+<p> <b>Description :</b> {{ data.description }} </p>
+<p> <b>From :</b> {{ data.from }} </p>
+<p> <b>To :</b> {{ data.to }} </p>
+<p *ngFor="let attatchment of data.attatchments"><b>Attatchments :</b> <a href="#"> {{ attatchment.id }} </a></p>
 <p> Status </p>
 <mat-button-toggle-group appearance="standard" name="action" aria-label="Action">
     <mat-button-toggle value="accept" matTooltip="Approved" class="green">
