@@ -81,9 +81,9 @@ export class FacultyProfileComponent implements OnInit {
       firstname: new FormControl(null, {
         validators: [Validators.required]
       }),
-      middlename: new FormControl(null, {
-        validators: [Validators.required]
-      }),
+      // middlename: new FormControl(null, {
+      //   validators: [Validators.required]
+      // }),
       lastname: new FormControl(null, {
         validators: [Validators.required]
       }),
