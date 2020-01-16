@@ -11,45 +11,43 @@
     <div class="header">
       <h2>Sign In</h2>
     </div>
-    
-    <form class="login-form" #loginForm="ngForm">
+
+    <form class="login-form" [formGroup]="loginForm" #loginform="ngForm">
       <!-- username -->
       <mat-form-field class="full-width">
-        <input type="text"
-          matInput
-          placeholder="Username"
-          required
-          ngModel
-          name="username">
+        <input type="text" matInput placeholder="Email" required email ngModel name="username" formControlName="email">
+        <mat-error *ngIf="loginForm.get('email').invalid">Please enter valid email
+        </mat-error>
+        <mat-error *ngIf="user">User not found!</mat-error>
       </mat-form-field>
 
       <!-- password -->
       <mat-form-field class="full-width">
-        <input [type]="!hide ? 'password' : 'text'" 
-          matInput
-          placeholder="Password"
-          required
-          ngModel
-          name="password">
-        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
-          [attr.aria-pressed]="!hide">
+        <input [type]="!hide ? 'password' : 'text'" matInput placeholder="Password" required ngModel name="password" formControlName="password">
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="!hide">
           <mat-icon>{{!hide ? 'visibility_off' : 'visibility'}}</mat-icon>
         </button>
+        <mat-error *ngIf="loginForm.get('password').invalid">Please enter the password</mat-error>
+        <mat-error *ngIf="password">Password is incorrect!</mat-error>
       </mat-form-field>
 
       <!-- role -->
       <mat-form-field class="full-width">
         <mat-label>Role</mat-label>
-        <mat-select required ngModel name="role" color="primary">
+        <mat-select required ngModel name="role" color="primary" formControlName="role">
           <mat-option *ngFor="let role of roles" [value]="role.value">
             {{role.viewValue}}
           </mat-option>
         </mat-select>
+        <mat-error *ngIf="loginForm.get('role').invalid">Please select role
+        </mat-error>
+
+        <mat-error *ngIf="role">Incorrect Role!</mat-error>
       </mat-form-field>
       <div class="form-btn">
         <a mat-button class="place-left" routerLink=".">Forget password?</a>
         <span class="space"></span>
-        <button mat-raised-button class="place-right" (click)="onLogin(loginForm)" color="primary">Sign In</button>
+        <button mat-raised-button class="place-right" (click)="onLogin(loginform)" color="primary">Sign In</button>
       </div>
     </form>
 
