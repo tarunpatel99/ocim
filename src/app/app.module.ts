@@ -8,7 +8,7 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { FormsModule } from '@angular/forms';
-
+import { RouterModule } from '@angular/router';
 import { MaterialModule } from "./material.module";
 // import { FormControl } from '@angular/forms';
 // import { FormGroup } from '@angular/forms';
@@ -85,6 +85,7 @@ import { CommonModule } from '@angular/common';
 import { ConfirmDeleteComponent } from './dashboard/entities/confirm-delete/confirm-delete.component';
 import { EditResultMarkComponent } from './dashboard/entities/branch/branch-exam-result/edit-result-mark/edit-result-mark.component';
 import { OverlayModule } from '@angular/cdk/overlay';
+import { ForgotpasswordComponent } from './auth/forgotpassword/forgotpassword.component';
 
 @NgModule({
   declarations: [
@@ -92,6 +93,7 @@ import { OverlayModule } from '@angular/cdk/overlay';
     DashboardComponent,
     LoginComponent,
     SignupComponent,
+    ForgotpasswordComponent,
     AdminComponent,
     BranchComponent,
     FacultyComponent,

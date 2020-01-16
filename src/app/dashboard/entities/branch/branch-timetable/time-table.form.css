@@ -15,6 +15,7 @@ mat-form-field {
     background-repeat: no-repeat;
     background-size: 100px;
     background-position: center;
+    position: relative;
     height: 200px;
     width: 80%;
     margin: 20px auto;
@@ -48,4 +49,11 @@ mat-form-field {
 
 .files-list .delete-file img {
     width: 30px;
+}
+
+.button-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
