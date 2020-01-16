@@ -1,5 +1,5 @@
 <div class="heading">Attendance</div>
-<mat-card class="dashboard-container">
+<mat-card>
     <form class="no-add-student">
         <mat-form-field class="full-width">
             <mat-label>Class</mat-label>
@@ -26,7 +26,7 @@
 
         <!-- rollno Column -->
         <ng-container matColumnDef="rollno">
-            <mat-header-cell *matHeaderCellDef mat-sort-header> Roll no. </mat-header-cell>
+            <mat-header-cell *matHeaderCellDef mat-sort-header> ID </mat-header-cell>
             <mat-cell *matCellDef="let element"> {{element.rollno}} </mat-cell>
         </ng-container>
 

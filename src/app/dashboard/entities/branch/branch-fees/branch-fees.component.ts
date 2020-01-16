@@ -42,16 +42,16 @@ export interface Std_element {
 
 
 const Student_Data: Std_element[] = [
-  { rollno: '19-bio-11', name: 'Student Middlename Surname', class: '11 Sci Bio', sem: 'sem 2', amount: '20000', method: 'Debit card', status: 'Paid', date: '21-12-2019' },
-  { rollno: '19-bio-12', name: 'Student Middlename Surname', class: '11 Sci Bio', sem: 'sem 2', amount: '20000', method: 'Credit card', status: 'Unpaid', date: '21-12-2019' },
-  { rollno: '19-bio-13', name: 'Student Middlename Surname', class: '11 Sci Maths', sem: 'sem 2', amount: '20000', method: 'Net banking', status: 'Paid', date: '21-12-2019' },
-  { rollno: '19-bio-14', name: 'Student Middlename Surname', class: '11 Sci Maths', sem: 'sem 2', amount: '20000', method: 'Cash', status: 'Unpaid', date: '21-12-2019' },
-  { rollno: '19-bio-15', name: 'Student Middlename Surname', class: '11 Sci Bio', sem: 'sem 2', amount: '20000', method: 'Debit card', status: 'Unpaid', date: '21-12-2019' },
-  { rollno: '19-bio-16', name: 'Student Middlename Surname', class: '11 Sci Bio', sem: 'sem 2', amount: '20000', method: 'onlDebit cardine', status: 'Paid', date: '21-12-2019' },
-  { rollno: '19-bio-17', name: 'Student Middlename Surname', class: '12 Sci Maths', sem: 'sem 2', amount: '20000', method: 'Net banking', status: 'Unpaid', date: '21-12-2019' },
-  { rollno: '19-bio-18', name: 'Student Middlename Surname', class: '12 Sci Maths', sem: 'sem 2', amount: '20000', method: 'Net banking', status: 'Paid', date: '21-12-2019' },
-  { rollno: '19-bio-19', name: 'Student Middlename Surname', class: '11 Sci Bio', sem: 'sem 2', amount: '20000', method: 'Cash', status: 'Paid', date: '21-12-2019' },
-  { rollno: '19-bio-20', name: 'Student Middlename Surname', class: '11 Sci Bio', sem: 'sem 2', amount: '20000', method: 'Cash', status: 'Unpaid', date: '21-12-2019' },
+  { rollno: '19-bio-11', name: 'Harshil Sureja', class: '11 Sci Bio', sem: 'sem 2', amount: '20000', method: 'Debit card', status: 'Paid', date: '21-12-2019' },
+  { rollno: '19-bio-12', name: 'Tarun Patel', class: '11 Sci Bio', sem: 'sem 2', amount: '20000', method: 'Credit card', status: 'Unpaid', date: '21-12-2019' },
+  { rollno: '19-bio-13', name: 'Harshil Patel', class: '11 Sci Maths', sem: 'sem 2', amount: '20000', method: 'Net banking', status: 'Paid', date: '21-12-2019' },
+  { rollno: '19-bio-14', name: 'Mihir Kamariya', class: '11 Sci Maths', sem: 'sem 2', amount: '20000', method: 'Cash', status: 'Unpaid', date: '21-12-2019' },
+  { rollno: '19-bio-15', name: 'Shubh Bhatt', class: '11 Sci Bio', sem: 'sem 2', amount: '20000', method: 'Debit card', status: 'Unpaid', date: '21-12-2019' },
+  { rollno: '19-bio-16', name: 'Nirav Rajput', class: '11 Sci Bio', sem: 'sem 2', amount: '20000', method: 'onlDebit cardine', status: 'Paid', date: '21-12-2019' },
+  { rollno: '19-bio-17', name: 'Aakash Bhavsar', class: '12 Sci Maths', sem: 'sem 2', amount: '20000', method: 'Net banking', status: 'Unpaid', date: '21-12-2019' },
+  { rollno: '19-bio-18', name: 'Hastik Bhut', class: '12 Sci Maths', sem: 'sem 2', amount: '20000', method: 'Net banking', status: 'Paid', date: '21-12-2019' },
+  { rollno: '19-bio-19', name: 'Yash Charola', class: '11 Sci Bio', sem: 'sem 2', amount: '20000', method: 'Cash', status: 'Paid', date: '21-12-2019' },
+  { rollno: '19-bio-20', name: 'Bhautik Patel', class: '11 Sci Bio', sem: 'sem 2', amount: '20000', method: 'Cash', status: 'Unpaid', date: '21-12-2019' },
 ];
 
 
