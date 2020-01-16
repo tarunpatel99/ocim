@@ -1,11 +1,12 @@
-<h1 mat-dialog-title>Add Exam Schedule</h1>
+<h1 mat-dialog-title>Add Notice</h1>
 <div mat-dialog-content>
-    <form class="no-add-timetable">
+    <form action="" class="no-add-timetable" [formGroup]="applynotice" (click)="onSave()">
         <mat-form-field class="full-width">
-            <input type="text" matInput placeholder="Title" required>
+            <input type="text" matInput placeholder="Title" formControlName="title" required>
+            <mat-error *ngIf="applynotice.get('title').invalid">Title is required</mat-error>
         </mat-form-field>
         <mat-form-field class="full-width">
-            <mat-select placeholder="Class" [formControl]="classNotice" multiple>
+            <mat-select placeholder="Class" [formControl]="classNotice" required multiple>
                 <mat-select-trigger>
                 {{classNotice.value ? classNotice.value[0] : ''}}
                 <span *ngIf="classNotice.value?.length > 1" class="example-additional-selection">
@@ -14,14 +15,16 @@
                 </mat-select-trigger>
                 <mat-option *ngFor="let classNotice of Classsbj" [value]="classNotice.value">{{classNotice.viewValue}}</mat-option>
             </mat-select>
+            <mat-error *ngIf="classNotice.invalid">Class is required</mat-error>
         </mat-form-field>
         <mat-form-field class="full-width">
-            <textarea type="text" matInput placeholder="Description" rows="1" required></textarea>
+            <textarea type="text" matInput placeholder="Description" rows="1"  formControlName="desc" required></textarea>
+            <mat-error *ngIf="applynotice.get('desc').invalid">Description is required</mat-error>
         </mat-form-field>
     </form>
     
 </div>
 <div mat-dialog-actions>
-    <button mat-flat-button color="primary" (click)="onAddtimetable()">Add</button>
-    <button mat-stroked-button color="warn" (click)="onSave()">Cancle</button>
+    <button mat-flat-button color="primary" (click)="onSave()">Add</button>
+    <button mat-stroked-button color="warn" (click)="onCancel()">Cancle</button>
 </div>
