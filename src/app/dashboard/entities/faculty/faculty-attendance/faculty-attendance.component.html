@@ -1,6 +1,6 @@
 <p class="heading">Attendance</p>
 <mat-card>
-    <form action="">
+    <form action="" [formControl]="attendance">
         <!-- <mat-form-field class="large-width">
             <input matInput placeholder="Faculty name" disabled [value]="facultyname">
         </mat-form-field> -->
@@ -17,7 +17,7 @@
         </mat-form-field> -->
         <mat-form-field class="small-width">
             <mat-select placeholder="Select class" [formControl]="classControl" required>
-                <mat-option value="option">TYBCA</mat-option>
+                <mat-option value="option">11th Sci</mat-option>
             </mat-select>
             <mat-error *ngIf="classControl.hasError('required')">
                 Please Select class
@@ -25,7 +25,7 @@
         </mat-form-field>
         <mat-form-field class="small-width">
             <mat-select placeholder="Select subject" [formControl]="subjectControl" [disabled]="classControl.hasError('required')" required>
-                <mat-option value="option">SDP-II</mat-option>
+                <mat-option value="option">BIO</mat-option>
             </mat-select>
             <mat-error *ngIf="subjectControl.hasError('required')">
                 Please Select subject
@@ -63,11 +63,13 @@
                 </mat-grid-tile>
             </mat-grid-list>
         </mat-selection-list>
-    </form>
+        
     <mat-divider></mat-divider>
-    <mat-card-actions align="end">
-        <button mat-flat-button color="primary" type="submit">Submit</button>
-        <button mat-stroked-button color="warn">Cancel</button>
-    </mat-card-actions>
-
+        <mat-card-actions align="end">
+            <button mat-stroked-button color="warn">Cancel</button>
+            <button mat-flat-button color="primary" type="submit">Submit</button>
+        </mat-card-actions>
+    
+    </form>
+    
 </mat-card>

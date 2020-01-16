@@ -24,6 +24,13 @@ export class SignupComponent implements OnInit {
     Validators.minLength(10),
     Validators.pattern('[0-9]'),
   ]);
+  pass = new FormControl('', [
+    Validators.required,
+    Validators.pattern('[0-9]'),
+  ]);
+  npass = new FormControl('', [
+    Validators.required
+  ]);
   contact: FormGroup;
   
   constructor(private _formBuilder: FormBuilder) {}
@@ -37,6 +44,9 @@ export class SignupComponent implements OnInit {
         validators: [Validators.required]
       }),
       address: new FormControl(null, {
+        validators: [Validators.required]
+      }),
+      gender: new FormControl(null, {
         validators: [Validators.required]
       }),
     }),

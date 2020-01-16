@@ -1,0 +1,20 @@
+<h1 mat-dialog-title>Add Syllabus</h1>
+
+<form action="" [formGroup]="addTimeTableForm" #addTimeTable (click)="onSave()">
+    <div class="uploadfilecontainer" (click)="fileInput.click()" appDragDrop (onFileDropped)="uploadFile($event)">
+        <div class="button-icon">
+            <input hidden type="file" #fileInput (change)="uploadFile($event.target.files)">
+            <span>Drag & Drop</span>
+        </div>
+    </div>
+    <div class="files-list" *ngFor="let file of files;let i= index">
+        <p> {{ file }} </p>
+        <button class="delete-file" (click)="deleteAttachment(i)">
+            <img src="../../assets/Recycle_Bin_Full.png">
+        </button>
+    </div>
+    <div mat-dialog-actions align="end">
+        <button mat-stroked-button color="warn" type="reset">Cancel</button>
+        <button mat-flat-button color="primary" cdkFocusInitial>Upload</button>
+    </div>
+</form>

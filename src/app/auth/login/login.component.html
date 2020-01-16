@@ -15,7 +15,7 @@
     <form class="login-form" [formGroup]="loginForm" #loginform="ngForm">
       <!-- username -->
       <mat-form-field class="full-width">
-        <input type="text" matInput placeholder="Email" required email ngModel name="username" formControlName="email">
+        <input type="text" matInput placeholder="Email" required email ngModel name="email" formControlName="email">
         <mat-error *ngIf="loginForm.get('email').invalid">Please enter valid email
         </mat-error>
         <mat-error *ngIf="user">User not found!</mat-error>

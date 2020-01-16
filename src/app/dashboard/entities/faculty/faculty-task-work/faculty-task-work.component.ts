@@ -62,7 +62,11 @@ export class FacultyTaskWorkComponent implements OnInit {
     { studentname: 'Shubham mevada' },
     { studentname: 'Shubha Bhatt' },
     { studentname: 'Tarun Patel' },
-    { studentname: 'Aakash Bhavasar' }
+    { studentname: 'Jay Patel' },
+    { studentname: 'Shushang Agnihotri' },
+    { studentname: 'Saurabh Oza' },
+    { studentname: 'Shreya Patel' },
+    { studentname: 'Maitry Patel' },
   ]
 
   // dummy class and its subject data
@@ -76,21 +80,21 @@ export class FacultyTaskWorkComponent implements OnInit {
             {
               iss_date: new Date(2019, 13, 25),
               sub_date: new Date(2019, 12, 26),
-              title: "Sample Title(1)",
-              description: "Sample description of task and work(1)"
-            },
-            {
-              iss_date: new Date(2019, 12, 25),
-              sub_date: new Date(2019, 12, 26),
-              title: "Sample Title(2)",
-              description: "Sample description of task and work(2)"
-            },
-            {
-              iss_date: new Date(2019, 12, 25),
-              sub_date: new Date(2019, 12, 26),
-              title: "Sample Title(3)",
-              description: "Sample description of task and work(3)"
-            },
+              title: "Unit 2, Exersice 12",
+              description: "Do whole exersice accept que 2."
+            }
+            // {
+            //   iss_date: new Date(2019, 12, 25),
+            //   sub_date: new Date(2019, 12, 26),
+            //   title: "Sample Title(2)",
+            //   description: "Sample description of task and work(2)"
+            // },
+            // {
+            //   iss_date: new Date(2019, 12, 25),
+            //   sub_date: new Date(2019, 12, 26),
+            //   title: "Sample Title(3)",
+            //   description: "Sample description of task and work(3)"
+            // },
           ]
         },
         {

@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { StudentService } from '../student.service';
 
 export class User {
-  username: string;
+  email: string;
   password: string;
   role: string
 }
@@ -16,27 +16,27 @@ export class AuthService {
 
   users: User[] = [
     {
-      username: 'admin@ocim.com',
+      email: 'admin@ocim.com',
       password: 'admin123',
       role: 'Admin'
     },
     {
-      username: 'owner@ocim.com',
+      email: 'owner@ocim.com',
       password: 'owner123',
       role: 'Owner'
     },
     {
-      username: 'bm@ocim.com',
+      email: 'bm@ocim.com',
       password: 'manager123',
       role: 'Branch Manager'
     },
     {
-      username: 'faculty@ocim.com',
+      email: 'faculty@ocim.com',
       password: 'faculty123',
       role: 'Faculty'
     },
     {
-      username: 'student@ocim.com',
+      email: 'student@ocim.com',
       password: 'student123',
       role: 'Student'
     }
@@ -47,7 +47,7 @@ export class AuthService {
     private StudentService: StudentService
   ) { }
 
-  login(user: import("./login/login.component").signIn, currentUrl) {
+  login(user: User, currentUrl) {
     localStorage.setItem('currentUser', JSON.stringify(user));
     if (user) {
       this.router.navigate([currentUrl]);
