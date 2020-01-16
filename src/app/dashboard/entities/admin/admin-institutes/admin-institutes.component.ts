@@ -25,7 +25,7 @@ export class AdminInstitutesComponent implements OnInit {
   ]
 
   constructor() { }
-  displayedColumns: string[] = ['name', 'email', 'phone', 'branches', 'faculties', 'students', 'action'];
+  displayedColumns: string[] = ['name', 'email', 'phone', 'branches', 'faculties', 'students'];
   dataSource = new MatTableDataSource<institute>(this.institutes);
 
 

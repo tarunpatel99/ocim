@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
+import { PasswordValidation } from '../../../password-validator';
 
 export interface Class {
   value: string;
@@ -28,8 +29,11 @@ export interface State {
 })
 export class FacultyProfileComponent implements OnInit {
 
-  constructor() { }
+  constructor(private formBuilder: FormBuilder) { }
   addFacultyForm: FormGroup;
+  confirmPass: FormGroup;
+  confirmPasswordError = '';
+  password = '';
 
   classes: Class[] = [
     {value: '1', viewValue: '1'},
@@ -128,4 +132,16 @@ export class FacultyProfileComponent implements OnInit {
     })
   }
 
+  getPassword(passwordValue: string) {
+    this.password = passwordValue
+  }
+
+  checkPassword(confirmPasswordValue: string) {
+    if (this.confirmPasswordError != this.password) {
+      this.confirmPasswordError = 'password is not matched'
+      console.log(confirmPasswordValue)
+    }
+  }
+
+  
 }
