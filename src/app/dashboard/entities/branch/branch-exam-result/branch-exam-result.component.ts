@@ -102,13 +102,6 @@ export class BranchExamResultComponent implements OnInit {
     { value: '19-9th-010', name: 'Bhautik Patel' },
     { value: '19-9th-012', name: 'Anuj Shyara' },
     { value: '19-9th-013', name: 'Parth Patel' },
-    { value: '19-9th-014', name: 'Anonymous Patel' },
-    { value: '19-9th-015', name: 'Anonymous Patel' },
-    { value: '19-9th-016', name: 'Anonymous Patel' },
-    { value: '19-9th-017', name: 'Anonymous Patel' },
-    { value: '19-9th-018', name: 'Anonymous Patel' },
-    { value: '19-9th-019', name: 'Anonymous Patel' },
-    { value: '19-9th-020', name: 'Anonymous Patel' },
   ]
 
 

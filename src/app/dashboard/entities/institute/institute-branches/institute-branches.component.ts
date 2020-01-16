@@ -4,6 +4,7 @@ import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
 import { FormControl } from '@angular/forms';
+import {FormBuilder, FormGroup, Validators, MaxLengthValidator} from '@angular/forms';
 
 
 export interface City {
@@ -44,6 +45,25 @@ const Branch_Data: Branch_element[] = [
 })
 export class InstituteBranchesComponent implements OnInit {
 
+  firstFormGroup: FormGroup;
+  emailFormControl = new FormControl('', [
+    Validators.required,
+    Validators.email,
+  ]);
+  pnum = new FormControl('', [
+    Validators.required,
+    Validators.maxLength(10),
+    Validators.minLength(10),
+    Validators.pattern('[0-9]'),
+  ]);
+  pass = new FormControl('', [
+    Validators.required,
+    Validators.pattern('[0-9]'),
+  ]);
+  npass = new FormControl('', [
+    Validators.required
+  ]);
+
   constructor() { }
 
   checked = true;
@@ -74,6 +94,32 @@ export class InstituteBranchesComponent implements OnInit {
   ngOnInit() {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
+    this.firstFormGroup = new FormGroup({
+      fname: new FormControl(null, {
+        validators: [Validators.required]
+      }),
+      lname: new FormControl(null, {
+        validators: [Validators.required]
+      }),
+      address: new FormControl(null, {
+        validators: [Validators.required]
+      }),
+      bname: new FormControl(null, {
+        validators: [Validators.required]
+      }),
+      state: new FormControl(null, {
+        validators: [Validators.required]
+      }),
+      city: new FormControl(null, {
+        validators: [Validators.required]
+      }),
+      pcode: new FormControl(null, {
+        validators: [Validators.required]
+      }),
+      gender: new FormControl(null, {
+        validators: [Validators.required]
+      }),
+      });
   }
 
 

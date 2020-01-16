@@ -26,9 +26,9 @@ export interface LeaveNote {
 
   // leave notes data
   const leaves: LeaveNote[] = [
-    { id: "132", class: "8", studentName: "Tarun Patel", subject: "Khabar nai", description: "Dr. ne mali lo", leaveFrom: "12/12/2019", leaveTo: "22/12/2019", attatchment: [{ id: "Attatchment one" }, { id: "Attatchment two" }], status: "Pending" },
-    { id: "132", class: "9", studentName: "Tarun Patel", subject: "Khabar nai", description: "Dr. ne mali lo", leaveFrom: "12/12/2019", leaveTo: "22/12/2019", attatchment: [{ id: "Attatchment one" }, { id: "Attatchment two" }], status: "Approved" },
-    { id: "126", class: "7", studentName: "Tarun Patel", subject: "Khabar nai", description: "Dr. ne mali lo", leaveFrom: "12/12/2019", leaveTo: "22/12/2019", attatchment: [{ id: "Attatchment one" }, { id: "Attatchment two" }], status: "Denied" },
+    { id: "19-9th-001", class: "9", studentName: "Tarun Patel", subject: "Fever", description: "A temporary increase in average body temperature of 98.6°F (37°C).", leaveFrom: "12/12/2019", leaveTo: "22/12/2019", attatchment: [{ id: "Attatchment one" }, { id: "Attatchment two" }], status: "Pending" },
+    { id: "19-9th-001", class: "9", studentName: "Harshil Sureja", subject: "Fever", description: "A temporary increase in average body temperature of 98.6°F (37°C).", leaveFrom: "12/12/2019", leaveTo: "22/12/2019", attatchment: [{ id: "Attatchment one" }, { id: "Attatchment two" }], status: "Approved" },
+    { id: "19-9th-001", class: "9", studentName: "Tarun Patel", subject: "Fever", description: "A temporary increase in average body temperature of 98.6°F (37°C).", leaveFrom: "12/12/2019", leaveTo: "22/12/2019", attatchment: [{ id: "Attatchment one" }, { id: "Attatchment two" }], status: "Denied" },
   ]
   
 
@@ -47,7 +47,7 @@ export class BranchLeaveNotesComponent implements OnInit {
   }
 
 
-  displayedColumns: string[] = ['name', 'class', 'subject', 'from', 'to', 'status','action'];
+  displayedColumns: string[] = ['id','name', 'class', 'subject', 'from', 'to', 'status','action'];
   dataSource: MatTableDataSource<LeaveNote>;
 
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
