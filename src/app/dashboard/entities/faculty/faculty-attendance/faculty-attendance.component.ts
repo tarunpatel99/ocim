@@ -14,12 +14,17 @@ export class FacultyAttendanceComponent implements OnInit {
   facultyname="Tarun Patel"
   constructor() { }
   students: Student[] = [
-    { studentname: 'Harshil Sureja' },
-    { studentname: 'Nirav Kadiya' },
-    { studentname: 'Shubham mevada' },
-    { studentname: 'Shubha Bhatt' },
-    { studentname: 'Tarun Patel' },
-    { studentname: 'Aakash Bhavasar' }
+    // { studentname: 'Harshil Sureja' },
+    // { studentname: 'Nirav Kadiya' },
+    // { studentname: 'Shubham mevada' },
+    // { studentname: 'Shubha Bhatt' },
+    // { studentname: 'Tarun Patel' },
+    // { studentname: 'Jay Patel' },
+    // { studentname: 'Shushang Agnihotri' },
+    // { studentname: 'Saurabh Oza' },
+    // { studentname: 'Shreya Patel' },
+    // { studentname: 'Maitry Patel' },
+
   ]
   date = new FormControl(new Date());
 
