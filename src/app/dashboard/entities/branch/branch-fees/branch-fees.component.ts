@@ -3,7 +3,7 @@ import { Action } from 'rxjs/internal/scheduler/Action';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
-import { FormControl } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA, MatDialog } from '@angular/material';
 
 
@@ -211,6 +211,11 @@ export interface classNoticeList {
   viewValue: string;
 }
 
+// ==================================================================
+// ==================================================================
+//                           dialog box
+// ==================================================================
+// ==================================================================
 
 // Add time table form dialog box
 @Component({
@@ -218,7 +223,7 @@ export interface classNoticeList {
   templateUrl: 'announcement.form.html',
   styleUrls: ['announcement.form.css']
 })
-export class announcementFormDialog {
+export class announcementFormDialog implements OnInit{
   date = new FormControl(new Date());
   constructor(
     public dialogRef: MatDialogRef<announcementFormDialog>,
@@ -252,4 +257,26 @@ export class announcementFormDialog {
 
   onAddtimetable(): void { }
 
+
+  feesannouncementForm: FormGroup;
+
+  ngOnInit() {
+  this.feesannouncementForm=new FormGroup({
+    title: new FormControl(null, {
+      validators: [Validators.required]
+    }),
+    classannouncement: new FormControl(null, {
+      validators: [Validators.required]
+    }),
+    fees: new FormControl(null, {
+      validators: [Validators.required]
+    }),
+  })
+
+  };
+
+  
+  onCancel(): void {
+    this.dialogRef.close();
+  }
 }

@@ -1,1 +1,31 @@
-<p>admin-profile works!</p>
+<div class="heading">Profile</div>
+<mat-card>
+    <mat-card class="no-shadow half-width">
+        <mat-card-header>
+            <div mat-card-avatar class="example-header-image"></div>
+            <mat-card-title>Harshil Sureja</mat-card-title>
+            <mat-card-subtitle>Admin</mat-card-subtitle>
+        </mat-card-header>
+        <br>
+        <form action="" [formGroup]="adminForm" #admin>
+            <mat-card-title>Security details</mat-card-title>
+            <mat-label>Phone : 9099682234</mat-label>
+            <br>
+            <mat-label>Email : harshilsureja@gmail.com</mat-label>
+            <mat-form-field>
+                <input type="password" matInput placeholder="Old password" required>
+            </mat-form-field>
+            <mat-form-field>
+                <input type="password" matInput placeholder="New password" required>
+            </mat-form-field>
+            <mat-form-field>
+                <input type="password" matInput placeholder="Confirm new password" required>
+            </mat-form-field>
+            <br>
+            <mat-action-row>
+                <button mat-flat-button color="primary" type="submit">Change password</button>
+                <button mat-stroked-button color="warn" type="reset">Cancel</button>
+            </mat-action-row>
+        </form>
+    </mat-card>
+</mat-card>

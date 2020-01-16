@@ -91,7 +91,7 @@ mat-form-field {
 }
 
 .form-btn > .space, .footer > .space {
-    flex-grow: 1;
+    flex-grow: 2;
 }
 /* 
 .form-btn > .place-right {

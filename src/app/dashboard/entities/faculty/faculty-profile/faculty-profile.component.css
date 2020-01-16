@@ -17,6 +17,10 @@ button{
     height: 50px;
     width: 50px;
   }
+
+mat-divider {
+    margin: 30px auto !important;
+}
   
 /* .form-mat-card {
     display: inline-table;

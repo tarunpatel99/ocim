@@ -34,7 +34,7 @@
         <ng-container matColumnDef="download">
             <mat-header-cell *matHeaderCellDef mat-sort-header></mat-header-cell>
             <mat-cell *matCellDef="let file">
-                <a mat-icon-button target="_blank" [download]="file.name + '.jpg'" [href]="file.fileSoureceUrl">
+                <a mat-icon-button target="_blank" [download]="file.name" [href]="file.fileSoureceUrl">
                     <mat-icon>save_alt</mat-icon>
                 </a>
             </mat-cell>

@@ -46,6 +46,7 @@ import { InstituteProfileComponent } from './dashboard/entities/institute/instit
 import { InstituteFeedbackComponent } from './dashboard/entities/institute/institute-feedback/institute-feedback.component';
 import { BranchDashboardComponent } from './dashboard/entities/branch/branch-dashboard/branch-dashboard.component';
 import { BranchTimetableComponent, TimeTableFormDialog } from './dashboard/entities/branch/branch-timetable/branch-timetable.component';
+import { ViewTimetableComponent } from './dashboard/entities/branch/branch-timetable/view-timetable/view-timetable.component';
 import { BranchAttendanceComponent } from './dashboard/entities/branch/branch-attendance/branch-attendance.component';
 import { BranchClassComponent } from './dashboard/entities/branch/branch-class/branch-class.component';
 import { BranchExamScheduleComponent } from './dashboard/entities/branch/branch-exam-schedule/branch-exam-schedule.component';
@@ -82,7 +83,8 @@ import { AuthService } from './auth/auth.service';
 import { BranchFacultiesComponent } from './dashboard/entities/branch/branch-faculties/branch-faculties.component';
 import { CommonModule } from '@angular/common';
 import { ConfirmDeleteComponent } from './dashboard/entities/confirm-delete/confirm-delete.component';
-
+import { EditResultMarkComponent } from './dashboard/entities/branch/branch-exam-result/edit-result-mark/edit-result-mark.component';
+import { OverlayModule } from '@angular/cdk/overlay';
 
 @NgModule({
   declarations: [
@@ -110,6 +112,7 @@ import { ConfirmDeleteComponent } from './dashboard/entities/confirm-delete/conf
     BranchDashboardComponent,
     BranchTimetableComponent,
     TimeTableFormDialog, //add/edit time table dialog box
+    ViewTimetableComponent, //view dialogbox
     BranchAttendanceComponent,
     BranchClassComponent,
     BranchExamScheduleComponent,
@@ -124,7 +127,7 @@ import { ConfirmDeleteComponent } from './dashboard/entities/confirm-delete/conf
     BranchProfileComponent,
     FacultyDashboardComponent,
     FacultyTimeTableComponent,
-    ViewTimeTableComponent,
+    ViewTimeTableComponent, //faculty
     FacultyAttendanceComponent,
     FacultyTaskWorkComponent,
     TaskWorkFormDialog, // add/edit task and work dialog box
@@ -148,7 +151,7 @@ import { ConfirmDeleteComponent } from './dashboard/entities/confirm-delete/conf
     StudentDashboardComponent,
     BranchFacultiesComponent,
     ApplyLeave, // leave dialog,
-    actiondialog, ConfirmDeleteComponent
+    actiondialog, ConfirmDeleteComponent, EditResultMarkComponent
   ],
   imports: [
     BrowserModule,
@@ -158,18 +161,21 @@ import { ConfirmDeleteComponent } from './dashboard/entities/confirm-delete/conf
     FormsModule,
     MaterialModule,
     CommonModule,
-    HttpClientModule
+    HttpClientModule,
+    OverlayModule
   ],
   entryComponents: [
     // dialog boxes
     TaskWorkFormDialog,
     TimeTableFormDialog,
     announcementFormDialog,
+    ViewTimetableComponent, //branch
+    EditResultMarkComponent,
     NoticeByIOFormDialog,
     NoticeFormDialog,
     LeaveNoteFormDialog,
     LeaveNoteViewDialog,
-    ViewTimeTableComponent,
+    ViewTimeTableComponent, //faculty
     ApplyLeave,
     actiondialog,
     ConfirmDeleteComponent
