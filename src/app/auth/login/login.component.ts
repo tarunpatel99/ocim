@@ -55,7 +55,7 @@ export class LoginComponent implements OnInit {
     // form validation
     this.loginForm = new FormGroup({
       email: new FormControl('', {
-        validators: [Validators.required, Validators.pattern('admin@ocim.com')]
+        validators: [Validators.required]
       }),
       password: new FormControl('', {
         validators: [Validators.required, Validators.minLength(8)]
