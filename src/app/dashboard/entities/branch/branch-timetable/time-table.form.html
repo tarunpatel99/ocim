@@ -14,8 +14,10 @@
             <textarea type="text" matInput placeholder="Description" rows="1"></textarea>
         </mat-form-field>
         <div class="uploadfilecontainer" (click)="fileInput.click()" appDragDrop (onFileDropped)="uploadFile($event)">
-            <input hidden type="file" #fileInput (change)="uploadFile($event.target.files)">Drag & Drop
-            <mat-icon color="primary">cloud_upload</mat-icon>
+            <div class="button-icon">
+                <input hidden type="file" #fileInput (change)="uploadFile($event.target.files)">
+                <span>Drag & Drop</span>
+            </div>
         </div>
         <div class="files-list" *ngFor="let file of files;let i= index">
             <p> {{ file }} </p>

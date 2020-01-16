@@ -20,17 +20,16 @@ export interface StudentData {
 
 // get student info from local data
 const students: StudentData[] = [
-  { id: '17-BCA-068', name: 'Harshil Patel', exmdate: '14-dec-2019', subject: 'OSOS', obt_marks: 45, ttl_marks: 50 },
-  { id: '17-BCA-078', name: 'Nirav Kadiya', exmdate: '14/12/2019', subject: 'OSOS', obt_marks: 45, ttl_marks: 50 },
-  { id: '17-BCA-081', name: 'Shubham Mevada', exmdate: '14/12/2019', subject: 'Python', obt_marks: 44, ttl_marks: 50 },
-  { id: '17-BCA-105', name: 'Shubha Bhatt', exmdate: '14/12/2019', subject: 'VB', obt_marks: 35, ttl_marks: 50 },
-  { id: '17-BCA-140', name: 'Aakash Bhavasar', exmdate: '14/12/2019', subject: 'DCN', obt_marks: 49, ttl_marks: 50 },
-  { id: '17-BCA-068', name: 'Harshil Patel', exmdate: '14/12/2019', subject: 'OSOS', obt_marks: 45, ttl_marks: 50 },
-  { id: '17-BCA-078', name: 'Nirav Kadiya', exmdate: '14/12/2019', subject: 'OSOS', obt_marks: 45, ttl_marks: 50 },
-  { id: '17-BCA-081', name: 'Shubham Mevada', exmdate: '14/12/2019', subject: 'Python', obt_marks: 44, ttl_marks: 50 },
-  { id: '17-BCA-105', name: 'Shubha Bhatt', exmdate: '14/12/2019', subject: 'VB', obt_marks: 35, ttl_marks: 50 },
-  { id: '17-BCA-126', name: 'Tarun Patel', exmdate: '14/12/2019', subject: 'OSOS', obt_marks: 17, ttl_marks: 50 },
-  { id: '17-BCA-140', name: 'Aakash Bhavasar', exmdate: '14/12/2019', subject: 'DCN', obt_marks: 49, ttl_marks: 50 }
+  { id: '19-9th-001', name: 'Harshil Patel', exmdate: '14/12/2019', subject: 'Maths', obt_marks: 45, ttl_marks: 50 },
+  { id: '19-9th-002', name: 'Nirav Kadiya', exmdate: '14/12/2019', subject: 'Maths', obt_marks: 45, ttl_marks: 50 },
+  { id: '19-9th-003', name: 'Shubham Mevada', exmdate: '14/12/2019', subject: 'Maths', obt_marks: 44, ttl_marks: 50 },
+  { id: '19-9th-004', name: 'Shubha Bhatt', exmdate: '14/12/2019', subject: 'Maths', obt_marks: 35, ttl_marks: 50 },
+  { id: '19-9th-005', name: 'Tarun Patel', exmdate: '14/12/2019', subject: 'Maths', obt_marks: 17, ttl_marks: 50 },
+  { id: '19-9th-006', name: 'Aakash Bhavasar', exmdate: '14/12/2019', subject: 'Maths', obt_marks: 49, ttl_marks: 50 },
+  { id: '19-9th-007', name: 'Harshil Sureja', exmdate: '14/12/2019', subject: 'Maths', obt_marks: 49, ttl_marks: 50 },
+  { id: '19-9th-008', name: 'Saurabh Oza', exmdate: '14/12/2019', subject: 'Maths', obt_marks: 45, ttl_marks: 50 },
+  { id: '19-9th-009', name: 'Hastik Bhut', exmdate: '14/12/2019', subject: 'Maths', obt_marks: 45, ttl_marks: 50 },
+  { id: '19-9th-010', name: 'Yash Charola', exmdate: '14/12/2019', subject: 'Maths', obt_marks: 44, ttl_marks: 50 },
 ]
 
 export interface Classsbj {

@@ -5,6 +5,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './auth/login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SignupComponent } from './auth/signup/signup.component';
+import { ForgotpasswordComponent } from './auth/forgotpassword/forgotpassword.component'
 import { AdminDashboardComponent } from './dashboard/entities/admin/admin-dashboard/admin-dashboard.component';
 import { AdminFeedbackComponent } from './dashboard/entities/admin/admin-feedback/admin-feedback.component';
 import { AdminInstitutesComponent } from './dashboard/entities/admin/admin-institutes/admin-institutes.component';
@@ -58,6 +59,9 @@ const routes: Routes = [
   },
   {
     path: 'signup', component: SignupComponent
+  }, 
+  {
+    path: 'forgotpassword', component: ForgotpasswordComponent
   },
   {
     path: '', component: DashboardComponent,
