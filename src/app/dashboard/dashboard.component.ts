@@ -7,7 +7,7 @@ import { AuthService } from '../auth/auth.service';
 import { OverlayContainer } from '@angular/cdk/overlay';
 
 export class User {
-  username?: string;
+  email?: string;
   password?: string;
   role: string
 }
@@ -21,7 +21,7 @@ export class User {
 export class DashboardComponent implements OnInit, OnDestroy {
   mobileQuery: MediaQueryList;
 
-  username = 'Not Assigned'
+  email: any
   role: any
 
   @HostBinding('class') componentCssClass;
@@ -49,7 +49,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
     this.AuthService.navigateUser()
-    this.username = this.currentUser.username;
+    this.email = this.currentUser.email;
     this.role = this.currentUser.role;
 
 
