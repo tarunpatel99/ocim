@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth.service';
-import { NgForm } from '@angular/forms';
+import { NgForm, FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { OverlayContainer } from '@angular/cdk/overlay';
+import { element } from 'protractor';
 
 export interface Role {
   value: string;
@@ -10,8 +11,8 @@ export interface Role {
 }
 
 export interface signIn {
-  username: string,
-  password: string,
+  username: string;
+  password: string;
   role: string
 }
 
@@ -22,6 +23,12 @@ export interface signIn {
 })
 export class LoginComponent implements OnInit {
   returnUrl: string;
+  user = false;
+  password = false;
+  role = false
+
+  loginForm: FormGroup
+  
 
   constructor(private AuthService: AuthService,
     private router: Router, 
@@ -44,16 +51,33 @@ export class LoginComponent implements OnInit {
     if (user != null) {
       this.router.navigate(['/'])
     }
+
+    // form validation
+    this.loginForm = new FormGroup({
+      email: new FormControl('', {
+        validators: [Validators.required]
+      }),
+      password: new FormControl('', {
+        validators: [Validators.required, Validators.minLength(8)]
+      }),
+      role: new FormControl('', {
+        validators: [Validators.required]
+      })
+    });
     
   }
   
   // get login info of user
   onLogin(form: NgForm) {
+    if (form.invalid) {
+      return
+    }
     const user: signIn = {
       username: form.value.username,
       password: form.value.password,
       role: form.value.role
     }
+
 
     // Authentication
     this.AuthService.login(user, this.returnUrl)

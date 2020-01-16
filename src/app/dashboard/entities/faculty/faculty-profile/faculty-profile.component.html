@@ -130,15 +130,16 @@
             </mat-form-field>
             <br>
             <mat-form-field class="full-width">
-                <input type="password" matInput placeholder="Password" formControlName="password" required>
+                <input type="password" matInput placeholder="Password" (keyup)="getPassword($event.target.value)" formControlName="password" required>
                 <mat-error *ngIf="addFacultyForm.get('password').invalid">Please enter password
                 </mat-error>
             </mat-form-field>
             <mat-form-field class="full-width">
 
-                <input type="password" matInput placeholder="Confirm password" formControlName="confirmpassword" required>
+                <input type="password" matInput placeholder="Confirm password" (keyup)="checkPassword($event.target.value)" formControlName="confirmpassword" required>
                 <mat-error *ngIf="addFacultyForm.get('confirmpassword').invalid">Please enter confirm password
                 </mat-error>
+                <mat-error>{{confirmPasswordError}}</mat-error>
             </mat-form-field>
             
         <mat-card-actions align="end">

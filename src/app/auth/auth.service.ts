@@ -3,8 +3,8 @@ import { Router } from '@angular/router';
 import { StudentService } from '../student.service';
 
 export class User {
-  username?: string;
-  password?: string;
+  username: string;
+  password: string;
   role: string
 }
 
@@ -13,6 +13,34 @@ export class User {
 })
 export class AuthService {
   currentuser: User;
+
+  users: User[] = [
+    {
+      username: 'admin@ocim.com',
+      password: 'admin123',
+      role: 'Admin'
+    },
+    {
+      username: 'owner@ocim.com',
+      password: 'owner123',
+      role: 'Owner'
+    },
+    {
+      username: 'bm@ocim.com',
+      password: 'manager123',
+      role: 'Branch Manager'
+    },
+    {
+      username: 'faculty@ocim.com',
+      password: 'faculty123',
+      role: 'Faculty'
+    },
+    {
+      username: 'student@ocim.com',
+      password: 'student123',
+      role: 'Student'
+    }
+  ]
 
   constructor(
     private router: Router,
@@ -23,6 +51,33 @@ export class AuthService {
     localStorage.setItem('currentUser', JSON.stringify(user));
     if (user) {
       this.router.navigate([currentUrl]);
+      // let matchedUsers = this.users.filter(fetchuser => { return fetchuser.username == user.username });
+      // let checkuser = matchedUsers.length ? matchedUsers[0] : null;
+      // let checkpassword = null, checkrole = null
+      // console.log(checkuser)
+      // if (checkuser != null) {
+      //   if (user.password == checkuser.password)
+      //     checkpassword = checkuser
+      // }
+      // if (checkpassword != null) {
+      //   if (user.role == checkpassword.role)
+      //     checkrole = checkpassword
+      // }
+      // console.log(checkrole, checkuser, checkpassword)
+      // if (checkuser == null) {
+      //   return
+      // }
+      // else if (checkpassword == null) {
+      //   return
+      // }
+      // else if (checkrole == null) {
+      //   return
+      // }
+      // else if (checkuser != null && checkpassword != null && checkrole != null) {
+      //   console.log(checkrole, checkuser, checkpassword)
+      //   this.router.navigate([currentUrl]);
+      // }
+      
     }
     
   }
