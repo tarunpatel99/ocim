@@ -82,7 +82,7 @@ export class BranchExamScheduleComponent implements OnInit {
     {value: 'Science', viewValue: 'Science'},
     {value: 'Maths', viewValue: 'Maths'},
     {value: 'Social', viewValue: 'Social'},
-    {value: 'English', viewValue: 'English'}
+    {value: 'Bio', viewValue: 'Bio'}
   ]
   
   exmmarks: exmmark[] = [
