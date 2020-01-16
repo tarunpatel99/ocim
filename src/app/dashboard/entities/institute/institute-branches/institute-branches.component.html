@@ -52,7 +52,7 @@
         </mat-tab>
         <!-- ======================================================================================================================= -->
         <mat-tab label="Add Branch">
-            <form class="no-add-branch">
+            <form class="no-add-branch" [formGroup]="firstFormGroup">
                 <mat-card style="background: none; box-shadow: none;">
                     <mat-card-header>
                         <div mat-card-avatar class="example-header-image"></div>
@@ -61,63 +61,93 @@
                     </mat-card-header>
                 </mat-card>
                 <mat-form-field class="full-width">
-                    <input type="text" matInput placeholder="First name" required>
+                    <input type="text" matInput placeholder="First name" formControlName="fname" required>
+                    <mat-error *ngIf="firstFormGroup.get('fname').invalid">First name is required</mat-error>
                 </mat-form-field>
                 <mat-form-field class="full-width">
-                    <input type="text" matInput placeholder="Middle name" required>
+                    <input type="text" matInput placeholder="Middle name">
                 </mat-form-field>
                 <mat-form-field class="full-width">
-                    <input type="text" matInput placeholder="Last name" required>
+                    <input type="text" matInput placeholder="Last name" formControlName="lname" required>
+                    <mat-error *ngIf="firstFormGroup.get('lname').invalid">Last name is required</mat-error>
                 </mat-form-field>
                 <br>
-                <div class="gndr">
+                <div class="gndr" >
                     <p><label class="half-width">Select Gender</label></p>
-                    <mat-radio-group aria-label="Select Gender" class="half-width" color="primary" required>
+                    <mat-radio-group aria-label="Select Gender" class="half-width" color="primary" formControlName="gender" required>
                         <mat-radio-button value="Male">Male</mat-radio-button>
                         <mat-radio-button value="Female">Female</mat-radio-button>
                         <mat-radio-button value="Other">Other</mat-radio-button>
                     </mat-radio-group>
+                    <mat-error *ngIf="firstFormGroup.get('gender').invalid">Gender is required</mat-error>
                 </div>
                 <mat-form-field class="full-width">
-                    <input type="text" matInput placeholder="Brnach name" required>
+                    <input type="text" matInput placeholder="Branch name" formControlName="bname" required>
+                    <mat-error *ngIf="firstFormGroup.get('bname').invalid">Branch name is required</mat-error>
                 </mat-form-field>
                 <mat-form-field class="full-width">
-                    <textarea type="text" matInput placeholder="Address" rows="3" required></textarea>
+                    <textarea type="text" matInput placeholder="Address" rows="3" formControlName="address" required></textarea>
+                    <mat-error *ngIf="firstFormGroup.get('address').invalid">Address is required</mat-error>
                 </mat-form-field>
                 <br>
                 <mat-form-field class="full-width">
                     <mat-label>City</mat-label>
-                    <mat-select required>
+                    <mat-select formControlName="city" required>
                         <mat-option *ngFor="let city of cities" [value]="city.value">
                         {{city.viewValue}}
                         </mat-option>
                     </mat-select>
+                    <mat-error *ngIf="firstFormGroup.get('city').invalid">City is required</mat-error>
                 </mat-form-field>
                 <mat-form-field class="full-width">
                     <mat-label>State</mat-label>
-                    <mat-select required>
+                    <mat-select formControlName="state" required>
                         <mat-option *ngFor="let state of states" [value]="state.value">
                         {{state.viewValue}}
                         </mat-option>
                     </mat-select>
+                    <mat-error *ngIf="firstFormGroup.get('state').invalid">State is required</mat-error>
                 </mat-form-field>
                 <mat-form-field class="full-width">
-                    <input matInput #postalCode maxlength="6" placeholder="Postal Code" required>
+                    <input matInput #postalCode maxlength="6" placeholder="Postal Code" formControlName="pcode" required>
+                    <mat-error *ngIf="firstFormGroup.get('pcode').invalid">Postal is required</mat-error>
                     <mat-hint align="end">{{postalCode.value.length}} / 6</mat-hint>
                 </mat-form-field>
                 <br>
                 <mat-form-field class="full-width">
-                    <input type="text" matInput placeholder="Phone number" required>
+                    <input type="text" matInput placeholder="Phone number" [formControl]="pnum" required>
+                    <mat-error *ngIf="pnum.hasError('pattern') && !pnum.hasError('required')">
+                        Please enter digits only
+                      </mat-error>
+                      <mat-error *ngIf="pnum.hasError('required')">
+                        Phone number is <strong>required</strong>
+                      </mat-error>
+                      <mat-hint align="end">{{pnum.value.length}} / 10</mat-hint>
                 </mat-form-field>
                 <mat-form-field class="full-width">
-                    <input type="text" matInput placeholder="Email" required>
+                    <input type="text" matInput placeholder="Email" [formControl]="emailFormControl" required>
+                    <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+                        Please enter a valid email address
+                      </mat-error>
+                      <mat-error *ngIf="emailFormControl.hasError('required')">
+                        Email is <strong>required</strong>
+                      </mat-error>
                 </mat-form-field>
                 <br>
                 <mat-form-field class="full-width">
-                    <input type="password" matInput placeholder="Password" required>
+                    <input type="password" matInput placeholder="Password" [formControl]="npass" required>
+                    <mat-error *ngIf="npass.hasError('required')">
+                        Password is <strong>required</strong>
+                      </mat-error>
                 </mat-form-field>
                 <mat-form-field class="full-width">
-                    <input type="password" matInput placeholder="Confirm password" required>
+                    <input type="password" matInput placeholder="Confirm password" [formControl]="pass" required>
+                    <mat-error *ngIf="pass.hasError('pattern') && !pass.hasError('required')">
+                        Password does not match
+                      </mat-error>
+                      <mat-error *ngIf="pass.hasError('required')">
+                        Password is <strong>required</strong>
+                      </mat-error>
                 </mat-form-field>
                 <!-- <div class="right"> -->
                     <mat-action-row>
