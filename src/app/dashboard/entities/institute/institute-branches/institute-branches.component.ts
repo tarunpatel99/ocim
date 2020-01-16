@@ -25,16 +25,16 @@ export interface Branch_element {
 }
 
 const Branch_Data: Branch_element[] = [
-  {branchname: 'House Bopal' , name: 'Branchmanager Middlename Surname', email: 'branchmngr@gmail.com' , phone: '9876543210'},
-  {branchname: 'Ghuma' , name: 'Branchmanager Middlename Surname', email: 'branchmngr@gmail.com' , phone: '9876543210'},
-  {branchname: 'South Bopal' , name: 'Branchmanager Middlename Surname', email: 'branchmngr@gmail.com' , phone: '9876543210'},
-  {branchname: 'Science city' , name: 'Branchmanager Middlename Surname', email: 'branchmngr@gmail.com' , phone: '9876543210'},
-  {branchname: 'Maninagar' , name: 'Branchmanager Middlename Surname', email: 'branchmngr@gmail.com' , phone: '9876543210'},
-  {branchname: 'SBI Bopal' , name: 'Branchmanager Middlename Surname', email: 'branchmngr@gmail.com' , phone: '9876543210'},
-  {branchname: 'Bapunagar' , name: 'Branchmanager Middlename Surname', email: 'branchmngr@gmail.com' , phone: '9876543210'},
-  {branchname: 'Nerunagar' , name: 'Branchmanager Middlename Surname', email: 'branchmngr@gmail.com' , phone: '9876543210'},
-  {branchname: 'Iscon' , name: 'Branchmanager Middlename Surname', email: 'branchmngr@gmail.com' , phone: '9876543210'},
-  {branchname: 'Vastrapur' , name: 'Branchmanager Middlename Surname', email: 'branchmngr@gmail.com' , phone: '9876543210'},
+  {branchname: 'House Bopal' , name: 'Haresh Oza', email: 'haresh1976@gmail.com' , phone: '9876543210'},
+  {branchname: 'Ghuma' , name: 'Ankti Patel', email: 'pAnkti86@gmail.com' , phone: '8644756557'},
+  {branchname: 'South Bopal' , name: 'Kaushik Prajapti', email: 'kaushik@gmail.com' , phone: '9876543210'},
+  {branchname: 'Science city' , name: 'Vinay Sureja', email: 'dSureja@gmail.com' , phone: '6845652133'},
+  {branchname: 'Maninagar' , name: 'Dharmesh Jadeja', email: 'dharmeshj@gmail.com' , phone: '8665645212'},
+  {branchname: 'SBI Bopal' , name: 'Chinmay Bhatt', email: 'bhattChiku@gmail.com' , phone: '6845645102'},
+  {branchname: 'Bapunagar' , name: 'Nirav Kadia', email: 'kNirav@gmail.com' , phone: '7565422388'},
+  {branchname: 'Nerunagar' , name: 'Shivam Patel', email: 'shivampatel@gmail.com' , phone: '8648546217'},
+  {branchname: 'Iscon' , name: 'Shubh Bhatt', email: 'shubhb@gmail.com' , phone: '8456512378'},
+  {branchname: 'Vastrapur' , name: 'Shubham Mevada', email: 'mevadaS@gmail.com' , phone: '9643532123'},
 ];
 
 
@@ -53,12 +53,10 @@ export class InstituteBranchesComponent implements OnInit {
   pnum = new FormControl('', [
     Validators.required,
     Validators.maxLength(10),
-    Validators.minLength(10),
-    Validators.pattern('[0-9]'),
+    Validators.minLength(10)
   ]);
   pass = new FormControl('', [
-    Validators.required,
-    Validators.pattern('[0-9]'),
+    Validators.required
   ]);
   npass = new FormControl('', [
     Validators.required
