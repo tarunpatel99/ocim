@@ -19,8 +19,8 @@ export interface feedback {
 export class AdminFeedbackComponent implements OnInit {
 
   feedbacks: feedback[] = [
-    { date: '07-11-2019', feedbackby: 'Tarun Patel', institute: 'Gyan Jyot', title: 'Very nice application', description: 'Bau j mast appliaction banavi che tame.' },
-    { date: '17-10-2019', feedbackby: 'Shivam Patel', institute: 'Shivam Classes', title: 'Gajjab', description: 'Application joi ne maja avi gai' }
+    { date: '07-11-2019', feedbackby: 'Tarun Patel', institute: 'Gyan Jyot', title: 'Storage Saver', description: ' It enables us hassle free to worry about data saving, back ups or sync with PC, ' },
+    { date: '17-10-2019', feedbackby: 'Aakash Bhavasar', institute: 'Shivam Classes', title: 'Amazing life saver. ', description: 'My phone had to go thru a master reset after being cracking the screen on concrete.' }
   ]
 
   constructor() { }

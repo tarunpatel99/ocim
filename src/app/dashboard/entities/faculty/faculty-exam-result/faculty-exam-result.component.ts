@@ -28,18 +28,16 @@ export class FacultyExamResultComponent implements OnInit {
   constructor() {
     // get student info from local data
     const students = [
-      { id: '17-BCA-068', name: 'Harshil Sureja', date: '14/12/2019', subject: 'OSOS', obt_marks: 45, ttl_marks: 50 },
-      { id: '17-BCA-078', name: 'Nirav Kadiya', date: '14/12/2019', subject: 'OSOS', obt_marks: 45, ttl_marks: 50 },
-      { id: '17-BCA-081', name: 'Shubham Mevada', date: '14/12/2019', subject: 'Python', obt_marks: 44, ttl_marks: 50 },
-      { id: '17-BCA-105', name: 'Shubha Bhatt', date: '14/12/2019', subject: 'VB', obt_marks: 35, ttl_marks: 50 },
-      { id: '17-BCA-126', name: 'Tarun Patel', date: '14/12/2019', subject: 'OSOS', obt_marks: 17, ttl_marks: 50 },
-      { id: '17-BCA-140', name: 'Aakash Bhavasar', date: '14/12/2019', subject: 'DCN', obt_marks: 49, ttl_marks: 50 },
-      { id: '17-BCA-068', name: 'Harshil Sureja', date: '14/12/2019', subject: 'OSOS', obt_marks: 45, ttl_marks: 50 },
-      { id: '17-BCA-078', name: 'Nirav Kadiya', date: '14/12/2019', subject: 'OSOS', obt_marks: 45, ttl_marks: 50 },
-      { id: '17-BCA-081', name: 'Shubham Mevada', date: '14/12/2019', subject: 'Python', obt_marks: 44, ttl_marks: 50 },
-      { id: '17-BCA-105', name: 'Shubha Bhatt', date: '14/12/2019', subject: 'VB', obt_marks: 35, ttl_marks: 50 },
-      { id: '17-BCA-126', name: 'Tarun Patel', date: '14/12/2019', subject: 'OSOS', obt_marks: 17, ttl_marks: 50 },
-      { id: '17-BCA-140', name: 'Aakash Bhavasar', date: '14/12/2019', subject: 'DCN', obt_marks: 49, ttl_marks: 50 }
+      { id: '19-9th-001', name: 'Harshil Patel', date: '14/12/2019', subject: 'Maths', obt_marks: 45, ttl_marks: 50 },
+      { id: '19-9th-002', name: 'Nirav Kadiya', date: '14/12/2019', subject: 'Maths', obt_marks: 45, ttl_marks: 50 },
+      { id: '19-9th-003', name: 'Shubham Mevada', date: '14/12/2019', subject: 'Maths', obt_marks: 44, ttl_marks: 50 },
+      { id: '19-9th-004', name: 'Shubh Bhatt', date: '14/12/2019', subject: 'Maths', obt_marks: 35, ttl_marks: 50 },
+      { id: '19-9th-005', name: 'Tarun Patel', date: '14/12/2019', subject: 'Maths', obt_marks: 17, ttl_marks: 50 },
+      { id: '19-9th-006', name: 'Aakash Bhavasar', date: '14/12/2019', subject: 'Maths', obt_marks: 49, ttl_marks: 50 },
+      { id: '19-9th-007', name: 'Harshil Sureja', date: '14/12/2019', subject: 'Maths', obt_marks: 45, ttl_marks: 50 },
+      { id: '19-9th-008', name: 'Saurabh Oza', date: '14/12/2019', subject: 'Maths', obt_marks: 45, ttl_marks: 50 },
+      { id: '19-9th-009', name: 'Hastik Bhut', date: '14/12/2019', subject: 'Maths', obt_marks: 44, ttl_marks: 50 },
+      { id: '19-9th-010', name: 'Yash Charola', date: '14/12/2019', subject: 'Maths', obt_marks: 35, ttl_marks: 50 }
     ]
 
     // Assign the data to the data source for the table to render

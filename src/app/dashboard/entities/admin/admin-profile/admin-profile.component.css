@@ -60,7 +60,7 @@ button {
 
 .full-width {
     display: inline-block;
-    width: 30%;
+    width: -webkit-fill-available;
     margin: 0 10px;
     /* max-width: 85%; */
 }

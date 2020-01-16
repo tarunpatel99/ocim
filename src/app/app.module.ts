@@ -8,7 +8,7 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { FormsModule } from '@angular/forms';
-
+import { RouterModule } from '@angular/router';
 import { MaterialModule } from "./material.module";
 // import { FormControl } from '@angular/forms';
 // import { FormGroup } from '@angular/forms';
@@ -61,7 +61,7 @@ import { FacultyTimeTableComponent } from './dashboard/entities/faculty/faculty-
 import { ViewTimeTableComponent } from './dashboard/entities/faculty/faculty-time-table/view-time-table/view-time-table.component'; // view time table dialog
 import { FacultyAttendanceComponent } from './dashboard/entities/faculty/faculty-attendance/faculty-attendance.component';
 import { FacultyTaskWorkComponent, TaskWorkFormDialog } from './dashboard/entities/faculty/faculty-task-work/faculty-task-work.component';
-import { FacultySyllabusComponent } from './dashboard/entities/faculty/faculty-syllabus/faculty-syllabus.component';
+import { FacultySyllabusComponent, SyllabusFormDialog } from './dashboard/entities/faculty/faculty-syllabus/faculty-syllabus.component';
 import { FacultyExamScheduleComponent } from './dashboard/entities/faculty/faculty-exam-schedule/faculty-exam-schedule.component';
 import { FacultyExamResultComponent } from './dashboard/entities/faculty/faculty-exam-result/faculty-exam-result.component';
 import { FacultyNoticeComponent } from './dashboard/entities/faculty/faculty-notice/faculty-notice.component';
@@ -85,6 +85,7 @@ import { CommonModule } from '@angular/common';
 import { ConfirmDeleteComponent } from './dashboard/entities/confirm-delete/confirm-delete.component';
 import { EditResultMarkComponent } from './dashboard/entities/branch/branch-exam-result/edit-result-mark/edit-result-mark.component';
 import { OverlayModule } from '@angular/cdk/overlay';
+import { ForgotpasswordComponent } from './auth/forgotpassword/forgotpassword.component';
 
 @NgModule({
   declarations: [
@@ -92,6 +93,7 @@ import { OverlayModule } from '@angular/cdk/overlay';
     DashboardComponent,
     LoginComponent,
     SignupComponent,
+    ForgotpasswordComponent,
     AdminComponent,
     BranchComponent,
     FacultyComponent,
@@ -132,6 +134,7 @@ import { OverlayModule } from '@angular/cdk/overlay';
     FacultyTaskWorkComponent,
     TaskWorkFormDialog, // add/edit task and work dialog box
     FacultySyllabusComponent,
+    SyllabusFormDialog,
     FacultyExamScheduleComponent,
     FacultyExamResultComponent,
     FacultyNoticeComponent,
@@ -178,7 +181,8 @@ import { OverlayModule } from '@angular/cdk/overlay';
     ViewTimeTableComponent, //faculty
     ApplyLeave,
     actiondialog,
-    ConfirmDeleteComponent
+    ConfirmDeleteComponent,
+    SyllabusFormDialog
   ],
   providers: [
     StudentService,

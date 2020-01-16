@@ -11,7 +11,7 @@ export interface Role {
 }
 
 export interface signIn {
-  username: string;
+  email: string;
   password: string;
   role: string
 }
@@ -73,7 +73,7 @@ export class LoginComponent implements OnInit {
       return
     }
     const user: signIn = {
-      username: form.value.username,
+      email: form.value.email,
       password: form.value.password,
       role: form.value.role
     }
