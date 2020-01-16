@@ -37,16 +37,16 @@ export interface Fac_element {
 
 
 const Faculty_Data: Fac_element[] = [
-  {position: 1, name: 'Faculty Middlename Surname', email: 'facultyemail1@gmail.com', phone: '9876543210'},
-  {position: 2, name: 'Faculty Middlename Surname', email: 'facultyemail2@gmail.com', phone: '9876543210'},
-  {position: 3, name: 'Faculty Middlename Surname', email: 'facultyemail3@gmail.com', phone: '9876543210'},
-  {position: 4, name: 'Faculty Middlename Surname', email: 'facultyemail4@gmail.com', phone: '9876543210'},
-  {position: 5, name: 'Faculty Middlename Surname', email: 'facultyemail5@gmail.com', phone: '9876543210'},
-  {position: 6, name: 'Faculty Middlename Surname', email: 'facultyemail6@gmail.com', phone: '9876543210'},
-  {position: 7, name: 'Faculty Middlename Surname', email: 'facultyemail7@gmail.com', phone: '9876543210'},
-  {position: 8, name: 'Faculty Middlename Surname', email: 'facultyemail8@gmail.com', phone: '9876543210'},
-  {position: 9, name: 'Faculty Middlename Surname', email: 'facultyemail9@gmail.com', phone: '9876543210'},
-  {position: 10, name: 'Faculty Middlename Surname', email: 'facultyemail10@gmail.com', phone: '9876543210'},
+  {position: 1, name: 'Bhavesh Rathod', email: 'bhaveshrathod@gmail.com', phone: '9876543210'},
+  {position: 2, name: 'Rutvik Rathod', email: 'rutvikrathod@gmail.com', phone: '9876343210'},
+  {position: 3, name: 'Deven Purohit', email: 'devenpurohit@gmail.com', phone: '9834543210'},
+  {position: 4, name: 'Ajit Bhavsar', email: 'ajitbhavsar@gmail.com', phone: '9876123210'},
+  {position: 5, name: 'Otya sir', email: 'otya@gmail.com', phone: '9876345610'},
+  {position: 6, name: 'Jayesh Patel', email: 'jayeshpatel@gmail.com', phone: '9871223210'},
+  {position: 7, name: 'Jigar Patel', email: 'jigarpatel@gmail.com', phone: '987123440'},
+  {position: 8, name: 'Kalpesh Patel', email: 'kalpeshpatel@gmail.com', phone: '9872343210'},
+  {position: 9, name: 'Harshil Patel', email: 'harshilpatel@gmail.com', phone: '9823433210'},
+  {position: 10, name: 'Aakash Chaturvedi', email: 'aakashchaturvedi@gmail.com', phone: '9876678210'},
 ];
 
 
