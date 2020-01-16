@@ -12,20 +12,21 @@
             <mat-label>Phone : 9099682234</mat-label>
             <br>
             <mat-label>Email : harshilsureja@gmail.com</mat-label>
-            <mat-form-field>
+            <br>
+            <mat-form-field class="full-width">
                 <input type="password" matInput placeholder="Old password" required>
             </mat-form-field>
-            <mat-form-field>
+            <mat-form-field class="full-width">
                 <input type="password" matInput placeholder="New password" required>
             </mat-form-field>
-            <mat-form-field>
+            <mat-form-field class="full-width">
                 <input type="password" matInput placeholder="Confirm new password" required>
             </mat-form-field>
             <br>
-            <mat-action-row>
-                <button mat-flat-button color="primary" type="submit">Change password</button>
+            <mat-card-actions align="end">
                 <button mat-stroked-button color="warn" type="reset">Cancel</button>
-            </mat-action-row>
+                <button mat-flat-button color="primary" type="submit">Change password</button>
+            </mat-card-actions>
         </form>
     </mat-card>
 </mat-card>

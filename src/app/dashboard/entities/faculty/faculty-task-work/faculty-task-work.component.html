@@ -20,12 +20,23 @@
 
                         <mat-tab *ngFor="let subject of selectedClass.subjects" [label]="subject.name">
                             <mat-card class="task-card" *ngFor="let task of subject.tasks">
-                                <p> Issued date: {{ task.iss_date | date:'longDate' }} </p>
+
+                                <b>Issued date:</b>
+                                <p>{{ task.iss_date | date:'longDate' }}</p>
+
                                 <!-- it will concate long date to short date -->
-                                <p> Submission date: {{ task.sub_date | date:'mediumDate' }} </p>
+
+                                <b>Submission date:</b>
+                                <p>{{ task.sub_date | date:'mediumDate' }}</p>
+
                                 <!-- it will concate long date to short date -->
-                                <p> Title: {{ task.title }} </p>
-                                <p> Desciption: {{ task.desciption }} </p>
+
+                                <b>Title:</b>
+                                <p> {{ task.title }}</p>
+
+                                <b>Desciption:</b>
+                                <p>{{ task.description }}</p>
+
                             </mat-card>
                         </mat-tab>
                     </mat-tab-group>
@@ -41,26 +52,34 @@
                 <form action="">
                     <mat-form-field class="small-width">
                         <mat-select placeholder="Select class" [formControl]="classControl" required>
-                            <mat-option *ngFor="let class of classNames" [value]="class.name" (onSelectionChange)="setClass(class)">{{class.name}}</mat-option>
+                            <mat-option *ngFor="let class of classNames" [value]="class.name"
+                                (onSelectionChange)="setClass(class)">{{class.name}}</mat-option>
                         </mat-select>
                         <mat-error *ngIf="classControl.hasError('required')">Please select class.</mat-error>
                     </mat-form-field>
                     <mat-form-field class="small-width">
-                        <mat-select placeholder="Select subject"  [formControl]="subjectControl" [disabled]="classControl.hasError('required')" required>
-                            <mat-option *ngFor="let subject of selectedClass.subjects" [value]="subject.name" (onSelectionChange)="setSubject(subject)">{{subject.name}}</mat-option>
+                        <mat-select placeholder="Select subject" [formControl]="subjectControl"
+                            [disabled]="classControl.hasError('required')" required>
+                            <mat-option *ngFor="let subject of selectedClass.subjects" [value]="subject.name"
+                                (onSelectionChange)="setSubject(subject)">{{subject.name}}</mat-option>
                         </mat-select>
                         <mat-error *ngIf="subjectControl.hasError('required')">Please select subject.</mat-error>
-                        <mat-hint *ngIf="subjectControl.hasError('required')">Choose class to enable this field</mat-hint>
+                        <mat-hint *ngIf="subjectControl.hasError('required')">Choose class to enable this field
+                        </mat-hint>
                     </mat-form-field>
                     <mat-form-field class="small-width">
-                        <mat-select placeholder="Select Task" [formControl]="taskControl" [disabled]="subjectControl.hasError('required')" required>
-                            <mat-option *ngFor="let task of selectedSubject.tasks" [value]="task.title" (onSelectionChange)="setTask(task)">{{task.title}}</mat-option>
+                        <mat-select placeholder="Select Task" [formControl]="taskControl"
+                            [disabled]="subjectControl.hasError('required')" required>
+                            <mat-option *ngFor="let task of selectedSubject.tasks" [value]="task.title"
+                                (onSelectionChange)="setTask(task)">{{task.title}}</mat-option>
                         </mat-select>
                         <mat-error *ngIf="taskControl.hasError('required')">Please select task.</mat-error>
-                        <mat-hint *ngIf="taskControl.hasError('required')">Choose subject to enable this field</mat-hint>
+                        <mat-hint *ngIf="taskControl.hasError('required')">Choose subject to enable this field
+                        </mat-hint>
                     </mat-form-field>
                     <mat-form-field class="small-width">
-                        <input matInput [matDatepicker]="datepicker" placeholder="Choose date" [value]="date.value" disabled>
+                        <input matInput [matDatepicker]="datepicker" placeholder="Choose date" [value]="date.value"
+                            disabled>
                         <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
                         <mat-datepicker #datepicker></mat-datepicker>
                     </mat-form-field>
@@ -86,12 +105,12 @@
                         </mat-grid-list>
                     </mat-selection-list>
                     <mat-divider></mat-divider>
-                <mat-card-actions align="end">
-                    <button mat-flat-button color="primary" type="submit">Submit</button>
-                    <button mat-stroked-button color="warn" type="reset">Cancel</button>
-                </mat-card-actions>
+                    <mat-card-actions align="end">
+                        <button mat-flat-button color="primary" type="submit">Submit</button>
+                        <button mat-stroked-button color="warn" type="reset">Cancel</button>
+                    </mat-card-actions>
                 </form>
-                
+
             </mat-card>
         </mat-tab>
     </mat-tab-group>

@@ -61,7 +61,7 @@ import { FacultyTimeTableComponent } from './dashboard/entities/faculty/faculty-
 import { ViewTimeTableComponent } from './dashboard/entities/faculty/faculty-time-table/view-time-table/view-time-table.component'; // view time table dialog
 import { FacultyAttendanceComponent } from './dashboard/entities/faculty/faculty-attendance/faculty-attendance.component';
 import { FacultyTaskWorkComponent, TaskWorkFormDialog } from './dashboard/entities/faculty/faculty-task-work/faculty-task-work.component';
-import { FacultySyllabusComponent } from './dashboard/entities/faculty/faculty-syllabus/faculty-syllabus.component';
+import { FacultySyllabusComponent, SyllabusFormDialog } from './dashboard/entities/faculty/faculty-syllabus/faculty-syllabus.component';
 import { FacultyExamScheduleComponent } from './dashboard/entities/faculty/faculty-exam-schedule/faculty-exam-schedule.component';
 import { FacultyExamResultComponent } from './dashboard/entities/faculty/faculty-exam-result/faculty-exam-result.component';
 import { FacultyNoticeComponent } from './dashboard/entities/faculty/faculty-notice/faculty-notice.component';
@@ -132,6 +132,7 @@ import { OverlayModule } from '@angular/cdk/overlay';
     FacultyTaskWorkComponent,
     TaskWorkFormDialog, // add/edit task and work dialog box
     FacultySyllabusComponent,
+    SyllabusFormDialog,
     FacultyExamScheduleComponent,
     FacultyExamResultComponent,
     FacultyNoticeComponent,
@@ -178,7 +179,8 @@ import { OverlayModule } from '@angular/cdk/overlay';
     ViewTimeTableComponent, //faculty
     ApplyLeave,
     actiondialog,
-    ConfirmDeleteComponent
+    ConfirmDeleteComponent,
+    SyllabusFormDialog
   ],
   providers: [
     StudentService,

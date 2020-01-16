@@ -26,10 +26,10 @@
             <mat-cell *matCellDef="let file"> {{file.uploadDate | date: 'longDate'}} </mat-cell>
         </ng-container>
 
-        <ng-container matColumnDef="fileOwnerName">
+        <!-- <ng-container matColumnDef="fileOwnerName">
             <mat-header-cell *matHeaderCellDef mat-sort-header class="cell-right"> Upload by </mat-header-cell>
             <mat-cell *matCellDef="let file" class="cell-right"> {{file.ownerName}} </mat-cell>
-        </ng-container>
+        </ng-container> -->
 
         <ng-container matColumnDef="download">
             <mat-header-cell *matHeaderCellDef mat-sort-header></mat-header-cell>
@@ -45,4 +45,7 @@
     </mat-table>
 
     <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+    <button class="new-btn" mat-fab (click)="openForm()" color="accent" aria-label="Example icon-button with a heart icon">
+        <mat-icon>add</mat-icon>
+    </button>
 </mat-card>
