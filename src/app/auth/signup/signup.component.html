@@ -25,11 +25,12 @@
         
         <div class="gndr">
             <p><label class="half-width">Select Gender</label></p>
-            <mat-radio-group aria-label="Select Gender" class="half-width" color="primary" required>
+            <mat-radio-group aria-label="Select Gender" class="half-width" color="primary" formControlName="gender" required>
                 <mat-radio-button value="Male">Male</mat-radio-button>
                 <mat-radio-button value="Female">Female</mat-radio-button>
                 <mat-radio-button value="Other">Other</mat-radio-button>
             </mat-radio-group>
+            <mat-error *ngIf="regformgroup.get('gender').invalid">Gender is required</mat-error>
         </div>
         <mat-form-field class="address">
             <textarea type="text" matInput placeholder="Address" rows="3" required formControlName="address"></textarea>

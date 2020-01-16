@@ -46,6 +46,9 @@ export class SignupComponent implements OnInit {
       address: new FormControl(null, {
         validators: [Validators.required]
       }),
+      gender: new FormControl(null, {
+        validators: [Validators.required]
+      }),
     }),
     this.secondFormGroup = new FormGroup({
       iname: new FormControl(null, {
