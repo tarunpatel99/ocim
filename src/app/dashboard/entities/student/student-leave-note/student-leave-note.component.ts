@@ -97,7 +97,7 @@ export class StudentLeaveNoteComponent implements OnInit {
    }
    openDialog(): void {
     const dialogRef = this.dialog.open(ApplyLeave, {
-      width: '500px'
+      width: '525px'
     });
 
     dialogRef.afterClosed().subscribe(result => {
