@@ -1,6 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { FormControl } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 export interface DialogData {
   class: string,
@@ -68,11 +68,37 @@ export interface classNoticeList {
 })
 export class NoticeByIOFormDialog {
   date = new FormControl(new Date());
+  applynotice: FormGroup;
   constructor(
     public dialogRef: MatDialogRef<NoticeByIOFormDialog>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData) {}
 
-    classNotice = new FormControl();
+    onSave(): void {
+      if (this.applynotice.invalid) {
+        return;
+      }
+    }
+    onCancel(): void {
+      this.dialogRef.close();
+    }
+    
+    classNotice = new FormControl(null, {
+      validators: [Validators.required]
+    });
+    
+    ngOnInit(){
+      this.applynotice = new FormGroup({
+        title: new FormControl(null, {
+          validators: [Validators.required]
+        }),
+        desc: new FormControl(null, {
+          validators: [Validators.required]
+        }),
+        class: new FormControl(null, {
+          validators: [Validators.required]
+        }),
+      });
+    }
 
     // classNoticeList: string[] = ['Extra cheese', 'Mushroom', 'Onion', 'Pepperoni', 'Sausage', 'Tomato'];
 
@@ -89,11 +115,6 @@ export class NoticeByIOFormDialog {
       {value: 'Iscon', viewValue: 'Iscon'},
       {value: 'Vastrapur', viewValue: 'Vastrapur'},
     ];
-
-    
-  onSave(): void {
-    this.dialogRef.close();
-  }
 
   onAddtimetable(): void { }
 
