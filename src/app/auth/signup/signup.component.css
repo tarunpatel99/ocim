@@ -106,8 +106,11 @@ button{
   height: fit-content;
   width: 600px;
 }
+
 .centered {
   display: flex;
+  align-items: center;
+  justify-content: center;
   flex-direction: column;
 }
 
