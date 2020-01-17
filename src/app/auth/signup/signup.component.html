@@ -5,7 +5,7 @@
   <h2>Sign Up</h2>
   </div>
   <mat-divider></mat-divider>
-  <mat-vertical-stepper [linear]="!isLinear" #stepper>
+  <mat-vertical-stepper [linear]="isLinear" #stepper>
 
     <mat-step [stepControl]="regformgroup">
       <form [formGroup]="regformgroup">
@@ -83,9 +83,6 @@
       <ng-template matStepLabel>Security Details</ng-template>
       <mat-form-field class="full-width">
         <input matInput placeholder="Phone number"  [formControl]="pnum" required>
-        <mat-error *ngIf="pnum.hasError('pattern') && !pnum.hasError('required')">
-          Please enter digits only
-        </mat-error>
         <mat-error *ngIf="pnum.hasError('required')">
           Phone number is <strong>required</strong>
         </mat-error>
@@ -109,9 +106,6 @@
     </mat-form-field>
     <mat-form-field class="full-width">
         <input type="password" matInput placeholder="Confirm password" [formControl]="pass" required>
-        <mat-error *ngIf="pass.hasError('pattern') && !pass.hasError('required')">
-          Password does not match
-        </mat-error>
         <mat-error *ngIf="pass.hasError('required')">
           Password is <strong>required</strong>
         </mat-error>
@@ -127,6 +121,7 @@
   <div class="footer">
   <button mat-button color="primary" routerLink="/login">Sign In Instead</button>
   <button mat-raised-button color="primary" class="place-left">Sign Up</button>
+  
   <!--<a routerLink="" class="place-left">Contact Us</a>-->
 </div>
 </mat-card>
