@@ -29,6 +29,7 @@
     "html2pdf.js": "^0.9.1",
     "jquery": "^3.4.1",
     "jspdf": "^1.5.3",
+    "jspdf-autotable": "^3.2.11",
     "mongoose": "^5.8.3",
     "ng2-charts": "^2.3.0",
     "rxjs": "~6.4.0",

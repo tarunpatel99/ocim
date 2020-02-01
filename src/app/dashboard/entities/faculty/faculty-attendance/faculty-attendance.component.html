@@ -1,6 +1,6 @@
 <p class="heading">Attendance</p>
 <mat-card>
-    <form action="" [formControl]="attendance">
+    <form action="">
         <!-- <mat-form-field class="large-width">
             <input matInput placeholder="Faculty name" disabled [value]="facultyname">
         </mat-form-field> -->
@@ -33,7 +33,7 @@
             <mat-hint *ngIf="subjectControl.hasError('required')">Choose class to enable this field</mat-hint>
         </mat-form-field>
         <mat-form-field class="small-width">
-            <input matInput [matDatepicker]="datepicker" placeholder="Choose date" [formControl]="date">
+            <input matInput [matDatepicker]="datepicker" placeholder="Choose date">
             <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
             <mat-datepicker #datepicker></mat-datepicker>
         </mat-form-field>

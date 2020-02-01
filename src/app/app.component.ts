@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewEncapsulation, OnDestroy } from '@angular/core';
-import { StudentService } from "./student.service";
+import { StudentService } from "./dashboard/entities/student/student.service";
 import { Subscription } from 'rxjs';
-import { StudentModel } from "./student.model";
+import { StudentModel } from "./dashboard/entities/student/student.model";
 import { MatTableDataSource } from '@angular/material/table';
 
 

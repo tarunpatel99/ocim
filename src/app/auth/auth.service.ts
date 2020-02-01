@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { StudentService } from '../student.service';
+import { StudentService } from '../dashboard/entities/student/student.service';
 
 export class User {
   email: string;
