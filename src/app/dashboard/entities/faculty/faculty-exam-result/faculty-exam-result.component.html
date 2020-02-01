@@ -39,6 +39,7 @@
             <input matInput type="time" placeholder="To [HH:MM AM/PM]" value="00:00">
         </mat-form-field> -->
         <button class="submit-btn" mat-flat-button color="primary">Submit</button>
+        <button class="submit-btn" (click)="generateReport()" mat-flat-button color="primary">Generate Report</button>
 
         <mat-divider></mat-divider>
 
@@ -49,8 +50,8 @@
         <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search student">
     </mat-form-field>
 
-    
-        <table mat-table [dataSource]="dataSource" matSort>
+    <div >
+        <table id="results" mat-table [dataSource]="dataSource" matSort>
 
             <ng-container matColumnDef="id">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
@@ -86,6 +87,7 @@
             <tr mat-row *matRowDef="let student; columns: displayedColumns;" [ngStyle]="{'background-color':student.obt_marks <= '17' ? '#ffebee': 'none'}">
             </tr>
         </table>
+    </div>
 
         <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
     
