@@ -77,42 +77,64 @@ export class AuthService {
       //   console.log(checkrole, checkuser, checkpassword)
       //   this.router.navigate([currentUrl]);
       // }
-      
-    }
-    
-  }
 
-  navigateUser() {
-    const currentNav = this.router.url;
-    this.currentuser = JSON.parse(localStorage.getItem('currentUser'));
-
-    // check if role is assigned or not
-    if (this.currentuser.role == "") {
-      this.router.navigate(['/login'])
     }
 
-    // navigate according user role
-    if (currentNav == "/") {
-      if (this.currentuser.role == 'Admin') {
-        this.router.navigate(['admin-dashboard'])
-      }
-      if (this.currentuser.role == 'Owner') {
-        this.router.navigate(['institute-dashboard'])
-      }
-      if (this.currentuser.role == 'Branch Manager') {
-        this.router.navigate(['branch-dashboard'])
-      }
-      if (this.currentuser.role == 'Faculty') {
-        this.router.navigate(['faculty-dashboard'])
-      }
-      if (this.currentuser.role == 'Student') {
-        this.router.navigate(['student-dashboard'])
-      }
-    }
   }
 
-  logout() {
-    // remove user from local storage to log user out
-    localStorage.removeItem('currentUser');
+  isAuthorized(allowedRoles: string[]): boolean {
+    // check if the list of allowed roles is empty, if empty, authorize the user to access the page
+    if (allowedRoles == null || allowedRoles.length === 0) {
+      return true;
+    }
+
+    // get token from local storage or state management
+    const user = JSON.parse(localStorage.getItem('currentUser'));
+
+    // decode token to read the payload details
+    const role = user.role
+
+    // check if it was decoded successfully, if not the token is not valid, deny access
+    if (!role) {
+      console.log('Invalid token');
+      return false;
+    }
+
+    // check if the user roles is in the list of allowed roles, return true if allowed and false if not allowed
+    return allowedRoles.includes(role['role']);
   }
+
+navigateUser() {
+  const currentNav = this.router.url;
+  this.currentuser = JSON.parse(localStorage.getItem('currentUser'));
+
+  // check if role is assigned or not
+  if (this.currentuser.role == "") {
+    this.router.navigate(['/login'])
+  }
+
+  // navigate according user role
+  if (currentNav == "/") {
+    if (this.currentuser.role == 'Admin') {
+      this.router.navigate(['admin-dashboard'])
+    }
+    if (this.currentuser.role == 'Owner') {
+      this.router.navigate(['institute-dashboard'])
+    }
+    if (this.currentuser.role == 'Branch Manager') {
+      this.router.navigate(['branch-dashboard'])
+    }
+    if (this.currentuser.role == 'Faculty') {
+      this.router.navigate(['faculty-dashboard'])
+    }
+    if (this.currentuser.role == 'Student') {
+      this.router.navigate(['student-dashboard'])
+    }
+  }
+}
+
+logout() {
+  // remove user from local storage to log user out
+  localStorage.removeItem('currentUser');
+}
 }
