@@ -3,34 +3,59 @@
     <mat-tab-group dynamicHeight>
         <mat-tab label="View Results">
             <br>
-            <form action="">
-                <mat-form-field class="micro-width">
-                    <mat-label>Select class</mat-label>
-                    <mat-select>
-                        <mat-option value="option">9th</mat-option>
-                    </mat-select>
-                </mat-form-field>
-                <mat-form-field class="micro-width">
-                    <mat-label>Select exam</mat-label>
-                    <mat-select>
-                        <mat-option value="option">class test 3</mat-option>
-                    </mat-select>
-                </mat-form-field>
-                <mat-form-field class="micro-width">
-                    <mat-label>Select subject</mat-label>
-                    <mat-select>
-                        <mat-option *ngFor="let subject of subjects" [value]="subject.value">
-                            {{subject.viewValue}}
-                        </mat-option>
-                    </mat-select>
-                </mat-form-field>
-                <mat-form-field class="micro-width">
-                    <input matInput [matDatepicker]="datepicker" placeholder="Choose date" [value]="date.value">
-                    <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
-                    <mat-datepicker #datepicker></mat-datepicker>
-                </mat-form-field>
-                <button mat-flat-button color="primary">View</button>
-            </form>
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    Filter
+                </mat-expansion-panel-header>
+                <form class="no-add-student">
+                    <mat-form-field class="report-width-15">
+                        <mat-label>Class</mat-label>
+                        <mat-select>
+                            <mat-option *ngFor="let class of classes" [value]="class.value">
+                                {{class.viewValue}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <mat-form-field class="report-width-15">
+                        <mat-label>Subject</mat-label>
+                        <mat-select>
+                            <mat-option *ngFor="let subject of subjects" [value]="subject.value">
+                                {{subject.viewValue}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <mat-form-field class="report-width-15">
+                        <mat-label>Exam</mat-label>
+                        <mat-select>
+                            <mat-option value="option">class test 3</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <!-- <p>Select date range</p> -->
+                    <mat-form-field class="report-width-10">
+                        <input matInput [matDatepicker]="pickertodate" placeholder="To Date">
+                        <mat-datepicker-toggle matSuffix [for]="pickertodate"></mat-datepicker-toggle>
+                        <mat-datepicker #pickertodate></mat-datepicker>
+                    </mat-form-field>
+                    <mat-form-field class="report-width-10">
+                        <input matInput [matDatepicker]="pickerfromdate" placeholder="From Date">
+                        <mat-datepicker-toggle matSuffix [for]="pickerfromdate"></mat-datepicker-toggle>
+                        <mat-datepicker #pickerfromdate></mat-datepicker>
+                    </mat-form-field>
+                    <!-- <p>Select attendance range</p> -->
+                    <mat-form-field class="report-width-10">
+                        <input type="number" matInput placeholder="Minimum Mark" min="0">
+                    </mat-form-field>
+                    <mat-form-field class="report-width-10">
+                        <input type="number" matInput placeholder="Maximum Mark" min="0">
+                    </mat-form-field>
+                    <mat-action-row>
+                        <button mat-stroked-button color="warn" type="reset">Cancle</button>
+                        <!-- <button mat-flat-button color="primary">Download</button> -->
+                        <button mat-flat-button color="primary" (click)="demoprint()">Print</button>
+                        <button mat-flat-button color="primary">View</button>
+                    </mat-action-row>
+                </form>
+            </mat-expansion-panel>
 
             <!-- student list -->
             <mat-form-field id="searchBar">
@@ -67,14 +92,39 @@
                         <mat-cell *matCellDef="let student"> {{student.name}} </mat-cell>
                     </ng-container>
 
+                    <ng-container matColumnDef="classnm">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header> Class </mat-header-cell>
+                        <mat-cell *matCellDef="let student"> {{student.classnm}} </mat-cell>
+                    </ng-container>
+
                     <ng-container matColumnDef="exmdate">
                         <mat-header-cell *matHeaderCellDef mat-sort-header> Date </mat-header-cell>
                         <mat-cell *matCellDef="let student"> {{student.exmdate}} </mat-cell>
                     </ng-container>
 
-                    <ng-container matColumnDef="subject">
-                        <mat-header-cell *matHeaderCellDef mat-sort-header> Subject </mat-header-cell>
-                        <mat-cell *matCellDef="let student"> {{student.subject}} </mat-cell>
+                    <ng-container matColumnDef="examname">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header> Exam </mat-header-cell>
+                        <mat-cell *matCellDef="let student"> {{student.examname}} </mat-cell>
+                    </ng-container>
+
+                    <ng-container matColumnDef="maths">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header> Maths </mat-header-cell>
+                        <mat-cell *matCellDef="let student"> {{student.maths}} </mat-cell>
+                    </ng-container>
+
+                    <ng-container matColumnDef="sciences">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header> Sciences </mat-header-cell>
+                        <mat-cell *matCellDef="let student"> {{student.sciences}} </mat-cell>
+                    </ng-container>
+
+                    <ng-container matColumnDef="english">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header> English </mat-header-cell>
+                        <mat-cell *matCellDef="let student"> {{student.english}} </mat-cell>
+                    </ng-container>
+
+                    <ng-container matColumnDef="ss">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header> SS </mat-header-cell>
+                        <mat-cell *matCellDef="let student"> {{student.ss}} </mat-cell>
                     </ng-container>
 
                     <ng-container matColumnDef="obt_marks">
@@ -88,7 +138,7 @@
                     </ng-container>
 
                     <!-- action Column -->
-                    <ng-container matColumnDef="action" #actionCotainer data-html2canvas-ignore="true">
+                    <ng-container matColumnDef="action" #actionCotainer data-html2canvas-ignore="true" width="20px">
                         <mat-header-cell *matHeaderCellDef data-html2canvas-ignore="true" class="tbl-right"> Action </mat-header-cell>
                         <mat-cell *matCellDef="let element" data-html2canvas-ignore="true" class="tbl-right">
                             <button mat-icon-button color="primary" (click)="onEditResultMark()" matTooltip="Edit">
