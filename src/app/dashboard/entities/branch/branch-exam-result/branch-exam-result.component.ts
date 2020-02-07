@@ -12,24 +12,29 @@ import { EditResultMarkComponent } from './edit-result-mark/edit-result-mark.com
 export interface StudentData {
   id: string;
   name: string;
+  classnm: string;
   exmdate: string;
-  subject: string;
+  examname: string;
+  maths: string;
+  sciences: string;
+  english: string;
+  ss: string;
   obt_marks: number; // obtain marks from total marks
   ttl_marks: number; // totla marks
 }
 
 // get student info from local data
 const students: StudentData[] = [
-  { id: '19-9th-001', name: 'Harshil Patel', exmdate: '14/12/2019', subject: 'Maths', obt_marks: 45, ttl_marks: 50 },
-  { id: '19-9th-002', name: 'Nirav Kadiya', exmdate: '14/12/2019', subject: 'Maths', obt_marks: 45, ttl_marks: 50 },
-  { id: '19-9th-003', name: 'Shubham Mevada', exmdate: '14/12/2019', subject: 'Maths', obt_marks: 44, ttl_marks: 50 },
-  { id: '19-9th-004', name: 'Shubha Bhatt', exmdate: '14/12/2019', subject: 'Maths', obt_marks: 35, ttl_marks: 50 },
-  { id: '19-9th-005', name: 'Tarun Patel', exmdate: '14/12/2019', subject: 'Maths', obt_marks: 17, ttl_marks: 50 },
-  { id: '19-9th-006', name: 'Aakash Bhavasar', exmdate: '14/12/2019', subject: 'Maths', obt_marks: 49, ttl_marks: 50 },
-  { id: '19-9th-007', name: 'Harshil Sureja', exmdate: '14/12/2019', subject: 'Maths', obt_marks: 49, ttl_marks: 50 },
-  { id: '19-9th-008', name: 'Saurabh Oza', exmdate: '14/12/2019', subject: 'Maths', obt_marks: 45, ttl_marks: 50 },
-  { id: '19-9th-009', name: 'Hastik Bhut', exmdate: '14/12/2019', subject: 'Maths', obt_marks: 45, ttl_marks: 50 },
-  { id: '19-9th-010', name: 'Yash Charola', exmdate: '14/12/2019', subject: 'Maths', obt_marks: 44, ttl_marks: 50 },
+  { id: '19-9th-001', name: 'Harshil Patel', classnm: '9 (A Div)' , exmdate: '14/12/2019', examname: "Class test 1" , maths: "45/50" , sciences: "47/50" , english: "34/50" , ss:"49/50" , obt_marks: 175, ttl_marks: 200 },
+  { id: '19-9th-002', name: 'Nirav Kadiya', classnm: '9 (A Div)' , exmdate: '14/12/2019', examname: "Class test 1" , maths: "44/50" , sciences: "42/50" , english: "34/50" , ss:"48/50" , obt_marks: 168, ttl_marks: 200 },
+  { id: '19-9th-003', name: 'Shubham Mevada', classnm: '9 (A Div)' , exmdate: '14/12/2019', examname: "Class test 2" , maths: "43/50" , sciences: "43/50" , english: "35/50" , ss:"47/50" , obt_marks: 168, ttl_marks: 200 },
+  { id: '19-9th-004', name: 'Shubha Bhatt', classnm: '9 (A Div)' , exmdate: '14/12/2019', examname: "Class test 2" , maths: "42/50" , sciences: "42/50" , english: "35/50" , ss:"47/50" , obt_marks: 166, ttl_marks: 200 },
+  { id: '19-9th-005', name: 'Tarun Patel', classnm: '9 (A Div)' , exmdate: '14/12/2019', examname: "Class test 1" , maths: "40/50" , sciences: "43/50" , english: "38/50" , ss:"47/50" , obt_marks: 168, ttl_marks: 200 },
+  { id: '19-9th-006', name: 'Aakash Bhavasar', classnm: '9 (A Div)' , exmdate: '14/12/2019', examname: "Class test 3" , maths: "40/50" , sciences: "42/50" , english: "35/50" , ss:"48/50" , obt_marks: 165, ttl_marks: 200 },
+  { id: '19-9th-007', name: 'Harshil Sureja', classnm: '9 (A Div)' , exmdate: '14/12/2019', examname: "Class test 1" , maths: "45/50" , sciences: "41/50" , english: "36/50" , ss:"48/50" , obt_marks: 170, ttl_marks: 200 },
+  { id: '19-9th-008', name: 'Saurabh Oza', classnm: '9 (A Div)' , exmdate: '14/12/2019', examname: "Class test 3" , maths: "40/50" , sciences: "41/50" , english: "35/50" , ss:"45/50" , obt_marks: 161, ttl_marks: 200 },
+  { id: '19-9th-009', name: 'Hastik Bhut', classnm: '9 (A Div)' , exmdate: '14/12/2019', examname: "Class test 1" , maths: "45/50" , sciences: "42/50" , english: "33/50" , ss:"46/50" , obt_marks: 166, ttl_marks: 200 },
+  { id: '19-9th-010', name: 'Yash Charola', classnm: '9 (A Div)' , exmdate: '14/12/2019', examname: "Class test 3" , maths: "46/50" , sciences: "41/50" , english: "31/50" , ss:"42/50" , obt_marks: 160, ttl_marks: 200 },
 ]
 
 export interface Classsbj {
@@ -64,7 +69,7 @@ export class BranchExamResultComponent implements OnInit {
     this.dataSource = new MatTableDataSource(students);
   }
 
-  classsbjs: Classsbj[] = [
+  classes: Classsbj[] = [
     { value: '8-a-div', viewValue: '8 (A Div)' },
     { value: '8-b-div', viewValue: '8 (B Div)' },
     { value: '9-a-div', viewValue: '9 (A Div)' },
@@ -104,7 +109,7 @@ export class BranchExamResultComponent implements OnInit {
   ]
 
 
-  displayedColumns: string[] = ['id', 'name', 'exmdate', 'subject', 'obt_marks', 'ttl_marks', 'action'];
+  displayedColumns: string[] = ['id', 'name', 'classnm' , 'exmdate', 'examname' , 'maths', 'sciences' , 'english' , 'ss' , 'obt_marks', 'ttl_marks', 'action'];
   dataSource: MatTableDataSource<StudentData>;
 
 
