@@ -10,6 +10,16 @@ export interface Attatchment {
   id: string
 }
 
+export interface Class {
+  value: string;
+  viewValue: string;
+}
+
+export interface Status {
+  value: string;
+  viewValue: string;
+}
+
 export interface LeaveNote {
   id: string,
   class: string,
@@ -26,9 +36,9 @@ export interface LeaveNote {
 
   // leave notes data
   const leaves: LeaveNote[] = [
-    { id: "19-9th-001", class: "9", studentName: "Tarun Patel", subject: "Fever", description: "A temporary increase in average body temperature of 98.6°F (37°C).", leaveFrom: "12/12/2019", leaveTo: "22/12/2019", attatchment: [{ id: "Attatchment one" }, { id: "Attatchment two" }], status: "Pending" },
-    { id: "19-9th-001", class: "9", studentName: "Harshil Sureja", subject: "Fever", description: "A temporary increase in average body temperature of 98.6°F (37°C).", leaveFrom: "12/12/2019", leaveTo: "22/12/2019", attatchment: [{ id: "Attatchment one" }, { id: "Attatchment two" }], status: "Approved" },
-    { id: "19-9th-001", class: "9", studentName: "Tarun Patel", subject: "Fever", description: "A temporary increase in average body temperature of 98.6°F (37°C).", leaveFrom: "12/12/2019", leaveTo: "22/12/2019", attatchment: [{ id: "Attatchment one" }, { id: "Attatchment two" }], status: "Denied" },
+    { id: "19-9th-001", class: "9 (A Div)", studentName: "Harshil Sureja", subject: "Fever", description: "A temporary increase in average body temperature of 98.6°F (37°C).", leaveFrom: "12/12/2019", leaveTo: "22/12/2019", attatchment: [{ id: "Attatchment one" }, { id: "Attatchment two" }], status: "Approved" },
+    { id: "19-9th-002", class: "9 (A Div)", studentName: "Tarun Patel", subject: "Dengue", description: "A temporary increase in average body temperature of 98.6°F (37°C).", leaveFrom: "12/12/2019", leaveTo: "22/12/2019", attatchment: [{ id: "Attatchment one" }, { id: "Attatchment two" }], status: "Denied" },
+    { id: "19-9th-003", class: "9 (A Div)", studentName: "Jigar Patel", subject: "Cold", description: "A temporary increase in average body temperature of 98.6°F (37°C).", leaveFrom: "12/12/2019", leaveTo: "22/12/2019", attatchment: [{ id: "Attatchment one" }, { id: "Attatchment two" }], status: "Pending" },
   ]
   
 
@@ -46,6 +56,29 @@ export class BranchLeaveNotesComponent implements OnInit {
     this.dataSource = new MatTableDataSource(leaves);
   }
 
+
+  classes: Class[] = [
+    {value: '8-a-div', viewValue: '8 (A Div)'},
+    {value: '8-b-div', viewValue: '8 (B Div)'},
+    {value: '9-a-div', viewValue: '9 (A Div)'},
+    {value: '9-b-div', viewValue: '9 (B Div)'},
+    {value: '10-a-div', viewValue: '10 (A Div)'},
+    {value: '10-b-div', viewValue: '10 (B Div)'},
+    {value: '11-sci-maths-yellow-m', viewValue: '11 Sci Maths (Yellow M)'},
+    {value: '11-sci-maths-blue-m', viewValue: '11 Sci Maths (Blue M)'},
+    {value: '11-sci-bio-purple-b', viewValue: '11 Sci Bio (Purple B)'},
+    {value: '11-sci-bio-green-b', viewValue: '11 Sci Bio (Green B)'},
+    {value: '12-sci-maths-golden-m', viewValue: '12 Sci Maths (Golden M)'},
+    {value: '12-sci-maths-red-m', viewValue: '12 Sci Maths (Red M)'},
+    {value: '12-sci-bio-silver-m', viewValue: '12 Sci Bio (Silver M)'},
+    {value: '12-sci-bio-pink-m', viewValue: '12 Sci Bio (Pink M)'}
+  ];
+
+  statuss: Status[] = [
+    {value: 'Approved', viewValue: 'Approved'},
+    {value: 'Denied', viewValue: 'Denied'},
+    {value: 'Pending', viewValue: 'Pending'},
+  ]
 
   displayedColumns: string[] = ['id','name', 'class', 'subject', 'from', 'to', 'status','action'];
   dataSource: MatTableDataSource<LeaveNote>;
