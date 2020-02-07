@@ -11,15 +11,14 @@ pink-bluegray.css
 purple-green.css
 */
 
-
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
+    -webkit-appearance: none;
+    margin: 0;
 }
 
 input[type=number] {
-  -moz-appearance:textfield;
+    -moz-appearance: textfield;
 }
 
 html,
@@ -163,4 +162,19 @@ button {
     display: inline-block !important;
     width: 35%;
     margin: 16px 0 8px 16px;
+}
+
+.report-width-20 {
+    display: inline-block;
+    width: 20%;
+}
+
+.report-width-15 {
+    display: inline-block;
+    width: 15%;
+}
+
+.report-width-10 {
+    display: inline-block;
+    width: 10%;
 }

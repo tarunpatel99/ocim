@@ -1,5 +1,45 @@
 <div class="heading">Leave notes</div>
 <mat-card>
+    <mat-expansion-panel>
+        <mat-expansion-panel-header>
+            Filter
+        </mat-expansion-panel-header>
+        <form class="no-add-student">
+            <mat-form-field class="report-width-15">
+                <mat-label>Class</mat-label>
+                <mat-select>
+                    <mat-option *ngFor="let class of classes" [value]="class.value">
+                        {{class.viewValue}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field class="report-width-15">
+                <mat-label>Status</mat-label>
+                <mat-select>
+                    <mat-option *ngFor="let status of statuss" [value]="status.value">
+                        {{status.viewValue}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <!-- <p>Select date range</p> -->
+            <mat-form-field class="report-width-15">
+                <input matInput [matDatepicker]="pickertodate" placeholder="To Date">
+                <mat-datepicker-toggle matSuffix [for]="pickertodate"></mat-datepicker-toggle>
+                <mat-datepicker #pickertodate></mat-datepicker>
+            </mat-form-field>
+            <mat-form-field class="report-width-15">
+                <input matInput [matDatepicker]="pickerfromdate" placeholder="From Date">
+                <mat-datepicker-toggle matSuffix [for]="pickerfromdate"></mat-datepicker-toggle>
+                <mat-datepicker #pickerfromdate></mat-datepicker>
+            </mat-form-field>
+            <mat-action-row>
+                <button mat-stroked-button color="warn" type="reset">Cancle</button>
+                <!-- <button mat-flat-button color="primary">Download</button> -->
+                <button mat-flat-button color="primary" (click)="demoprint()">Print</button>
+                <button mat-flat-button color="primary">View</button>
+            </mat-action-row>
+        </form>
+    </mat-expansion-panel>
     <!-- leave notes list -->
     <mat-form-field id="searchBar">
         <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search">

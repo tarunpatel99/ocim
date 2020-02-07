@@ -72,21 +72,6 @@ button {
     max-width: 30%;
 }
 
-.report-width-20 {
-    display: inline-block;
-    width: 20%;
-}
-
-.report-width-15 {
-    display: inline-block;
-    width: 15%;
-}
-
-.report-width-10 {
-    display: inline-block;
-    width: 10%;
-}
-
 
 /* .right{
     float: right;
