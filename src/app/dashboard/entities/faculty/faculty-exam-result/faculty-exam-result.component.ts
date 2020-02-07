@@ -80,17 +80,19 @@ export class FacultyExamResultComponent implements OnInit {
 
   applyFilter(selectedValue: string, columnName: string) {
     // selectedValue = selectedValue.trim(); // Remove whitespace
+    if (!selectedValue)
+      selectedValue = ""
     selectedValue = selectedValue.trim().toLowerCase(); // MatTableDataSource defaults to lowercase matches
     const tableFilters = [];
     tableFilters.push({
       id: columnName,
       value: selectedValue
     });
-    console.log(tableFilters)
     this.dataSource.filter = JSON.stringify(tableFilters);
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
+  
     // debugger
   }
 
