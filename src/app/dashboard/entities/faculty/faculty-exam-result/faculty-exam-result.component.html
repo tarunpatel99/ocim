@@ -1,30 +1,10 @@
 <p class="heading">Exam results</p>
 <mat-card>
     <form action="">
-        <!-- <mat-form-field class="small-width">
-            <mat-select placeholder="Select Institute">
-                <mat-option value="option">XICA - Xavier Institute of Computer Applications</mat-option>
-                <mat-option value="option">St. Xavier's collage</mat-option>
-            </mat-select>
-        </mat-form-field>
-        <mat-form-field class="small-width">
-            <mat-select placeholder="Select branch">
-                <mat-option value="option">Ahmedabad</mat-option>
-            </mat-select>
-        </mat-form-field> -->
-        <mat-form-field class="small-width">
-            <mat-select placeholder="Select class">
-                <mat-option value="option">9th</mat-option>
-            </mat-select>
-        </mat-form-field>
-        <mat-form-field class="small-width">
-            <mat-select placeholder="Select Exam">
-                <mat-option value="option">Class test 3</mat-option>
-            </mat-select>
-        </mat-form-field>
-        <mat-form-field class="small-width">
-            <mat-select placeholder="Select subject">
-                <mat-option value="option">Maths</mat-option>
+        <mat-form-field class="full-width">
+            <mat-select (selectionChange)="applyFilter(subject.value, 'subject')" value="" placeholder="Select Subject" #subject>
+                <mat-option value="">None</mat-option>
+                <mat-option *ngFor="let subject of subjectlist" [value]="subject">{{ subject }}</mat-option>
             </mat-select>
         </mat-form-field>
         <mat-form-field class="small-width">
@@ -38,7 +18,7 @@
         <mat-form-field class="small-width">
             <input matInput type="time" placeholder="To [HH:MM AM/PM]" value="00:00">
         </mat-form-field> -->
-        <button class="submit-btn" mat-flat-button color="primary">Submit</button>
+        <!-- <button class="submit-btn" mat-flat-button color="primary">Submit</button> -->
         <button class="submit-btn" (click)="generateReport()" mat-flat-button color="primary">Generate Report</button>
 
         <mat-divider></mat-divider>
@@ -47,7 +27,7 @@
     </form>
     <!-- student list -->
     <mat-form-field id="searchBar">
-        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search student">
+        <input matInput #search (keyup)="applyFilter(search.value, 'name')" placeholder="Search student">
     </mat-form-field>
 
     <div >
@@ -89,6 +69,6 @@
         </table>
     </div>
 
-        <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+        <mat-paginator [pageSizeOptions]="[5, 10, 25, 100, dataSource.data.length]"></mat-paginator>
     
 </mat-card>

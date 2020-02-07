@@ -3,6 +3,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { FormControl } from '@angular/forms';
+import { Subject } from 'rxjs';
 declare const require: any;
 const jsPDF = require('jspdf');
 require('jspdf-autotable');
@@ -28,138 +29,72 @@ export class FacultyExamResultComponent implements OnInit {
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
   date = new FormControl(new Date());
-  constructor() {
-    // get student info from local data
-    const students = [
-      { id: '19-9th-001', name: 'Harshil Patel', date: '14/12/2019', subject: 'Maths', obt_marks: 45, ttl_marks: 50 },
-      { id: '19-9th-002', name: 'Nirav Kadiya', date: '14/12/2019', subject: 'Maths', obt_marks: 45, ttl_marks: 50 },
-      { id: '19-9th-003', name: 'Shubham Mevada', date: '14/12/2019', subject: 'Maths', obt_marks: 44, ttl_marks: 50 },
-      { id: '19-9th-004', name: 'Shubh Bhatt', date: '14/12/2019', subject: 'Maths', obt_marks: 35, ttl_marks: 50 },
-      { id: '19-9th-005', name: 'Tarun Patel', date: '14/12/2019', subject: 'Maths', obt_marks: 17, ttl_marks: 50 },
-      { id: '19-9th-006', name: 'Aakash Bhavasar', date: '14/12/2019', subject: 'Maths', obt_marks: 49, ttl_marks: 50 },
-      { id: '19-9th-007', name: 'Harshil Sureja', date: '14/12/2019', subject: 'Maths', obt_marks: 45, ttl_marks: 50 },
-      { id: '19-9th-008', name: 'Saurabh Oza', date: '14/12/2019', subject: 'Maths', obt_marks: 45, ttl_marks: 50 },
-      { id: '19-9th-009', name: 'Hastik Bhut', date: '14/12/2019', subject: 'Maths', obt_marks: 44, ttl_marks: 50 },
-      { id: '19-9th-010', name: 'Yash Charola', date: '14/12/2019', subject: 'Maths', obt_marks: 35, ttl_marks: 50 },
-      { id: '19-9th-001', name: 'Harshil Patel', date: '14/12/2019', subject: 'Maths', obt_marks: 45, ttl_marks: 50 },
-      { id: '19-9th-002', name: 'Nirav Kadiya', date: '14/12/2019', subject: 'Maths', obt_marks: 45, ttl_marks: 50 },
-      { id: '19-9th-003', name: 'Shubham Mevada', date: '14/12/2019', subject: 'Maths', obt_marks: 44, ttl_marks: 50 },
-      { id: '19-9th-004', name: 'Shubh Bhatt', date: '14/12/2019', subject: 'Maths', obt_marks: 35, ttl_marks: 50 },
-      { id: '19-9th-005', name: 'Tarun Patel', date: '14/12/2019', subject: 'Maths', obt_marks: 17, ttl_marks: 50 },
-      { id: '19-9th-006', name: 'Aakash Bhavasar', date: '14/12/2019', subject: 'Maths', obt_marks: 49, ttl_marks: 50 },
-      { id: '19-9th-007', name: 'Harshil Sureja', date: '14/12/2019', subject: 'Maths', obt_marks: 45, ttl_marks: 50 },
-      { id: '19-9th-008', name: 'Saurabh Oza', date: '14/12/2019', subject: 'Maths', obt_marks: 45, ttl_marks: 50 },
-      { id: '19-9th-009', name: 'Hastik Bhut', date: '14/12/2019', subject: 'Maths', obt_marks: 44, ttl_marks: 50 },
-      { id: '19-9th-010', name: 'Yash Charola', date: '14/12/2019', subject: 'Maths', obt_marks: 35, ttl_marks: 50 },
-      { id: '19-9th-001', name: 'Harshil Patel', date: '14/12/2019', subject: 'Maths', obt_marks: 45, ttl_marks: 50 },
-      { id: '19-9th-002', name: 'Nirav Kadiya', date: '14/12/2019', subject: 'Maths', obt_marks: 45, ttl_marks: 50 },
-      { id: '19-9th-003', name: 'Shubham Mevada', date: '14/12/2019', subject: 'Maths', obt_marks: 44, ttl_marks: 50 },
-      { id: '19-9th-004', name: 'Shubh Bhatt', date: '14/12/2019', subject: 'Maths', obt_marks: 35, ttl_marks: 50 },
-      { id: '19-9th-005', name: 'Tarun Patel', date: '14/12/2019', subject: 'Maths', obt_marks: 17, ttl_marks: 50 },
-      { id: '19-9th-006', name: 'Aakash Bhavasar', date: '14/12/2019', subject: 'Maths', obt_marks: 49, ttl_marks: 50 },
-      { id: '19-9th-007', name: 'Harshil Sureja', date: '14/12/2019', subject: 'Maths', obt_marks: 45, ttl_marks: 50 },
-      { id: '19-9th-008', name: 'Saurabh Oza', date: '14/12/2019', subject: 'Maths', obt_marks: 45, ttl_marks: 50 },
-      { id: '19-9th-009', name: 'Hastik Bhut', date: '14/12/2019', subject: 'Maths', obt_marks: 44, ttl_marks: 50 },
-      { id: '19-9th-010', name: 'Yash Charola', date: '14/12/2019', subject: 'Maths', obt_marks: 35, ttl_marks: 50 },
-      { id: '19-9th-001', name: 'Harshil Patel', date: '14/12/2019', subject: 'Maths', obt_marks: 45, ttl_marks: 50 },
-      { id: '19-9th-002', name: 'Nirav Kadiya', date: '14/12/2019', subject: 'Maths', obt_marks: 45, ttl_marks: 50 },
-      { id: '19-9th-003', name: 'Shubham Mevada', date: '14/12/2019', subject: 'Maths', obt_marks: 44, ttl_marks: 50 },
-      { id: '19-9th-004', name: 'Shubh Bhatt', date: '14/12/2019', subject: 'Maths', obt_marks: 35, ttl_marks: 50 },
-      { id: '19-9th-005', name: 'Tarun Patel', date: '14/12/2019', subject: 'Maths', obt_marks: 17, ttl_marks: 50 },
-      { id: '19-9th-006', name: 'Aakash Bhavasar', date: '14/12/2019', subject: 'Maths', obt_marks: 49, ttl_marks: 50 },
-      { id: '19-9th-007', name: 'Harshil Sureja', date: '14/12/2019', subject: 'Maths', obt_marks: 45, ttl_marks: 50 },
-      { id: '19-9th-008', name: 'Saurabh Oza', date: '14/12/2019', subject: 'Maths', obt_marks: 45, ttl_marks: 50 },
-      { id: '19-9th-009', name: 'Hastik Bhut', date: '14/12/2019', subject: 'Maths', obt_marks: 44, ttl_marks: 50 },
-      { id: '19-9th-010', name: 'Yash Charola', date: '14/12/2019', subject: 'Maths', obt_marks: 35, ttl_marks: 50 },
-      { id: '19-9th-001', name: 'Harshil Patel', date: '14/12/2019', subject: 'Maths', obt_marks: 45, ttl_marks: 50 },
-      { id: '19-9th-002', name: 'Nirav Kadiya', date: '14/12/2019', subject: 'Maths', obt_marks: 45, ttl_marks: 50 },
-      { id: '19-9th-003', name: 'Shubham Mevada', date: '14/12/2019', subject: 'Maths', obt_marks: 44, ttl_marks: 50 },
-      { id: '19-9th-004', name: 'Shubh Bhatt', date: '14/12/2019', subject: 'Maths', obt_marks: 35, ttl_marks: 50 },
-      { id: '19-9th-005', name: 'Tarun Patel', date: '14/12/2019', subject: 'Maths', obt_marks: 17, ttl_marks: 50 },
-      { id: '19-9th-006', name: 'Aakash Bhavasar', date: '14/12/2019', subject: 'Maths', obt_marks: 49, ttl_marks: 50 },
-      { id: '19-9th-007', name: 'Harshil Sureja', date: '14/12/2019', subject: 'Maths', obt_marks: 45, ttl_marks: 50 },
-      { id: '19-9th-008', name: 'Saurabh Oza', date: '14/12/2019', subject: 'Maths', obt_marks: 45, ttl_marks: 50 },
-      { id: '19-9th-009', name: 'Hastik Bhut', date: '14/12/2019', subject: 'Maths', obt_marks: 44, ttl_marks: 50 },
-      { id: '19-9th-010', name: 'Yash Charola', date: '14/12/2019', subject: 'Maths', obt_marks: 35, ttl_marks: 50 },
-      { id: '19-9th-001', name: 'Harshil Patel', date: '14/12/2019', subject: 'Maths', obt_marks: 45, ttl_marks: 50 },
-      { id: '19-9th-002', name: 'Nirav Kadiya', date: '14/12/2019', subject: 'Maths', obt_marks: 45, ttl_marks: 50 },
-      { id: '19-9th-003', name: 'Shubham Mevada', date: '14/12/2019', subject: 'Maths', obt_marks: 44, ttl_marks: 50 },
-      { id: '19-9th-004', name: 'Shubh Bhatt', date: '14/12/2019', subject: 'Maths', obt_marks: 35, ttl_marks: 50 },
-      { id: '19-9th-005', name: 'Tarun Patel', date: '14/12/2019', subject: 'Maths', obt_marks: 17, ttl_marks: 50 },
-      { id: '19-9th-006', name: 'Aakash Bhavasar', date: '14/12/2019', subject: 'Maths', obt_marks: 49, ttl_marks: 50 },
-      { id: '19-9th-007', name: 'Harshil Sureja', date: '14/12/2019', subject: 'Maths', obt_marks: 45, ttl_marks: 50 },
-      { id: '19-9th-008', name: 'Saurabh Oza', date: '14/12/2019', subject: 'Maths', obt_marks: 45, ttl_marks: 50 },
-      { id: '19-9th-009', name: 'Hastik Bhut', date: '14/12/2019', subject: 'Maths', obt_marks: 44, ttl_marks: 50 },
-      { id: '19-9th-010', name: 'Yash Charola', date: '14/12/2019', subject: 'Maths', obt_marks: 35, ttl_marks: 50 },
-      { id: '19-9th-001', name: 'Harshil Patel', date: '14/12/2019', subject: 'Maths', obt_marks: 45, ttl_marks: 50 },
-      { id: '19-9th-002', name: 'Nirav Kadiya', date: '14/12/2019', subject: 'Maths', obt_marks: 45, ttl_marks: 50 },
-      { id: '19-9th-003', name: 'Shubham Mevada', date: '14/12/2019', subject: 'Maths', obt_marks: 44, ttl_marks: 50 },
-      { id: '19-9th-004', name: 'Shubh Bhatt', date: '14/12/2019', subject: 'Maths', obt_marks: 35, ttl_marks: 50 },
-      { id: '19-9th-005', name: 'Tarun Patel', date: '14/12/2019', subject: 'Maths', obt_marks: 17, ttl_marks: 50 },
-      { id: '19-9th-006', name: 'Aakash Bhavasar', date: '14/12/2019', subject: 'Maths', obt_marks: 49, ttl_marks: 50 },
-      { id: '19-9th-007', name: 'Harshil Sureja', date: '14/12/2019', subject: 'Maths', obt_marks: 45, ttl_marks: 50 },
-      { id: '19-9th-008', name: 'Saurabh Oza', date: '14/12/2019', subject: 'Maths', obt_marks: 45, ttl_marks: 50 },
-      { id: '19-9th-009', name: 'Hastik Bhut', date: '14/12/2019', subject: 'Maths', obt_marks: 44, ttl_marks: 50 },
-      { id: '19-9th-010', name: 'Yash Charola', date: '14/12/2019', subject: 'Maths', obt_marks: 35, ttl_marks: 50 },
-      { id: '19-9th-001', name: 'Harshil Patel', date: '14/12/2019', subject: 'Maths', obt_marks: 45, ttl_marks: 50 },
-      { id: '19-9th-002', name: 'Nirav Kadiya', date: '14/12/2019', subject: 'Maths', obt_marks: 45, ttl_marks: 50 },
-      { id: '19-9th-003', name: 'Shubham Mevada', date: '14/12/2019', subject: 'Maths', obt_marks: 44, ttl_marks: 50 },
-      { id: '19-9th-004', name: 'Shubh Bhatt', date: '14/12/2019', subject: 'Maths', obt_marks: 35, ttl_marks: 50 },
-      { id: '19-9th-005', name: 'Tarun Patel', date: '14/12/2019', subject: 'Maths', obt_marks: 17, ttl_marks: 50 },
-      { id: '19-9th-006', name: 'Aakash Bhavasar', date: '14/12/2019', subject: 'Maths', obt_marks: 49, ttl_marks: 50 },
-      { id: '19-9th-007', name: 'Harshil Sureja', date: '14/12/2019', subject: 'Maths', obt_marks: 45, ttl_marks: 50 },
-      { id: '19-9th-008', name: 'Saurabh Oza', date: '14/12/2019', subject: 'Maths', obt_marks: 45, ttl_marks: 50 },
-      { id: '19-9th-009', name: 'Hastik Bhut', date: '14/12/2019', subject: 'Maths', obt_marks: 44, ttl_marks: 50 },
-      { id: '19-9th-010', name: 'Yash Charola', date: '14/12/2019', subject: 'Maths', obt_marks: 35, ttl_marks: 50 },
-      { id: '19-9th-001', name: 'Harshil Patel', date: '14/12/2019', subject: 'Maths', obt_marks: 45, ttl_marks: 50 },
-      { id: '19-9th-002', name: 'Nirav Kadiya', date: '14/12/2019', subject: 'Maths', obt_marks: 45, ttl_marks: 50 },
-      { id: '19-9th-003', name: 'Shubham Mevada', date: '14/12/2019', subject: 'Maths', obt_marks: 44, ttl_marks: 50 },
-      { id: '19-9th-004', name: 'Shubh Bhatt', date: '14/12/2019', subject: 'Maths', obt_marks: 35, ttl_marks: 50 },
-      { id: '19-9th-005', name: 'Tarun Patel', date: '14/12/2019', subject: 'Maths', obt_marks: 17, ttl_marks: 50 },
-      { id: '19-9th-006', name: 'Aakash Bhavasar', date: '14/12/2019', subject: 'Maths', obt_marks: 49, ttl_marks: 50 },
-      { id: '19-9th-007', name: 'Harshil Sureja', date: '14/12/2019', subject: 'Maths', obt_marks: 45, ttl_marks: 50 },
-      { id: '19-9th-008', name: 'Saurabh Oza', date: '14/12/2019', subject: 'Maths', obt_marks: 45, ttl_marks: 50 },
-      { id: '19-9th-009', name: 'Hastik Bhut', date: '14/12/2019', subject: 'Maths', obt_marks: 44, ttl_marks: 50 },
-      { id: '19-9th-010', name: 'Yash Charola', date: '14/12/2019', subject: 'Maths', obt_marks: 35, ttl_marks: 50 },
-      { id: '19-9th-001', name: 'Harshil Patel', date: '14/12/2019', subject: 'Maths', obt_marks: 45, ttl_marks: 50 },
-      { id: '19-9th-002', name: 'Nirav Kadiya', date: '14/12/2019', subject: 'Maths', obt_marks: 45, ttl_marks: 50 },
-      { id: '19-9th-003', name: 'Shubham Mevada', date: '14/12/2019', subject: 'Maths', obt_marks: 44, ttl_marks: 50 },
-      { id: '19-9th-004', name: 'Shubh Bhatt', date: '14/12/2019', subject: 'Maths', obt_marks: 35, ttl_marks: 50 },
-      { id: '19-9th-005', name: 'Tarun Patel', date: '14/12/2019', subject: 'Maths', obt_marks: 17, ttl_marks: 50 },
-      { id: '19-9th-006', name: 'Aakash Bhavasar', date: '14/12/2019', subject: 'Maths', obt_marks: 49, ttl_marks: 50 },
-      { id: '19-9th-007', name: 'Harshil Sureja', date: '14/12/2019', subject: 'Maths', obt_marks: 45, ttl_marks: 50 },
-      { id: '19-9th-008', name: 'Saurabh Oza', date: '14/12/2019', subject: 'Maths', obt_marks: 45, ttl_marks: 50 },
-      { id: '19-9th-009', name: 'Hastik Bhut', date: '14/12/2019', subject: 'Maths', obt_marks: 44, ttl_marks: 50 },
-      { id: '19-9th-010', name: 'Yash Charola', date: '14/12/2019', subject: 'Maths', obt_marks: 35, ttl_marks: 50 },
-      { id: '19-9th-001', name: 'Harshil Patel', date: '14/12/2019', subject: 'Maths', obt_marks: 45, ttl_marks: 50 },
-      { id: '19-9th-002', name: 'Nirav Kadiya', date: '14/12/2019', subject: 'Maths', obt_marks: 45, ttl_marks: 50 },
-      { id: '19-9th-003', name: 'Shubham Mevada', date: '14/12/2019', subject: 'Maths', obt_marks: 44, ttl_marks: 50 },
-      { id: '19-9th-004', name: 'Shubh Bhatt', date: '14/12/2019', subject: 'Maths', obt_marks: 35, ttl_marks: 50 },
-      { id: '19-9th-005', name: 'Tarun Patel', date: '14/12/2019', subject: 'Maths', obt_marks: 17, ttl_marks: 50 },
-      { id: '19-9th-006', name: 'Aakash Bhavasar', date: '14/12/2019', subject: 'Maths', obt_marks: 49, ttl_marks: 50 },
-      { id: '19-9th-007', name: 'Harshil Sureja', date: '14/12/2019', subject: 'Maths', obt_marks: 45, ttl_marks: 50 },
-      { id: '19-9th-008', name: 'Saurabh Oza', date: '14/12/2019', subject: 'Maths', obt_marks: 45, ttl_marks: 50 },
-      { id: '19-9th-009', name: 'Hastik Bhut', date: '14/12/2019', subject: 'Maths', obt_marks: 44, ttl_marks: 50 },
-      { id: '19-9th-010', name: 'Yash Charola', date: '14/12/2019', subject: 'Maths', obt_marks: 35, ttl_marks: 50 }
-    ]
+  // get student info from local data
+  students = [
+    { id: '19-9th-001', name: 'Harshil Patel Science', date: '14/12/2019', subject: 'Maths', obt_marks: 45, ttl_marks: 50 },
+    { id: '19-9th-002', name: 'Nirav Kadiya', date: '14/12/2019', subject: 'Science', obt_marks: 45, ttl_marks: 50 },
+    { id: '19-9th-003', name: 'Shubham Mevada', date: '14/12/2019', subject: 'Maths', obt_marks: 44, ttl_marks: 50 },
+    { id: '19-9th-004', name: 'Shubh Bhatt', date: '14/12/2019', subject: 'Maths', obt_marks: 35, ttl_marks: 50 },
+    { id: '19-9th-005', name: 'Tarun Patel', date: '14/12/2019', subject: 'Science', obt_marks: 17, ttl_marks: 50 },
+    { id: '19-9th-006', name: 'Aakash Bhavasar', date: '14/12/2019', subject: 'Maths', obt_marks: 49, ttl_marks: 50 },
+    { id: '19-9th-007', name: 'Harshil Sureja', date: '14/12/2019', subject: 'Maths', obt_marks: 45, ttl_marks: 50 },
+    { id: '19-9th-008', name: 'Saurabh Oza', date: '14/12/2019', subject: 'Maths', obt_marks: 45, ttl_marks: 50 },
+    { id: '19-9th-009', name: 'Hastik Bhut', date: '14/12/2019', subject: 'Maths', obt_marks: 44, ttl_marks: 50 },
+    { id: '19-9th-010', name: 'Yash Charola', date: '14/12/2019', subject: 'Maths', obt_marks: 35, ttl_marks: 50 }
+  ]
 
+  subjectlist = []
+  constructor() {
+    for (let i = 0; i < this.students.length; i++) {
+      if (!this.subjectlist.includes(this.students.map(subject => subject.subject)[i]))
+        this.subjectlist.push(this.students.map(subject => subject.subject)[i])
+    }
     // Assign the data to the data source for the table to render
-    this.dataSource = new MatTableDataSource(students);
+    this.dataSource = new MatTableDataSource(this.students);
   }
 
   ngOnInit() {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
+    this.dataSource.filterPredicate =
+      (data: StudentData, filtersJson: string) => {
+        const matchFilter = [];
+        const filters = JSON.parse(filtersJson);
+
+        filters.forEach(filter => {
+          const val = data[filter.id] === null ? '' : data[filter.id];
+          matchFilter.push(val.toLowerCase().includes(filter.value.toLowerCase()));
+        });
+        return matchFilter.every(Boolean);
+      };
   }
 
   // filtering data
-  applyFilter(filterValue: string) {
-    this.dataSource.filter = filterValue.trim().toLowerCase();
+  // applyFilter(filterValue: string) {
+  //   this.dataSource.filter = filterValue.trim().toLowerCase();
 
+  //   if (this.dataSource.paginator) {
+  //     this.dataSource.paginator.firstPage();
+  //   }
+  // }
+
+  applyFilter(selectedValue: string, columnName: string) {
+    // selectedValue = selectedValue.trim(); // Remove whitespace
+    selectedValue = selectedValue.trim().toLowerCase(); // MatTableDataSource defaults to lowercase matches
+    const tableFilters = [];
+    tableFilters.push({
+      id: columnName,
+      value: selectedValue
+    });
+    console.log(tableFilters)
+    this.dataSource.filter = JSON.stringify(tableFilters);
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
+    // debugger
   }
+
+
 
   // ------------------- generating a report -------------------
 
@@ -178,7 +113,7 @@ export class FacultyExamResultComponent implements OnInit {
   generateReport() {
     let pdf = new jsPDF('p', 'pt', 'a4');
     pdf.page = 1
-    
+
     pdf.autoTable({
       html: '#results',
       theme: 'grid', // striped | grid | plain
