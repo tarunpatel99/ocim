@@ -11,9 +11,15 @@ export interface Class {
   viewValue: string;
 }
 
+export interface Subjectexm {
+  value: string;
+  viewValue: string;
+}
+
 export interface Std_element {
   rollno: string;
   name: string;
+  classnm: string;
   Maths: string;
   Sci: string;
   English: string;
@@ -22,16 +28,16 @@ export interface Std_element {
 }
 
 const Student_Data: Std_element[] = [
-  {rollno: '19-9th-11', name: 'Harshil Sureja', Maths: "44/50" , Sci: "48/50" , English: "46/50" , SS: "50/50" , Total: "191/200"},
-  {rollno: '19-9th-12', name: 'Tarun Patel', Maths: "48/50" , Sci: "47/50" , English: "45/50" , SS: "50/50" , Total: "195/200"},
-  {rollno: '19-9th-13', name: 'Aakash Bhavsar', Maths: "48/50" , Sci: "46/50" , English: "46/50" , SS: "50/50" , Total: "194/200"},
-  {rollno: '19-9th-14', name: 'Shubh bhutt', Maths: "47/50" , Sci: "47/50" , English: "43/50" , SS: "50/50" , Total: "187/200"},
-  {rollno: '19-9th-15', name: 'Mihir Kamariya', Maths: "46/50" , Sci: "43/50" , English: "45/50" , SS: "50/50" , Total: "188/200"},
-  {rollno: '19-9th-16', name: 'Hastik Bhut', Maths: "49/50" , Sci: "47/50" , English: "46/50" , SS: "50/50" , Total: "189/200"},
-  {rollno: '19-9th-17', name: 'Yash Charola', Maths: "42/50" , Sci: "44/50" , English: "44/50" , SS: "50/50" , Total: "193/200"},
-  {rollno: '19-9th-18', name: 'Tanmay Patel', Maths: "41/50" , Sci: "47/50" , English: "46/50" , SS: "50/50" , Total: "194/200"},
-  {rollno: '19-9th-19', name: 'Shivam Patel', Maths: "40/50" , Sci: "44/50" , English: "41/50" , SS: "50/50" , Total: "196/200"},
-  {rollno: '19-9th-20', name: 'Bhautik Panchasara', Maths: "40/50" , Sci: "47/50" , English: "40/50" , SS: "50/50" , Total: "195/200"},
+  {rollno: '19-9th-11', name: 'Harshil Sureja', classnm: '9 (A Div)' , Maths: "44/50" , Sci: "48/50" , English: "46/50" , SS: "50/50" , Total: "191/200"},
+  {rollno: '19-9th-12', name: 'Tarun Patel', classnm: '9 (A Div)' , Maths: "48/50" , Sci: "47/50" , English: "45/50" , SS: "50/50" , Total: "195/200"},
+  {rollno: '19-9th-13', name: 'Aakash Bhavsar', classnm: '9 (A Div)' , Maths: "48/50" , Sci: "46/50" , English: "46/50" , SS: "50/50" , Total: "194/200"},
+  {rollno: '19-9th-14', name: 'Shubh bhutt', classnm: '9 (A Div)' , Maths: "47/50" , Sci: "47/50" , English: "43/50" , SS: "50/50" , Total: "187/200"},
+  {rollno: '19-9th-15', name: 'Mihir Kamariya', classnm: '9 (A Div)' , Maths: "46/50" , Sci: "43/50" , English: "45/50" , SS: "50/50" , Total: "188/200"},
+  {rollno: '19-9th-16', name: 'Hastik Bhut', classnm: '9 (A Div)' , Maths: "49/50" , Sci: "47/50" , English: "46/50" , SS: "50/50" , Total: "189/200"},
+  {rollno: '19-9th-17', name: 'Yash Charola', classnm: '9 (A Div)' , Maths: "42/50" , Sci: "44/50" , English: "44/50" , SS: "50/50" , Total: "193/200"},
+  {rollno: '19-9th-18', name: 'Tanmay Patel', classnm: '9 (A Div)' , Maths: "41/50" , Sci: "47/50" , English: "46/50" , SS: "50/50" , Total: "194/200"},
+  {rollno: '19-9th-19', name: 'Shivam Patel', classnm: '9 (A Div)' , Maths: "40/50" , Sci: "44/50" , English: "41/50" , SS: "50/50" , Total: "196/200"},
+  {rollno: '19-9th-20', name: 'Bhautik Panchasara', classnm: '9 (A Div)' , Maths: "40/50" , Sci: "47/50" , English: "40/50" , SS: "50/50" , Total: "195/200"},
 ];
 
 @Component({
@@ -60,8 +66,18 @@ export class BranchAttendanceComponent implements OnInit {
     {value: '12-sci-bio-pink-m', viewValue: '12 Sci Bio (Pink M)'}
   ];
 
-  
-  displayedColumns: string[] = ['rollno','name', 'Maths','Sci','English','SS','Total'];
+  subjects: Subjectexm[] = [
+    {value: 'Science', viewValue: 'Science'},
+    {value: 'Maths', viewValue: 'Maths'},
+    {value: 'Social', viewValue: 'Social'},
+    {value: 'Bio', viewValue: 'Bio'}
+  ]
+
+  demoprint() {
+    window.print();
+  }
+
+  displayedColumns: string[] = ['rollno','name' , 'classnm' , 'Maths','Sci','English','SS','Total'];
   dataSource = new MatTableDataSource<Std_element>(Student_Data);
 
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
