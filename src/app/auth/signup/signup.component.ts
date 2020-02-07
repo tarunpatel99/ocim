@@ -19,14 +19,10 @@ export class SignupComponent implements OnInit {
     Validators.email,
   ]);
   pnum = new FormControl('', [
-    Validators.required,
-    Validators.maxLength(10),
-    Validators.minLength(10),
-    Validators.pattern('[0-9]'),
+    Validators.required
   ]);
   pass = new FormControl('', [
-    Validators.required,
-    Validators.pattern('[0-9]'),
+    Validators.required
   ]);
   npass = new FormControl('', [
     Validators.required

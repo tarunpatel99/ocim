@@ -40,10 +40,10 @@ export class FacultyLeaveNoteComponent implements OnInit {
   leaves: LeaveNote[] = [
     {
       id: "132",
-      class: "8",
+      class: "9",
       studentName: "Tarun Patel",
-      subject: "Khabar nai",
-      description: "Dr. ne mali lo",
+      subject: "Fever",
+      description: "A temporary increase in average body temperature of 98.6°F (37°C).",
       leaveFrom: "12/12/2019",
       leaveTo: "22/12/2019",
       attatchments: [
@@ -58,10 +58,10 @@ export class FacultyLeaveNoteComponent implements OnInit {
     },
     {
       id: "132",
-      class: "8",
-      studentName: "Tarun Patel",
-      subject: "Khabar nai",
-      description: "Dr. ne mali lo",
+      class: "9",
+      studentName: "Harshil Sureja",
+      subject: "Fever",
+      description: "A temporary increase in average body temperature of 98.6°F (37°C).",
       leaveFrom: "12/12/2019",
       leaveTo: "22/12/2019",
       attatchments: [
@@ -76,10 +76,10 @@ export class FacultyLeaveNoteComponent implements OnInit {
     },
     {
       id: "126",
-      class: "8",
-      studentName: "Tarun Patel",
-      subject: "Khabar nai",
-      description: "Dr. ne mali lo",
+      class: "9",
+      studentName: "Aakash Bhavasar",
+      subject: "Fever",
+      description: "A temporary increase in average body temperature of 98.6°F (37°C).",
       leaveFrom: "12/12/2019",
       leaveTo: "22/12/2019",
       attatchments: [

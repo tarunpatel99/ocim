@@ -78,7 +78,7 @@ import { StudentTaskWorkComponent } from './dashboard/entities/student/student-t
 import { StudentAttendanceComponent } from './dashboard/entities/student/student-attendance/student-attendance.component';
 import { StudentTimetableComponent } from './dashboard/entities/student/student-timetable/student-timetable.component';
 import { StudentDashboardComponent } from './dashboard/entities/student/student-dashboard/student-dashboard.component';
-import { StudentService } from './student.service';
+import { StudentService } from './dashboard/entities/student/student.service';
 import { AuthService } from './auth/auth.service';
 import { BranchFacultiesComponent } from './dashboard/entities/branch/branch-faculties/branch-faculties.component';
 import { CommonModule } from '@angular/common';

@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy, ChangeDetectorRef, HostBinding } from '@angular/core';
 import { MediaMatcher } from '@angular/cdk/layout';
 import * as $ from 'jquery';
-import { StudentService } from "../student.service";
+import { StudentService } from "./entities/student/student.service";
 import { Router } from '@angular/router';
 import { AuthService } from '../auth/auth.service';
 import { OverlayContainer } from '@angular/cdk/overlay';

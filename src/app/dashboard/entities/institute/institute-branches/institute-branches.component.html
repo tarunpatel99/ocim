@@ -35,9 +35,9 @@
                 <ng-container matColumnDef="action">
                     <mat-header-cell *matHeaderCellDef class="tbl-right"> Action </mat-header-cell>
                     <mat-cell *matCellDef="let element" class="tbl-right">
-                        <button mat-icon-button color="primary" matTooltip="View">
+                        <!-- <button mat-icon-button color="primary" matTooltip="View">
                         <mat-icon>visibility</mat-icon>
-                        </button>
+                        </button> -->
                         <button mat-icon-button color="primary" matTooltip="Edit">
                         <mat-icon>edit</mat-icon>
                         </button>
@@ -115,10 +115,7 @@
                 </mat-form-field>
                 <br>
                 <mat-form-field class="full-width">
-                    <input type="text" matInput placeholder="Phone number" [formControl]="pnum" required>
-                    <mat-error *ngIf="pnum.hasError('pattern') && !pnum.hasError('required')">
-                        Please enter digits only
-                      </mat-error>
+                    <input type="text" type="number" matInput placeholder="Phone number" [formControl]="pnum" required>
                       <mat-error *ngIf="pnum.hasError('required')">
                         Phone number is <strong>required</strong>
                       </mat-error>

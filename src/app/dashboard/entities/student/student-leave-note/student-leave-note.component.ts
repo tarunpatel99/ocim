@@ -39,10 +39,10 @@ export class StudentLeaveNoteComponent implements OnInit {
   leaves: LeaveNote[] = [
     {
       id: "132",
-      class: "8",
+      class: "9",
       studentName: "Tarun Patel",
-      subject: "Sick Leave",
-      description: "Cold",
+      subject: "Fever",
+      description: "A temporary increase in average body temperature of 98.6°F (37°C).",
       leaveFrom: "12/12/2019",
       leaveTo: "22/12/2019",
       attatchments: [
@@ -57,10 +57,10 @@ export class StudentLeaveNoteComponent implements OnInit {
     },
     {
       id: "132",
-      class: "8",
-      studentName: "Tarun Patel",
-      subject: "Sick Leave",
-      description: "Fever",
+      class: "9",
+      studentName: "Harshil Sureja",
+      subject: "Fever",
+      description: "A temporary increase in average body temperature of 98.6°F (37°C).",
       leaveFrom: "12/12/2019",
       leaveTo: "22/12/2019",
       attatchments: [
@@ -75,10 +75,10 @@ export class StudentLeaveNoteComponent implements OnInit {
     },
     {
       id: "126",
-      class: "8",
-      studentName: "Tarun Patel",
-      subject: "Sick Leave",
-      description: "Malaria",
+      class: "9",
+      studentName: "Aakash Bhavasar",
+      subject: "Fever",
+      description: "A temporary increase in average body temperature of 98.6°F (37°C).",
       leaveFrom: "12/12/2019",
       leaveTo: "22/12/2019",
       attatchments: [
@@ -97,7 +97,7 @@ export class StudentLeaveNoteComponent implements OnInit {
    }
    openDialog(): void {
     const dialogRef = this.dialog.open(ApplyLeave, {
-      width: '500px'
+      width: '525px'
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -108,7 +108,14 @@ export class StudentLeaveNoteComponent implements OnInit {
     this.selectedLeave = leave
     const dialogRef = this.dialog.open(actiondialog, {
       width: '300px',
-      data: {studentName: this.selectedLeave.studentName, class: this.selectedLeave.class,subject: this.selectedLeave.subject, description: this.selectedLeave.description, attatchments: this.selectedLeave.attatchments}
+      data: {studentName: this.selectedLeave.studentName,
+        class: this.selectedLeave.class,
+        subject: this.selectedLeave.subject,
+        attatchments: this.selectedLeave.attatchments,
+        description: this.selectedLeave.description,
+        from: this.selectedLeave.leaveFrom,
+        to: this.selectedLeave.leaveTo,
+        status: this.selectedLeave.status}
     });
     
 
@@ -187,6 +194,16 @@ export class ApplyLeave {
     // this.dialogRef.close();
     if (this.applyleavedialog.invalid) {
       return;
+    }
+  }
+  getColor(status) {
+    switch (status) {
+      case 'Pending':
+        return '#212121'; // dark grey for status PENDING
+      case 'Approved':
+        return '#43a047'; // green for status APPROVED
+      case 'Denied':
+        return '#C62828'; // red for status DENIED
     }
   }
   ngOnInit(){

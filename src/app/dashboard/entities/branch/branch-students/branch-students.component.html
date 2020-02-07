@@ -43,9 +43,9 @@
                 <ng-container matColumnDef="action">
                     <mat-header-cell *matHeaderCellDef class="tbl-right"> Action </mat-header-cell>
                     <mat-cell *matCellDef="let element" class="tbl-right">
-                        <button mat-icon-button color="primary" matTooltip="View">
+                        <!-- <button mat-icon-button color="primary" matTooltip="View">
                             <mat-icon>visibility</mat-icon>
-                        </button>
+                        </button> -->
                         <button mat-icon-button color="primary" matTooltip="Edit">
                             <mat-icon>edit</mat-icon>
                         </button>
@@ -194,10 +194,10 @@
                         </mat-error>
                     </mat-form-field>
                 </mat-card>
-                <mat-action-row>
-                    <button mat-flat-button color="primary" type="submit">Add</button>
+                <mat-card-actions align="end">
                     <button mat-stroked-button color="warn" type="reset">Cancel</button>
-                </mat-action-row>
+                    <button mat-flat-button color="primary" type="submit">Add</button>
+                </mat-card-actions>
             </form>
         </mat-tab>
     </mat-tab-group>

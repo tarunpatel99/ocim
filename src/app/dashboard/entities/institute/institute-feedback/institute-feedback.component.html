@@ -1,1 +1,57 @@
-<p>institute-feedback works!</p>
+<p class="heading">Feedback</p>
+<mat-card>
+    <form action="">
+        <mat-form-field class="full-width">
+            <input type="text" matInput placeholder="Title" required ngModel name="email">
+        </mat-form-field>
+        <mat-form-field class="full-width">
+            <input type="text" matInput placeholder="Description" required ngModel name="description">
+        </mat-form-field>
+
+        <button mat-raised-button color="primary">Submit</button>
+
+    </form>
+    <br>
+
+    <mat-card-title>
+        Feedback history
+    </mat-card-title>
+
+    <mat-form-field id="searchBar">
+        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search">
+    </mat-form-field>
+    <mat-table [dataSource]="dataSource" matSort>
+        <!-- Feedback date Column -->
+        <ng-container matColumnDef="date">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Date </mat-header-cell>
+            <mat-cell *matCellDef="let feedback">{{feedback.date}}</mat-cell>
+        </ng-container>
+
+        <!-- Feedback by Column -->
+        <ng-container matColumnDef="feedbackby">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Feedback By </mat-header-cell>
+            <mat-cell *matCellDef="let feedback">{{feedback.feedbackby}}</mat-cell>
+        </ng-container>
+
+        <!-- Institute Column -->
+        <ng-container matColumnDef="institute">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Institute </mat-header-cell>
+            <mat-cell *matCellDef="let feedback">{{feedback.institute}}</mat-cell>
+        </ng-container>
+
+        <!-- Title Column -->
+        <ng-container matColumnDef="title">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Title </mat-header-cell>
+            <mat-cell *matCellDef="let feedback">{{feedback.title}}</mat-cell>
+        </ng-container>
+
+        <!-- Description Column -->
+        <ng-container matColumnDef="description">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Description </mat-header-cell>
+            <mat-cell *matCellDef="let feedback">{{feedback.description}}</mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+</mat-card>

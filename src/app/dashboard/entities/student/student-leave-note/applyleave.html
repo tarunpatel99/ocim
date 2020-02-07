@@ -10,15 +10,15 @@
       <div>
       <table>
           <tr>
-              <td> <mat-form-field class="example-full-width">
-                      <input matInput [matDatepicker]="pickerJoin" placeholder="From" formControlName="date" required>
+              <td> <mat-form-field class="full-width">
+                      <input matInput [matDatepicker]="pickerJoin" placeholder="From (MM/DD/YYYY)" formControlName="date" required>
                       <mat-datepicker-toggle matSuffix [for]="pickerJoin"></mat-datepicker-toggle>
                           <mat-datepicker #pickerJoin></mat-datepicker>
                           <mat-error *ngIf="applyleavedialog.get('date').invalid">Date is required</mat-error>
                   </mat-form-field>
                 </td>
-                  <td> <mat-form-field class="example-full-width">
-                          <input matInput [matDatepicker]="pickerTo" placeholder="To" formControlName="date" required>
+                  <td> <mat-form-field class="full-width">
+                          <input matInput [matDatepicker]="pickerTo" placeholder="To (MM/DD/YYYY)" formControlName="date" required>
                           <mat-datepicker-toggle matSuffix [for]="pickerTo"></mat-datepicker-toggle>
                               <mat-datepicker #pickerTo></mat-datepicker>
                               <mat-error *ngIf="applyleavedialog.get('date').invalid">Date is required</mat-error>
@@ -33,14 +33,14 @@
           </mat-form-field>
       </div>
       <div class="uploadfilecontainer" (click)="fileInput.click()" appDragDrop (onFileDropped)="uploadFile($event)">
-            <input hidden type="file" #fileInput (change)="uploadFile($event.target.files)">Drag & Drop
-            <mat-icon color="primary">cloud_upload</mat-icon>
+        <div class="button-icon">
+            <input hidden type="file" #fileInput (change)="uploadFile($event.target.files)">
+            <span>Drag & Drop</span>
         </div>
-      <div mat-dialog-actions>
+        </div>
+      <div mat-dialog-actions align="end">
         <input #photoInput hidden="true" type="file" onclick="this.value=null" (change)="photoInputChange($event)" accept=".jpg" />
-        <button mat-stroked-button color="primary" class="button" (click)="photoInput.click()">Attachment <mat-icon>attachment</mat-icon></button>
         <button mat-flat-button color="primary" cdkFocusInitial>Save Leave</button>
         <button mat-stroked-button color="warn" type="reset" onclick="onCancel()">Cancel</button>
     </div>
 </form>
-</div>

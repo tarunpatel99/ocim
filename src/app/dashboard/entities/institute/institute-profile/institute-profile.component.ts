@@ -14,19 +14,12 @@ export class InstituteProfileComponent implements OnInit {
   ]);
   pnum = new FormControl('', [
     Validators.required,
-    Validators.maxLength(10),
-    Validators.minLength(10),
-    Validators.pattern('[0-9]'),
   ]);
   pass = new FormControl('', [
-    Validators.required,
-    Validators.pattern('[0-9]'),
+    Validators.required
   ]);
   inum = new FormControl('', [
     Validators.required,
-    Validators.maxLength(10),
-    Validators.minLength(10),
-    Validators.pattern('[0-9]'),
   ]);
   npass = new FormControl('', [
     Validators.required

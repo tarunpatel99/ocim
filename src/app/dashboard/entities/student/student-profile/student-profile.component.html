@@ -11,13 +11,13 @@
                 </mat-card-header>
             </mat-card>
             <mat-form-field class="full-width">
-                <input type="text" matInput placeholder="First name" required disabled>
+                <input type="text" matInput placeholder="First name" required disabled value="Shivam">
             </mat-form-field>
             <mat-form-field class="full-width">
-                <input type="text" matInput placeholder="Middle name" required disabled>
+                <input type="text" matInput placeholder="Middle name" required disabled value="M.">
             </mat-form-field>
             <mat-form-field class="full-width">
-                <input type="text" matInput placeholder="Last name" required disabled>
+                <input type="text" matInput placeholder="Last name" required disabled value="Patel">
             </mat-form-field>
             <br>
             <div class="gndr">
@@ -29,7 +29,7 @@
             </mat-radio-group> -->
             </div>
             <mat-form-field class="full-width">
-                <input matInput [matDatepicker]="pickerJoindob" placeholder="Date of birth" required disabled>
+                <input matInput [matDatepicker]="pickerJoindob" placeholder="Date of birth" required disabled value="date.value">
                 <mat-datepicker-toggle matSuffix [for]="pickerJoindob"></mat-datepicker-toggle>
                 <mat-datepicker #pickerJoindob></mat-datepicker>
             </mat-form-field>
@@ -37,26 +37,26 @@
                 <input type="text" matInput placeholder="School Name" required disabled>
             </mat-form-field>
             <mat-form-field class="full-width">
-                <textarea type="text" matInput placeholder="Address" rows="3" required disabled></textarea>
+                <textarea type="text" matInput placeholder="Address" rows="3" value="A-17, Abhishek Socity, bopal" required disabled></textarea>
             </mat-form-field>
             <mat-form-field class="full-width">
                 <mat-label>City</mat-label>
-                <mat-select required disabled>
-                    <mat-option *ngFor="let city of cities" [value]="city.value">
-                        {{city.viewValue}}
+                <mat-select value="ahmedabad" required disabled>
+                    <mat-option value="ahmedabad">
+                        Ahmedabad
                     </mat-option>
                 </mat-select>
             </mat-form-field>
             <mat-form-field class="full-width">
                 <mat-label>State</mat-label>
-                <mat-select required disabled>
-                    <mat-option *ngFor="let state of states" [value]="state.value">
-                        {{state.viewValue}}
+                <mat-select value="gujarat" required disabled>
+                    <mat-option value="gujarat">
+                        Gujarat
                     </mat-option>
                 </mat-select>
             </mat-form-field>
             <mat-form-field class="full-width">
-                <input matInput #postalCode maxlength="6" placeholder="Postal Code" required disabled>
+                <input matInput #postalCode maxlength="6" placeholder="Postal Code" value="380058" required disabled>
                 <mat-hint align="end">{{postalCode.value.length}} / 6</mat-hint>
             </mat-form-field>
         </form>
@@ -67,10 +67,10 @@
         <mat-card-title>Security details</mat-card-title>
         <form class="no-add-branch">
             <mat-form-field class="full-width">
-                <input type="text" matInput placeholder="Phone number" required disabled>
+                <input type="text" matInput placeholder="Phone number" value="9564642377" required disabled>
             </mat-form-field>
             <mat-form-field class="full-width">
-                <input type="text" matInput placeholder="Email" required disabled>
+                <input type="text" matInput placeholder="Email" value="shivam@gmail.com" required disabled>
             </mat-form-field>
             <br>
             <mat-form-field class="full-width">

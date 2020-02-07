@@ -16,9 +16,9 @@
                 </mat-error>
             </mat-form-field>
             <mat-form-field class="full-width">
-                <input type="text" matInput placeholder="Middle name" formControlName="middlename" required>
-                <mat-error *ngIf="addFacultyForm.get('middlename').invalid">Please enter middle name
-                </mat-error>
+                <input type="text" matInput placeholder="Middle name" >
+                <!-- <mat-error *ngIf="addFacultyForm.get('middlename').invalid">Please enter middle name
+                </mat-error> -->
             </mat-form-field>
             <mat-form-field class="full-width">
                 <input type="text" matInput placeholder="Last name" formControlName="lastname" required>
@@ -26,21 +26,24 @@
                 </mat-error>
             </mat-form-field>
             <mat-form-field class="full-width">
-                <input matInput [matDatepicker]="pickerJoindob" placeholder="Date of birth" formControlName="dateofbirth" required>
+                <input matInput [matDatepicker]="pickerJoindob" placeholder="Date of birth"
+                    formControlName="dateofbirth" required>
                 <mat-datepicker-toggle matSuffix [for]="pickerJoindob"></mat-datepicker-toggle>
                 <mat-datepicker #pickerJoindob></mat-datepicker>
                 <mat-error *ngIf="addFacultyForm.get('dateofbirth').invalid">Please select date of birth
                 </mat-error>
             </mat-form-field>
             <mat-form-field class="full-width">
-                <input matInput [matDatepicker]="pickerJoinjd" placeholder="Joining date" formControlName="joiningdate" required>
+                <input matInput [matDatepicker]="pickerJoinjd" placeholder="Joining date" formControlName="joiningdate"
+                    required>
                 <mat-datepicker-toggle matSuffix [for]="pickerJoinjd"></mat-datepicker-toggle>
                 <mat-datepicker #pickerJoinjd></mat-datepicker>
                 <mat-error *ngIf="addFacultyForm.get('joiningdate').invalid">Please select joining date
                 </mat-error>
             </mat-form-field>
             <mat-form-field class="full-width">
-                <input type="number" matInput placeholder="Experience" formControlName="experienceyear" required min="0">
+                <input type="number" matInput placeholder="Experience" formControlName="experienceyear" required
+                    min="0">
                 <mat-error *ngIf="addFacultyForm.get('experienceyear').invalid">Please select experience year
                 </mat-error>
             </mat-form-field>
@@ -52,7 +55,7 @@
                     <mat-radio-button value="Other">Other</mat-radio-button>
                 </mat-radio-group>
             </div>
-            <mat-divider [inset]="true"></mat-divider>
+            <!-- <mat-divider [inset]="true"></mat-divider>
             <mat-card-title>Class and subject details</mat-card-title>
             <mat-form-field class="full-width">
                 <mat-label>Class</mat-label>
@@ -76,11 +79,12 @@
             </mat-form-field>
             <button class="no-full-width" mat-icon-button color="primary" aria-label="add more class and subject">
                 <mat-icon>add</mat-icon>
-            </button>
+            </button> -->
             <mat-divider [inset]="true"></mat-divider>
             <mat-card-title>Address details</mat-card-title>
             <mat-form-field class="full-width">
-                <textarea type="text" matInput placeholder="Address" rows="3" formControlName="address" required></textarea>
+                <textarea type="text" matInput placeholder="Address" rows="3" formControlName="address"
+                    required></textarea>
                 <mat-error *ngIf="addFacultyForm.get('address').invalid">Please enter address
                 </mat-error>
             </mat-form-field>
@@ -105,7 +109,8 @@
                 </mat-error>
             </mat-form-field>
             <mat-form-field class="full-width">
-                <input matInput #postalCode maxlength="6" placeholder="Postal code" formControlName="postalcode" required>
+                <input matInput #postalCode maxlength="6" placeholder="Postal code" formControlName="postalcode"
+                    required>
                 <mat-error *ngIf="addFacultyForm.get('postalcode').invalid">Please enter postal code
                 </mat-error>
                 <mat-hint align="end">{{postalCode.value.length}} / 6</mat-hint>
@@ -115,6 +120,23 @@
                 <button mat-flat-button color="primary" type="submit">Update</button>
             </mat-card-actions>
         </mat-card>
+        <!-- <br>
+        <mat-card class="no-shadow">
+            
+                <mat-card-title>Class and subject details</mat-card-title>
+            <mat-card>
+                <mat-list role="list">
+                    <h3 mat-subheader>Class</h3>
+                    <mat-list-item role="listitem" *ngFor="let class of classes">{{ class.viewValue }}</mat-list-item>
+                </mat-list>
+            </mat-card>
+            <mat-card>
+                <mat-list role="list">
+                    <h3 mat-subheader>subjects</h3>
+                    <mat-list-item role="listitem" *ngFor="let subject of subjects">{{ subject.viewValue }}</mat-list-item>
+                </mat-list>
+            </mat-card>
+        </mat-card> -->
         <br>
         <mat-card class="no-shadow">
             <mat-card-title>Security details</mat-card-title>
@@ -130,22 +152,24 @@
             </mat-form-field>
             <br>
             <mat-form-field class="full-width">
-                <input type="password" matInput placeholder="Password" (keyup)="getPassword($event.target.value)" formControlName="password" required>
+                <input type="password" matInput placeholder="Password" (keyup)="getPassword($event.target.value)"
+                    formControlName="password" required>
                 <mat-error *ngIf="addFacultyForm.get('password').invalid">Please enter password
                 </mat-error>
             </mat-form-field>
             <mat-form-field class="full-width">
 
-                <input type="password" matInput placeholder="Confirm password" (keyup)="checkPassword($event.target.value)" formControlName="confirmpassword" required>
+                <input type="password" matInput placeholder="Confirm password"
+                    (keyup)="checkPassword($event.target.value)" formControlName="confirmpassword" required>
                 <mat-error *ngIf="addFacultyForm.get('confirmpassword').invalid">Please enter confirm password
                 </mat-error>
                 <mat-error>{{confirmPasswordError}}</mat-error>
             </mat-form-field>
-            
-        <mat-card-actions align="end">
-            <button mat-stroked-button color="warn" type="reset">Cancel</button>
-            <button mat-flat-button color="primary" type="submit">Change password</button>
-        </mat-card-actions>
+
+            <mat-card-actions align="end">
+                <button mat-stroked-button color="warn" type="reset">Cancel</button>
+                <button mat-flat-button color="primary" type="submit">Change password</button>
+            </mat-card-actions>
         </mat-card>
     </form>
 </mat-card>
