@@ -3,7 +3,7 @@
     <form action="">
         <mat-form-field class="full-width">
             <mat-select (selectionChange)="applyFilter(subject.value, 'subject')" value="" placeholder="Select Subject" #subject>
-                <mat-option>None</mat-option>
+                <mat-option value="">All</mat-option>
                 <mat-option *ngFor="let subject of subjectlist" [value]="subject">{{ subject }}</mat-option>
             </mat-select>
         </mat-form-field>

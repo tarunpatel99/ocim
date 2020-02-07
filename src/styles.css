@@ -139,12 +139,12 @@ button {
     margin: auto 10px;
 }
 
-table {
+.mat-card-content table {
     margin: auto;
     width: 200px;
 }
 
-td {
+.mat-card-content table tr td {
     font-size: 20px;
     padding: 2px;
 }
