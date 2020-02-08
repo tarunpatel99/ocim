@@ -86,6 +86,7 @@ import { ConfirmDeleteComponent } from './dashboard/entities/confirm-delete/conf
 import { EditResultMarkComponent } from './dashboard/entities/branch/branch-exam-result/edit-result-mark/edit-result-mark.component';
 import { OverlayModule } from '@angular/cdk/overlay';
 import { ForgotpasswordComponent } from './auth/forgotpassword/forgotpassword.component';
+import { PrintService } from './dashboard/printservice/print.service';
 
 @NgModule({
   declarations: [
@@ -186,7 +187,8 @@ import { ForgotpasswordComponent } from './auth/forgotpassword/forgotpassword.co
   ],
   providers: [
     StudentService,
-    AuthService
+    AuthService,
+    PrintService
   ],
   bootstrap: [AppComponent]
 })
