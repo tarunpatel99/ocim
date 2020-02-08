@@ -2,7 +2,8 @@
 <mat-card>
     <form action="">
         <mat-form-field class="full-width">
-            <mat-select (selectionChange)="applyFilter(subject.value, 'subject')" value="" placeholder="Select Subject" #subject>
+            <mat-select (selectionChange)="applyFilter(subject.value, 'subject')" (click)="resetForm()" value=""
+                placeholder="Select Subject" #subject>
                 <mat-option value="">All</mat-option>
                 <mat-option *ngFor="let subject of subjectlist" [value]="subject">{{ subject }}</mat-option>
             </mat-select>
@@ -19,18 +20,14 @@
             <input matInput type="time" placeholder="To [HH:MM AM/PM]" value="00:00">
         </mat-form-field> -->
         <!-- <button class="submit-btn" mat-flat-button color="primary">Submit</button> -->
-        <button class="submit-btn" (click)="generateReport()" mat-flat-button color="primary">Generate Report</button>
-
+        <button class="submit-btn" (click)="generateReport('results')" mat-flat-button color="primary">Generate Report</button>
         <mat-divider></mat-divider>
-
-
     </form>
     <!-- student list -->
     <mat-form-field id="searchBar">
         <input matInput #search (keyup)="applyFilter(search.value, 'name')" placeholder="Search student">
     </mat-form-field>
-
-    <div >
+    <div>
         <table id="results" mat-table [dataSource]="dataSource" matSort>
 
             <ng-container matColumnDef="id">
@@ -59,16 +56,18 @@
             </ng-container>
 
             <ng-container matColumnDef="ttl_marks">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> Total </th>
-                <td mat-cell *matCellDef="let student"> {{student.ttl_marks}} </td>
+                <th mat-header-cell [hidden]="hide" *matHeaderCellDef mat-sort-header> Total </th>
+                <td mat-cell [hidden]="hide" *matCellDef="let student"> {{student.ttl_marks}} </td>
             </ng-container>
 
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-            <tr mat-row *matRowDef="let student; columns: displayedColumns;" [ngStyle]="{'background-color':student.obt_marks <= '17' ? '#ffebee': 'none'}">
+            <tr mat-row *matRowDef="let student; columns: displayedColumns;"
+                [ngStyle]="{'background-color':student.obt_marks <= '17' ? '#ffebee': 'none'}">
             </tr>
+
         </table>
     </div>
 
-        <mat-paginator [pageSizeOptions]="[5, 10, 25, 100, dataSource.data.length]"></mat-paginator>
-    
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100, dataSource.data.length]"></mat-paginator>
+
 </mat-card>
