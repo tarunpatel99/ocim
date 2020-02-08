@@ -35,6 +35,10 @@ export interface Fac_element {
   phone: string;
 }
 
+export interface Pincode {
+  value: string;
+  viewValue: string;
+}
 
 const Faculty_Data: Fac_element[] = [
   {position: 1, name: 'Bhavesh Rathod', email: 'bhaveshrathod@gmail.com', phone: '9876543210'},
@@ -64,25 +68,20 @@ export class BranchFacultiesComponent implements OnInit {
 
 
   classes: Class[] = [
-    {value: '1', viewValue: '1'},
-    {value: '2', viewValue: '2'},
-    {value: '3', viewValue: '3'},
-    {value: '4', viewValue: '4'},
-    {value: '5', viewValue: '5'},
-    {value: '6', viewValue: '6'},
-    {value: '7', viewValue: '7'},
-    {value: '8', viewValue: '8'},
-    {value: '9', viewValue: '9'},
-    {value: '10', viewValue: '10'},
-    {value: '11-sci-maths', viewValue: '11 Sci Maths'},
-    {value: '11-sci-bio', viewValue: '11 Sci Bio'},
-    {value: '12-sci-maths', viewValue: '12 Sci Maths'},
-    {value: '12-sci-bio', viewValue: '12 Sci Bio'},
-    {value: '11-commerce', viewValue: '11 Commerce'},
-    {value: '12-commerce', viewValue: '12 Commerce'},
-    {value: '11-arts', viewValue: '11 Arts'},
-    {value: '12-arts', viewValue: '12 Arts'},
-    {value: 'other', viewValue: 'Custom'},
+    { value: '8-a-div', viewValue: '8 (A Div)' },
+    { value: '8-b-div', viewValue: '8 (B Div)' },
+    { value: '9-a-div', viewValue: '9 (A Div)' },
+    { value: '9-b-div', viewValue: '9 (B Div)' },
+    { value: '10-a-div', viewValue: '10 (A Div)' },
+    { value: '10-b-div', viewValue: '10 (B Div)' },
+    { value: '11-sci-maths-yellow-m', viewValue: '11 Sci Maths (Yellow M)' },
+    { value: '11-sci-maths-blue-m', viewValue: '11 Sci Maths (Blue M)' },
+    { value: '11-sci-bio-purple-b', viewValue: '11 Sci Bio (Purple B)' },
+    { value: '11-sci-bio-green-b', viewValue: '11 Sci Bio (Green B)' },
+    { value: '12-sci-maths-golden-m', viewValue: '12 Sci Maths (Golden M)' },
+    { value: '12-sci-maths-red-m', viewValue: '12 Sci Maths (Red M)' },
+    { value: '12-sci-bio-silver-m', viewValue: '12 Sci Bio (Silver M)' },
+    { value: '12-sci-bio-pink-m', viewValue: '12 Sci Bio (Pink M)' }
   ];
 
   subjects: Subject[] = [
@@ -104,6 +103,12 @@ export class BranchFacultiesComponent implements OnInit {
     {value: 'Maharastra', viewValue: 'Maharastra'}
   ];
   
+  pincodes: Pincode[] = [
+    {value: '380058', viewValue: '380058'},
+    {value: '380035', viewValue: '380035'},
+    {value: '380009', viewValue: '380009'},
+    {value: '380015', viewValue: '380015'}
+  ]
 
   displayedColumns: string[] = ['name', 'email', 'phone','action'];
   dataSource = new MatTableDataSource<Fac_element>(Faculty_Data);
