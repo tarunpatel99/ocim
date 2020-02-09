@@ -19,7 +19,7 @@ export interface Subjectexm {
 export interface Std_element {
   rollno: string;
   name: string;
-  classnm: string;
+  classnm: string; 
   Maths: string;
   Sci: string;
   English: string;
