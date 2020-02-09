@@ -4,23 +4,7 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { FormControl } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA, MatDialog } from '@angular/material';
-
-
-export interface Attatchment {
-  id: string
-}
-
-export interface LeaveNote {
-  id: string,
-  class: string,
-  studentName: string,
-  subject: string,
-  description: string,
-  leaveFrom: string,
-  leaveTo: string,
-  attatchments: Attatchment[],
-  status: string
-}
+import { LeaveNote } from "../faculty.model";
 
 @Component({
   selector: 'app-faculty-leave-note',

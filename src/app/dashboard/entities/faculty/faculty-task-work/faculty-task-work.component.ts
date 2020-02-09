@@ -2,29 +2,7 @@ import { Component, OnInit, Inject, OnDestroy } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { FormGroup, FormControl, Validators, FormGroupDirective } from "@angular/forms";
 import { MatTabChangeEvent } from '@angular/material';
-
-export interface DialogData {
-  class?: string, // "?" it specify that not required field
-  subject?: string,
-  iss_date: Date, // Issue date
-  sub_date: Date, // submission date
-  title: string,
-  description: string
-}
-
-export interface subjectData {
-  name: string
-  tasks: DialogData[]
-}
-
-export interface classData {
-  name: string,
-  subjects: subjectData[]
-}
-
-export interface Student {
-  studentname: String
-}
+import { DialogData, subjectData, classData, Student } from "../faculty.model";
 
 @Component({
   selector: 'app-faculty-task-work',

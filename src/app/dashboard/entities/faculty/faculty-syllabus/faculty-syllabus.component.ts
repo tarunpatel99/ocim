@@ -2,18 +2,8 @@ import { Component, OnInit, ViewChild, OnDestroy, Inject } from '@angular/core';
 import { MatTableDataSource, MatPaginator, MatSort, MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
-import { DialogData } from '../faculty-task-work/faculty-task-work.component';
-
-
-export interface FileData {
-  id?: string;
-  name: string;
-  subject: string;
-  class: string;
-  uploadDate: Date; // obtain marks from total marks
-  ownerName?: string; // totla marks
-  fileSoureceUrl: string
-}
+import { DialogData } from '../faculty.model';
+import { FileData } from "../faculty.model";
 
 @Component({
   selector: 'app-faculty-syllabus',

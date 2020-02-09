@@ -1,16 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource, MatPaginator, MatSort } from '@angular/material';
 import { FormControl } from '@angular/forms';
-
-export interface StudentData {
-  title: string;
-  description: string;
-  exmdate: string;
-  class: string;
-  subject: string;
-  ttl_marks: number; // totla marks
-  passing_mark: number;
-}
+import { StudentExamData } from "../faculty.model";
 
 @Component({
   selector: 'app-faculty-exam-schedule',
@@ -19,7 +10,7 @@ export interface StudentData {
 })
 export class FacultyExamScheduleComponent implements OnInit {
 
-  students: StudentData[] = [
+  students: StudentExamData[] = [
     { title: 'class test 3' , description: 'Unit 1, 2, 3' , exmdate: '14/12/2019' , class: '11 SCI Bio' , subject: 'Bio', ttl_marks: 50, passing_mark: 17 },
     { title: 'class test 1' , description: 'Unit 1' , exmdate: '14/12/2019' , class: '11 SCI Bio' , subject: 'Bio', ttl_marks: 50, passing_mark: 17 },
     { title: 'class test 3' , description: 'Unit 1, 2, 3' , exmdate: '14/12/2019' , class: '11 SCI Bio' , subject: 'Physics', ttl_marks: 50, passing_mark: 17 },
@@ -38,7 +29,7 @@ export class FacultyExamScheduleComponent implements OnInit {
   }
 
   displayedColumns: string[] = ['title', 'description', 'exmdate' , 'class' , 'subject', 'ttl_marks' , 'passing_mark'];
-  dataSource: MatTableDataSource<StudentData>;
+  dataSource: MatTableDataSource<StudentExamData>;
   
 
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;

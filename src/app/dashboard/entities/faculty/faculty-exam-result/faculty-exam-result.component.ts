@@ -3,17 +3,9 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { FormControl } from '@angular/forms';
-import { Subject } from 'rxjs';
 import { PrintService } from 'src/app/dashboard/printservice/print.service';
+import { StudentResultData } from "../faculty.model";
 
-export interface StudentData {
-  id: string;
-  name: string;
-  date: string,
-  subject: string;
-  obt_marks: number; // obtain marks from total marks
-  ttl_marks: number; // totla marks
-}
 
 @Component({
   selector: 'app-faculty-exam-result',
@@ -22,7 +14,7 @@ export interface StudentData {
 })
 export class FacultyExamResultComponent implements OnInit {
   displayedColumns: string[] = ['id', 'name', 'date', 'subject', 'obt_marks', 'ttl_marks'];
-  dataSource: MatTableDataSource<StudentData>;
+  dataSource: MatTableDataSource<StudentResultData>;
   hide: boolean = false
 
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
@@ -56,7 +48,7 @@ export class FacultyExamResultComponent implements OnInit {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
     this.dataSource.filterPredicate =
-      (data: StudentData, filtersJson: string) => {
+      (data: StudentResultData, filtersJson: string) => {
         const matchFilter = [];
         const filters = JSON.parse(filtersJson);
 

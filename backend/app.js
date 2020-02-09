@@ -22,7 +22,7 @@ app.use((req, res, next) => {
     next();
 }); 
 
-app.use('/students', (req, res, next) => {
+app.use('/api/students', (req, res, next) => {
     const student = [
         {
             id: "17bca068",
