@@ -87,6 +87,7 @@ import { EditResultMarkComponent } from './dashboard/entities/branch/branch-exam
 import { OverlayModule } from '@angular/cdk/overlay';
 import { ForgotpasswordComponent } from './auth/forgotpassword/forgotpassword.component';
 import { PrintService } from './dashboard/printservice/print.service';
+import { FacultyService } from './dashboard/entities/faculty/faculty-services/faculty.service';
 
 @NgModule({
   declarations: [
@@ -187,6 +188,7 @@ import { PrintService } from './dashboard/printservice/print.service';
   ],
   providers: [
     StudentService,
+    FacultyService,
     AuthService,
     PrintService
   ],
