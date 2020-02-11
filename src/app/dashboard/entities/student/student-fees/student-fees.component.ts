@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
+declare let jsPDF: new () => any;
 
 export interface StudentFees {
   std: number;
@@ -9,7 +10,12 @@ export interface StudentFees {
   amount: number;
   status: string;
 }
-
+var columns = ["ID", "Name", "Country"];
+var rows = [
+    [1, "Shaw", "Tanzania"],
+    [2, "Nelson", "Kazakhstan"],
+    [3, "Garcia", "Madagascar"],
+];
 const students: StudentFees[] = [
   { std: 8 , sem: 2, mode: 'Online', date: '29-12-2019', amount: 45000, status: "Unpaid"},
   { std: 8 , sem: 1, mode: 'Online', date: '29-12-2019', amount: 45000, status: "Paid"},
@@ -27,6 +33,12 @@ export class StudentFeesComponent implements OnInit {
    displayedColumns: string[] = ['std' , 'sem', 'mode', 'date', 'amount', 'status', 'print'];
   dataSource: MatTableDataSource<StudentFees>;
   ngOnInit() {
+  }
+
+  onPrint() {
+    let doc = new jsPDF();
+        doc.autoTable(columns, rows);
+        doc.save("table.pdf");
   }
 
   getColor(status) {
