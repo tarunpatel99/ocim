@@ -1,7 +1,7 @@
 <div mat-dialog-content class="full-width">
-<p> Student : {{ data.studentName }} </p>
-<p> Class : {{ data.class }} </p>
-<p> Subject: {{data.subject}}</p>
-<p> Description: {{data.description}}</p>
-<p *ngFor="let attatchment of data.attatchments"> {{ attatchment.id }} </p>
+<p> <b>Student :</b> {{ data.studentName }} </p>
+<p> <b>Class :</b> {{ data.class }} </p>
+<p> <b>Subject:</b> {{data.subject}}</p>
+<p> <b>Description:</b> {{data.description}}</p>
+<p *ngFor="let attatchment of data.attatchments"> <a href="">{{ attatchment.id }} </a></p>
 </div>

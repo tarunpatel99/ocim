@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy, ChangeDetectorRef, HostBinding } from '@angular/core';
 import { MediaMatcher } from '@angular/cdk/layout';
 import * as $ from 'jquery';
-import { StudentService } from "../student.service";
+import { StudentService } from "./entities/student/student.service";
 import { Router } from '@angular/router';
 import { AuthService } from '../auth/auth.service';
 import { OverlayContainer } from '@angular/cdk/overlay';
@@ -53,14 +53,16 @@ export class DashboardComponent implements OnInit, OnDestroy {
     this.role = this.currentUser.role;
 
 
-    $(document).ready(function () {
+    $(document).ready(setDashboard); // when page load
+    $(window).resize(setDashboard); //  when window resize
+    function setDashboard() {
       var winHeight = $(window).outerHeight();
       var navheight = $('.nav').outerHeight();
       var spaceFillerHeight = $('.space-filler').outerHeight();
       var profileBoxHieght = $('.profile').outerHeight();
       $('.content').css('height', winHeight - navheight - 40 + 'px');
       $('.mat-nav-list').css('height', winHeight - navheight - spaceFillerHeight - profileBoxHieght - 28 + 'px');
-    });
+    }
 
     switch (this.AuthService.currentuser.role) {
       case 'Admin':

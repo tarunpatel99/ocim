@@ -13,10 +13,3 @@
     display: flex;
     justify-content: flex-end;
 }
-
-#searchBar {
-    font-size: 14px;
-    margin-top: 10px;
-    width: 100%;
-    margin: auto;
-}

@@ -13,12 +13,12 @@ purple-green.css
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
+    -webkit-appearance: none;
+    margin: 0;
 }
 
 input[type=number] {
-  -moz-appearance:textfield;
+    -moz-appearance: textfield;
 }
 
 html,
@@ -92,13 +92,14 @@ body {
     text-align: center;
 }
 
+
 /* common css property */
 
 .mat-column-name {
     word-wrap: break-word !important;
     white-space: unset !important;
-    flex: 0 0 28% !important;
-    width: 28% !important;
+    flex: 0 0 15% !important;
+    width: 15% !important;
     overflow-wrap: break-word;
     word-wrap: break-word;
 }
@@ -107,7 +108,7 @@ mat-form-field {
     margin: 8px !important;
 }
 
-button{
+button {
     margin: 5px !important;
 }
 
@@ -117,7 +118,15 @@ button{
     margin: auto;
 }
 
+#searchBar {
+    font-size: 14px;
+    margin-top: 10px;
+    width: -webkit-fill-available;
+}
+
+
 /* dashboard */
+
 .dashboard-container {
     box-shadow: none !important;
     background: none !important;
@@ -135,12 +144,12 @@ button{
     margin: auto 10px;
 }
 
-table {
+.mat-card-content table {
     margin: auto;
     width: 200px;
 }
 
-td {
+.mat-card-content table tr td {
     font-size: 20px;
     padding: 2px;
 }
@@ -159,4 +168,19 @@ td {
     display: inline-block !important;
     width: 35%;
     margin: 16px 0 8px 16px;
+}
+
+.report-width-20 {
+    display: inline-block;
+    width: 20%;
+}
+
+.report-width-15 {
+    display: inline-block;
+    width: 15%;
+}
+
+.report-width-10 {
+    display: inline-block;
+    width: 10%;
 }

@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit {
       overlayContainer.getContainerElement().classList.add('owner-theme');
     }
   roles: Role[] = [
-    // {value: 'Admin', viewValue: 'Admin'},
+    {value: 'Admin', viewValue: 'Admin'},
     {value: 'Owner', viewValue: 'Institute Owner'},
     {value: 'Branch Manager', viewValue: 'Branch Manager'},
     {value: 'Faculty', viewValue: 'Faculty'},

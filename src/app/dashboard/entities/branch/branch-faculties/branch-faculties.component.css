@@ -65,6 +65,10 @@ button {
     max-width: 30%;
 }
 
+.report-field-inline {
+    /* display: inline-block; */
+}
+
 
 /* .right{
     float: right;
