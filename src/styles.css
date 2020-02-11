@@ -118,6 +118,12 @@ button {
     margin: auto;
 }
 
+#searchBar {
+    font-size: 14px;
+    margin-top: 10px;
+    width: -webkit-fill-available;
+}
+
 
 /* dashboard */
 
