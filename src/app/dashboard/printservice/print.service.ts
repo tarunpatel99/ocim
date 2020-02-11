@@ -27,7 +27,7 @@ export class PrintService {
     return (doc.internal.pageSize.width / 2) - (doc.getStringUnitWidth(text) * doc.internal.getFontSize() / 2);
   }
 
-  generateReport(data: any[], columns: string[]) {
+  generateReport(data: any[], columns: string[], pdfTitle: string) {
     let doc = new jsPDF('p', 'pt', 'a4');
     // tableId = '#' + tableId
     doc.page = 1
@@ -35,9 +35,10 @@ export class PrintService {
     let rows: any[] = []
     data.forEach(record => {
       let temp = Object.values(record)
-      console.log(temp)
       rows.push(temp)
     })
+
+    console.log(doc.internal.getCurrentPageInfo().pageNumber)
 
     this.headingFormatting(doc)
     doc.autoTable(columns, rows, {
@@ -45,9 +46,13 @@ export class PrintService {
       theme: 'grid', // striped | grid | plain
       ignoreColumns: 'Action',
       margin: {
-        top: this.margins.top + 120
-      }
+        top: this.margins.top
+      },
+      startY: 180
     });
+
+    
+    console.log(doc.pageCount)
 
     doc.setProperties({
       title: 'Student result',
@@ -75,7 +80,7 @@ export class PrintService {
     doc.page = 1
 
     this.headingFormatting(doc)
-
+    
     doc.autoTable({
       html: tableId,
       theme: 'grid', // striped | grid | plain
@@ -134,8 +139,8 @@ export class PrintService {
     for (let i = totalPages; i >= 1; i--) {
       doc.setPage(i);
       // header
-      if (i > 1)
-        this.header(doc);
+      // if (i > 1)
+        // this.header(doc);
 
       // footer
       this.footer(doc, i, totalPages);
@@ -160,10 +165,9 @@ export class PrintService {
   footer(doc, pageNumber, totalPages) {
 
     let str = "Page " + pageNumber + " of " + totalPages
-
     doc.setFontSize(10);
-    doc.text(str, this.alignLeft, doc.internal.pageSize.height - 20);
-    doc.text(this.appName, this.alignRight(doc, this.appName), doc.internal.pageSize.height - 20)
+    doc.text(this.appName, this.alignLeft, doc.internal.pageSize.height - 20)
+    doc.text(str, this.alignRight(doc, str), doc.internal.pageSize.height - 20);
 
   };
 }

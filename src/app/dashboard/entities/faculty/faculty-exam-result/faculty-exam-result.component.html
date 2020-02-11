@@ -1,82 +1,60 @@
 <p class="heading">Exam results</p>
 <mat-card>
-    <form action="">
-        <mat-form-field class="full-width">
-            <mat-select (selectionChange)="applyFilter(subject.value, 'subject')" (click)="resetForm()" value=""
-                placeholder="Select Subject" #subject>
-                <mat-option value="">All</mat-option>
-                <mat-option *ngFor="let subject of subjectlist" [value]="subject">{{ subject }}</mat-option>
-            </mat-select>
-        </mat-form-field>
-        <mat-form-field class="small-width">
-            <input matInput [matDatepicker]="datepicker" placeholder="Choose date" [value]="date.value">
-            <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
-            <mat-datepicker #datepicker></mat-datepicker>
-        </mat-form-field>
-        <!-- <mat-form-field class="small-width">
-            <input matInput type="time" placeholder="From [HH:MM AM/PM]" value="00:00">
-        </mat-form-field>
-        <mat-form-field class="small-width">
-            <input matInput type="time" placeholder="To [HH:MM AM/PM]" value="00:00">
-        </mat-form-field> -->
-        <!-- <button class="submit-btn" mat-flat-button color="primary">Submit</button> -->
-        <button class="submit-btn" (click)="generateReport('results')" mat-flat-button color="primary">Generate Report</button>
+    <mat-expansion-panel>
+        <mat-expansion-panel-header>
+            Filter
+        </mat-expansion-panel-header>
+        <form class="no-add-student">
+            <mat-form-field class="report-width-15">
+                <mat-label>Class</mat-label>
+                <mat-select>
+                    <mat-option *ngFor="let class of classes" [value]="class.value">
+                        {{class.viewValue}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field class="report-width-15">
+                <mat-label>Subject</mat-label>
+                <mat-select>
+                    <mat-option *ngFor="let subject of subjects" [value]="subject.value">
+                        {{subject.viewValue}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field class="report-width-15">
+                <mat-label>Exam</mat-label>
+                <mat-select>
+                    <mat-option value="option">class test 3</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <!-- <p>Select date range</p> -->
+            <mat-form-field class="report-width-10">
+                <input matInput [matDatepicker]="pickertodate" placeholder="To Date">
+                <mat-datepicker-toggle matSuffix [for]="pickertodate"></mat-datepicker-toggle>
+                <mat-datepicker #pickertodate></mat-datepicker>
+            </mat-form-field>
+            <mat-form-field class="report-width-10">
+                <input matInput [matDatepicker]="pickerfromdate" placeholder="From Date">
+                <mat-datepicker-toggle matSuffix [for]="pickerfromdate"></mat-datepicker-toggle>
+                <mat-datepicker #pickerfromdate></mat-datepicker>
+            </mat-form-field>
+            <!-- <p>Select attendance range</p> -->
+            <mat-form-field class="report-width-10">
+                <input type="number" matInput placeholder="Minimum Mark" min="0">
+            </mat-form-field>
+            <mat-form-field class="report-width-10">
+                <input type="number" matInput placeholder="Maximum Mark" min="0">
+            </mat-form-field>
+            <mat-action-row>
+                <button mat-stroked-button color="warn" type="reset">Cancle</button>
+                <!-- <button mat-flat-button color="primary">Download</button> -->
+                <button mat-flat-button color="primary" (click)="generateReport()">Print</button>
+                <button mat-flat-button color="primary">View</button>
+            </mat-action-row>
+        </form>
+    </mat-expansion-panel>
 
-        <mat-expansion-panel>
-            <mat-expansion-panel-header>
-                Filter
-            </mat-expansion-panel-header>
-            <form class="no-add-student">
-                <mat-form-field class="report-width-15">
-                    <mat-label>Class</mat-label>
-                    <mat-select>
-                        <mat-option *ngFor="let class of classes" [value]="class.value">
-                            {{class.viewValue}}
-                        </mat-option>
-                    </mat-select>
-                </mat-form-field>
-                <mat-form-field class="report-width-15">
-                    <mat-label>Subject</mat-label>
-                    <mat-select>
-                        <mat-option *ngFor="let subject of subjects" [value]="subject.value">
-                            {{subject.viewValue}}
-                        </mat-option>
-                    </mat-select>
-                </mat-form-field>
-                <mat-form-field class="report-width-15">
-                    <mat-label>Exam</mat-label>
-                    <mat-select>
-                        <mat-option value="option">class test 3</mat-option>
-                    </mat-select>
-                </mat-form-field>
-                <!-- <p>Select date range</p> -->
-                <mat-form-field class="report-width-10">
-                    <input matInput [matDatepicker]="pickertodate" placeholder="To Date">
-                    <mat-datepicker-toggle matSuffix [for]="pickertodate"></mat-datepicker-toggle>
-                    <mat-datepicker #pickertodate></mat-datepicker>
-                </mat-form-field>
-                <mat-form-field class="report-width-10">
-                    <input matInput [matDatepicker]="pickerfromdate" placeholder="From Date">
-                    <mat-datepicker-toggle matSuffix [for]="pickerfromdate"></mat-datepicker-toggle>
-                    <mat-datepicker #pickerfromdate></mat-datepicker>
-                </mat-form-field>
-                <!-- <p>Select attendance range</p> -->
-                <mat-form-field class="report-width-10">
-                    <input type="number" matInput placeholder="Minimum Mark" min="0">
-                </mat-form-field>
-                <mat-form-field class="report-width-10">
-                    <input type="number" matInput placeholder="Maximum Mark" min="0">
-                </mat-form-field>
-                <mat-action-row>
-                    <button mat-stroked-button color="warn" type="reset">Cancle</button>
-                    <!-- <button mat-flat-button color="primary">Download</button> -->
-                    <button mat-flat-button color="primary" (click)="demoprint()">Print</button>
-                    <button mat-flat-button color="primary">View</button>
-                </mat-action-row>
-            </form>
-        </mat-expansion-panel>
-        <mat-divider></mat-divider>
-    </form>
+    <mat-divider></mat-divider>
     <!-- student list -->
     <mat-form-field id="searchBar">
         <input matInput #search (keyup)="applyFilter(search.value, 'name')" placeholder="Search student">
