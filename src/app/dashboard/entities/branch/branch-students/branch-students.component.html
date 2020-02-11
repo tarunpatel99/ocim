@@ -4,6 +4,7 @@
     <mat-tab-group dynamicHeight>
         <!-- view Students -->
         <mat-tab label="View students">
+            <!-- filter panel -->
             <br>
             <mat-form-field id="searchBar">
                 <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search">
