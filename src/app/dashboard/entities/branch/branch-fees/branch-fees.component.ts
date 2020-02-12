@@ -15,6 +15,10 @@ export interface Class {
   // students: Std_element[]
 }
 
+export interface Status {
+  value: string;
+  viewValue: string;
+}
 
 export interface DialogData {
   class: string,
@@ -25,7 +29,25 @@ export interface DialogData {
   description: string
 }
 
+export interface Method {
+  value: string;
+  viewValue: string;
+}
 
+export interface City {
+  value: string;
+  viewValue: string;
+}
+
+export interface State {
+  value: string;
+  viewValue: string;
+}
+
+export interface Pincode {
+  value: string;
+  viewValue: string;
+}
 
 
 export interface Std_element {
@@ -47,7 +69,7 @@ const Student_Data: Std_element[] = [
   { rollno: '19-bio-13', name: 'Harshil Patel', class: '11 Sci Maths', sem: 'sem 2', amount: '20000', method: 'Net banking', status: 'Paid', date: '21-12-2019' },
   { rollno: '19-bio-14', name: 'Mihir Kamariya', class: '11 Sci Maths', sem: 'sem 2', amount: '20000', method: 'Cash', status: 'Unpaid', date: '21-12-2019' },
   { rollno: '19-bio-15', name: 'Shubh Bhatt', class: '11 Sci Bio', sem: 'sem 2', amount: '20000', method: 'Debit card', status: 'Unpaid', date: '21-12-2019' },
-  { rollno: '19-bio-16', name: 'Nirav Rajput', class: '11 Sci Bio', sem: 'sem 2', amount: '20000', method: 'onlDebit cardine', status: 'Paid', date: '21-12-2019' },
+  { rollno: '19-bio-16', name: 'Nirav Rajput', class: '11 Sci Bio', sem: 'sem 2', amount: '20000', method: 'Debit card', status: 'Paid', date: '21-12-2019' },
   { rollno: '19-bio-17', name: 'Aakash Bhavsar', class: '12 Sci Maths', sem: 'sem 2', amount: '20000', method: 'Net banking', status: 'Unpaid', date: '21-12-2019' },
   { rollno: '19-bio-18', name: 'Hastik Bhut', class: '12 Sci Maths', sem: 'sem 2', amount: '20000', method: 'Net banking', status: 'Paid', date: '21-12-2019' },
   { rollno: '19-bio-19', name: 'Yash Charola', class: '11 Sci Bio', sem: 'sem 2', amount: '20000', method: 'Cash', status: 'Paid', date: '21-12-2019' },
@@ -108,6 +130,34 @@ export class BranchFeesComponent implements OnInit {
   constructor(public dialog: MatDialog) { }
 
 
+  cities: City[] = [
+    {value: 'Ahmedabad', viewValue: 'Ahmedabad'},
+    {value: 'Rajkot', viewValue: 'Rajkot'}
+  ];
+
+  states: State[] = [
+    {value: 'Gujarat', viewValue: 'Gujarat'},
+    {value: 'Maharastra', viewValue: 'Maharastra'}
+  ];
+
+  pincodes: Pincode[] = [
+    {value: '380058', viewValue: '380058'},
+    {value: '380035', viewValue: '380035'},
+    {value: '380009', viewValue: '380009'},
+    {value: '380015', viewValue: '380015'}
+  ]
+  
+  statuss: Status[] = [
+    {value:'Paid', viewValue:'Paid'},
+    {value:'Unpaid', viewValue:'Unpaid'}
+  ]
+
+  methods: Method[] = [
+    {value:'Debit card', viewValue:'Debit card'},
+    {value:'Debit card', viewValue:'Credit card'},
+    {value:'Net banking', viewValue:'Net banking'},
+    {value:'cash', viewValue:'cash'}
+  ]
 
   classes: Class[] = [
     { value: '8-a-div', viewValue: '8 (A Div)' },
