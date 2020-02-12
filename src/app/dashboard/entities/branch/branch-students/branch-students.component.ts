@@ -22,6 +22,12 @@ export interface State {
   viewValue: string;
 }
 
+export interface Pincode {
+  value: string;
+  viewValue: string;
+}
+
+
 export interface Std_element {
   rollno: string;
   name: string;
@@ -41,6 +47,10 @@ const Student_Data: Std_element[] = [
   {rollno: '19-bio-19', name: 'Yash Charola', class: '11 Sci Bio' , phone: '9876232410'},
   {rollno: '19-bio-20', name: 'Bhautik Patel', class: '11 Sci Bio' , phone: '9872374210'},
 ];
+
+
+
+
 
 @Component({
   selector: 'app-branch-students',
@@ -83,6 +93,13 @@ export class BranchStudentsComponent implements OnInit {
     {value: 'Maharastra', viewValue: 'Maharastra'}
   ];
 
+  pincodes: Pincode[] = [
+    {value: '380058', viewValue: '380058'},
+    {value: '380035', viewValue: '380035'},
+    {value: '380009', viewValue: '380009'},
+    {value: '380015', viewValue: '380015'}
+  ]
+  
   displayedColumns: string[] = ['rollno','name', 'class', 'phone','action'];
   dataSource = new MatTableDataSource<Std_element>(Student_Data);
 

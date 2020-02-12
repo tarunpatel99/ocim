@@ -1,19 +1,99 @@
 <div class="heading">Fees</div>
 <mat-card>
-
     <mat-tab-group dynamicHeight>
         <mat-tab label="Fees">
             <br>
-            <form class="no-add-student">
-                <mat-form-field class="full-width">
-                    <mat-label>Class</mat-label>
-                    <mat-select>
-                        <mat-option *ngFor="let class of classes" [value]="class.value">
-                            {{class.viewValue}}
-                        </mat-option>
-                    </mat-select>
-                </mat-form-field>
-            </form>
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    Filter
+                </mat-expansion-panel-header>
+                <form>
+                    <div class="report-field-inline">
+                        <!-- <div class="mat-body-strong">Class</div> -->
+                        <mat-form-field class="report-width-15">
+                            <mat-label>Class</mat-label>
+                            <mat-select>
+                                <mat-option *ngFor="let class of classes" [value]="class.value">
+                                    {{class.viewValue}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                        <mat-form-field class="report-width-15">
+                            <mat-label>Status</mat-label>
+                            <mat-select>
+                                <mat-option *ngFor="let status of statuss" [value]="status.value">
+                                    {{status.viewValue}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                        <mat-form-field class="report-width-15">
+                            <mat-label>Method</mat-label>
+                            <mat-select>
+                                <mat-option *ngFor="let method of methods" [value]="method.value">
+                                    {{method.viewValue}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                    <div class="report-field-inline">
+                        <div class="mat-body-strong">Amount range</div>
+                        <mat-form-field class="report-width-15">
+                            <input type="number" matInput placeholder="Minimum Amount" min="0">
+                        </mat-form-field>
+                        <mat-form-field class="report-width-15">
+                            <input type="number" matInput placeholder="Maximum Amount" min="0">
+                        </mat-form-field>
+                    </div>
+                    <div class="report-field-inline">
+                        <div class="mat-body-strong">Paid Date</div>
+                        <mat-form-field class="report-width-15">
+                            <input matInput [matDatepicker]="pickertodate" placeholder="To Date">
+                            <mat-datepicker-toggle matSuffix [for]="pickertodate"></mat-datepicker-toggle>
+                            <mat-datepicker #pickertodate></mat-datepicker>
+                        </mat-form-field>
+                        <mat-form-field class="report-width-15">
+                            <input matInput [matDatepicker]="pickerfromdate" placeholder="From Date">
+                            <mat-datepicker-toggle matSuffix [for]="pickerfromdate"></mat-datepicker-toggle>
+                            <mat-datepicker #pickerfromdate></mat-datepicker>
+                        </mat-form-field>
+                    </div>
+                    <div class="report-field-inline">
+                        <div class="mat-body-strong">Address</div>
+                        <mat-form-field class="full-width" class="report-width-15">
+                            <mat-label>City</mat-label>
+                            <mat-select>
+                                <mat-option *ngFor="let city of cities" [value]="city.value">
+                                    {{city.viewValue}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                        <mat-form-field class="full-width" class="report-width-15">
+                            <mat-label>State</mat-label>
+                            <mat-select>
+                                <mat-option *ngFor="let state of states" [value]="state.value">
+                                    {{state.viewValue}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                        <mat-form-field class="full-width" class="report-width-15">
+                            <mat-label>Pincode</mat-label>
+                            <mat-select>
+                                <mat-option *ngFor="let pincode of pincodes" [value]="pincode.value">
+                                    {{pincode.viewValue}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                    <mat-action-row>
+                        <button mat-stroked-button color="warn" type="reset">Cancle</button>
+                        <!-- <button mat-flat-button color="primary">Download</button> -->
+                        <button mat-flat-button color="primary" (click)="demoprint()">Print</button>
+                        <button mat-flat-button color="primary">View</button>
+                    </mat-action-row>
+                </form>
+            </mat-expansion-panel>
+
+            <br>
             <mat-form-field id="searchBar">
                 <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search">
             </mat-form-field>
@@ -118,12 +198,87 @@
             </mat-table>
             <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons #ancmnt_tbl></mat-paginator>
 
-            <button class="new-btn" mat-fab (click)="openForm()" color="primary" aria-label="Example icon-button with a heart icon">
+            <button class="new-btn" mat-fab (click)="openForm()" color="primary"
+                aria-label="Example icon-button with a heart icon">
                 <mat-icon>add</mat-icon>
             </button>
         </mat-tab>
         <!-- ========================================================================================================================================== -->
         <mat-tab label="Cash">
+            <br>
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    Filter
+                </mat-expansion-panel-header>
+                <form>
+                    <div class="report-field-inline">
+                        <!-- <div class="mat-body-strong">Class</div> -->
+                        <mat-form-field class="report-width-15">
+                            <mat-label>Class</mat-label>
+                            <mat-select>
+                                <mat-option *ngFor="let class of classes" [value]="class.value">
+                                    {{class.viewValue}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                    <div class="report-field-inline">
+                        <div class="mat-body-strong">Amount range</div>
+                        <mat-form-field class="report-width-15">
+                            <input type="number" matInput placeholder="Minimum Amount" min="0">
+                        </mat-form-field>
+                        <mat-form-field class="report-width-15">
+                            <input type="number" matInput placeholder="Maximum Amount" min="0">
+                        </mat-form-field>
+                    </div>
+                    <div class="report-field-inline">
+                        <div class="mat-body-strong">Apply for cash date</div>
+                        <mat-form-field class="report-width-15">
+                            <input matInput [matDatepicker]="pickertodate_cash" placeholder="To Date">
+                            <mat-datepicker-toggle matSuffix [for]="pickertodate_cash"></mat-datepicker-toggle>
+                            <mat-datepicker #pickertodate_cash></mat-datepicker>
+                        </mat-form-field>
+                        <mat-form-field class="report-width-15">
+                            <input matInput [matDatepicker]="pickerfromdate_cash" placeholder="From Date">
+                            <mat-datepicker-toggle matSuffix [for]="pickerfromdate_cash"></mat-datepicker-toggle>
+                            <mat-datepicker #pickerfromdate_cash></mat-datepicker>
+                        </mat-form-field>
+                    </div>
+                    <div class="report-field-inline">
+                        <div class="mat-body-strong">Address</div>
+                        <mat-form-field class="full-width" class="report-width-15">
+                            <mat-label>City</mat-label>
+                            <mat-select>
+                                <mat-option *ngFor="let city of cities" [value]="city.value">
+                                    {{city.viewValue}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                        <mat-form-field class="full-width" class="report-width-15">
+                            <mat-label>State</mat-label>
+                            <mat-select>
+                                <mat-option *ngFor="let state of states" [value]="state.value">
+                                    {{state.viewValue}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                        <mat-form-field class="full-width" class="report-width-15">
+                            <mat-label>Pincode</mat-label>
+                            <mat-select>
+                                <mat-option *ngFor="let pincode of pincodes" [value]="pincode.value">
+                                    {{pincode.viewValue}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                    <mat-action-row>
+                        <button mat-stroked-button color="warn" type="reset">Cancle</button>
+                        <!-- <button mat-flat-button color="primary">Download</button> -->
+                        <button mat-flat-button color="primary" (click)="demoprint()">Print</button>
+                        <button mat-flat-button color="primary">View</button>
+                    </mat-action-row>
+                </form>
+            </mat-expansion-panel>
             <br>
             <mat-form-field id="searchBar">
                 <input matInput (keyup)="applyFilter_cash($event.target.value)" placeholder="Search">
@@ -195,8 +350,6 @@
                 <mat-row *matRowDef="let row; columns: displayedColumns_cash;"></mat-row>
             </mat-table>
             <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons #cash_tbl></mat-paginator>
-
-
         </mat-tab>
     </mat-tab-group>
 </mat-card>
