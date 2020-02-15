@@ -28,16 +28,16 @@ export interface State {
 }
 
 
+export interface Pincode {
+  value: string;
+  viewValue: string;
+}
+
 export interface Fac_element {
   name: string;
   position: number;
   email: string;
   phone: string;
-}
-
-export interface Pincode {
-  value: string;
-  viewValue: string;
 }
 
 const Faculty_Data: Fac_element[] = [
