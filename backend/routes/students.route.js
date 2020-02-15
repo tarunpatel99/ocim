@@ -37,7 +37,7 @@ router.get(base, (req, res, next) => {
 });
 
 // add new student
-router.post('/students', (req, res, next) => {
+router.post(base, (req, res, next) => {
     console.log(req.body);
     res.send({
         student: req.body

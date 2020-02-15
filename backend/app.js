@@ -8,20 +8,19 @@ const express = require('express');
 const app = express();
 const mongoose = require('mongoose')
 const bodyParser = require('body-parser');
-const db = 'mongodb+srv://imuseratocim:fCC0azNhJMzjSGkX@cluster0-cqqj8.mongodb.net/test?retryWrites=true&w=majority'
+const db = 'mongodb+srv://imuseratocim:fCC0azNhJMzjSGkX@cluster0-cqqj8.mongodb.net/ocim?retryWrites=true&w=majority'
 const studentsRoutes = require('./routes/students.route')
+const ownerRoutes = require('./routes/owner.route')
 
 
 // connect to db
-mongoose.connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(db, { useNewUrlParser: true, useUnifiedTopology: true, socketTimeoutMS: 0 })
     .then(() => {
         console.log('Database connected successfully!')
     })
     .catch(err => {
         console.log(err.message)
     });
-
-app.use(bodyParser.json())
 
 app.use((req, res, next) => {
     res.setHeader("Access-Control-Allow-Origin", "*");
@@ -36,11 +35,14 @@ app.use((req, res, next) => {
     next();
 });
 
+app.use(bodyParser.json())
+
 app.get('/', function(req, res) {
 	res.send('It works');
 });
 
 app.use('/api', studentsRoutes);
+app.use('/api', ownerRoutes);
 
 
 
