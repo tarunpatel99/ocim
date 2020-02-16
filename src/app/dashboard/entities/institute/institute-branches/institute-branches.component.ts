@@ -5,7 +5,7 @@ import {MatTableDataSource} from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
 import { FormControl } from '@angular/forms';
 import {FormBuilder, FormGroup, Validators, MaxLengthValidator} from '@angular/forms';
-
+import { environment } from "../../../../../environments/environment";
 
 export interface City {
   value: string;
@@ -44,7 +44,7 @@ const Branch_Data: Branch_element[] = [
   styleUrls: ['./institute-branches.component.css']
 })
 export class InstituteBranchesComponent implements OnInit {
-
+  base_url
   firstFormGroup: FormGroup;
   emailFormControl = new FormControl('', [
     Validators.required,
@@ -62,7 +62,9 @@ export class InstituteBranchesComponent implements OnInit {
     Validators.required
   ]);
 
-  constructor() { }
+  constructor() {
+    this.base_url = environment.base_url;
+   }
 
   checked = true;
   
