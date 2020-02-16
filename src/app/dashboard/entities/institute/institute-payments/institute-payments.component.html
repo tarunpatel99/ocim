@@ -1,5 +1,51 @@
 <div class="heading">Payments</div>
 <mat-card>
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                Filter
+            </mat-expansion-panel-header>
+            <form class="no-add-student">
+                <mat-form-field class="report-width-15">
+                    <mat-label>City</mat-label>
+                    <mat-select>
+                        <mat-option *ngFor="let class of classes" [value]="class.value">
+                            {{class.viewValue}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field class="report-width-15">
+                    <mat-label>State</mat-label>
+                    <mat-select>
+                        <mat-option *ngFor="let subject of subjects" [value]="subject.value">
+                            {{subject.viewValue}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field class="report-width-15">
+                    <mat-label>Postal Code</mat-label>
+                    <mat-select>
+                        <mat-option value="option">class test 3</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <!-- <p>Select date range</p> -->
+                <mat-form-field class="report-width-15">
+                    <input matInput [matDatepicker]="pickertodate" placeholder="To Date">
+                    <mat-datepicker-toggle matSuffix [for]="pickertodate"></mat-datepicker-toggle>
+                    <mat-datepicker #pickertodate></mat-datepicker>
+                </mat-form-field>
+                <mat-form-field class="report-width-15">
+                    <input matInput [matDatepicker]="pickerfromdate" placeholder="From Date">
+                    <mat-datepicker-toggle matSuffix [for]="pickerfromdate"></mat-datepicker-toggle>
+                    <mat-datepicker #pickerfromdate></mat-datepicker>
+                </mat-form-field>
+                <mat-action-row>
+                    <button mat-stroked-button color="warn" type="reset">Cancle</button>
+                    <!-- <button mat-flat-button color="primary">Download</button> -->
+                    <button mat-flat-button color="primary" (click)="generateReport()">Print</button>
+                    <button mat-flat-button color="primary">View</button>
+                </mat-action-row>
+            </form>
+        </mat-expansion-panel>
     <div class="container">
         <!-- <mat-grid-list cols="2" [rowHeight]="fit">
       <mat-grid-tile> -->
@@ -70,7 +116,7 @@
 
             <!-- date Column -->
             <ng-container matColumnDef="date">
-                <mat-header-cell *matHeaderCellDef mat-sort-header> Sate </mat-header-cell>
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Date </mat-header-cell>
                 <mat-cell *matCellDef="let element"> {{element.date}} </mat-cell>
             </ng-container>
 
