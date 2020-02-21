@@ -5,28 +5,6 @@
                 Filter
             </mat-expansion-panel-header>
             <form class="no-add-student">
-                <mat-form-field class="report-width-15">
-                    <mat-label>City</mat-label>
-                    <mat-select>
-                        <mat-option *ngFor="let class of classes" [value]="class.value">
-                            {{class.viewValue}}
-                        </mat-option>
-                    </mat-select>
-                </mat-form-field>
-                <mat-form-field class="report-width-15">
-                    <mat-label>State</mat-label>
-                    <mat-select>
-                        <mat-option *ngFor="let subject of subjects" [value]="subject.value">
-                            {{subject.viewValue}}
-                        </mat-option>
-                    </mat-select>
-                </mat-form-field>
-                <mat-form-field class="report-width-15">
-                    <mat-label>Postal Code</mat-label>
-                    <mat-select>
-                        <mat-option value="option">class test 3</mat-option>
-                    </mat-select>
-                </mat-form-field>
                 <!-- <p>Select date range</p> -->
                 <mat-form-field class="report-width-15">
                     <input matInput [matDatepicker]="pickertodate" placeholder="To Date">
