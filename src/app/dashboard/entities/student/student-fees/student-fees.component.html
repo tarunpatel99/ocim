@@ -41,7 +41,7 @@
   <ng-container matColumnDef="print">
     <mat-header-cell  *matHeaderCellDef > Print </mat-header-cell>
     <mat-cell *matCellDef="let fees" >
-      <a mat-icon-button (click)="onDownloadSyllabus(file.name, file.fileSoureceUrl)" print>
+      <a mat-icon-button (click)="onPrint()" print>
         <mat-icon>print</mat-icon>
     </a>
     </mat-cell>
