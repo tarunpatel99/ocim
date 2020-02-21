@@ -2,12 +2,25 @@
 // npm install --save express
 // GxOkVaJrCBEOw83t
 
+// imuseratocim -> fCC0azNhJMzjSGkX
+
 const express = require('express');
-
 const app = express();
+const mongoose = require('mongoose')
+const bodyParser = require('body-parser');
+const db = 'mongodb+srv://imuseratocim:fCC0azNhJMzjSGkX@cluster0-cqqj8.mongodb.net/ocim?retryWrites=true&w=majority'
+const studentsRoutes = require('./routes/students.route')
+const ownerRoutes = require('./routes/owner.route')
 
-// const mongoose = require('mongoose')
-// mongoose.connect('mongodb+srv://imuserAtocim:GxOkVaJrCBEOw83t@cluster0-cqqj8.mongodb.net/test?retryWrites=true&w=majority')
+
+// connect to db
+mongoose.connect(db, { useNewUrlParser: true, useUnifiedTopology: true, socketTimeoutMS: 0 })
+    .then(() => {
+        console.log('Database connected successfully!')
+    })
+    .catch(err => {
+        console.log(err.message)
+    });
 
 app.use((req, res, next) => {
     res.setHeader("Access-Control-Allow-Origin", "*");
@@ -20,40 +33,17 @@ app.use((req, res, next) => {
         "GET, POST, PATCH, DELETE, OPTIONS"
     );
     next();
-}); 
-
-app.use('/api/students', (req, res, next) => {
-    const student = [
-        {
-            id: "17bca068",
-            name: "Harshil Sureja",
-            class: "TYBCA",
-            city: "Ahmedabad"
-        },
-        {
-            id: "17bca140",
-            name: "Tarun Patel",
-            class: "TYBCA",
-            city: "Ahmedabad"
-        },
-        {
-            id: "17bca140",
-            name: "Aakash Bhavsar",
-            class: "TYBCA",
-            city: "Ghandhinagar"
-        },
-        {
-            id: "17bca105",
-            name: "Shubh Bhatt",
-            class: "TYBCA",
-            city: "Ahmedabad"
-        }
-    ];
-
-    res.status(200).json({
-        message: "Data get successfully",
-        students: student
-    });
 });
+
+app.use(bodyParser.json())
+
+app.get('/', function(req, res) {
+	res.send('It works');
+});
+
+app.use('/api', studentsRoutes);
+app.use('/api', ownerRoutes);
+
+
 
 module.exports = app;

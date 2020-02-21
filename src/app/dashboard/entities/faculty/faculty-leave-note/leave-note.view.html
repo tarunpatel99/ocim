@@ -1,14 +1,57 @@
-<p> <b>Student :</b> {{ data.studentName }} </p>
-<p> <b>Class :</b> {{ data.class }} </p>
-<p> <b>Subject :</b> {{ data.subject }} </p>
-<p> <b>Description :</b> {{ data.description }} </p>
-<p> <b>From :</b> {{ data.from }} </p>
-<p> <b>To :</b> {{ data.to }} </p>
+<!-- <p> <b>Student :</b> {{ data.studentName }} </p> -->
+<!-- <p> <b>Class :</b> {{ data.class }} </p> -->
+<!-- <p> <b>Subject :</b> {{ data.subject }} </p> -->
+<!-- <p> <b>Description :</b> {{ data.description }} </p> -->
+<!-- <p> <b>From :</b> {{ data.from }} </p> -->
+<!-- <p> <b>To :</b> {{ data.to }} </p> -->
+
+<h1 mat-dialog-title>Leave Note</h1>
+
+<mat-divider></mat-divider>
+<br>
+<!-- Student Name -->
+<mat-form-field appearance="fill" style="width: -webkit-fill-available">
+    <mat-label>Student Name</mat-label>
+    <input matInput placeholder="Subject" readonly="readonly" [value]="data.studentName">
+</mat-form-field>
+
+<!-- Class -->
+<mat-form-field appearance="fill" style="width: 29.7%; display: inline-block;">
+    <mat-label>Class</mat-label>
+    <input matInput placeholder="Class" readonly="readonly" [value]="data.class">
+</mat-form-field>
+
+<!-- Subject -->
+<mat-form-field appearance="fill" style="width: 29.7%; display: inline-block;">
+    <mat-label>Subject</mat-label>
+    <input matInput placeholder="Subject" readonly="readonly" [value]="data.subject">
+</mat-form-field>
+
+<!-- Status -->
+<mat-form-field appearance="fill" style="width: 29.7%; display: inline-block;">
+    <mat-label>Status</mat-label>
+    <input matInput placeholder="Status" readonly="readonly" [value]="data.status">
+</mat-form-field>
+
+<!-- Description -->
+<mat-form-field appearance="fill" style="width: -webkit-fill-available">
+    <mat-label>Description</mat-label>
+    <textarea matInput placeholder="Description" row="4" readonly="readonly" [value]="data.description"></textarea>
+</mat-form-field>
+
+<!-- From -->
+<mat-form-field appearance="fill" style="width: 46.4%; display: inline-block;">
+    <mat-label>From</mat-label>
+    <input matInput placeholder="From" readonly="readonly" [value]="data.from">
+</mat-form-field>
+
+<!-- To -->
+<mat-form-field appearance="fill" style="width: 46.4%; display: inline-block;">
+    <mat-label>To</mat-label>
+    <input matInput placeholder="To" readonly="readonly" [value]="data.to">
+</mat-form-field>
+
 <p *ngFor="let attatchment of data.attatchments"><b>Attatchments :</b> <a href="">{{ attatchment.id }}</a> </p>
-<p>
-    Status : <mat-chip [ngStyle]="{color: getColor(data.status)}" style="background-color: #f5f5f5;">{{data.status}}
-    </mat-chip>
-</p>
 <!-- <div mat-dialog-actions align="end">
     <button mat-stroked-button color="warn">Cancle</button>
     <button mat-flat-button color="primary" cdkFocusInitial>Submit</button>

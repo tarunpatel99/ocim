@@ -45,7 +45,7 @@ const Branch_Data: Branch_element[] = [
   styleUrls: ['./institute-branches.component.css']
 })
 export class InstituteBranchesComponent implements OnInit {
-
+  base_url
   firstFormGroup: FormGroup;
   emailFormControl = new FormControl('', [
     Validators.required,
@@ -75,7 +75,7 @@ export class InstituteBranchesComponent implements OnInit {
     {branchname: 'Nerunagar' , name: 'Shivam Patel', email: 'shivampatel@gmail.com' , phone: '8648546217'},
     {branchname: 'Iscon' , name: 'Shubh Bhatt', email: 'shubhb@gmail.com' , phone: '8456512378'},
     {branchname: 'Vastrapur' , name: 'Shubham Mevada', email: 'mevadaS@gmail.com' , phone: '9643532123'},
-  ]; ;
+  ];
   constructor(private PrintService: PrintService) {
     for (let i = 0; i < this.Branch_Data.length; i++) {
       if (!this.branchList.includes(this.Branch_Data.map(branchname => branchname.branchname)[i]))
