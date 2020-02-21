@@ -1,26 +1,34 @@
 import { Component, OnInit, Inject, OnDestroy } from '@angular/core';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA, throwMatDialogContentAlreadyAttachedError } from '@angular/material/dialog';
 import { FormGroup, FormControl, Validators, FormGroupDirective } from "@angular/forms";
 import { MatTabChangeEvent } from '@angular/material';
-import { DialogData, subjectData, classData, Student } from "../faculty.model";
+import { TaskWorkData, subjectData, classData, Student } from "../faculty.model";
+import { FacultyService } from '../faculty-services/faculty.service';
+import { analyzeAndValidateNgModules } from '@angular/compiler';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-faculty-task-work',
   templateUrl: './faculty-task-work.component.html',
   styleUrls: ['./faculty-task-work.component.css']
 })
-export class FacultyTaskWorkComponent implements OnInit {
+export class FacultyTaskWorkComponent implements OnInit, OnDestroy {
 
-
+  tasks: classData[] = []
   selectedClass = { subjects: [] } as classData;
   selectedSubject = { tasks: [] } as subjectData;
-  selectedtask = {} as DialogData;
+  selectedtask = {} as TaskWorkData;
   submitTaskForm: FormGroup;
-  constructor(public dialog: MatDialog) { }
+  taskSubs: Subscription;
+  constructor(public dialog: MatDialog, private FacultyService: FacultyService) { }
 
   ngOnInit() {
     // select first class from class list by default
-    this.selectedClass = this.classNames[0]
+    this.tasks = this.FacultyService.getTask()
+    this.taskSubs = this.FacultyService.getTaskUpdateListener().subscribe((tasks: classData[]) => {
+      this.tasks = tasks
+    })
+    this.selectedClass = this.tasks[0]
   }
 
   classControl = new FormControl('', [
@@ -45,174 +53,6 @@ export class FacultyTaskWorkComponent implements OnInit {
     { studentname: 'Saurabh Oza' },
     { studentname: 'Shreya Patel' },
     { studentname: 'Maitry Patel' },
-  ]
-
-  // dummy class and its subject data
-  classNames: classData[] = [
-    {
-      name: "9th",
-      subjects: [
-        {
-          name: "Maths",
-          tasks: [
-            {
-              iss_date: new Date(2019, 13, 25),
-              sub_date: new Date(2019, 12, 26),
-              title: "Unit 2, Exersice 12",
-              description: "Do whole exersice accept que 2."
-            }
-            // {
-            //   iss_date: new Date(2019, 12, 25),
-            //   sub_date: new Date(2019, 12, 26),
-            //   title: "Sample Title(2)",
-            //   description: "Sample description of task and work(2)"
-            // },
-            // {
-            //   iss_date: new Date(2019, 12, 25),
-            //   sub_date: new Date(2019, 12, 26),
-            //   title: "Sample Title(3)",
-            //   description: "Sample description of task and work(3)"
-            // },
-          ]
-        },
-        {
-          name: "Science",
-          tasks: []
-        }
-      ]
-    },
-    {
-      name: "10th",
-      subjects: [
-        {
-          name: "Maths",
-          tasks: [
-            {
-              iss_date: new Date(2019, 12, 25),
-              sub_date: new Date(2019, 12, 26),
-              title: "Sample Title(1)",
-              description: "Sample description of task and work(1)"
-            },
-            {
-              iss_date: new Date(2019, 12, 25),
-              sub_date: new Date(2019, 12, 26),
-              title: "Sample Title(2)",
-              description: "Sample description of task and work(2)"
-            },
-            {
-              iss_date: new Date(2019, 12, 25),
-              sub_date: new Date(2019, 12, 26),
-              title: "Sample Title(3)",
-              description: "Sample description of task and work(3)"
-            },
-          ]
-        },
-
-      ]
-    },
-    {
-      name: "11th Commerce",
-      subjects: [
-        {
-          name: "Statistics",
-          tasks: []
-        },
-        {
-          name: "Accountancy ",
-          tasks: [
-            {
-              iss_date: new Date(2019, 12, 25),
-              sub_date: new Date(2019, 12, 26),
-              title: "Sample Title(1)",
-              description: "Sample description of task and work(1)"
-            },
-            {
-              iss_date: new Date(2019, 12, 25),
-              sub_date: new Date(2019, 12, 26),
-              title: "Sample Title(2)",
-              description: "Sample description of task and work(2)"
-            },
-            {
-              iss_date: new Date(2019, 12, 25),
-              sub_date: new Date(2019, 12, 26),
-              title: "Sample Title(3)",
-              description: "Sample description of task and work(3)"
-            },
-          ]
-        },
-        {
-          name: "English",
-          tasks: []
-        }
-      ]
-    },
-    {
-      name: "11th Science",
-      subjects: [
-        {
-          name: "English",
-          tasks: []
-        }
-      ]
-    },
-    {
-      name: "12th Commerce",
-      subjects: [
-        {
-          name: "Statistics",
-          tasks: []
-        },
-        {
-          name: "Accountancy ",
-          tasks: [
-            {
-              iss_date: new Date(2019, 12, 25),
-              sub_date: new Date(2019, 12, 26),
-              title: "Sample Title(1)",
-              description: "Sample description of task and work(1)"
-            },
-            {
-              iss_date: new Date(2019, 12, 25),
-              sub_date: new Date(2019, 12, 26),
-              title: "Sample Title(2)",
-              description: "Sample description of task and work(2)"
-            },
-            {
-              iss_date: new Date(2019, 12, 25),
-              sub_date: new Date(2019, 12, 26),
-              title: "Sample Title(3)",
-              description: "Sample description of task and work(3)"
-            },
-            {
-              iss_date: new Date(2019, 12, 25),
-              sub_date: new Date(2019, 12, 26),
-              title: "Sample Title(4)",
-              description: "Sample description of task and work(5)"
-            },
-            {
-              iss_date: new Date(2019, 12, 25),
-              sub_date: new Date(2019, 12, 26),
-              title: "Sample Title(6)",
-              description: "Sample description of task and work(6)"
-            },
-          ]
-        },
-        {
-          name: "English",
-          tasks: []
-        }
-      ]
-    },
-    {
-      name: "12th Science",
-      subjects: [
-        {
-          name: "English",
-          tasks: []
-        }
-      ]
-    },
-
   ]
 
   // open dialog box
@@ -251,6 +91,10 @@ export class FacultyTaskWorkComponent implements OnInit {
     // console.log(tab)
   }
 
+  ngOnDestroy() {
+    this.taskSubs.unsubscribe()
+  }
+
 }
 
 
@@ -263,17 +107,38 @@ export class FacultyTaskWorkComponent implements OnInit {
 export class TaskWorkFormDialog implements OnInit, OnDestroy{
   addTaskForm: FormGroup;
   submitTaskForm: FormControl;
-
+  id: string;
   date = new FormControl(new Date());
   constructor(
     public dialogRef: MatDialogRef<TaskWorkFormDialog>,
-    @Inject(MAT_DIALOG_DATA) public data: DialogData) { }
+    @Inject(MAT_DIALOG_DATA) public data: TaskWorkData,
+    private FacultyService: FacultyService) { }
 
   onSave(): void {
+    
     // this.dialogRef.close();
     if (this.addTaskForm.invalid) {
       return;
     }
+    this.id = '_' + Math.random().toString(36).substr(2, 9);
+    const task: classData = {
+      id: this.id,
+      name: '10th',
+      subjects: [
+        {
+          name: 'New task for 10th standard.',
+          tasks: [
+            {
+              iss_date: new Date(2019, 13, 25),
+              sub_date: new Date(2019, 12, 26),
+              title: "Unit 2, Exersice 12",
+              description: "Do whole exersice accept que 2."
+            }
+          ]
+        }
+      ]
+    }
+    this.FacultyService.addTask(task)
   }
 
   ngOnInit() {
