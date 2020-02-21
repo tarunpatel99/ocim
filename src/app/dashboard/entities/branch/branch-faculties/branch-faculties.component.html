@@ -77,19 +77,19 @@
                             </mat-select>
                         </mat-form-field>
                     </div>
-                    <mat-action-row>
+                    <mat-card-actions>
                         <button mat-stroked-button color="warn" type="reset">Cancle</button>
                         <!-- <button mat-flat-button color="primary">Download</button> -->
                         <button mat-flat-button color="primary" (click)="demoprint()">Print</button>
                         <button mat-flat-button color="primary">View</button>
-                    </mat-action-row>
+                    </mat-card-actions>
                 </form>
             </mat-expansion-panel>
             <br>
             <mat-form-field id="searchBar">
                 <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search">
             </mat-form-field>
-            <mat-table [dataSource]="dataSource" class="mat-elevation-z8 tbl-shadow">
+            <mat-table [dataSource]="dataSource">
                 <!-- Position Column -->
                 <!-- <ng-container matColumnDef="position">
                         <mat-header-cell *matHeaderCellDef> No. </mat-header-cell>
@@ -153,17 +153,17 @@
                             Click here to {{panelOpenState2 ? 'close' : 'open'}}
                         </mat-panel-description>
                     </mat-expansion-panel-header>
-                    <form action="" [formGroup]="addFacultybyemailForm" #addFacultybyemail>
+                    <form action="" [formGroup]="addFacultybyemailForm">
                         <mat-form-field class="full-width">
-                            <input type="text" matInput placeholder="Email" formControlName="email" email required>
-                            <mat-error *ngIf="addFacultybyemailForm.get('email').invalid">Please enter valid email
+                            <input type="text" matInput placeholder="Email" formControlName="byemail" email required>
+                            <mat-error *ngIf="addFacultybyemailForm.get('byemail').invalid">Please enter valid email
                             </mat-error>
                         </mat-form-field>
                         <br>
-                        <mat-action-row>
+                        <mat-card-actions>
                             <button mat-flat-button color="primary" type="submit">Add</button>
                             <button mat-stroked-button color="warn" type="reset">Cancel</button>
-                        </mat-action-row>
+                        </mat-card-actions>
                     </form>
                 </mat-expansion-panel>
 
@@ -180,7 +180,7 @@
                     <!-- <div class="header">    
                             <h2>Add Faculty</h2>
                         </div>   -->
-                    <form action="" [formGroup]="addFacultyForm" #addFaculty>
+                    <form action="" [formGroup]="addFacultyForm">
                         <mat-card class="no-shadow">
                             <mat-card-title>Personal details</mat-card-title>
                             <mat-card style="background: none; box-shadow: none;">
@@ -320,10 +320,10 @@
                                 </mat-error>
                             </mat-form-field>
                         </mat-card>
-                        <mat-action-row>
+                        <mat-card-actions>
                             <button mat-flat-button color="primary" type="submit">Add</button>
                             <button mat-stroked-button color="warn" type="reset">Cancel</button>
-                        </mat-action-row>
+                        </mat-card-actions>
                     </form>
                 </mat-expansion-panel>
             </mat-accordion>

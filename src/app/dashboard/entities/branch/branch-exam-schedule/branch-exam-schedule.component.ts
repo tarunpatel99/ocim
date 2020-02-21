@@ -1,30 +1,32 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, Inject } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { ConfirmDeleteComponent } from '../../confirm-delete/confirm-delete.component';
 
 export interface StudentData {
   title: string;
   examname: string;
+  startingdate: string;
   ttl_marks: number; // totla marks
   passing_mark: number;
 }
 
 // get student info from local data
 const students: StudentData[] = [
-  { title: 'class_test_1' , examname: 'Class Test 1' , ttl_marks: 50, passing_mark: 17 },
-  { title: 'class_test_2' , examname: 'Class Test 2' , ttl_marks: 50, passing_mark: 17 },
-  { title: 'class_test_3' , examname: 'Class Test 3' , ttl_marks: 50, passing_mark: 17 },
-  { title: 'class_test_4' , examname: 'Class Test 4' , ttl_marks: 50, passing_mark: 17 },
-  { title: 'class_test_5' , examname: 'Class Test 5' , ttl_marks: 50, passing_mark: 17 },
-  { title: 'class_test_6' , examname: 'Class Test 6' , ttl_marks: 100, passing_mark: 33 },
-  { title: 'class_test_7' , examname: 'Class Test 7' , ttl_marks: 100, passing_mark: 33 },
-  { title: 'class_test_8' , examname: 'Class Test 8' , ttl_marks: 100, passing_mark: 33 },
-  { title: 'class_test_9' , examname: 'Class Test 9' , ttl_marks: 100, passing_mark: 33 },
-  { title: 'class_test_10' , examname: 'Class Test 10' , ttl_marks: 100, passing_mark: 33 },
-  { title: 'class_test_11' , examname: 'Class Test 11' , ttl_marks: 100, passing_mark: 33 }
+  { title: 'class_test_1' , examname: 'Class Test 1' , startingdate: '1-1-2020' , ttl_marks: 50, passing_mark: 17 },
+  { title: 'class_test_2' , examname: 'Class Test 2' , startingdate: '5-1-2020' , ttl_marks: 50, passing_mark: 17 },
+  { title: 'class_test_3' , examname: 'Class Test 3' , startingdate: '11-1-2020' , ttl_marks: 50, passing_mark: 17 },
+  { title: 'class_test_4' , examname: 'Class Test 4' , startingdate: '15-1-2020' , ttl_marks: 50, passing_mark: 17 },
+  { title: 'class_test_5' , examname: 'Class Test 5' , startingdate: '21-1-2020' , ttl_marks: 50, passing_mark: 17 },
+  { title: 'class_test_6' , examname: 'Class Test 6' , startingdate: '25-1-2020' , ttl_marks: 100, passing_mark: 33 },
+  { title: 'class_test_7' , examname: 'Class Test 7' , startingdate: '1-2-2020' , ttl_marks: 100, passing_mark: 33 },
+  { title: 'class_test_8' , examname: 'Class Test 8' , startingdate: '5-2-2020' , ttl_marks: 100, passing_mark: 33 },
+  { title: 'class_test_9' , examname: 'Class Test 9' , startingdate: '11-2-2020' , ttl_marks: 100, passing_mark: 33 },
+  { title: 'class_test_10' , examname: 'Class Test 10' , startingdate: '15-2-2020' , ttl_marks: 100, passing_mark: 33 },
+  { title: 'class_test_11' , examname: 'Class Test 11' , startingdate: '20-2-2020' , ttl_marks: 100, passing_mark: 33 }
 ]
 
 export interface Classexam {
@@ -34,17 +36,12 @@ export interface Classexam {
   class: string;
 }
 
-const classexm: Classexam[] = [
-  { class: '11 Sci Bio (Purple B)' , subject: 'Bio' , exmdate: '14/12/2019' , description: 'Unit 1,2' },
-  { class: '11 Sci Bio (Purple B)' , subject: 'Physics' , exmdate: '14/12/2019' , description: 'Unit 2,3' },
-  { class: '11 Sci Bio (Purple B)' , subject: 'Chemistry' , exmdate: '14/12/2019' , description: 'Unit 1,2' },
-  { class: '12 Sci Bio (Silver B)' , subject: 'Bio' , exmdate: '14/12/2019' , description: 'Unit 1,2,3' },
-  { class: '12 Sci Bio (Silver B)' , subject: 'Physics' , exmdate: '14/12/2019' , description: 'Unit 2,3' },
-  { class: '12 Sci Bio (Silver B)' , subject: 'Chemistry' , exmdate: '14/12/2019' , description: 'Unit 1,2' },
-  { class: '12 Sci Bio (Pink M)' , subject: 'Bio' , exmdate: '14/12/2019' , description: 'Unit 1,3' },
-  { class: '12 Sci Bio (Pink M)' , subject: 'Physics' , exmdate: '14/12/2019' , description: 'Unit 1,2,3' },
-  { class: '12 Sci Bio (Pink M)' , subject: 'Chemistry' , exmdate: '14/12/2019' , description: 'Unit 1,3' },
-]
+export interface DialogData {
+  exmdate: string;
+  description: string;
+  subject: string;
+  class: string;
+}
 
 export interface Classsbj {
   value: string;
@@ -70,8 +67,7 @@ export interface exmmark{
   styleUrls: ['./branch-exam-schedule.component.css']
 })
 export class BranchExamScheduleComponent implements OnInit {
-
-  constructor() {     
+  constructor(public dialog: MatDialog) {     
     // Assign the data to the data source for the table to render
     this.dataSource = new MatTableDataSource(students);
   }
@@ -124,7 +120,7 @@ export class BranchExamScheduleComponent implements OnInit {
   ]
 
 
-  displayedColumns: string[] = ['title', 'examname' , 'ttl_marks' , 'passing_mark' , 'action'];
+  displayedColumns: string[] = ['title', 'examname' , 'startingdate' , 'ttl_marks' , 'passing_mark' , 'action'];
   dataSource: MatTableDataSource<StudentData>;
 
 
@@ -144,6 +140,9 @@ export class BranchExamScheduleComponent implements OnInit {
 
     this.addExamscheduleForm = new FormGroup({
       title: new FormControl(null, {
+        validators: [Validators.required]
+      }),
+      examname: new FormControl(null, {
         validators: [Validators.required]
       }),
       class: new FormControl(null, {
@@ -184,4 +183,58 @@ export class BranchExamScheduleComponent implements OnInit {
     }
   }
 
+  openForm(): void {
+    const dialogRef = this.dialog.open(ViewScheduleFormDialog, {
+      width: '500px',
+      // data: {name: this.name, animal: this.animal}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      // this.animal = result;
+    });
+  }
+  
+  onDeleteNotice(): void {
+    const dialogRef = this.dialog.open(ConfirmDeleteComponent, {
+      width: 'auto',
+      data: {}
+    });
+  }
+
+}
+
+
+
+// Add time table form dialog box
+@Component({
+  selector: 'dialog-view-schedule',
+  templateUrl: 'view-schedule.form.html',
+  styleUrls: ['view-schedule.form.css']
+})
+export class ViewScheduleFormDialog implements OnInit {
+  constructor(
+    public dialogRef: MatDialogRef<ViewScheduleFormDialog>,
+    @Inject(MAT_DIALOG_DATA) public data: DialogData
+    ) {
+      this.examscheduledataSource = new MatTableDataSource(this.examschdl);
+
+    }
+    examschdl: Classexam[] = [
+    { class: '11 Sci Bio (Purple B)' , subject: 'Bio' , exmdate: '14/12/2019' , description: 'Unit 1,2' },
+    { class: '11 Sci Bio (Purple B)' , subject: 'Physics' , exmdate: '15/12/2019' , description: 'Unit 2,3' },
+    { class: '11 Sci Bio (Purple B)' , subject: 'Chemistry' , exmdate: '16/12/2019' , description: 'Unit 1,2' },
+  //   { class: '12 Sci Bio (Silver B)' , subject: 'Bio' , exmdate: '14/12/2019' , description: 'Unit 1,2,3' },
+  //   { class: '12 Sci Bio (Silver B)' , subject: 'Physics' , exmdate: '14/12/2019' , description: 'Unit 2,3' },
+  //   { class: '12 Sci Bio (Silver B)' , subject: 'Chemistry' , exmdate: '14/12/2019' , description: 'Unit 1,2' },
+  //   { class: '12 Sci Bio (Pink M)' , subject: 'Bio' , exmdate: '14/12/2019' , description: 'Unit 1,3' },
+  //   { class: '12 Sci Bio (Pink M)' , subject: 'Physics' , exmdate: '14/12/2019' , description: 'Unit 1,2,3' },
+  //   { class: '12 Sci Bio (Pink M)' , subject: 'Chemistry' , exmdate: '14/12/2019' , description: 'Unit 1,3' },
+  ]
+  ngOnInit() { 
+    
+  }
+
+  examscheduleColumns: string[] = ['subject' , 'exmdate' , 'description'];
+  examscheduledataSource: MatTableDataSource<Classexam>;
 }
