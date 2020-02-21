@@ -15,7 +15,7 @@ const branchSchema = mongoose.Schema({
       required: true
     },
     phone: {
-      type: String,
+      type: Number,
       required: true
     },
     address: {
@@ -33,7 +33,7 @@ const branchSchema = mongoose.Schema({
     postalcode: {
       type: Number,
       required: true
-    },
+    }
 });
 
 const branchManagerSchema = mongoose.Schema({
@@ -55,7 +55,7 @@ const branchManagerSchema = mongoose.Schema({
     required: true
   },
   phone: {
-    type: String,
+    type: Number,
     required: true
   },
   gender: {
@@ -83,9 +83,9 @@ const branchManagerSchema = mongoose.Schema({
     required: true
   },
   branch: {
-    _id:  mongoose.SchemaTypes.ObjectId,
-    ref: branchSchema
-  },
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'branchSchema'
+  }
 });
 
 module.exports = mongoose.model('Branch', branchSchema);
