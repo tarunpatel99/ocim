@@ -38,12 +38,40 @@ export class StudentFeesComponent implements OnInit {
 
   onPrint() {
     let doc = new jsPDF("p", "pt", "a4") as jsPDFWithPlugin;
+    doc.setProperties({
+      title: 'Fee Receipt',
+      subject: 'Fee payment receipt'
+  });
     doc.setFont("arial", "bold");
     doc.setFontSize(23);
-    doc.text(180,18,'Gyanjyot Institute')
+    var lMargin=40; //left margin in mm
+    var rMargin=40; //right margin in mm
+    var pdfInMM= 595;  // width of A4 in mm
+    var pageCenter=pdfInMM/2;
+    var instituteName = 'Gyanjyot Institute'
+    var lines =doc.splitTextToSize(instituteName, (pdfInMM-lMargin-rMargin));
+    var dim = doc.getTextDimensions('Text');
+    var lineHeight = dim.h
+    var width = doc.internal.pageSize.width;
+    for(var i=0;i<lines.length;i++){
+      const lineTop = (lineHeight/2)*i
+      doc.text(lines[i],pageCenter,20+lineTop,'center'); //see this line
+    }   
+    //doc.text(180,18,'Gyanjyot Institute',{maxWidth: 185, align: "left"});
+    
     doc.setFont("arial", "normal");
     doc.setFontSize(12);
-    doc.text(220,35,'SBI Bopal Branch');
+    var branchName = 'SBI Bopal Branch'
+    var lines =doc.splitTextToSize(branchName, (pdfInMM-lMargin-rMargin));
+    var dim = doc.getTextDimensions('Text');
+    var lineHeight = dim.h
+    var width = doc.internal.pageSize.width;
+    console.log(width);
+    for(var i=0;i<lines.length;i++){
+      const lineTop = (lineHeight/2)*i
+      doc.text(lines[i],pageCenter,40+lineTop,'center'); //see this line
+    }
+    //doc.text(220,35,'SBI Bopal Branch',{maxWidth: 185, align: "left"});
     doc.setLineCap(2);
     doc.setFont("arial", "bold");
     doc.setFontSize(15);
