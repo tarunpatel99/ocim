@@ -4,6 +4,7 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { FormControl } from '@angular/forms';
 import { Subject } from 'rxjs';
+import { PrintService } from 'src/app/dashboard/printservice/print.service';
 
 export interface StudentData {
   exmdate: string;
@@ -45,10 +46,6 @@ export class StudentExamResultComponent implements OnInit {
     { exmdate: '17/12/2019' , subject: 'Hindi', obt_marks: 35, ttl_marks: 50, per: "70%" },
     { exmdate: '18/12/2019' , subject: 'Social Studies', obt_marks: 49, ttl_marks: 50, per: "98%" }
   ]
-  constructor() {
-    // Assign the data to the data source for the table to render
-    this.dataSource = new MatTableDataSource(this.students);
-   }
   tper="87%"
    
   displayedColumns: string[] = ['exmdate' , 'subject', 'obt_marks', 'ttl_marks', 'per'];
@@ -78,4 +75,20 @@ export class StudentExamResultComponent implements OnInit {
   getTotal() {
     return this.students.map(t => t.ttl_marks).reduce((acc, value) => acc + value, 0);
   }
+  result = []
+  constructor(private PrintService: PrintService) {
+    for (let i = 0; i < this.students.length; i++) {
+      if (!this.result.includes(this.students.map(exmdate => exmdate.exmdate)[i]))
+        this.result.push(this.students.map(exmdate => exmdate.exmdate)[i])
+    }
+    // Assign the data to the data source for the table to render
+    this.dataSource = new MatTableDataSource(this.students);
+  }
+    generateReport() {
+      // table column to display in pdf
+      let columns: string[] = ['Date', 'Subject', 'Obtained Marks', 'Total Marks', 'Percentage'];
+  
+      // this.PrintService.generateReport(data, columns, pdftitle)
+      this.PrintService.generateReport(this.dataSource.filteredData, columns, 'Result Details')
+    }
 }
