@@ -1,5 +1,41 @@
 <div class="heading">Branches</div>
 <mat-card>
+    <mat-expansion-panel>
+        <mat-expansion-panel-header>
+            Filter
+        </mat-expansion-panel-header>
+        <form class="no-add-student">
+            <mat-form-field class="report-width-15">
+                <mat-label>State</mat-label>
+                <mat-select>
+                    <mat-option *ngFor="let class of classes" [value]="class.value">
+                        {{class.viewValue}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field class="report-width-15">
+                <mat-label>City</mat-label>
+                <mat-select>
+                    <mat-option *ngFor="let subject of subjects" [value]="subject.value">
+                        {{subject.viewValue}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field class="report-width-15">
+                <mat-label>Postal code</mat-label>
+                <mat-select>
+                    <mat-option value="option"></mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-action-row>
+                <button mat-stroked-button color="warn" type="reset">Cancel</button>
+                <!-- <button mat-flat-button color="primary">Download</button> -->
+                <button mat-flat-button color="primary" (click)="generateReport()">Print</button>
+                <button mat-flat-button color="primary">View</button>
+            </mat-action-row>
+        </form>
+    </mat-expansion-panel>
+<mat-card>
     <mat-tab-group dynamicHeight>
         <mat-tab label="View Branch">
             <br>

@@ -6,6 +6,7 @@ import {MatTableDataSource} from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
 import { FormControl } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA, MatDialog } from '@angular/material';
+import { PrintService } from 'src/app/dashboard/printservice/print.service';
 
 
 
@@ -110,7 +111,31 @@ getTotalPay(){
   return this.Payments.map(t => t.value).reduce((acc, value) => acc * value, 1)
 }
 
-  constructor() { }
+paymentList = []
+Payment_Data = [
+  {date: '8-12-2019' , nofostudents: 1456 , paymnet_method: 'Debit Card' , amount: 29120},
+  {date: '6-11-2019' , nofostudents: 1456, paymnet_method: 'Debit Card' , amount: 29120},
+  {date: '5-10-2019' , nofostudents: 1456, paymnet_method: 'Debit Card' , amount: 29120},
+  {date: '4-9-2019' , nofostudents: 1456, paymnet_method: 'Debit Card' , amount: 29120},
+  {date: '3-8-2019' , nofostudents: 1456, paymnet_method: 'Debit Card' , amount: 29120},
+  {date: '1-7-2019' , nofostudents: 1456, paymnet_method: 'Debit Card' , amount: 29120},
+  {date: '2-6-2019' , nofostudents: 1456, paymnet_method: 'Debit Card' , amount: 29120},
+  {date: '1-5-2019' , nofostudents: 1456, paymnet_method: 'Debit Card' , amount: 29120}
+]
+constructor(private PrintService: PrintService) {
+  for (let i = 0; i < this.Payment_Data.length; i++) {
+    if (!this.paymentList.includes(this.Payment_Data.map(date => date.date)[i]))
+      this.paymentList.push(this.Payment_Data.map(date => date.date)[i])
+  }
+  // Assign the data to the data source for the table to render
+  this.dataSource_pay = new MatTableDataSource(this.Payment_Data);
+}
+  generateReport() {
+    // table column to display in pdf
+    let columns: string[] = ['date', 'nofostudents', 'paymnet_method', 'amount'];
 
+    // this.PrintService.generateReport(data, columns, pdftitle)
+    this.PrintService.generateReport(this.dataSource_pay.filteredData, columns, 'Payment Details')
+  }
 
 }
