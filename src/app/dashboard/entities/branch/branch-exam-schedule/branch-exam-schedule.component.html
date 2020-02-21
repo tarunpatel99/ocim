@@ -4,7 +4,7 @@
         <mat-tab label="View Schedule">
             <br>
             <form action="" #search>
-                <mat-form-field class="full-width">
+                <!-- <mat-form-field class="full-width">
                     <mat-select placeholder="Select class">
                         <mat-option value="option">11 SCI Bio</mat-option>
                     </mat-select>
@@ -21,7 +21,7 @@
                             {{subject.viewValue}}
                         </mat-option>
                     </mat-select>
-                </mat-form-field>
+                </mat-form-field> -->
                 <!-- <button mat-stroked-button color="warn" type="reset">Cancel</button> -->
                 <!-- <button mat-icon-button color="primary" aria-label="reset" type="reset">
                     <mat-icon>refresh</mat-icon>
@@ -35,7 +35,12 @@
                         <mat-cell *matCellDef="let student"> {{student.title}} </mat-cell>
                     </ng-container>
 
-                    <ng-container matColumnDef="description">
+                    <ng-container matColumnDef="examname">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header> Exam name </mat-header-cell>
+                        <mat-cell *matCellDef="let student"> {{student.examname}} </mat-cell>
+                    </ng-container>
+
+                    <!-- <ng-container matColumnDef="description">
                         <mat-header-cell *matHeaderCellDef mat-sort-header> Description </mat-header-cell>
                         <mat-cell *matCellDef="let student"> {{student.description}} </mat-cell>
                     </ng-container>
@@ -58,7 +63,7 @@
                     <ng-container matColumnDef="obt_marks">
                         <mat-header-cell *matHeaderCellDef mat-sort-header> Obtained </mat-header-cell>
                         <mat-cell *matCellDef="let student"> {{student.obt_marks}} </mat-cell>
-                    </ng-container>
+                    </ng-container> -->
 
                     <ng-container matColumnDef="ttl_marks">
                         <mat-header-cell *matHeaderCellDef mat-sort-header> Total </mat-header-cell>
@@ -74,15 +79,15 @@
                     <ng-container matColumnDef="action">
                         <mat-header-cell *matHeaderCellDef class="tbl-right"> Action </mat-header-cell>
                         <mat-cell *matCellDef="let element" class="tbl-right">
-                            <!-- <button mat-icon-button color="primary" matTooltip="View">
-              <mat-icon>visibility</mat-icon>
-          </button> -->
-                            <!-- <button mat-icon-button color="primary" matTooltip="Edit">
-                <mat-icon>edit</mat-icon>
-              </button> -->
+                            <button mat-icon-button color="primary" matTooltip="View">
+                                <mat-icon>visibility</mat-icon>
+                            </button>
+                            <button mat-icon-button color="primary" matTooltip="Edit">
+                                <mat-icon>edit</mat-icon>
+                            </button>
                             <button mat-icon-button color="primary" matTooltip="Delete">
-                <mat-icon>delete</mat-icon>
-              </button>
+                                <mat-icon>delete</mat-icon>
+                            </button>
                         </mat-cell>
                     </ng-container>
 
@@ -123,25 +128,29 @@
                     <mat-error *ngIf="addExamscheduleForm.get('subject').invalid">Please select subject</mat-error>
                 </mat-form-field>
                 <mat-form-field class="half-width">
-                    <input matInput [matDatepicker]="pickertimetable" placeholder="Date of Exam" formControlName="dateofexam" required>
+                    <input matInput [matDatepicker]="pickertimetable" placeholder="Date of Exam"
+                        formControlName="dateofexam" required>
                     <mat-datepicker-toggle matSuffix [for]="pickertimetable"></mat-datepicker-toggle>
                     <mat-datepicker #pickertimetable></mat-datepicker>
-                    <mat-error *ngIf="addExamscheduleForm.get('dateofexam').invalid">Please select date of exam</mat-error>
+                    <mat-error *ngIf="addExamscheduleForm.get('dateofexam').invalid">Please select date of exam
+                    </mat-error>
                 </mat-form-field>
                 <mat-form-field class="half-width">
                     <input type="number" matInput placeholder="Total Mark" formControlName="totalmark" required min="0">
                     <mat-error *ngIf="addExamscheduleForm.get('totalmark').invalid">Please select total mark</mat-error>
                 </mat-form-field>
                 <mat-form-field class="half-width">
-                    <input type="number" matInput placeholder="Passing Mark" formControlName="passingmark" required min="0">
-                    <mat-error *ngIf="addExamscheduleForm.get('passingmark').invalid">Please select passing mark</mat-error>
+                    <input type="number" matInput placeholder="Passing Mark" formControlName="passingmark" required
+                        min="0">
+                    <mat-error *ngIf="addExamscheduleForm.get('passingmark').invalid">Please select passing mark
+                    </mat-error>
                 </mat-form-field>
                 <mat-form-field class="small-width">
                     <textarea type="text" matInput placeholder="Description" rows="1"></textarea>
                 </mat-form-field>
                 <button mat-icon-button color="primary" aria-label="add more class and subject">
-          <mat-icon>add</mat-icon>
-        </button>
+                    <mat-icon>add</mat-icon>
+                </button>
                 <br>
                 <button mat-flat-button color="primary" type="submit">Add</button>
                 <button mat-stroked-button color="warn" type="reset">Cancel</button>

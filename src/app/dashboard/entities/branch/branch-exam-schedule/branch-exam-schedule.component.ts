@@ -7,27 +7,43 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 export interface StudentData {
   title: string;
-  description: string;
-  exmdate: string;
-  class: string;
-  subject: string;
+  examname: string;
   ttl_marks: number; // totla marks
   passing_mark: number;
 }
 
 // get student info from local data
 const students: StudentData[] = [
-  { title: 'class test 3' , description: 'Unit 1, 2, 3' , exmdate: '14/12/2019' , class: '11 SCI Bio' , subject: 'Bio', ttl_marks: 50, passing_mark: 17 },
-  { title: 'class test 1' , description: 'Unit 1' , exmdate: '14/12/2019' , class: '11 SCI Bio' , subject: 'Bio', ttl_marks: 50, passing_mark: 17 },
-  { title: 'class test 3' , description: 'Unit 1, 2, 3' , exmdate: '14/12/2019' , class: '11 SCI Bio' , subject: 'Physics', ttl_marks: 50, passing_mark: 17 },
-  { title: 'class test 1' , description: 'Unit 1' , exmdate: '14/12/2019' , class: '11 SCI Bio' , subject: 'Chemistry', ttl_marks: 50, passing_mark: 17 },
-  { title: 'class test 3' , description: 'Unit 1, 2, 3' , exmdate: '14/12/2019' , class: '11 SCI Bio' , subject: 'Physics', ttl_marks: 50, passing_mark: 17 },
-  { title: 'class test 3' , description: 'Unit 1, 2, 3' , exmdate: '14/12/2019' , class: '11 SCI Bio' , subject: 'Bio', ttl_marks: 50, passing_mark: 17 },
-  { title: 'class test 1' , description: 'Unit 1' , exmdate: '14/12/2019' , class: '11 SCI Bio' , subject: 'Bio', ttl_marks: 50, passing_mark: 17 },
-  { title: 'class test 2' , description: 'Unit 1, 2' , exmdate: '14/12/2019' , class: '11 SCI Bio' , subject: 'Physics', ttl_marks: 50, passing_mark: 17 },
-  { title: 'class test 2' , description: 'Unit 1, 2' , exmdate: '14/12/2019' , class: '11 SCI Bio' , subject: 'Chemistry', ttl_marks: 50, passing_mark: 17 },
-  { title: 'class test 2' , description: 'Unit 1, 2' , exmdate: '14/12/2019' , class: '11 SCI Bio' , subject: 'Bio', ttl_marks: 50, passing_mark: 17 },
-  { title: 'class test 2' , description: 'Unit 1, 2' , exmdate: '14/12/2019' , class: '11 SCI Bio' , subject: 'Physics', ttl_marks: 50, passing_mark: 17 }
+  { title: 'class_test_1' , examname: 'Class Test 1' , ttl_marks: 50, passing_mark: 17 },
+  { title: 'class_test_2' , examname: 'Class Test 2' , ttl_marks: 50, passing_mark: 17 },
+  { title: 'class_test_3' , examname: 'Class Test 3' , ttl_marks: 50, passing_mark: 17 },
+  { title: 'class_test_4' , examname: 'Class Test 4' , ttl_marks: 50, passing_mark: 17 },
+  { title: 'class_test_5' , examname: 'Class Test 5' , ttl_marks: 50, passing_mark: 17 },
+  { title: 'class_test_6' , examname: 'Class Test 6' , ttl_marks: 100, passing_mark: 33 },
+  { title: 'class_test_7' , examname: 'Class Test 7' , ttl_marks: 100, passing_mark: 33 },
+  { title: 'class_test_8' , examname: 'Class Test 8' , ttl_marks: 100, passing_mark: 33 },
+  { title: 'class_test_9' , examname: 'Class Test 9' , ttl_marks: 100, passing_mark: 33 },
+  { title: 'class_test_10' , examname: 'Class Test 10' , ttl_marks: 100, passing_mark: 33 },
+  { title: 'class_test_11' , examname: 'Class Test 11' , ttl_marks: 100, passing_mark: 33 }
+]
+
+export interface Classexam {
+  exmdate: string;
+  description: string;
+  subject: string;
+  class: string;
+}
+
+const classexm: Classexam[] = [
+  { class: '11 Sci Bio (Purple B)' , subject: 'Bio' , exmdate: '14/12/2019' , description: 'Unit 1,2' },
+  { class: '11 Sci Bio (Purple B)' , subject: 'Physics' , exmdate: '14/12/2019' , description: 'Unit 2,3' },
+  { class: '11 Sci Bio (Purple B)' , subject: 'Chemistry' , exmdate: '14/12/2019' , description: 'Unit 1,2' },
+  { class: '12 Sci Bio (Silver B)' , subject: 'Bio' , exmdate: '14/12/2019' , description: 'Unit 1,2,3' },
+  { class: '12 Sci Bio (Silver B)' , subject: 'Physics' , exmdate: '14/12/2019' , description: 'Unit 2,3' },
+  { class: '12 Sci Bio (Silver B)' , subject: 'Chemistry' , exmdate: '14/12/2019' , description: 'Unit 1,2' },
+  { class: '12 Sci Bio (Pink M)' , subject: 'Bio' , exmdate: '14/12/2019' , description: 'Unit 1,3' },
+  { class: '12 Sci Bio (Pink M)' , subject: 'Physics' , exmdate: '14/12/2019' , description: 'Unit 1,2,3' },
+  { class: '12 Sci Bio (Pink M)' , subject: 'Chemistry' , exmdate: '14/12/2019' , description: 'Unit 1,3' },
 ]
 
 export interface Classsbj {
@@ -74,7 +90,7 @@ export class BranchExamScheduleComponent implements OnInit {
     {value: '11-sci-bio-green-b', viewValue: '11 Sci Bio (Green B)'},
     {value: '12-sci-maths-golden-m', viewValue: '12 Sci Maths (Golden M)'},
     {value: '12-sci-maths-red-m', viewValue: '12 Sci Maths (Red M)'},
-    {value: '12-sci-bio-silver-m', viewValue: '12 Sci Bio (Silver M)'},
+    {value: '12-sci-bio-silver-m', viewValue: '12 Sci Bio (Silver B)'},
     {value: '12-sci-bio-pink-m', viewValue: '12 Sci Bio (Pink M)'}
   ];
 
@@ -108,7 +124,7 @@ export class BranchExamScheduleComponent implements OnInit {
   ]
 
 
-  displayedColumns: string[] = ['title', 'description', 'exmdate' , 'class' , 'subject', 'ttl_marks' , 'passing_mark' , 'action'];
+  displayedColumns: string[] = ['title', 'examname' , 'ttl_marks' , 'passing_mark' , 'action'];
   dataSource: MatTableDataSource<StudentData>;
 
 

@@ -166,8 +166,8 @@
                 <mat-form-field class="full-width">
                     <mat-label>Select class</mat-label>
                     <mat-select formControlName="class" required>
-                        <mat-option *ngFor="let classsbj of classsbjs" [value]="classsbj.value">
-                            {{classsbj.viewValue}}
+                        <mat-option *ngFor="let class of classes" [value]="class.value">
+                            {{class.viewValue}}
                         </mat-option>
                     </mat-select>
                     <mat-error *ngIf="addExamresultForm.get('class').invalid">Please select class</mat-error>
