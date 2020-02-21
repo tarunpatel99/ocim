@@ -12,23 +12,23 @@
                     <mat-form-field class="report-width-15">
                         <mat-label>State</mat-label>
                         <mat-select>
-                            <mat-option *ngFor="let class of classes" [value]="class.value">
-                                {{class.viewValue}}
+                            <mat-option *ngFor="let state of states" [value]="state.value">
+                                {{state.viewValue}}
                             </mat-option>
                         </mat-select>
                     </mat-form-field>
                     <mat-form-field class="report-width-15">
                         <mat-label>City</mat-label>
                         <mat-select>
-                            <mat-option *ngFor="let subject of subjects" [value]="subject.value">
-                                {{subject.viewValue}}
+                            <mat-option *ngFor="let city of cities" [value]="city.value">
+                                {{city.viewValue}}
                             </mat-option>
                         </mat-select>
                     </mat-form-field>
                     <mat-form-field class="report-width-15">
                         <mat-label>Postal code</mat-label>
                         <mat-select>
-                            <mat-option value="option"></mat-option>
+                            <mat-option value="option">381124</mat-option>
                         </mat-select>
                     </mat-form-field>
                     <mat-action-row>
