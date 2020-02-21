@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild, OnDestroy, Inject } from '@angular/core';
 import { MatTableDataSource, MatPaginator, MatSort, MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
-import { DialogData } from '../faculty.model';
+import { TaskWorkData } from '../faculty.model';
 import { FileData } from "../faculty.model";
 
 @Component({
@@ -91,7 +91,7 @@ export class SyllabusFormDialog implements OnInit, OnDestroy{
   addSyllabusForm: FormGroup;
   constructor(
     public dialogRef: MatDialogRef<SyllabusFormDialog>,
-    @Inject(MAT_DIALOG_DATA) public data: DialogData) {}
+    @Inject(MAT_DIALOG_DATA) public data: TaskWorkData) {}
 
   onCancle(): void {
     this.dialogRef.close();
