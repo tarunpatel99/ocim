@@ -1,4 +1,4 @@
-export interface DialogData {
+export interface TaskWorkData {
     class?: string, // "?" it specify that not required field
     subject?: string,
     iss_date: Date, // Issue date
@@ -9,10 +9,11 @@ export interface DialogData {
 
 export interface subjectData {
     name: string,
-    tasks: DialogData[]
+    tasks: TaskWorkData[]
 }
 
 export interface classData {
+    id?: string,
     name: string,
     subjects: subjectData[]
 }
