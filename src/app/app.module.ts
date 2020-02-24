@@ -49,7 +49,7 @@ import { BranchTimetableComponent, TimeTableFormDialog } from './dashboard/entit
 import { ViewTimetableComponent } from './dashboard/entities/branch/branch-timetable/view-timetable/view-timetable.component';
 import { BranchAttendanceComponent } from './dashboard/entities/branch/branch-attendance/branch-attendance.component';
 import { BranchClassComponent } from './dashboard/entities/branch/branch-class/branch-class.component';
-import { BranchExamScheduleComponent } from './dashboard/entities/branch/branch-exam-schedule/branch-exam-schedule.component';
+import { BranchExamScheduleComponent, ViewScheduleFormDialog } from './dashboard/entities/branch/branch-exam-schedule/branch-exam-schedule.component';
 import { BranchExamResultComponent } from './dashboard/entities/branch/branch-exam-result/branch-exam-result.component';
 import { BranchNoticeComponent, NoticeFormDialog } from './dashboard/entities/branch/branch-notice/branch-notice.component';
 import { BranchLeaveNotesComponent, LeaveNoteFormDialog } from './dashboard/entities/branch/branch-leave-notes/branch-leave-notes.component';
@@ -120,6 +120,7 @@ import { FacultyService } from './dashboard/entities/faculty/faculty-services/fa
     BranchAttendanceComponent,
     BranchClassComponent,
     BranchExamScheduleComponent,
+    ViewScheduleFormDialog,//dialog
     BranchExamResultComponent,
     BranchNoticeComponent,
     NoticeFormDialog, //add/edit notice dialog box
@@ -156,7 +157,9 @@ import { FacultyService } from './dashboard/entities/faculty/faculty-services/fa
     StudentDashboardComponent,
     BranchFacultiesComponent,
     ApplyLeave, // leave dialog,
-    actiondialog, ConfirmDeleteComponent, EditResultMarkComponent
+    actiondialog, 
+    ConfirmDeleteComponent, 
+    EditResultMarkComponent
   ],
   imports: [
     BrowserModule,
@@ -177,6 +180,7 @@ import { FacultyService } from './dashboard/entities/faculty/faculty-services/fa
     ViewTimetableComponent, //branch
     EditResultMarkComponent,
     NoticeByIOFormDialog,
+    ViewScheduleFormDialog,//branch
     NoticeFormDialog,
     LeaveNoteFormDialog,
     LeaveNoteViewDialog,

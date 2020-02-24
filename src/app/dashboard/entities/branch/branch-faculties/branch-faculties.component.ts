@@ -123,7 +123,7 @@ export class BranchFacultiesComponent implements OnInit {
 
 
   this.addFacultybyemailForm = new FormGroup({
-    email: new FormControl(null, {
+    byemail: new FormControl(null, {
       validators: [Validators.required]
     }),
   });
