@@ -11,8 +11,7 @@ export interface StudentData {
   subject: string;
   obt_marks: number; // obtain marks from total marks
   ttl_marks: number; // totla marks
-  per: string;
-}
+  per: number}
 
 
 
@@ -39,15 +38,20 @@ export interface exmmark{
   styleUrls: ['./student-exam-result.component.css']
 })
 export class StudentExamResultComponent implements OnInit {
-   students: StudentData[] = [
-    { exmdate: '14/12/2019' , subject: 'Maths', obt_marks: 45, ttl_marks: 50, per: "90%"},
-    { exmdate: '15/12/2019' , subject: 'Science', obt_marks: 45, ttl_marks: 50, per: "90%" },
-    { exmdate: '16/12/2019' , subject: 'English', obt_marks: 44, ttl_marks: 50, per: "88%" },
-    { exmdate: '17/12/2019' , subject: 'Hindi', obt_marks: 35, ttl_marks: 50, per: "70%" },
-    { exmdate: '18/12/2019' , subject: 'Social Studies', obt_marks: 49, ttl_marks: 50, per: "98%" }
-  ]
-  tper="87%"
+
+  total_marks: any = 0;
+  total_percentage: any = 0;
    
+   students: StudentData[] = [
+    { exmdate: '14/12/2019' , subject: 'Maths', obt_marks: 45, ttl_marks: 50, per: 90},
+    { exmdate: '15/12/2019' , subject: 'Science', obt_marks: 45, ttl_marks: 50, per: 90 },
+    { exmdate: '16/12/2019' , subject: 'English', obt_marks: 44, ttl_marks: 50, per: 88 },
+    { exmdate: '17/12/2019' , subject: 'Hindi', obt_marks: 35, ttl_marks: 50, per: 70 },
+    { exmdate: '18/12/2019' , subject: 'Social Studies', obt_marks: 49, ttl_marks: 50, per: 98 },
+    { exmdate: '', subject: 'Total', obt_marks: this.total_marks, ttl_marks: 250, per: this.total_percentage}
+  ]
+  // tper="87%"
+  
   displayedColumns: string[] = ['exmdate' , 'subject', 'obt_marks', 'ttl_marks', 'per'];
   dataSource: MatTableDataSource<StudentData>;
 
@@ -58,8 +62,10 @@ export class StudentExamResultComponent implements OnInit {
   date = new FormControl(new Date());
 
   ngOnInit() {
+    
+    this.total_percentage = this.total_percentage / 5;
     this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
+    this.dataSource.sort = this.sort
   }
 
   applyFilter(filterValue: string) {
@@ -83,6 +89,12 @@ export class StudentExamResultComponent implements OnInit {
     }
     // Assign the data to the data source for the table to render
     this.dataSource = new MatTableDataSource(this.students);
+
+    // totol marks cal
+    // total marks
+    this.students.forEach(x => { this.total_marks = this.total_marks + x.obt_marks; console.log(this.total_marks); });
+    // total parcentage
+    this.students.forEach(x => { this.total_percentage = this.total_percentage + x.per; });
   }
     generateReport() {
       // table column to display in pdf
