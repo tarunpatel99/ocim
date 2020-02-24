@@ -1,6 +1,6 @@
 <!-- <mat-card> -->
     <mat-card-title>View schedule</mat-card-title>
-    <mat-card-content class="content">
+    <mat-card-content>
         <form action="" [formGroup]="addNoticeForm" #addNotice>
             <p>11 Sci Bio (Purple B)</p>
             <mat-table [dataSource]="examscheduledataSource" matSort>
@@ -29,9 +29,10 @@
             </mat-table>
 
             <!-- <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator> -->
-            <mat-card-actions align="end">
-                <button mat-stroked-button color="warn" type="reset" (click)="onCancel()">Cancel</button>
-            </mat-card-actions>
+
         </form>
+        <mat-card-actions align="end">
+            <button mat-stroked-button color="warn" type="reset" (click)="onCancel()">Cancel</button>
+        </mat-card-actions>
     </mat-card-content>
 <!-- </mat-card> -->
