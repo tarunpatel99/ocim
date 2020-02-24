@@ -90,7 +90,7 @@ export class StudentFeesComponent implements OnInit {
       theme: "plain",
       tableWidth: 'auto',
 			styles: {
-        minCellHeight: 30
+        minCellHeight: 15
 			},
       
       head:[['REC. NO.','1','DATE: 01-04-2019']],
@@ -105,7 +105,7 @@ export class StudentFeesComponent implements OnInit {
       ]
     })    
     doc.autoTable({
-      theme: "plain",
+      theme: "striped",
       tableWidth: 'auto',
 			styles: {
         minCellHeight: 30
