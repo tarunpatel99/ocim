@@ -1,29 +1,6 @@
 <div class="heading">Payments</div>
 <mat-card>
-        <mat-expansion-panel>
-            <mat-expansion-panel-header>
-                Filter
-            </mat-expansion-panel-header>
-            <form class="no-add-student">
-                <!-- <p>Select date range</p> -->
-                <mat-form-field class="report-width-15">
-                    <input matInput [matDatepicker]="pickertodate" placeholder="To Date">
-                    <mat-datepicker-toggle matSuffix [for]="pickertodate"></mat-datepicker-toggle>
-                    <mat-datepicker #pickertodate></mat-datepicker>
-                </mat-form-field>
-                <mat-form-field class="report-width-15">
-                    <input matInput [matDatepicker]="pickerfromdate" placeholder="From Date">
-                    <mat-datepicker-toggle matSuffix [for]="pickerfromdate"></mat-datepicker-toggle>
-                    <mat-datepicker #pickerfromdate></mat-datepicker>
-                </mat-form-field>
-                <mat-action-row>
-                    <button mat-stroked-button color="warn" type="reset">Cancle</button>
-                    <!-- <button mat-flat-button color="primary">Download</button> -->
-                    <button mat-flat-button color="primary" (click)="generateReport()">Print</button>
-                    <button mat-flat-button color="primary">View</button>
-                </mat-action-row>
-            </form>
-        </mat-expansion-panel>
+        
     <div class="container">
         <!-- <mat-grid-list cols="2" [rowHeight]="fit">
       <mat-grid-tile> -->
@@ -87,9 +64,41 @@
     <br>
     <mat-card class="no-shadow">
         <mat-card-title>Subscription history</mat-card-title>
-        <mat-form-field id="searchBar">
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                Filter
+            </mat-expansion-panel-header>
+            <form class="no-add-student">
+                <!-- <p>Select date range</p> -->
+                <mat-form-field class="report-width-15">
+                    <mat-label>Payment Method</mat-label>
+                    <mat-select>
+                        <mat-option value="option">Debit Card</mat-option>
+                        <mat-option value="option">Credit Card</mat-option>
+                        <mat-option value="option">Cash</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field class="report-width-15">
+                    <input matInput [matDatepicker]="pickertodate" placeholder="To Date">
+                    <mat-datepicker-toggle matSuffix [for]="pickertodate"></mat-datepicker-toggle>
+                    <mat-datepicker #pickertodate></mat-datepicker>
+                </mat-form-field>
+                <mat-form-field class="report-width-15">
+                    <input matInput [matDatepicker]="pickerfromdate" placeholder="From Date">
+                    <mat-datepicker-toggle matSuffix [for]="pickerfromdate"></mat-datepicker-toggle>
+                    <mat-datepicker #pickerfromdate></mat-datepicker>
+                </mat-form-field>
+                <mat-action-row>
+                    <button mat-stroked-button color="warn" type="reset">Cancle</button>
+                    <!-- <button mat-flat-button color="primary">Download</button> -->
+                    <button mat-flat-button color="primary" (click)="generateReport()">Print</button>
+                    <button mat-flat-button color="primary">View</button>
+                </mat-action-row>
+            </form>
+        </mat-expansion-panel>
+        <!--<mat-form-field id="searchBar">
             <input matInput (keyup)="applyFilter_pay($event.target.value)" placeholder="Search">
-        </mat-form-field>
+        </mat-form-field>--><br>
         <mat-table [dataSource]="dataSource_pay" class="tbl-shadow" matSort>
 
             <!-- date Column -->
