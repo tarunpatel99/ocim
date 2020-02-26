@@ -141,6 +141,11 @@ export class TaskWorkFormDialog implements OnInit, OnDestroy{
     this.FacultyService.addTask(task)
   }
 
+  resetForm() {
+    this.addTaskForm.reset()
+    this.dialogRef.close()
+  }
+
   ngOnInit() {
     this.addTaskForm = new FormGroup({
       class: new FormControl(null, {
