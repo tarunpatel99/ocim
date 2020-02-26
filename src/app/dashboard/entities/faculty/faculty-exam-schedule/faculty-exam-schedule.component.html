@@ -1,63 +1,54 @@
 <p class="heading">Exam Schedule</p>
 <mat-card>
-    <form action="">
-        <mat-form-field class="full-width">
-            <mat-select placeholder="Select class">
-                <mat-option value="option">TYBCA</mat-option>
-            </mat-select>
-        </mat-form-field>
-        <mat-form-field class="full-width">
-            <mat-select placeholder="Select Exam">
-                <mat-option value="option">SDP-II</mat-option>
-            </mat-select>
-        </mat-form-field>
-        <!-- student list -->
-        <mat-form-field id="searchBar">
-            <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search">
-        </mat-form-field>
+    <!-- Exam list -->
+    <mat-form-field id="searchBar">
+        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search exam">
+    </mat-form-field>
 
-        <mat-table [dataSource]="dataSource" matSort>
+    <mat-table [dataSource]="dataSource" matSort>
 
-            <ng-container matColumnDef="title">
-                <mat-header-cell *matHeaderCellDef mat-sort-header> Title </mat-header-cell>
-                <mat-cell *matCellDef="let student"> {{student.title}} </mat-cell>
-            </ng-container>
+        <ng-container matColumnDef="title">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Exam ID </mat-header-cell>
+            <mat-cell *matCellDef="let student"> {{student.title}} </mat-cell>
+        </ng-container>
 
-            <ng-container matColumnDef="description">
-                <mat-header-cell *matHeaderCellDef mat-sort-header> Description </mat-header-cell>
-                <mat-cell *matCellDef="let student"> {{student.description}} </mat-cell>
-            </ng-container>
+        <ng-container matColumnDef="examname">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Exam Name </mat-header-cell>
+            <mat-cell *matCellDef="let student"> {{student.examname}} </mat-cell>
+        </ng-container>
 
-            <ng-container matColumnDef="exmdate">
-                <mat-header-cell *matHeaderCellDef mat-sort-header> Date </mat-header-cell>
-                <mat-cell *matCellDef="let student"> {{student.exmdate}} </mat-cell>
-            </ng-container>
+        <ng-container matColumnDef="exmdate">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Starting Date </mat-header-cell>
+            <mat-cell *matCellDef="let student"> {{student.exmdate}} </mat-cell>
+        </ng-container>
 
-            <ng-container matColumnDef="class">
-                <mat-header-cell *matHeaderCellDef mat-sort-header> Class </mat-header-cell>
-                <mat-cell *matCellDef="let student"> {{student.class}} </mat-cell>
-            </ng-container>
+        <ng-container matColumnDef="ttl_marks">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Total Marks</mat-header-cell>
+            <mat-cell *matCellDef="let student"> {{student.ttl_marks}} </mat-cell>
+        </ng-container>
 
-            <ng-container matColumnDef="subject">
-                <mat-header-cell *matHeaderCellDef mat-sort-header> Subject </mat-header-cell>
-                <mat-cell *matCellDef="let student"> {{student.subject}} </mat-cell>
-            </ng-container>
+        <ng-container matColumnDef="passing_mark">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Passing Marks </mat-header-cell>
+            <mat-cell *matCellDef="let student"> {{student.passing_mark}} </mat-cell>
+        </ng-container>
 
-            <ng-container matColumnDef="ttl_marks">
-                <mat-header-cell *matHeaderCellDef mat-sort-header> Total </mat-header-cell>
-                <mat-cell *matCellDef="let student"> {{student.ttl_marks}} </mat-cell>
-            </ng-container>
+        <ng-container matColumnDef="action">
+            <mat-header-cell *matHeaderCellDef class="tbl-right"> Action </mat-header-cell>
+            <mat-cell *matCellDef="let element" class="tbl-right">
+                <button mat-icon-button color="primary" (click)="openExamSchedule()" matTooltip="View">
+                    <mat-icon>visibility</mat-icon>
+                </button>
+                <button mat-icon-button color="primary" matTooltip="Edit">
+                    <mat-icon>edit</mat-icon>
+                </button>
+                <button mat-icon-button color="primary" (click)="onDelete()" matTooltip="Delete">
+                    <mat-icon>delete</mat-icon>
+                </button>
+            </mat-cell>
+        </ng-container>
 
-            <ng-container matColumnDef="passing_mark">
-                <mat-header-cell *matHeaderCellDef mat-sort-header> Passing Mark </mat-header-cell>
-                <mat-cell *matCellDef="let student"> {{student.passing_mark}} </mat-cell>
-            </ng-container>
-
-            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-            <mat-row *matRowDef="let student; columns: displayedColumns;"></mat-row>
-        </mat-table>
-        <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
-
-
-    </form>
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let student; columns: displayedColumns;"></mat-row>
+    </mat-table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
 </mat-card>

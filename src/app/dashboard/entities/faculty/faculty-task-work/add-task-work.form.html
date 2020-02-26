@@ -39,7 +39,7 @@
     </div>
 
     <div mat-dialog-actions align="end">
-        <button mat-stroked-button type="reset" color="warn">Cancel</button>
+        <button mat-stroked-button type="reset" (click)="resetForm()" color="warn">Cancel</button>
         <button mat-flat-button type="submit" color="primary" cdkFocusInitial>Add</button>
     </div>
 </form>
