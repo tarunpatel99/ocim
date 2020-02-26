@@ -107,7 +107,7 @@ export class StudentLeaveNoteComponent implements OnInit {
   onViewLeaveNote(event, leave): void {
     this.selectedLeave = leave
     const dialogRef = this.dialog.open(actiondialog, {
-      width: '300px',
+      width: '500px',
       data: {studentName: this.selectedLeave.studentName,
         class: this.selectedLeave.class,
         subject: this.selectedLeave.subject,

@@ -1,8 +1,8 @@
 <p class="heading">Pay Fees</p>
 <mat-card class="mat-card1">
 <mat-card class="mat-card2">
-  <mat-card-title>Fees Details</mat-card-title>
-  <mat-table [dataSource]="dataSource" class="table"matSort>
+  <mat-card-title>Fees History</mat-card-title>
+  <mat-table [dataSource]="dataSource" matSort>
 
     <ng-container matColumnDef="std">
         <mat-header-cell   *matHeaderCellDef mat-sort-header> Standard </mat-header-cell  >
@@ -56,15 +56,16 @@
   <mat-card-title>Sem 2</mat-card-title>
   <mat-card-subtitle>Date: 22-12-2019</mat-card-subtitle>
   <mat-divider></mat-divider>
-  <p>Class: 8th</p>
-  <p> Amount: 45000</p>
-  <p> Last date: 01-01-2020</p>
-  <p class="ocim-font-red" style="font-weight: bold;"> Note<br><span style="color: black;">
+  <br>
+  <span>Class: 8th</span><br>
+  <span>Amount: 45000</span><br>
+  <span>Last date: 01-01-2020</span><br>
+  <p class="ocim-font-red" style="font-weight: bold;">Note : <span style="color: black;">
   <strong>If you select to pay fees by cash then you wont be able to select "Pay online" option</strong></span></p>
-  <mat-card-actions>
-    <button mat-raised-button color="primary" name="button1">Pay Now</button>
+  <div mat-card-actions align="end">
+    <button mat-stroked-button>Pay by cash</button>    
     <span class="space">-------- or --------</span>
-    <button mat-stroked-button>Pay by cash</button>
-  </mat-card-actions>
+    <button mat-flat-button color="primary" name="button1">Pay Now</button>
+  </div>
 </mat-card>
 </mat-card>
