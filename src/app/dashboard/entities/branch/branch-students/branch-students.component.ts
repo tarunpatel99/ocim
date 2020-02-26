@@ -41,14 +41,12 @@ const Student_Data: Std_element[] = [
   {rollno: '19-bio-13', name: 'Harshil Patel', class: '11 Sci Bio' , phone: '9234333210'},
   {rollno: '19-bio-14', name: 'Mihir Kamariya', class: '11 Sci Bio' , phone: '9834453210'},
   {rollno: '19-bio-15', name: 'Shubh Bhatt', class: '11 Sci Bio' , phone: '98754673210'},
-  {rollno: '19-bio-16', name: 'Nirav Rajput', class: '11 Sci Bio' , phone: '987667610'},
-  {rollno: '19-bio-17', name: 'Aakash Bhavsar', class: '11 Sci Bio' , phone: '987897810'},
-  {rollno: '19-bio-18', name: 'Hastik Bhut', class: '11 Sci Bio' , phone: '9876232310'},
-  {rollno: '19-bio-19', name: 'Yash Charola', class: '11 Sci Bio' , phone: '9876232410'},
-  {rollno: '19-bio-20', name: 'Bhautik Patel', class: '11 Sci Bio' , phone: '9872374210'},
+  {rollno: '18-bio-16', name: 'Nirav Rajput', class: '12 Sci Bio' , phone: '987667610'},
+  {rollno: '18-bio-17', name: 'Aakash Bhavsar', class: '12 Sci Bio' , phone: '987897810'},
+  {rollno: '18-bio-18', name: 'Hastik Bhut', class: '12 Sci Bio' , phone: '9876232310'},
+  {rollno: '18-bio-19', name: 'Yash Charola', class: '12 Sci Bio' , phone: '9876232410'},
+  {rollno: '18-bio-20', name: 'Bhautik Patel', class: '12 Sci Bio' , phone: '9872374210'},
 ];
-
-
 
 
 
