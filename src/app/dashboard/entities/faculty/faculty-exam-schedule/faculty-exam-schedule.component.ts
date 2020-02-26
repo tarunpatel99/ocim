@@ -1,7 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatTableDataSource, MatPaginator, MatSort } from '@angular/material';
+import { MatTableDataSource, MatPaginator, MatSort, MatDialog } from '@angular/material';
 import { FormControl } from '@angular/forms';
 import { StudentExamData } from "../faculty.model";
+import { ViewScheduleFormDialog } from '../../branch/branch-exam-schedule/branch-exam-schedule.component';
+import { ConfirmDeleteComponent } from "../../confirm-delete/confirm-delete.component";
 
 @Component({
   selector: 'app-faculty-exam-schedule',
@@ -11,29 +13,29 @@ import { StudentExamData } from "../faculty.model";
 export class FacultyExamScheduleComponent implements OnInit {
 
   students: StudentExamData[] = [
-    { title: 'class test 3' , description: 'Unit 1, 2, 3' , exmdate: '14/12/2019' , class: '11 SCI Bio' , subject: 'Bio', ttl_marks: 50, passing_mark: 17 },
-    { title: 'class test 1' , description: 'Unit 1' , exmdate: '14/12/2019' , class: '11 SCI Bio' , subject: 'Bio', ttl_marks: 50, passing_mark: 17 },
-    { title: 'class test 3' , description: 'Unit 1, 2, 3' , exmdate: '14/12/2019' , class: '11 SCI Bio' , subject: 'Physics', ttl_marks: 50, passing_mark: 17 },
-    { title: 'class test 1' , description: 'Unit 1' , exmdate: '14/12/2019' , class: '11 SCI Bio' , subject: 'Chemistry', ttl_marks: 50, passing_mark: 17 },
-    { title: 'class test 3' , description: 'Unit 1, 2, 3' , exmdate: '14/12/2019' , class: '11 SCI Bio' , subject: 'Physics', ttl_marks: 50, passing_mark: 17 },
-    { title: 'class test 3' , description: 'Unit 1, 2, 3' , exmdate: '14/12/2019' , class: '11 SCI Bio' , subject: 'Bio', ttl_marks: 50, passing_mark: 17 },
-    { title: 'class test 1' , description: 'Unit 1' , exmdate: '14/12/2019' , class: '11 SCI Bio' , subject: 'Bio', ttl_marks: 50, passing_mark: 17 },
-    { title: 'class test 2' , description: 'Unit 1, 2' , exmdate: '14/12/2019' , class: '11 SCI Bio' , subject: 'Physics', ttl_marks: 50, passing_mark: 17 },
-    { title: 'class test 2' , description: 'Unit 1, 2' , exmdate: '14/12/2019' , class: '11 SCI Bio' , subject: 'Chemistry', ttl_marks: 50, passing_mark: 17 },
-    { title: 'class test 2' , description: 'Unit 1, 2' , exmdate: '14/12/2019' , class: '11 SCI Bio' , subject: 'Bio', ttl_marks: 50, passing_mark: 17 },
-    { title: 'class test 2' , description: 'Unit 1, 2' , exmdate: '14/12/2019' , class: '11 SCI Bio' , subject: 'Physics', ttl_marks: 50, passing_mark: 17 }
+    { title: 'class_test_1', examname: 'Class Test 1', exmdate: '1-1-2020', ttl_marks: 50, passing_mark: 17 },
+    { title: 'class_test_2', examname: 'Class Test 2', exmdate: '5-1-2020', ttl_marks: 50, passing_mark: 17 },
+    { title: 'class_test_3', examname: 'Class Test 3', exmdate: '11-1-2020', ttl_marks: 50, passing_mark: 17 },
+    { title: 'class_test_4', examname: 'Class Test 4', exmdate: '15-1-2020', ttl_marks: 50, passing_mark: 17 },
+    { title: 'class_test_5', examname: 'Class Test 5', exmdate: '21-1-2020', ttl_marks: 50, passing_mark: 17 },
+    { title: 'class_test_1', examname: 'Class Test 6', exmdate: '25-1-2020', ttl_marks: 100, passing_mark: 33 },
+    { title: 'class_test_2', examname: 'Class Test 7', exmdate: '1-2-2020', ttl_marks: 100, passing_mark: 33 },
+    { title: 'class_test_3', examname: 'Class Test 8', exmdate: '5-2-2020', ttl_marks: 100, passing_mark: 33 },
+    { title: 'class_test_1', examname: 'Class Test 9', exmdate: '11-2-2020', ttl_marks: 100, passing_mark: 33 },
+    { title: 'class_test_2', examname: 'Class Test 10', exmdate: '15-2-2020', ttl_marks: 100, passing_mark: 33 },
+    { title: 'class_test_3', examname: 'Class Test 11', exmdate: '20-2-2020', ttl_marks: 100, passing_mark: 33 }
   ]
 
-  constructor() {
+  constructor(public dialog: MatDialog) {
     this.dataSource = new MatTableDataSource(this.students);
   }
 
-  displayedColumns: string[] = ['title', 'description', 'exmdate' , 'class' , 'subject', 'ttl_marks' , 'passing_mark'];
+  displayedColumns: string[] = ['title', 'examname', 'exmdate', 'ttl_marks', 'passing_mark', 'action'];
   dataSource: MatTableDataSource<StudentExamData>;
-  
 
-  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
-  @ViewChild(MatSort, {static: true}) sort: MatSort;
+
+  @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
+  @ViewChild(MatSort, { static: true }) sort: MatSort;
   date = new FormControl(new Date());
 
   ngOnInit() {
@@ -49,5 +51,28 @@ export class FacultyExamScheduleComponent implements OnInit {
       this.dataSource.paginator.firstPage();
     }
   }
+  
+  openExamSchedule(): void {
+    const dialogRef = this.dialog.open(ViewScheduleFormDialog, {
+      width: '500px',
+      // data: {name: this.name, animal: this.animal}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      // this.animal = result;
+    });
+  }
+
+  onDelete(): void {
+    const dialogRef = this.dialog.open(ConfirmDeleteComponent, {
+      width: 'fit-content',
+      // data: {name: this.name, animal: this.animal}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      // this.animal = result;
+    });
+  }
+  
 
 }
