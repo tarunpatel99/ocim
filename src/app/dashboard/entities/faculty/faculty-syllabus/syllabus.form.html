@@ -1,5 +1,5 @@
 <h1 mat-dialog-title>Add Syllabus</h1>
-
+<mat-divider></mat-divider>
 <form action="" [formGroup]="addTimeTableForm" #addTimeTable (click)="onSave()">
     <div class="uploadfilecontainer" (click)="fileInput.click()" appDragDrop (onFileDropped)="uploadFile($event)">
         <div class="button-icon">
@@ -14,7 +14,7 @@
         </button>
     </div>
     <div mat-dialog-actions align="end">
-        <button mat-stroked-button color="warn" type="reset">Cancel</button>
+        <button mat-stroked-button color="warn" (click)="onCancle()" type="reset">Cancel</button>
         <button mat-flat-button color="primary" cdkFocusInitial>Upload</button>
     </div>
 </form>

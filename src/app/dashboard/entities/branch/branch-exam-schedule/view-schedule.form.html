@@ -1,37 +1,35 @@
 <!-- <mat-card> -->
-    <mat-card-title>View schedule</mat-card-title>
-    <mat-card-content class="content">
-        <form action="" [formGroup]="addNoticeForm" #addNotice>
-            <p>11 Sci Bio (Purple B)</p>
-            <mat-table [dataSource]="examscheduledataSource" matSort>
-                <!-- <ng-container matColumnDef="class">
+<mat-card-title>View schedule</mat-card-title>
+<p>11 Sci Bio (Purple B)</p>
+<form action="" [formGroup]="addNoticeForm" #addNotice>
+    <mat-table [dataSource]="examscheduledataSource" matSort>
+        <!-- <ng-container matColumnDef="class">
                 <mat-header-cell *matHeaderCellDef mat-sort-header> Class </mat-header-cell>
                 <mat-cell *matCellDef="let examschdl"> {{examschdl.class}} </mat-cell>
             </ng-container> -->
 
-                <ng-container matColumnDef="subject">
-                    <mat-header-cell *matHeaderCellDef mat-sort-header> Subject </mat-header-cell>
-                    <mat-cell *matCellDef="let examschdl"> {{examschdl.subject}} </mat-cell>
-                </ng-container>
+        <ng-container matColumnDef="subject">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Subject </mat-header-cell>
+            <mat-cell *matCellDef="let examschdl"> {{examschdl.subject}} </mat-cell>
+        </ng-container>
 
-                <ng-container matColumnDef="exmdate">
-                    <mat-header-cell *matHeaderCellDef mat-sort-header> Date </mat-header-cell>
-                    <mat-cell *matCellDef="let examschdl"> {{examschdl.exmdate}} </mat-cell>
-                </ng-container>
+        <ng-container matColumnDef="exmdate">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Date </mat-header-cell>
+            <mat-cell *matCellDef="let examschdl"> {{examschdl.exmdate}} </mat-cell>
+        </ng-container>
 
-                <ng-container matColumnDef="description">
-                    <mat-header-cell *matHeaderCellDef mat-sort-header> Description </mat-header-cell>
-                    <mat-cell *matCellDef="let examschdl"> {{examschdl.description}} </mat-cell>
-                </ng-container>
+        <ng-container matColumnDef="description">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Description </mat-header-cell>
+            <mat-cell *matCellDef="let examschdl"> {{examschdl.description}} </mat-cell>
+        </ng-container>
 
-                <mat-header-row *matHeaderRowDef="examscheduleColumns"></mat-header-row>
-                <mat-row *matRowDef="let examschdl; columns: examscheduleColumns;"></mat-row>
-            </mat-table>
+        <mat-header-row *matHeaderRowDef="examscheduleColumns"></mat-header-row>
+        <mat-row *matRowDef="let examschdl; columns: examscheduleColumns;"></mat-row>
+    </mat-table>
 
-            <!-- <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator> -->
-            <mat-card-actions align="end">
-                <button mat-stroked-button color="warn" type="reset" (click)="onCancel()">Cancel</button>
-            </mat-card-actions>
-        </form>
-    </mat-card-content>
-<!-- </mat-card> -->
+    <!-- <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator> -->
+    <br>
+    <div mat-card-actions align="end">
+        <button mat-stroked-button color="warn" type="reset" (click)="onCancel()">Cancel</button>
+    </div>
+</form>

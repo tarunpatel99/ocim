@@ -37,7 +37,7 @@
                         <div class="mat-body-strong">Address</div>
                         <mat-form-field class="full-width" class="report-width-15">
                             <mat-label>City</mat-label>
-                            <mat-select formControlName="city">
+                            <mat-select>
                                 <mat-option *ngFor="let city of cities" [value]="city.value">
                                     {{city.viewValue}}
                                 </mat-option>
@@ -45,7 +45,7 @@
                         </mat-form-field>
                         <mat-form-field class="full-width" class="report-width-15">
                             <mat-label>State</mat-label>
-                            <mat-select formControlName="state">
+                            <mat-select>
                                 <mat-option *ngFor="let state of states" [value]="state.value">
                                     {{state.viewValue}}
                                 </mat-option>
@@ -53,7 +53,7 @@
                         </mat-form-field>
                         <mat-form-field class="full-width" class="report-width-15">
                             <mat-label>Pincode</mat-label>
-                            <mat-select formControlName="pincode">
+                            <mat-select>
                                 <mat-option *ngFor="let pincode of pincodes" [value]="pincode.value">
                                     {{pincode.viewValue}}
                                 </mat-option>

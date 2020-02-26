@@ -49,10 +49,8 @@ export interface StudentResultData {
 
 export interface StudentExamData {
     title: string;
-    description: string;
+    examname: string;
     exmdate: string;
-    class: string;
-    subject: string;
     ttl_marks: number; // totla marks
     passing_mark: number;
 }
