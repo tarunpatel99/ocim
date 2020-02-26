@@ -51,33 +51,6 @@ export class AuthService {
     localStorage.setItem('currentUser', JSON.stringify(user));
     if (user) {
       this.router.navigate([currentUrl]);
-      // let matchedUsers = this.users.filter(fetchuser => { return fetchuser.username == user.username });
-      // let checkuser = matchedUsers.length ? matchedUsers[0] : null;
-      // let checkpassword = null, checkrole = null
-      // console.log(checkuser)
-      // if (checkuser != null) {
-      //   if (user.password == checkuser.password)
-      //     checkpassword = checkuser
-      // }
-      // if (checkpassword != null) {
-      //   if (user.role == checkpassword.role)
-      //     checkrole = checkpassword
-      // }
-      // console.log(checkrole, checkuser, checkpassword)
-      // if (checkuser == null) {
-      //   return
-      // }
-      // else if (checkpassword == null) {
-      //   return
-      // }
-      // else if (checkrole == null) {
-      //   return
-      // }
-      // else if (checkuser != null && checkpassword != null && checkrole != null) {
-      //   console.log(checkrole, checkuser, checkpassword)
-      //   this.router.navigate([currentUrl]);
-      // }
-
     }
 
   }

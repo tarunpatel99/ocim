@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import * as jsPDF from 'jspdf';
 import 'jspdf-autotable';
-import {UserOptions} from 'jspdf-autotable'
+import {UserOptions} from 'jspdf-autotable';
+import { PrintService } from 'src/app/dashboard/printservice/print.service';
 
 interface jsPDFWithPlugin extends jsPDF {
   autoTable : (options : UserOptions) => jsPDF;
@@ -17,83 +18,89 @@ export interface StudentFees {
   status: string;
 }
 
-const students: StudentFees[] = [
-  { std: 8 , sem: 2, mode: 'Online', date: '29-12-2019', amount: 45000, status: "Unpaid"},
-  { std: 8 , sem: 1, mode: 'Online', date: '29-12-2019', amount: 45000, status: "Paid"},
-]
+export interface feeReceipt{
+  recNo : string;
+  details : string;
+}
+
+
 @Component({
   selector: 'app-student-fees',
   templateUrl: './student-fees.component.html',
   styleUrls: ['./student-fees.component.css']
 })
+
 export class StudentFeesComponent implements OnInit {
 
-  constructor() {
-    this.dataSource = new MatTableDataSource(students);
-   }
+  studentsReceipt: feeReceipt[] = [
+    { recNo: 'Student', details: 'Ajay VinayBhai Malhotra'},
+    { recNo: 'Phone', details: '9876543210'},
+    { recNo: 'Class', details: '3rd'},
+    { recNo: 'Sem Date', details: '1-6-2019 To 30-11-2020'},
+    { recNo: 'Sem', details: '2'},
+    { recNo: 'Method', details: 'Online'},
+  ]
+   students: StudentFees[] = [
+    { std: 8 , sem: 2, mode: 'Online', date: '29-12-2019', amount: 45000, status: "Unpaid" },
+    { std: 8 , sem: 1, mode: 'Online', date: '29-12-2019', amount: 45000, status: "Paid"},
+  ]
+  receipt = []
+  constructor(private PrintService: PrintService) {
+    //this.dataSource = new MatTableDataSource(this.studentsReceipt);
+    this.dataSource = new MatTableDataSource(this.students);
+
+  }
    displayedColumns: string[] = ['std' , 'sem', 'mode', 'date', 'amount', 'status', 'print'];
   dataSource: MatTableDataSource<StudentFees>;
   ngOnInit() {
   }
+  
 
+  getColor(status) {
+    switch (status) {
+      case 'Pending':
+        return '#212121'; // grey
+      case 'Paid':
+        return '#43a047'; // green
+      case 'Unpaid':
+        return '#C62828'; // red
+    }
+  }
   onPrint() {
     let doc = new jsPDF("p", "pt", "a4") as jsPDFWithPlugin;
     doc.setProperties({
       title: 'Fee Receipt',
       subject: 'Fee payment receipt'
   });
-    doc.setFont("arial", "bold");
-    doc.setFontSize(23);
-    var lMargin=40; //left margin in mm
-    var rMargin=40; //right margin in mm
-    var pdfInMM= 595;  // width of A4 in mm
-    var pageCenter=pdfInMM/2;
-    var instituteName = 'Gyanjyot Institute'
-    var lines =doc.splitTextToSize(instituteName, (pdfInMM-lMargin-rMargin));
-    var dim = doc.getTextDimensions('Text');
-    var lineHeight = dim.h
-    var width = doc.internal.pageSize.width;
-    for(var i=0;i<lines.length;i++){
-      const lineTop = (lineHeight/2)*i
-      doc.text(lines[i],pageCenter,20+lineTop,'center'); //see this line
-    }   
-    //doc.text(180,18,'Gyanjyot Institute',{maxWidth: 185, align: "left"});
-    
-    doc.setFont("arial", "normal");
-    doc.setFontSize(12);
-    var branchName = 'SBI Bopal Branch'
-    var lines =doc.splitTextToSize(branchName, (pdfInMM-lMargin-rMargin));
-    var dim = doc.getTextDimensions('Text');
-    var lineHeight = dim.h
-    var width = doc.internal.pageSize.width;
-    console.log(width);
-    for(var i=0;i<lines.length;i++){
-      const lineTop = (lineHeight/2)*i
-      doc.text(lines[i],pageCenter,40+lineTop,'center'); //see this line
-    }
-    //doc.text(220,35,'SBI Bopal Branch',{maxWidth: 185, align: "left"});
+  
+  this.PrintService.headingFormatting(doc);
     doc.setLineCap(2);
     doc.setFont("arial", "bold");
     doc.setFontSize(15);
-    doc.text(40,75,'Payment Receipt');
+    //doc.text(40,155,'Payment Receipt');
     doc.setFontSize(10);
-    doc.text(40,600,"NOTE: THIS IS A COMPUTER-GENERATED DOCUMENT AND IT DOES NOT REQUIRE A SIGNATURE.");
+    doc.text(40,720,"NOTE: THIS IS A COMPUTER-GENERATED DOCUMENT AND IT DOES NOT REQUIRE A SIGNATURE.");
+    doc.text(440,800,"Authorize Signature")
     //doc.line(15, 15, 200, 15);
-    doc.line(40, 80, 550, 80);
-    doc.line(40, 100, 550, 100);
-    doc.line(40, 340,550, 340);
-    doc.line(40, 360,550, 360);
-    doc.line(40, 520,550, 520);
-    
+    //doc.line(40, 160, 555, 160);
+    //doc.line(40, 180, 555, 180);
+    doc.line(40, 330,555, 330);
+    doc.line(40, 350,555, 350);
+    doc.line(40, 650,555, 650);
+    doc.line(40, 673,555, 673);
+    doc.line(40,330,40,673); // vertical line
+    //doc.line(70,350,70,695); // vertical line
+    doc.line(455,330,455,673); // vertical line
+    doc.line(555, 330,555, 673);
+
     doc.autoTable({
-      margin: {top:80},
+      margin: {top:160, left:40},
       theme: "plain",
       tableWidth: 'auto',
 			styles: {
-        minCellHeight: 30
+        minCellHeight: 10
 			},
-      
-      head:[['REC. NO.','1','DATE: 01-04-2019']],
+      //head:[['REC. NO.','1','DATE: 01-04-2019']],
       body:[
         ['Regn No.','1'],
         ['Student:','Ajay Malhotra'],
@@ -108,17 +115,26 @@ export class StudentFeesComponent implements OnInit {
       theme: "plain",
       tableWidth: 'auto',
 			styles: {
-        minCellHeight: 30
+        minCellHeight: 10
 			},
-      head:[['S.N              ','Particulars','Amount']],
+      head:[['Descripition','Amount']],
       body:[
-        ['1','Admissison Fees','15000'],
-        ['2','Tution Fees','15000'],
-        ['3','Computer Fees', '1000'],
-        ['4','Enrollment Fees','200'],
-        ['5','Exam and Stationary','500']
+        ['11 Science Maths- Teaching Fees (Science, Maths, Computer)','15000'],
+        ['11 Science Maths- Practical Fees (Computer)','15000'],
+        ['',''],
+        ['',''],
+        ['',''],
+        ['',''],
+        ['',''],
+        ['',''],
+        ['',''],
+        ['',''],
+        ['',''],
+        ['',''],
+        ['',''],
+        ['',''],
       ],
-      foot:[['','TOTAL AMOUNT','31700']]
+      foot:[['TOTAL AMOUNT','30000']]
     })
     let win = open('about:blank');
     let body = win.document.body;
@@ -129,15 +145,7 @@ export class StudentFeesComponent implements OnInit {
 
     iframe.src = doc.output('datauristring');
   }
-
-  getColor(status) {
-    switch (status) {
-      case 'Pending':
-        return '#212121'; // grey
-      case 'Paid':
-        return '#43a047'; // green
-      case 'Unpaid':
-        return '#C62828'; // red
-    }
+    // this.PrintService.generateReport(data, columns, pdftitle)
+    //this.PrintService.generateReport(this.dataSource.filteredData, columns, 'Fees Details') 
   }
-}
+

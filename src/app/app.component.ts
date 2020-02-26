@@ -19,9 +19,7 @@ export class AppComponent implements OnInit, OnDestroy {
   datasource: StudentModel[] = []
   private studentSub: Subscription;
 
-  constructor(private StudentService: StudentService) {
-    
-  }
+  constructor(private StudentService: StudentService) { }
 
   ngOnInit() {
     this.StudentService.getStudents();
