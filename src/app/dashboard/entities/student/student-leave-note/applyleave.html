@@ -1,46 +1,52 @@
 <div class="full-width">
     <form action="" [formGroup]="applyleavedialog" #applyleave (click)="onSave()">
         <h1 mat-dialog-title>Apply for Leave</h1>
-      <div>
-          <mat-form-field class="full-width">
-              <input matInput name="title" placeholder="Title" formControlName="title" required>
-              <mat-error *ngIf="applyleavedialog.get('title').invalid">Title is required</mat-error>
-          </mat-form-field>
-      </div>
-      <div>
-      <table>
-          <tr>
-              <td> <mat-form-field class="full-width">
-                      <input matInput [matDatepicker]="pickerJoin" placeholder="From (MM/DD/YYYY)" formControlName="date" required>
-                      <mat-datepicker-toggle matSuffix [for]="pickerJoin"></mat-datepicker-toggle>
-                          <mat-datepicker #pickerJoin></mat-datepicker>
-                          <mat-error *ngIf="applyleavedialog.get('date').invalid">Date is required</mat-error>
-                  </mat-form-field>
-                </td>
-                  <td> <mat-form-field class="full-width">
-                          <input matInput [matDatepicker]="pickerTo" placeholder="To (MM/DD/YYYY)" formControlName="date" required>
-                          <mat-datepicker-toggle matSuffix [for]="pickerTo"></mat-datepicker-toggle>
-                              <mat-datepicker #pickerTo></mat-datepicker>
-                              <mat-error *ngIf="applyleavedialog.get('date').invalid">Date is required</mat-error>
-                      </mat-form-field></td>
-          </tr>
-      </table>
-      </div>
-      <div>
-          <mat-form-field class="full-width">
-          <textarea matInput placeholder="Message" formControlName="msg" required></textarea>
-          <mat-error *ngIf="applyleavedialog.get('msg').invalid">Message is required</mat-error>
-          </mat-form-field>
-      </div>
-      <div class="uploadfilecontainer" (click)="fileInput.click()" appDragDrop (onFileDropped)="uploadFile($event)">
-        <div class="button-icon">
-            <input hidden type="file" #fileInput (change)="uploadFile($event.target.files)">
-            <span>Drag & Drop</span>
+        <div>
+            <mat-form-field class="full-width">
+                <input matInput name="title" placeholder="Title" formControlName="title" required>
+                <mat-error *ngIf="applyleavedialog.get('title').invalid">Title is required</mat-error>
+            </mat-form-field>
         </div>
+        <div>
+            <table>
+                <tr>
+                    <td>
+                        <mat-form-field class="full-width">
+                            <input matInput [matDatepicker]="pickerJoin" placeholder="From (MM/DD/YYYY)"
+                                formControlName="date" required>
+                            <mat-datepicker-toggle matSuffix [for]="pickerJoin"></mat-datepicker-toggle>
+                            <mat-datepicker #pickerJoin></mat-datepicker>
+                            <mat-error *ngIf="applyleavedialog.get('date').invalid">Date is required</mat-error>
+                        </mat-form-field>
+                    </td>
+                    <td>
+                        <mat-form-field class="full-width">
+                            <input matInput [matDatepicker]="pickerTo" placeholder="To (MM/DD/YYYY)"
+                                formControlName="date" required>
+                            <mat-datepicker-toggle matSuffix [for]="pickerTo"></mat-datepicker-toggle>
+                            <mat-datepicker #pickerTo></mat-datepicker>
+                            <mat-error *ngIf="applyleavedialog.get('date').invalid">Date is required</mat-error>
+                        </mat-form-field>
+                    </td>
+                </tr>
+            </table>
         </div>
-      <div mat-dialog-actions align="end">
-        <input #photoInput hidden="true" type="file" onclick="this.value=null" (change)="photoInputChange($event)" accept=".jpg" />
-        <button mat-flat-button color="primary" cdkFocusInitial>Save Leave</button>
-        <button mat-stroked-button color="warn" type="reset" onclick="onCancel()">Cancel</button>
-    </div>
-</form>
+        <div>
+            <mat-form-field class="full-width">
+                <textarea matInput placeholder="Message" formControlName="msg" required></textarea>
+                <mat-error *ngIf="applyleavedialog.get('msg').invalid">Message is required</mat-error>
+            </mat-form-field>
+        </div>
+        <div class="uploadfilecontainer" (click)="fileInput.click()" appDragDrop (onFileDropped)="uploadFile($event)">
+            <div class="button-icon">
+                <input hidden type="file" #fileInput (change)="uploadFile($event.target.files)">
+                <span>Drag & Drop</span>
+            </div>
+        </div>
+        <div mat-dialog-actions align="end">
+            <input #photoInput hidden="true" type="file" onclick="this.value=null" (change)="photoInputChange($event)"
+                accept=".jpg" />
+            <button mat-stroked-button color="warn" type="reset" onclick="onCancel()">Cancel</button>
+            <button mat-flat-button color="primary" cdkFocusInitial>Save Leave</button>
+        </div>
+    </form>

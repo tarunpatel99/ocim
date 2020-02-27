@@ -48,11 +48,10 @@ export class PrintService {
       margin: {
         top: this.margins.top
       },
-      
       startY: 180
     });
 
-    
+
     console.log(doc.pageCount)
 
     doc.setProperties({
@@ -75,53 +74,26 @@ export class PrintService {
     iframe.src = doc.output('datauristring');
   };
 
-  generateResultReport(data: any[], columns: string[], pdfTitle: string, marks: number,totalmarks: number, percentage: number) {
+  generateGraphicalReport(element: string, pdfTitle: string) {
     let doc = new jsPDF('p', 'pt', 'a4');
-    // tableId = '#' + tableId
-    doc.page = 1
+    let htmlElement = <HTMLCanvasElement> window.document.querySelector('#' + element)[0];
+    // let canvas = htmlElement.getContext("2d");
+    // doc.setProperties({
+    //   title: pdfTitle
+    // });
+    // doc.fromHTML(htmlElement, () => {
+    //   doc.output('datauri')
+    // });
+    // doc.save("test.pdf");
 
-    let rows: any[] = []
-    data.forEach(record => {
-      let temp = Object.values(record)
-      rows.push(temp)
-    })
+    //create image from dummy canvas
+    let newCanvasImg = htmlElement.toDataURL("image/png");
 
-    console.log(doc.internal.getCurrentPageInfo().pageNumber)
-
+    //creates PDF from img
     this.headingFormatting(doc)
-    doc.autoTable(columns, rows, {
-      // html: tableId,
-      theme: 'grid', // striped | grid | plain
-      ignoreColumns: 'Action',
-      margin: {
-        top: this.margins.top
-      },
-      foot: [['','TOTAL',marks,totalmarks,percentage]],
-      startY: 180
-    });
-
-    
-    console.log(doc.pageCount)
-
-    doc.setProperties({
-      title: 'Student result',
-      // subject: 'Studet result',
-      // author: 'PDFAuthor',
-      // keywords: 'generated, javascript, web 2.0, ajax',
-      // creator: 'My Company'
-    });
-
-    this.headerFooterFormatting(doc, doc.internal.getNumberOfPages())
-
-    let win = open('about:blank');
-    let body = win.document.body;
-    body.setAttribute('style', 'height:100%; width:100%; padding:0px; margin: 0');
-    let iframe = document.createElement('iframe');
-    iframe.setAttribute('style', 'height:100%; width:100%; padding:0px; margin: 0; border: 0');
-    body.appendChild(iframe);
-
-    iframe.src = doc.output('datauristring');
-  };
+    doc.addImage(newCanvasImg, 'JPEG', 40, 180, 280, 150);
+    doc.save('new-canvas.pdf');
+  }
 
   feesReceipt(tableId: string) {
     let doc = new jsPDF('p', 'pt', 'a4');
@@ -129,7 +101,7 @@ export class PrintService {
     doc.page = 1
 
     this.headingFormatting(doc)
-    
+
     doc.autoTable({
       html: tableId,
       theme: 'grid', // striped | grid | plain
@@ -189,7 +161,7 @@ export class PrintService {
       doc.setPage(i);
       // header
       // if (i > 1)
-        // this.header(doc);
+      // this.header(doc);
 
       // footer
       this.footer(doc, i, totalPages);

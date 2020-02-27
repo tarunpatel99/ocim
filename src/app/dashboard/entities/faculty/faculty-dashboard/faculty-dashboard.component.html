@@ -2,10 +2,11 @@
 <mat-card class="dashboard-container">
   <!-- graph -->
   <mat-card>
-    <div class="bar-chart-container">
+    <div class="bar-chart-container" id="chartdiv">
       <canvas id="myChart"></canvas>
     </div>
   </mat-card>
+  <button (click)="printOut('chartdiv')">print</button>
   <div class="container">
     <mat-card class="whats-new">
       <mat-card-title>What's new!</mat-card-title>
