@@ -48,11 +48,10 @@ export class PrintService {
       margin: {
         top: this.margins.top
       },
-      
       startY: 180
     });
 
-    
+
     console.log(doc.pageCount)
 
     doc.setProperties({
@@ -75,44 +74,26 @@ export class PrintService {
     iframe.src = doc.output('datauristring');
   };
 
-  generateResultReport(data: any[], columns: string[], pdfTitle: string, marks: number,totalmarks: number, percentage: number) {
+  generateGraphicalReport(element: string, pdfTitle: string) {
     let doc = new jsPDF('p', 'pt', 'a4');
-    // tableId = '#' + tableId
-    doc.page = 1
+    let source = <HTMLCanvasElement> document.querySelector('#' + element);
 
-    let rows: any[] = []
-    data.forEach(record => {
-      let temp = Object.values(record)
-      rows.push(temp)
-    })
-
-    console.log(doc.internal.getCurrentPageInfo().pageNumber)
-
-    this.headingFormatting(doc)
-    doc.autoTable(columns, rows, {
-      // html: tableId,
-      theme: 'grid', // striped | grid | plain
-      ignoreColumns: 'Action',
-      margin: {
-        top: this.margins.top
-      },
-      foot: [['','TOTAL',marks,totalmarks,percentage]],
-      startY: 180
-    });
-
-    
-    console.log(doc.pageCount)
+    //create image from dummy canvas
+    let graph = source.toDataURL("image/png", 1.0);
 
     doc.setProperties({
-      title: 'Student result',
+      title: pdfTitle,
       // subject: 'Studet result',
       // author: 'PDFAuthor',
       // keywords: 'generated, javascript, web 2.0, ajax',
       // creator: 'My Company'
     });
 
-    this.headerFooterFormatting(doc, doc.internal.getNumberOfPages())
+    //creates PDF from img
+    this.headingFormatting(doc)
+    doc.addImage(graph, 'JPEG', 40, 180, doc.internal.pageSize.width - 80, 250);
 
+    // open pdf in new tab
     let win = open('about:blank');
     let body = win.document.body;
     body.setAttribute('style', 'height:100%; width:100%; padding:0px; margin: 0');
@@ -121,7 +102,8 @@ export class PrintService {
     body.appendChild(iframe);
 
     iframe.src = doc.output('datauristring');
-  };
+    // doc.save('new-canvas.pdf');
+  }
 
   feesReceipt(tableId: string) {
     let doc = new jsPDF('p', 'pt', 'a4');
@@ -129,7 +111,7 @@ export class PrintService {
     doc.page = 1
 
     this.headingFormatting(doc)
-    
+
     doc.autoTable({
       html: tableId,
       theme: 'grid', // striped | grid | plain
@@ -161,7 +143,7 @@ export class PrintService {
   headingFormatting(doc) {
     let instituteName = 'Gyanjyot Institute'
     let branchName = 'Branch : ' + 'SBI Bopal Branch'
-    let currrentDate = 'Date : ' + '5th Feb, 2020'
+    let currrentDate = 'Date : ' + new Date().toDateString()
     let role = this.AuthService.currentuser.role
     let name = 'Name : ' + 'Jigar D. Patel'
     let phone = 'Phone : ' + 9876543210
@@ -189,7 +171,7 @@ export class PrintService {
       doc.setPage(i);
       // header
       // if (i > 1)
-        // this.header(doc);
+      // this.header(doc);
 
       // footer
       this.footer(doc, i, totalPages);
