@@ -76,23 +76,33 @@ export class PrintService {
 
   generateGraphicalReport(element: string, pdfTitle: string) {
     let doc = new jsPDF('p', 'pt', 'a4');
-    let htmlElement = <HTMLCanvasElement> window.document.querySelector('#' + element)[0];
-    // let canvas = htmlElement.getContext("2d");
-    // doc.setProperties({
-    //   title: pdfTitle
-    // });
-    // doc.fromHTML(htmlElement, () => {
-    //   doc.output('datauri')
-    // });
-    // doc.save("test.pdf");
+    let source = <HTMLCanvasElement> document.querySelector('#' + element);
 
     //create image from dummy canvas
-    let newCanvasImg = htmlElement.toDataURL("image/png");
+    let graph = source.toDataURL("image/png", 1.0);
+
+    doc.setProperties({
+      title: pdfTitle,
+      // subject: 'Studet result',
+      // author: 'PDFAuthor',
+      // keywords: 'generated, javascript, web 2.0, ajax',
+      // creator: 'My Company'
+    });
 
     //creates PDF from img
     this.headingFormatting(doc)
-    doc.addImage(newCanvasImg, 'JPEG', 40, 180, 280, 150);
-    doc.save('new-canvas.pdf');
+    doc.addImage(graph, 'JPEG', 40, 180, doc.internal.pageSize.width - 80, 250);
+
+    // open pdf in new tab
+    let win = open('about:blank');
+    let body = win.document.body;
+    body.setAttribute('style', 'height:100%; width:100%; padding:0px; margin: 0');
+    let iframe = document.createElement('iframe');
+    iframe.setAttribute('style', 'height:100%; width:100%; padding:0px; margin: 0; border: 0');
+    body.appendChild(iframe);
+
+    iframe.src = doc.output('datauristring');
+    // doc.save('new-canvas.pdf');
   }
 
   feesReceipt(tableId: string) {
@@ -133,7 +143,7 @@ export class PrintService {
   headingFormatting(doc) {
     let instituteName = 'Gyanjyot Institute'
     let branchName = 'Branch : ' + 'SBI Bopal Branch'
-    let currrentDate = 'Date : ' + '5th Feb, 2020'
+    let currrentDate = 'Date : ' + new Date().toDateString()
     let role = this.AuthService.currentuser.role
     let name = 'Name : ' + 'Jigar D. Patel'
     let phone = 'Phone : ' + 9876543210
