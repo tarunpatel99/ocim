@@ -201,4 +201,52 @@ export class PrintService {
     doc.text(str, this.alignRight(doc, str), doc.internal.pageSize.height - 20);
 
   };
+
+  generateResultReport(data: any[], columns: string[], pdfTitle: string, marks: number,totalmarks: number, percentage: number) {
+    let doc = new jsPDF('p', 'pt', 'a4');
+    // tableId = '#' + tableId
+    doc.page = 1
+
+    let rows: any[] = []
+    data.forEach(record => {
+      let temp = Object.values(record)
+      rows.push(temp)
+    })
+
+    console.log(doc.internal.getCurrentPageInfo().pageNumber)
+
+    this.headingFormatting(doc)
+    doc.autoTable(columns, rows, {
+      // html: tableId,
+      theme: 'grid', // striped | grid | plain
+      ignoreColumns: 'Action',
+      margin: {
+        top: this.margins.top
+      },
+      foot: [['','TOTAL',marks,totalmarks,percentage]],
+      startY: 180
+    });
+
+    
+    console.log(doc.pageCount)
+
+    doc.setProperties({
+      title: 'Student result',
+      // subject: 'Studet result',
+      // author: 'PDFAuthor',
+      // keywords: 'generated, javascript, web 2.0, ajax',
+      // creator: 'My Company'
+    });
+
+    this.headerFooterFormatting(doc, doc.internal.getNumberOfPages())
+
+    let win = open('about:blank');
+    let body = win.document.body;
+    body.setAttribute('style', 'height:100%; width:100%; padding:0px; margin: 0');
+    let iframe = document.createElement('iframe');
+    iframe.setAttribute('style', 'height:100%; width:100%; padding:0px; margin: 0; border: 0');
+    body.appendChild(iframe);
+
+    iframe.src = doc.output('datauristring');
+  };
 }
