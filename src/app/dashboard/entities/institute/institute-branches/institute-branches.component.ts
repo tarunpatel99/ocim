@@ -28,14 +28,14 @@ export interface Branch_element {
 const Branch_Data: Branch_element[] = [
   {branchname: 'House Bopal' , name: 'Haresh Oza', email: 'haresh1976@gmail.com' , phone: '9876543210'},
   {branchname: 'Ghuma' , name: 'Ankti Patel', email: 'pAnkti86@gmail.com' , phone: '8644756557'},
-  {branchname: 'South Bopal' , name: 'Kaushik Prajapti', email: 'kaushik@gmail.com' , phone: '9876543210'},
-  {branchname: 'Science city' , name: 'Vinay Sureja', email: 'dSureja@gmail.com' , phone: '6845652133'},
-  {branchname: 'Maninagar' , name: 'Dharmesh Jadeja', email: 'dharmeshj@gmail.com' , phone: '8665645212'},
-  {branchname: 'SBI Bopal' , name: 'Chinmay Bhatt', email: 'bhattChiku@gmail.com' , phone: '6845645102'},
-  {branchname: 'Bapunagar' , name: 'Nirav Kadia', email: 'kNirav@gmail.com' , phone: '7565422388'},
-  {branchname: 'Nerunagar' , name: 'Shivam Patel', email: 'shivampatel@gmail.com' , phone: '8648546217'},
-  {branchname: 'Iscon' , name: 'Shubh Bhatt', email: 'shubhb@gmail.com' , phone: '8456512378'},
-  {branchname: 'Vastrapur' , name: 'Shubham Mevada', email: 'mevadaS@gmail.com' , phone: '9643532123'},
+  // {branchname: 'South Bopal' , name: 'Kaushik Prajapti', email: 'kaushik@gmail.com' , phone: '9876543210'},
+  // // {branchname: 'Science city' , name: 'Vinay Sureja', email: 'dSureja@gmail.com' , phone: '6845652133'},
+  // // {branchname: 'Maninagar' , name: 'Dharmesh Jadeja', email: 'dharmeshj@gmail.com' , phone: '8665645212'},
+  // {branchname: 'SBI Bopal' , name: 'Chinmay Bhatt', email: 'bhattChiku@gmail.com' , phone: '6845645102'},
+  // {branchname: 'Bapunagar' , name: 'Nirav Kadia', email: 'kNirav@gmail.com' , phone: '7565422388'},
+  // {branchname: 'Nerunagar' , name: 'Shivam Patel', email: 'shivampatel@gmail.com' , phone: '8648546217'},
+  // {branchname: 'Iscon' , name: 'Shubh Bhatt', email: 'shubhb@gmail.com' , phone: '8456512378'},
+  // {branchname: 'Vastrapur' , name: 'Shubham Mevada', email: 'mevadaS@gmail.com' , phone: '9643532123'}
 ];
 
 
@@ -67,14 +67,14 @@ export class InstituteBranchesComponent implements OnInit {
   Branch_Data = [
     {branchname: 'House Bopal' , name: 'Haresh Oza', email: 'haresh1976@gmail.com' , phone: '9876543210'},
     {branchname: 'Ghuma' , name: 'Ankti Patel', email: 'pAnkti86@gmail.com' , phone: '8644756557'},
-    {branchname: 'South Bopal' , name: 'Kaushik Prajapti', email: 'kaushik@gmail.com' , phone: '9876543210'},
-    {branchname: 'Science city' , name: 'Vinay Sureja', email: 'dSureja@gmail.com' , phone: '6845652133'},
-    {branchname: 'Maninagar' , name: 'Dharmesh Jadeja', email: 'dharmeshj@gmail.com' , phone: '8665645212'},
-    {branchname: 'SBI Bopal' , name: 'Chinmay Bhatt', email: 'bhattChiku@gmail.com' , phone: '6845645102'},
-    {branchname: 'Bapunagar' , name: 'Nirav Kadia', email: 'kNirav@gmail.com' , phone: '7565422388'},
-    {branchname: 'Nerunagar' , name: 'Shivam Patel', email: 'shivampatel@gmail.com' , phone: '8648546217'},
-    {branchname: 'Iscon' , name: 'Shubh Bhatt', email: 'shubhb@gmail.com' , phone: '8456512378'},
-    {branchname: 'Vastrapur' , name: 'Shubham Mevada', email: 'mevadaS@gmail.com' , phone: '9643532123'},
+    // {branchname: 'South Bopal' , name: 'Kaushik Prajapti', email: 'kaushik@gmail.com' , phone: '9876543210'},
+    // {branchname: 'Science city' , name: 'Vinay Sureja', email: 'dSureja@gmail.com' , phone: '6845652133'},
+    // {branchname: 'Maninagar' , name: 'Dharmesh Jadeja', email: 'dharmeshj@gmail.com' , phone: '8665645212'},
+    // {branchname: 'SBI Bopal' , name: 'Chinmay Bhatt', email: 'bhattChiku@gmail.com' , phone: '6845645102'},
+    // {branchname: 'Bapunagar' , name: 'Nirav Kadia', email: 'kNirav@gmail.com' , phone: '7565422388'},
+    // {branchname: 'Nerunagar' , name: 'Shivam Patel', email: 'shivampatel@gmail.com' , phone: '8648546217'},
+    // {branchname: 'Iscon' , name: 'Shubh Bhatt', email: 'shubhb@gmail.com' , phone: '8456512378'},
+    // {branchname: 'Vastrapur' , name: 'Shubham Mevada', email: 'mevadaS@gmail.com' , phone: '9643532123'},
   ];
   constructor(private PrintService: PrintService) {
     for (let i = 0; i < this.Branch_Data.length; i++) {
