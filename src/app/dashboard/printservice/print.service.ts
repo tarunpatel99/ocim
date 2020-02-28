@@ -145,14 +145,14 @@ export class PrintService {
     let branchName = 'Branch : ' + 'SBI Bopal Branch'
     let currrentDate = 'Date : ' + new Date().toDateString()
     let role = this.AuthService.currentuser.role
-    let name = 'Name : ' + 'Jigar D. Patel'
-    let phone = 'Phone : ' + 9876543210
+    let name = 'Name : ' + 'Harshil Sureja'
+    let phone = 'Phone : ' + 9099682234
     let email = 'Email : ' + this.AuthService.currentuser.email
 
     // doc.text(text, x, y, flags, angle, align)
     doc.setFontSize(12)
-    doc.text(instituteName, this.alignLeft, 40);
-    doc.text(branchName, this.alignLeft, 57);
+    // doc.text(instituteName, this.alignLeft, 40);
+    // doc.text(branchName, this.alignLeft, 57);
     doc.text(currrentDate, this.alignRight(doc, currrentDate), 57);
     doc.setFontSize(24)
     doc.setFontType('bold');

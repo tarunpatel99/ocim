@@ -28,16 +28,16 @@ export interface Std_element {
 }
 
 const Student_Data: Std_element[] = [
-  {rollno: '19-9th-11', name: 'Harshil Sureja', classnm: '9 (A Div)' , Maths: "44/50" , Sci: "48/50" , English: "46/50" , SS: "50/50" , Total: "191/200"},
-  {rollno: '19-9th-12', name: 'Tarun Patel', classnm: '9 (A Div)' , Maths: "48/50" , Sci: "47/50" , English: "45/50" , SS: "50/50" , Total: "195/200"},
-  {rollno: '19-9th-13', name: 'Aakash Bhavsar', classnm: '9 (A Div)' , Maths: "48/50" , Sci: "46/50" , English: "46/50" , SS: "50/50" , Total: "194/200"},
-  {rollno: '19-9th-14', name: 'Shubh bhutt', classnm: '9 (A Div)' , Maths: "47/50" , Sci: "47/50" , English: "43/50" , SS: "50/50" , Total: "187/200"},
-  {rollno: '19-9th-15', name: 'Mihir Kamariya', classnm: '9 (A Div)' , Maths: "46/50" , Sci: "43/50" , English: "45/50" , SS: "50/50" , Total: "188/200"},
-  {rollno: '19-9th-16', name: 'Hastik Bhut', classnm: '9 (A Div)' , Maths: "49/50" , Sci: "47/50" , English: "46/50" , SS: "50/50" , Total: "189/200"},
-  {rollno: '19-9th-17', name: 'Yash Charola', classnm: '9 (A Div)' , Maths: "42/50" , Sci: "44/50" , English: "44/50" , SS: "50/50" , Total: "193/200"},
-  {rollno: '19-9th-18', name: 'Tanmay Patel', classnm: '9 (A Div)' , Maths: "41/50" , Sci: "47/50" , English: "46/50" , SS: "50/50" , Total: "194/200"},
-  {rollno: '19-9th-19', name: 'Shivam Patel', classnm: '9 (A Div)' , Maths: "40/50" , Sci: "44/50" , English: "41/50" , SS: "50/50" , Total: "196/200"},
-  {rollno: '19-9th-20', name: 'Bhautik Panchasara', classnm: '9 (A Div)' , Maths: "40/50" , Sci: "47/50" , English: "40/50" , SS: "50/50" , Total: "195/200"},
+  {rollno: '19-9th-11', name: 'Harshil Sureja', classnm: '9 (A Div)' , Maths: "14/20" , Sci: "18/20" , English: "16/20" , SS: "20/20" , Total: "68/80"},
+  {rollno: '19-9th-12', name: 'Tarun Patel', classnm: '9 (A Div)' , Maths: "14/20" , Sci: "17/20" , English: "15/20" , SS: "20/20" , Total: "66/80"},
+  {rollno: '19-9th-13', name: 'Aakash Bhavsar', classnm: '9 (A Div)' , Maths: "18/20" , Sci: "16/20" , English: "16/20" , SS: "20/20" , Total: "72/80"},
+  {rollno: '19-9th-14', name: 'Shubh bhutt', classnm: '9 (A Div)' , Maths: "17/20" , Sci: "17/20" , English: "13/20" , SS: "20/20" , Total: "67/80"},
+  {rollno: '19-9th-15', name: 'Mihir Kamariya', classnm: '9 (A Div)' , Maths: "16/20" , Sci: "13/20" , English: "15/20" , SS: "20/20" , Total: "64/80"},
+  // {rollno: '19-9th-16', name: 'Hastik Bhut', classnm: '9 (A Div)' , Maths: "49/20" , Sci: "47/20" , English: "46/20" , SS: "20/20" , Total: "189/80"},
+  // {rollno: '19-9th-17', name: 'Yash Charola', classnm: '9 (A Div)' , Maths: "42/20" , Sci: "44/20" , English: "44/20" , SS: "20/20" , Total: "193/80"},
+  // {rollno: '19-9th-18', name: 'Tanmay Patel', classnm: '9 (A Div)' , Maths: "41/20" , Sci: "47/20" , English: "46/20" , SS: "20/20" , Total: "194/80"},
+  // {rollno: '19-9th-19', name: 'Shivam Patel', classnm: '9 (A Div)' , Maths: "40/20" , Sci: "44/20" , English: "41/20" , SS: "20/20" , Total: "196/80"},
+  // {rollno: '19-9th-20', name: 'Bhautik Panchasara', classnm: '9 (A Div)' , Maths: "40/20" , Sci: "47/20" , English: "40/20" , SS: "20/20" , Total: "195/80"},
 ];
 
 @Component({

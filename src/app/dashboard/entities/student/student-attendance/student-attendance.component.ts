@@ -17,7 +17,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
   {subject: 'Maths', total: 5, present: 4, absent: 1, per: '80%'},
   {subject: 'Science', total: 5, present: 4, absent: 1, per: '80%'},
   {subject: 'English', total: 3, present: 2, absent: 1, per: '67%'},
-  {subject: 'SST', total: 4, present: 3, absent: 1, per: '75%'}
+  {subject: 'Social Studies', total: 4, present: 3, absent: 1, per: '75%'}
 ];
 @Component({
   selector: 'app-student-attendance',

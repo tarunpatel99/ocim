@@ -51,7 +51,7 @@ export class FacultyDashboardComponent implements OnInit {
   }
 
   printOut(id: string) {
-    this.PrintService.generateGraphicalReport(id, 'Faculty Report')
+    this.PrintService.generateGraphicalReport(id, 'Attendance')
   }
 
 }

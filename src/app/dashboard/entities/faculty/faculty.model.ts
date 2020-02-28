@@ -41,8 +41,13 @@ export interface LeaveNote {
 export interface StudentResultData {
     id: string;
     name: string;
-    date: string,
-    subject: string;
+    classnm: string;
+    exmdate: string;
+    examname: string;
+    maths: string;
+    sciences: string;
+    english: string;
+    ss: string;
     obt_marks: number; // obtain marks from total marks
     ttl_marks: number; // totla marks
 }
@@ -63,4 +68,4 @@ export interface FileData {
     uploadDate: Date; // obtain marks from total marks
     ownerName?: string; // totla marks
     fileSoureceUrl: string
-  }
+}

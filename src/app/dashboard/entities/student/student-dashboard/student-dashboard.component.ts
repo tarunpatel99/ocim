@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Chart } from "chart.js";
 import { studentThemeColors } from "../../models/color.model";
+import { PrintService } from 'src/app/dashboard/printservice/print.service';
 
 @Component({
   selector: 'app-student-dashboard',
@@ -10,7 +11,7 @@ import { studentThemeColors } from "../../models/color.model";
 export class StudentDashboardComponent implements OnInit {
 
   studentdash = new studentThemeColors()
-  constructor() { }
+  constructor(private PrintService: PrintService) { }
   chart: any;
   result: any
 
@@ -20,23 +21,34 @@ export class StudentDashboardComponent implements OnInit {
 
     // The data for our dataset
     data: {
-      labels: ['English', 'Science', 'Maths', 'Social Studies','Hindi','Gujrati','GK'],
+      labels: ['English', 'Science', 'Maths', 'Social Studies'],
       datasets: [{
         label: 'Attendance',
         backgroundColor: '#673AB7',
-        data: [67, 80, 80, 75, 0, 100, 88],
+        data: [67, 80, 80, 75],
         borderWidth: 1
       }]
     },
 
     // Configuration options go here
     options: {
-      //   legend: {
-      //     labels: {
-      //         // This more specific font property overrides the global property
-      //         fontSize: '24'
-      //     }
-      // }
+      scales: {
+        yAxes: [
+          {
+            // scaleLabel: {
+            //   display: true,
+            //   labelString: '0'
+            // },
+            stacked: true,
+            ticks: {
+              min: 0,
+              max: 100,
+              stepSize: 10,
+            }
+
+          }
+        ]
+      }
     }
   });
 
@@ -65,5 +77,9 @@ export class StudentDashboardComponent implements OnInit {
       // }
     }
   });
+}
+
+printOut(id: string) {
+  this.PrintService.generateGraphicalReport(id, 'Attendance')
 }
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Chart } from "chart.js";
 import { adminThemeColors } from "../../models/color.model";
+import { PrintService } from 'src/app/dashboard/printservice/print.service';
 
 @Component({
   selector: 'app-admin-dashboard',
@@ -10,7 +11,7 @@ import { adminThemeColors } from "../../models/color.model";
 export class AdminDashboardComponent implements OnInit {
 
   adminThemeColor = new adminThemeColors()
-  constructor() { }
+  constructor(private PrintService: PrintService) { }
   chart: any;
 
   ngOnInit() {
@@ -39,6 +40,9 @@ export class AdminDashboardComponent implements OnInit {
         // }
       }
     });
+  }
+  printOut(id: string) {
+    this.PrintService.generateGraphicalReport(id, 'Institute Registered')
   }
 
 }

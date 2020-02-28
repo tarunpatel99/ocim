@@ -32,9 +32,9 @@ export interface Payment_element {
 
 
 const Payment_Data: Payment_element[] = [
-  {date: '8-12-2019' , nofostudents: 1456 , paymnet_method: 'Debit Card' , amount: 29120},
-  {date: '6-11-2019' , nofostudents: 1456, paymnet_method: 'Debit Card' , amount: 29120},
-  {date: '5-10-2019' , nofostudents: 1456, paymnet_method: 'Debit Card' , amount: 29120},
+  // {date: '8-12-2019' , nofostudents: 1456 , paymnet_method: 'Debit Card' , amount: 29120},
+  // {date: '6-11-2019' , nofostudents: 1456, paymnet_method: 'Debit Card' , amount: 29120},
+  // {date: '5-10-2019' , nofostudents: 1456, paymnet_method: 'Debit Card' , amount: 29120},
   {date: '4-9-2019' , nofostudents: 1456, paymnet_method: 'Debit Card' , amount: 29120},
   {date: '3-8-2019' , nofostudents: 1456, paymnet_method: 'Debit Card' , amount: 29120},
   {date: '1-7-2019' , nofostudents: 1456, paymnet_method: 'Debit Card' , amount: 29120},
@@ -116,11 +116,11 @@ Payment_Data = [
   {date: '8-12-2019' , nofostudents: 1456 , paymnet_method: 'Debit Card' , amount: 29120},
   {date: '6-11-2019' , nofostudents: 1456, paymnet_method: 'Debit Card' , amount: 29120},
   {date: '5-10-2019' , nofostudents: 1456, paymnet_method: 'Debit Card' , amount: 29120},
-  {date: '4-9-2019' , nofostudents: 1456, paymnet_method: 'Debit Card' , amount: 29120},
-  {date: '3-8-2019' , nofostudents: 1456, paymnet_method: 'Debit Card' , amount: 29120},
-  {date: '1-7-2019' , nofostudents: 1456, paymnet_method: 'Debit Card' , amount: 29120},
-  {date: '2-6-2019' , nofostudents: 1456, paymnet_method: 'Debit Card' , amount: 29120},
-  {date: '1-5-2019' , nofostudents: 1456, paymnet_method: 'Debit Card' , amount: 29120}
+  // {date: '4-9-2019' , nofostudents: 1456, paymnet_method: 'Debit Card' , amount: 29120},
+  // {date: '3-8-2019' , nofostudents: 1456, paymnet_method: 'Debit Card' , amount: 29120},
+  // {date: '1-7-2019' , nofostudents: 1456, paymnet_method: 'Debit Card' , amount: 29120},
+  // {date: '2-6-2019' , nofostudents: 1456, paymnet_method: 'Debit Card' , amount: 29120},
+  // {date: '1-5-2019' , nofostudents: 1456, paymnet_method: 'Debit Card' , amount: 29120}
 ]
 constructor(private PrintService: PrintService) {
   for (let i = 0; i < this.Payment_Data.length; i++) {
