@@ -20,10 +20,10 @@ export interface institute {
 export class AdminInstitutesComponent implements OnInit {
 
   institutes: institute[] = [
-    { name: 'GyanJyot', email: 'contact@gyanjyot.com', phone: '9999888776', branches: 7, faculties: 50, students: 1500, },
-    { name: 'Sandip Patel group tuition', email: 'contact@sp.com', phone: '6778889999', branches: 3, faculties: 32, students: 900, },
-    { name: 'Jadeja Tuition classes', email: 'jadeja@gamil.com', phone: '9644534564', branches: 2, faculties: 12, students: 422, },
-    { name: 'Sarjak Institute', email: 'contact@sarjak.com', phone: '8354216544', branches: 3, faculties: 22, students: 557, },
+    // { name: 'GyanJyot', email: 'contact@gyanjyot.com', phone: '9999888776', branches: 7, faculties: 50, students: 1500, },
+    // { name: 'Sandip Patel group tuition', email: 'contact@sp.com', phone: '6778889999', branches: 3, faculties: 32, students: 900, },
+    // { name: 'Jadeja Tuition classes', email: 'jadeja@gamil.com', phone: '9644534564', branches: 2, faculties: 12, students: 422, },
+    // { name: 'Sarjak Institute', email: 'contact@sarjak.com', phone: '8354216544', branches: 3, faculties: 22, students: 557, },
     { name: 'Sankte Gruop tuition', email: 'contact@sanket.com', phone: '9745651232', branches: 1, faculties: 12, students: 112, },
   ]
 

@@ -22,24 +22,24 @@ export class FacultyLeaveNoteComponent implements OnInit {
   
   // leave notes data
   leaves: LeaveNote[] = [
-    {
-      id: "132",
-      class: "9",
-      studentName: "Tarun Patel",
-      subject: "Fever",
-      description: "A temporary increase in average body temperature of 98.6°F (37°C).",
-      leaveFrom: "12/12/2019",
-      leaveTo: "22/12/2019",
-      attatchments: [
-        {
-          id: "Attatchment one"
-        },
-        {
-          id: "Attatchment two"
-        }
-      ],
-      status: "Pending"
-    },
+    // {
+    //   id: "132",
+    //   class: "9",
+    //   studentName: "Tarun Patel",
+    //   subject: "Fever",
+    //   description: "A temporary increase in average body temperature of 98.6°F (37°C).",
+    //   leaveFrom: "12/12/2019",
+    //   leaveTo: "22/12/2019",
+    //   attatchments: [
+    //     {
+    //       id: "Attatchment one"
+    //     },
+    //     {
+    //       id: "Attatchment two"
+    //     }
+    //   ],
+    //   status: "Pending"
+    // },
     {
       id: "132",
       class: "9",
@@ -58,24 +58,24 @@ export class FacultyLeaveNoteComponent implements OnInit {
       ],
       status: "Approved"
     },
-    {
-      id: "126",
-      class: "9",
-      studentName: "Aakash Bhavasar",
-      subject: "Fever",
-      description: "A temporary increase in average body temperature of 98.6°F (37°C).",
-      leaveFrom: "12/12/2019",
-      leaveTo: "22/12/2019",
-      attatchments: [
-        {
-          id: "Attatchment one"
-        },
-        {
-          id: "Attatchment two"
-        }
-      ],
-      status: "Denied"
-    },
+    // {
+    //   id: "126",
+    //   class: "9",
+    //   studentName: "Aakash Bhavasar",
+    //   subject: "Fever",
+    //   description: "A temporary increase in average body temperature of 98.6°F (37°C).",
+    //   leaveFrom: "12/12/2019",
+    //   leaveTo: "22/12/2019",
+    //   attatchments: [
+    //     {
+    //       id: "Attatchment one"
+    //     },
+    //     {
+    //       id: "Attatchment two"
+    //     }
+    //   ],
+    //   status: "Denied"
+    // },
   ]
   
   constructor(public dialog: MatDialog) {

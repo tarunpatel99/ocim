@@ -13,24 +13,24 @@
                     </mat-option>
                 </mat-select>
             </mat-form-field>
-            <mat-form-field class="report-width-15">
+            <!-- <mat-form-field class="report-width-15">
                 <mat-label>Subject</mat-label>
                 <mat-select>
                     <mat-option *ngFor="let subject of subjects" [value]="subject.value">
                         {{subject.viewValue}}
                     </mat-option>
                 </mat-select>
-            </mat-form-field>
+            </mat-form-field> -->
             <!-- <p>Select date range</p> -->
-            <mat-form-field class="report-width-15">
-                <input matInput [matDatepicker]="pickertodate" placeholder="To Date">
-                <mat-datepicker-toggle matSuffix [for]="pickertodate"></mat-datepicker-toggle>
-                <mat-datepicker #pickertodate></mat-datepicker>
-            </mat-form-field>
             <mat-form-field class="report-width-15">
                 <input matInput [matDatepicker]="pickerfromdate" placeholder="From Date">
                 <mat-datepicker-toggle matSuffix [for]="pickerfromdate"></mat-datepicker-toggle>
                 <mat-datepicker #pickerfromdate></mat-datepicker>
+            </mat-form-field>
+            <mat-form-field class="report-width-15">
+                <input matInput [matDatepicker]="pickertodate" placeholder="To Date">
+                <mat-datepicker-toggle matSuffix [for]="pickertodate"></mat-datepicker-toggle>
+                <mat-datepicker #pickertodate></mat-datepicker>
             </mat-form-field>
             <!-- <p>Select attendance range</p> -->
             <mat-form-field class="report-width-15">
@@ -40,7 +40,7 @@
                 <input type="number" matInput placeholder="Maximum Attendance" min="0">
             </mat-form-field>
             <mat-action-row>
-                <button mat-stroked-button color="warn" type="reset">Cancle</button>
+                <button mat-stroked-button color="warn" type="reset">Cancel</button>
                 <!-- <button mat-flat-button color="primary">Download</button> -->
                 <button mat-flat-button color="primary" (click)="demoprint()">Print</button>
                 <button mat-flat-button color="primary">View</button>
