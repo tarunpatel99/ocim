@@ -39,8 +39,9 @@ export class PrintService {
     })
 
     console.log(doc.internal.getCurrentPageInfo().pageNumber)
-
+    let morInfo = "Sorted By : Gujarat"
     this.headingFormatting(doc)
+    doc.text(morInfo, this.alignLeft, 168);
     doc.autoTable(columns, rows, {
       // html: tableId,
       theme: 'grid', // striped | grid | plain
@@ -55,7 +56,7 @@ export class PrintService {
     console.log(doc.pageCount)
 
     doc.setProperties({
-      title: 'Student result',
+      title: pdfTitle,
       // subject: 'Studet result',
       // author: 'PDFAuthor',
       // keywords: 'generated, javascript, web 2.0, ajax',
@@ -151,8 +152,8 @@ export class PrintService {
 
     // doc.text(text, x, y, flags, angle, align)
     doc.setFontSize(12)
-    // doc.text(instituteName, this.alignLeft, 40);
-    // doc.text(branchName, this.alignLeft, 57);
+    doc.text(instituteName, this.alignLeft, 40);
+    doc.text(branchName, this.alignLeft, 57);
     doc.text(currrentDate, this.alignRight(doc, currrentDate), 57);
     doc.setFontSize(24)
     doc.setFontType('bold');
@@ -206,6 +207,8 @@ export class PrintService {
     let doc = new jsPDF('p', 'pt', 'a4');
     // tableId = '#' + tableId
     doc.page = 1
+    let morInfo = "Exam : Unit Test 1"
+    doc.text(morInfo, this.alignLeft, 168);
 
     let rows: any[] = []
     data.forEach(record => {

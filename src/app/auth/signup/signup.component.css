@@ -60,19 +60,22 @@ button{
 
 .gndr{
   display: inline-block;
-  width: 52%;
-  margin: 0 10px;
+  width: 46.9%;
+}
+
+.gndr .half-width{
+  margin: auto !important;
 }
 
 .full-width {
   display: inline-block;
-  width: 40%;
-  margin: 0 10px;
+  width: 46.9%;
+  /* margin: 0 10px; */
   /* max-width: 85%; */
 }
 .address {
   display: inline-block;
-  width: 100%;
+  width: -webkit-fill-available;
   margin: 0 10px;
 }
 
