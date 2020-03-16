@@ -119,7 +119,11 @@ mat-panel-title {
 }
 
 .small-width {
-    width: 22%
+    width: 15%
+}
+
+.width-10{
+    width: 11%;
 }
 
 .mat-radio-button~.mat-radio-button {
