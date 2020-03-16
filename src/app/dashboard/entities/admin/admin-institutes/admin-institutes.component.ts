@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource, MatPaginator, MatSort } from '@angular/material';
 import { FormControl } from '@angular/forms';
+import { PrintService } from 'src/app/dashboard/printservice/print.service';
 
 export interface institute {
   id?: String;
@@ -27,7 +28,7 @@ export class AdminInstitutesComponent implements OnInit {
     { name: 'Sankte Gruop tuition', email: 'contact@sanket.com', phone: '9745651232', branches: 1, faculties: 12, students: 112, },
   ]
 
-  constructor() { }
+  constructor(private PrintService: PrintService) { }
   displayedColumns: string[] = ['name', 'email', 'phone', 'branches', 'faculties', 'students'];
   dataSource = new MatTableDataSource<institute>(this.institutes);
 
@@ -53,6 +54,14 @@ export class AdminInstitutesComponent implements OnInit {
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
+  }
+
+  generateReport() {
+    // table column to display in pdf
+    let columns: string[] = ['Name', 'Email', 'Phone', 'Branches', 'Faculties', 'Students'];
+
+    // this.PrintService.generateReport(data, columns, pdftitle)
+    this.PrintService.generateReport(this.dataSource.filteredData, columns, 'Institutes')
   }
 
 }

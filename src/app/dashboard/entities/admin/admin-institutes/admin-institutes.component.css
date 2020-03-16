@@ -4,11 +4,11 @@
 }
 
 .mat-column-email {
-    flex: 0 0 25% !important;
+    flex: 0 0 20% !important;
 }
 
 .mat-column-name {
-    flex: 0 0 10% !important;
+    flex: 0 0 15% !important;
 }
 
 .mat-column-branches, .mat-column-faculties, .mat-column-students {

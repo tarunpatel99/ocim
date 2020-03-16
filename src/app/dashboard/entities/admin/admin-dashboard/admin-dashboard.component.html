@@ -5,6 +5,11 @@
     <div class="bar-chart-container">
       <canvas id="myChart"></canvas>
     </div>
+    <div mat-card-actions align="end">
+      <button mat-icon-button (click)="printOut('myChart')">
+        <mat-icon>print</mat-icon>
+      </button>
+    </div>
   </mat-card>
   <div class="container">
     <mat-card class="whats-new">
@@ -75,7 +80,7 @@
               <span>Total</span>
             </td>
             <td>
-              <span>2743</span>
+              <span>1742</span>
             </td>
           </tr>
         </table>

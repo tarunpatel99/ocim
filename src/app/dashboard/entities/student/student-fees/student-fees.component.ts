@@ -103,9 +103,9 @@ export class StudentFeesComponent implements OnInit {
       //head:[['REC. NO.','1','DATE: 01-04-2019']],
       body:[
         ['Regn No.','1'],
-        ['Student:','Ajay Malhotra'],
-        ['Father:','Mr. Vinay Malhotra'],
-        ['Class:','3rd'],
+        ['Student:','Harshil Sureja'],
+        ['Father:','Mr. Vinay Sureja'],
+        ['Class:','8th'],
         ['Session:','JUNE 2020'],
         ['Sem:','2'],
         ['Receipt Number','705']
@@ -119,8 +119,8 @@ export class StudentFeesComponent implements OnInit {
 			},
       head:[['Descripition','Amount']],
       body:[
-        ['11 Science Maths- Teaching Fees (Science, Maths, Computer)','15000'],
-        ['11 Science Maths- Practical Fees (Computer)','15000'],
+        ['8th - Teaching Fees (Science, Maths, Social Studies, English, Computer(T))','30,000/-'],
+        ['8th - Practical Fees (Computer)','15,000/-'],
         ['',''],
         ['',''],
         ['',''],
@@ -134,7 +134,7 @@ export class StudentFeesComponent implements OnInit {
         ['',''],
         ['',''],
       ],
-      foot:[['TOTAL AMOUNT','30000']]
+      foot:[['TOTAL AMOUNT','45,000/-']]
     })
     let win = open('about:blank');
     let body = win.document.body;

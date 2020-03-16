@@ -3,18 +3,18 @@
 }
 
 .full-width {
-    width: 100%;
+    width: -webkit-fill-available;
 }
 
 mat-form-field {
     margin-right: 12px;
 }
 
-
+/* 
 .example-form{
     height: 100%;
     width: 95%;
-}
+} */
 .uploadfilecontainer {
     /* background-image: url("../../assets/cloud-2044823_960_720.png"); */
     background-repeat: no-repeat;
@@ -38,9 +38,5 @@ mat-form-field {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-}
-
-.height{
-    height: fit-content;
 }
 

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Chart } from "chart.js";
+import { PrintService } from 'src/app/dashboard/printservice/print.service';
 
 @Component({
   selector: 'app-faculty-dashboard',
@@ -8,7 +9,7 @@ import { Chart } from "chart.js";
 })
 export class FacultyDashboardComponent implements OnInit {
   chart: any;
-  constructor() { }
+  constructor(private PrintService: PrintService) { }
 
   ngOnInit() {
     this.chart = new Chart('myChart', {
@@ -47,6 +48,10 @@ export class FacultyDashboardComponent implements OnInit {
         }
       }
     });
+  }
+
+  printOut(id: string) {
+    this.PrintService.generateGraphicalReport(id, 'Attendance')
   }
 
 }

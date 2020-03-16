@@ -13,9 +13,6 @@ export interface StudentData {
   ttl_marks: number; // totla marks
   per: number}
 
-
-
-
 export interface Classsbj {
   value: string;
   viewValue: string;
@@ -48,7 +45,7 @@ export class StudentExamResultComponent implements OnInit {
     { exmdate: '16/12/2019' , subject: 'English', obt_marks: 44, ttl_marks: 50, per: 88 },
     { exmdate: '17/12/2019' , subject: 'Hindi', obt_marks: 35, ttl_marks: 50, per: 70 },
     { exmdate: '18/12/2019' , subject: 'Social Studies', obt_marks: 49, ttl_marks: 50, per: 98 },
-    { exmdate: '', subject: 'Total', obt_marks: this.total_marks, ttl_marks: 250, per: this.total_percentage}
+    //{ exmdate: '', subject: 'Total', obt_marks: this.total_marks, ttl_marks: 250, per: this.total_percentage}
   ]
   // tper="87%"
   
@@ -101,6 +98,6 @@ export class StudentExamResultComponent implements OnInit {
       let columns: string[] = ['Date', 'Subject', 'Obtained Marks', 'Total Marks', 'Percentage'];
   
       // this.PrintService.generateReport(data, columns, pdftitle)
-      this.PrintService.generateReport(this.dataSource.filteredData, columns, 'Result Details')
+      this.PrintService.generateResultReport(this.dataSource.filteredData, columns, 'Result Details',this.getTotalObt(), this.getTotal(),this.total_percentage)
     }
 }

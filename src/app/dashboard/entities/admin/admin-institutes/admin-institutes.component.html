@@ -6,6 +6,12 @@
         </mat-expansion-panel-header>
         <form class="no-add-student">
             <mat-form-field class="report-width-15">
+                <mat-label>State</mat-label>
+                <mat-select>
+                    <mat-option value="gujarat">Gujarat</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field class="report-width-15">
                 <mat-label>City</mat-label>
                 <mat-select>
                     <mat-option value="ahmedabad">
@@ -14,12 +20,7 @@
                 </mat-select>
             </mat-form-field>
             
-            <mat-form-field class="report-width-15">
-                <mat-label>State</mat-label>
-                <mat-select>
-                    <mat-option value="gujarat">Gujarat</mat-option>
-                </mat-select>
-            </mat-form-field>
+
             <!-- <p>Select date range</p> -->
             <mat-form-field class="report-width-10">
                 <input matInput [matDatepicker]="pickertodate" placeholder="To Date">

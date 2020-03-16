@@ -2,8 +2,13 @@
 <mat-card class="dashboard-container">
   <!-- graph -->
   <mat-card>
-    <div class="bar-chart-container">
+    <div class="bar-chart-container" id="chartdiv">
       <canvas id="myChart"></canvas>
+    </div>
+    <div mat-card-actions align="end">
+      <button mat-icon-button (click)="printOut('myChart')">
+        <mat-icon>print</mat-icon>
+      </button>
     </div>
   </mat-card>
   <div class="container">
