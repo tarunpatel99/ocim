@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Chart } from "chart.js";
 import { studentThemeColors } from "../../models/color.model";
+import { PrintService } from 'src/app/dashboard/printservice/print.service';
 
 @Component({
   selector: 'app-student-dashboard',
@@ -10,7 +11,7 @@ import { studentThemeColors } from "../../models/color.model";
 export class StudentDashboardComponent implements OnInit {
 
   studentdash = new studentThemeColors()
-  constructor() { }
+  constructor(private PrintService: PrintService) { }
   chart: any;
   result: any
 
@@ -65,5 +66,8 @@ export class StudentDashboardComponent implements OnInit {
       // }
     }
   });
+}
+printOut(id: string) {
+  this.PrintService.generateGraphicalReport(id, 'Faculty Report')
 }
 }

@@ -46,3 +46,4 @@ testem.log
 .DS_Store
 Thumbs.db
 .angulardoc.json
+src/app/dashboard/entities/faculty/faculty-dashboard/faculty-dashboard.component.ts
