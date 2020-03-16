@@ -242,6 +242,9 @@
                         </mat-error>
                     </mat-form-field>
                     <mat-form-field class="full-width">
+                        <input type="text" matInput placeholder="Parent Contact" required>
+                    </mat-form-field>
+                    <mat-form-field class="full-width">
                         <input type="text" matInput placeholder="Email" formControlName="email" email required>
                         <mat-error *ngIf="addStudentForm.get('email').invalid">Please enter email
                         </mat-error>
