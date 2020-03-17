@@ -19,6 +19,16 @@
                 <mat-cell *matCellDef="let student"> {{student.subject}} </mat-cell>
             </ng-container>
 
+            <ng-container matColumnDef="start_time">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Start Time </mat-header-cell>
+                <mat-cell *matCellDef="let student"> {{student.start_time}} </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="end_time">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> End Time </mat-header-cell>
+                <mat-cell *matCellDef="let student"> {{student.end_time}} </mat-cell>
+            </ng-container>
+
             <ng-container matColumnDef="description">
                 <mat-header-cell *matHeaderCellDef mat-sort-header> Description </mat-header-cell>
                 <mat-cell *matCellDef="let student"> {{student.description}} </mat-cell>
