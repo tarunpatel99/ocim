@@ -32,12 +32,16 @@ const students: StudentData[] = [
 export interface Classexam {
   exmdate: string;
   description: string;
+  start_time:string;
+  end_time:string;
   subject: string;
   class: string;
 }
 
 export interface DialogData {
   exmdate: string;
+  start_time:string;
+  end_time:string;
   description: string;
   subject: string;
   class: string;
@@ -160,6 +164,12 @@ export class BranchExamScheduleComponent implements OnInit {
       passingmark: new FormControl(null, {
         validators: [Validators.required]
       }),
+      starttime: new FormControl(null, {
+        validators: [Validators.required]
+      }),
+      endtime: new FormControl(null, {
+        validators: [Validators.required]
+      }),
     });
   }
 
@@ -185,7 +195,7 @@ export class BranchExamScheduleComponent implements OnInit {
 
   openForm(): void {
     const dialogRef = this.dialog.open(ViewScheduleFormDialog, {
-      width: '500px',
+      width: '600px',
       // data: {name: this.name, animal: this.animal}
     });
 
@@ -221,9 +231,9 @@ export class ViewScheduleFormDialog implements OnInit {
 
     }
     examschdl: Classexam[] = [
-    { class: '11 Sci Bio (Purple B)' , subject: 'Bio' , exmdate: '14/12/2019' , description: 'Unit 1,2' },
-    { class: '11 Sci Bio (Purple B)' , subject: 'Physics' , exmdate: '15/12/2019' , description: 'Unit 2,3' },
-    { class: '11 Sci Bio (Purple B)' , subject: 'Chemistry' , exmdate: '16/12/2019' , description: 'Unit 1,2' },
+    { class: '11 Sci Bio (Purple B)' , subject: 'Bio' , exmdate: '14/12/2019' , start_time:'02:30 PM' , end_time:'04:00 PM' , description: 'Unit 1,2' },
+    { class: '11 Sci Bio (Purple B)' , subject: 'Physics' , exmdate: '15/12/2019' , start_time:'04:00 PM' , end_time:'05:30 PM' , description: 'Unit 2,3' },
+    { class: '11 Sci Bio (Purple B)' , subject: 'Chemistry' , exmdate: '16/12/2019' , start_time:'07:00 PM' , end_time:'08:30 PM' , description: 'Unit 1,2' },
   //   { class: '12 Sci Bio (Silver B)' , subject: 'Bio' , exmdate: '14/12/2019' , description: 'Unit 1,2,3' },
   //   { class: '12 Sci Bio (Silver B)' , subject: 'Physics' , exmdate: '14/12/2019' , description: 'Unit 2,3' },
   //   { class: '12 Sci Bio (Silver B)' , subject: 'Chemistry' , exmdate: '14/12/2019' , description: 'Unit 1,2' },
@@ -235,6 +245,6 @@ export class ViewScheduleFormDialog implements OnInit {
     
   }
 
-  examscheduleColumns: string[] = ['subject' , 'exmdate' , 'description'];
+  examscheduleColumns: string[] = ['subject' , 'exmdate' , 'description' , 'start_time' , 'end_time'];
   examscheduledataSource: MatTableDataSource<Classexam>;
 }
