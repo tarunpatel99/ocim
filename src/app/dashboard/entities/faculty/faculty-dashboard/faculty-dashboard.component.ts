@@ -18,7 +18,7 @@ export class FacultyDashboardComponent implements OnInit {
 
       // The data for our dataset
       data: {
-        labels: ['7th', '8th', '10t', '11th Science', '11th Commerce', '12th Science', '12th Commerce'],
+        labels: ['7th', '8th', '10th', '11th Science', '11th Commerce', '12th Science', '12th Commerce'],
         datasets: [{
           label: "Today' attendance",
           backgroundColor: '#673AB7',

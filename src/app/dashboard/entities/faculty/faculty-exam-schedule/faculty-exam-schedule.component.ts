@@ -54,7 +54,7 @@ export class FacultyExamScheduleComponent implements OnInit {
   
   openExamSchedule(): void {
     const dialogRef = this.dialog.open(ViewScheduleFormDialog, {
-      width: '500px',
+      width: '600px',
       // data: {name: this.name, animal: this.animal}
     });
 
